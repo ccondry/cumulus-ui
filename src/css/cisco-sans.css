@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "CiscoSans";
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 100;
+  src: url(fonts/CiscoSansThin-webfont.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "CiscoSans";
+  font-style: normal;
+  font-weight: 200;
+  src: url(fonts/CiscoSansExtraLight-webfont.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "CiscoSans";
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/CiscoSansLight-webfont.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "CiscoSans";
+  font-style: normal;
+  font-weight: 500;
+  src: url(fonts/CiscoSansRegular-webfont.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "CiscoSans";
+  font-style: normal;
+  font-weight: 700;
+  src: url(fonts/CiscoSansBold-webfont.woff2) format("woff2");
+}

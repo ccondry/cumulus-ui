@@ -1,0 +1,535 @@
+#survey {
+    width: 930px;
+    /*height: 300px;*/
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: arial, helvetica, sans-serif;
+}
+#survey label {
+    display: block;
+}
+#form-header {
+  width: 100%;
+  height: 160px;
+  background-image: url(../assets/images/td-insurance/form-header.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+html {
+  /*width: 100%;
+  height: 100%;*/
+  background-color: rgb(241, 241, 241) !important;
+}
+
+.cmr-top-section {
+  height: 50px;
+}
+
+@media screen and (max-width: 743px) {
+  .ibm-masthead-categories, #ibm-megamenu-sections {
+    display:none
+  }
+}
+@media screen and (max-width: 743px) {
+  .ibm-mh-marketplace-link {
+    display:none
+  }
+}
+
+.cmr-panel .cmr-bottom-section .cmr-task-container h2::before {
+  content: "\f341" !important;
+}
+
+@media screen and (max-width: 466px) {
+  .ibm-sitenav-menu-list {
+    display:none
+  }
+}
+embed[type*="application/x-shockwave-flash"],
+embed[src*=".swf"],
+object[type*="application/x-shockwave-flash"],
+object[codetype*="application/x-shockwave-flash"],
+object[src*=".swf"],
+object[codebase*="swflash.cab"],
+object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],
+object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],
+object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"] {
+  display: none !important;
+}
+
+.ibm-chat-invite, .lpinvite-con, .lpinvite-con-marketplace {
+  display: none;
+}
+
+.cmr-close-link:before,.lpinvite-con-marketplace .lpinvite-close button::before {
+  font-style:normal;
+  font-weight:400;
+  font-variant:normal;
+  speak:none;
+  text-transform:none;
+  -moz-osx-font-smoothing:grayscale;
+  text-decoration:none
+}
+@font-face {
+  font-family: HelvLightIBM;
+  src: url(https://1.www.s81c.com/common/fonts/hni-v2-light.eot);
+  src: url(https://1.www.s81c.com/common/fonts/hni-v2-light.eot?#iefix) format("embedded-opentype"),
+  url(https://1.www.s81c.com/common/fonts/hni-v2-light.woff) format("woff"),
+  url(https://1.www.s81c.com/common/fonts/hni-v2-light.ttf) format("truetype"),
+  url(https://1.www.s81c.com/common/fonts/hni-v2-light.svg#HelvLightIBM) format("svg");
+  font-weight: lighter;
+  font-style: normal
+}
+@font-face {
+  font-family:HelvRegularIBM;
+  src:url(https://1.www.s81c.com/common/fonts/hni-v2-roman.eot);src:url(https://1.www.s81c.com/common/fonts/hni-v2-roman.eot?#iefix) format("embedded-opentype"),url(https://1.www.s81c.com/common/fonts/hni-v2-roman.woff) format("woff"),url(https://1.www.s81c.com/common/fonts/hni-v2-roman.ttf) format("truetype"),url(https://1.www.s81c.com/common/fonts/hni-v2-roman.svg#HelvRegularIBM) format("svg");font-weight:400;font-style:normal
+}
+@font-face {
+  font-family:HelvBoldIBM;src:url(https://1.www.s81c.com/common/fonts/hni-v2-bold.eot);src:url(https://1.www.s81c.com/common/fonts/hni-v2-bold.eot?#iefix) format("embedded-opentype"),url(https://1.www.s81c.com/common/fonts/hni-v2-bold.woff) format("woff"),url(https://1.www.s81c.com/common/fonts/hni-v2-bold.ttf) format("truetype"),url(https://1.www.s81c.com/common/fonts/hni-v2-bold.svg#HelvBoldIBM) format("svg");font-weight:700;font-style:normal
+}
+@font-face {
+  font-family:icons-ibm-v7;src:url(https://1.www.s81c.com/common/fonts/icons-ibm-v7.eot);src:url(https://1.www.s81c.com/common/fonts/icons-ibm-v7.eot?#iefix) format("embedded-opentype"),url(https://1.www.s81c.com/common/fonts/icons-ibm-v7.woff) format("woff"),url(https://1.www.s81c.com/common/fonts/icons-ibm-v7.ttf) format("truetype"),url(https://1.www.s81c.com/common/fonts/icons-ibm-v7.svg#icons-ibm-v7) format("svg");font-weight:400;font-style:normal
+}
+@font-face {
+  font-family:icons-ibm-v9;
+  src:url(https://1.www.s81c.com/common/fonts/icons-ibm-v9.eot);
+  src:url(https://1.www.s81c.com/common/fonts/icons-ibm-v9.eot?#iefix) format("embedded-opentype"),
+  url(https://1.www.s81c.com/common/fonts/icons-ibm-v9.woff) format("woff"),
+  url(https://1.www.s81c.com/common/fonts/icons-ibm-v9.ttf) format("truetype"),
+  url(https://1.www.s81c.com/common/fonts/icons-ibm-v9.svg#icons-ibm-v9) format("svg");
+  font-weight:400;
+  font-style:normal;
+}
+
+.cmr-panel h2,.cmr-panel p {
+  background:0 0;border:0;font-size:100%;margin:0;padding:0;vertical-align:baseline
+}
+#cmr-module,#cmr-module *,.cmr-module-tab {
+  box-sizing:border-box
+}
+
+.cmr-module-tab  {
+  position:fixed;
+  display:block;
+  cursor:pointer;
+  text-align:center;
+  height:auto;
+  padding:11px 18px;
+  right:0;
+  bottom:-webkit-calc(50% + 101px);
+  bottom:calc(50% + 101px);
+  width:auto;z-index:500;
+  -ms-transform:rotate(-90deg);
+  -webkit-transform:rotate(-90deg);
+  transform:rotate(-90deg);
+  -ms-transform-origin:100% 100%;
+  -webkit-transform-origin:100% 100%;
+  transform-origin:100% 100%;
+  -webkit-transition:right .5s ease;
+  transition:right .5s ease
+}
+
+.cmr-panel {
+  font-family:HelveticaNeue-Light,HelvRegularIBM,HelvLightIBM,Arial,sans-serif;
+  border:1px solid #aeaeae;
+  position:fixed;
+  right:-435px;
+  top:-webkit-calc(50% - 400px);
+  top:calc(50% - 400px);
+  max-width:435px;
+  width:100%;
+
+  z-index:1000;
+  -webkit-transition:right .5s ease;
+  transition:right .5s ease;
+  border-radius: 1em;
+}
+
+.cmr-close-link {
+  position:absolute;
+  background:0 0;
+  color:#323232;
+  cursor:pointer;
+  display:block;
+  font-size:16px;
+  height:32px;
+  width:28px;
+  overflow:hidden;
+  right:10px;
+  top:5px
+}
+
+.cmr-close-link:before {
+  content:"\f33d";
+  display:inline-block;
+  font-family:icons-ibm-v9;
+  font-size:32px !important;
+  left:-1px;
+  position:absolute;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  font-smoothing:antialiased
+}
+
+.cmr-panel .cmr-top-section {
+  font-family:HelvRegularIBM;
+  color:#fff;
+  min-height:48px;
+  position:relative;
+  width:100%;
+  background:#fff;
+  border-radius: 1em 1em 0em 0em;
+}
+
+.cmr-panel .cmr-top-section p {
+  font-size:24px;
+  padding:12px 50px 12px 20px;
+  line-height:26px;
+  color:#323232;
+  box-shadow:inset 0 -1px 0 0 #aeaeae;
+  font-family:HelveticaNeue,HelvRegularIBM,HelvLightIBM,Arial,sans-serif;
+  letter-spacing:0;
+  margin:0
+}
+
+.cmr-panel .cmr-top-section img {
+  float:left;
+  vertical-align:middle;
+  padding:12px 16px 0 0
+}
+
+.cmr-panel .cmr-bottom-section {
+  background-color:#FFF;
+  display:table;
+  position:relative;
+  width:100%;
+  font-size:16px;
+  color:#323232;
+  border-radius: 0em 0em 1em 1em;
+  overflow: hidden;
+}
+
+.cmr-panel .cmr-block {
+  display:block;
+  cursor:pointer
+}
+
+.cmr-panel hr {
+  display:block;
+  height:1px;
+  border:0;
+  border-top:1px solid #777677;
+  margin:1px 24px
+}
+
+.cmr-panel .cmr-bottom-section a {
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer
+}
+
+.cmr-panel .cmr-bottom-section a:hover {
+  color:#323232
+}
+
+.cmr-panel .cmr-bottom-section .cmr-block h2 {
+  font-family:HelveticaNeue-Bold,HelvBoldIBM,Arial,sans-serif;
+  font-size:16px;
+  font-weight:400;
+  line-height:26px;
+  padding:0 0 0 52px
+}
+
+.cmr-panel .cmr-bottom-section .cmr-block p {
+  font-family:HelveticaNeue,HelvRegularIBM,HelvLightIBM,Arial,sans-serif;
+  padding:0 0 0 52px;
+  line-height:26px;
+  font-size:16px;
+  color:#323232;
+  margin-top:0
+}
+
+.cmr-panel .cmr-bottom-section .cmr-block p span {
+  color:#777677
+}
+
+.cmr-panel .cmr-block, .advisor-block {
+  padding:12px 4px
+}
+
+.cmr-panel .cmr-bottom-section>:not(:empty)>.cmr-text-container,.cmr-panel .cmr-bottom-section>:not(:empty)>.cmr-text-off-container {
+  padding:0 4px
+}
+
+.cmr-panel .cmr-bottom-section>:not(:empty)>.cmr-text-container>:first-child,.cmr-panel .cmr-bottom-section>:not(:empty)>.cmr-text-off-container>:first-child {
+  padding-top:12px
+}
+
+.cmr-panel .cmr-bottom-section>:not(:empty)>.cmr-text-container>:last-child,.cmr-panel .cmr-bottom-section>:not(:empty)>.cmr-text-off-container>:last-child {
+  padding-bottom:12px
+}
+
+.cmr-panel .cmr-bottom-section .cmr-text-off-container a,.cmr-panel .cmr-bottom-section .cmr-text-off-container h2,.cmr-panel .cmr-bottom-section .cmr-text-off-container p {
+  cursor:not-allowed;
+  color:#A9A9A9;
+  background-color:transparent
+}
+
+.cmr-panel .cmr-bottom-section>:not(:last-child) {
+  box-shadow:inset 0 -1px 0 0 #E0E0E0
+}
+
+.cmr-panel .cmr-bottom-section>:empty {
+  box-shadow:none
+}
+
+.cmr-panel .cmr-bottom-section .cmr-text-container h2::before,.cmr-panel .cmr-bottom-section .cmr-text-off-container h2::before,.cmr-panel .cmr-bottom-section>:not(#lpbutton):not(#lpbuttonLA):not(#lpbuttonLAV)>h2::before {
+  /*color:#00a221;
+  padding-left:23px;
+  font-size:23px;*/
+  font-style:normal;
+  font-variant:normal;
+  font-family:icons-ibm-v9;
+  -webkit-transition:none;
+  transition:none;
+  display:inline-block;
+  font-weight:400;
+  left:-1px;
+  position:absolute;
+  speak:none;
+  text-decoration:none;
+  text-rendering:optimizeLegibility;
+  text-transform:none;
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing:antialiased;
+  font-smoothing:antialiased
+}
+
+.cmr-panel .cmr-bottom-section .cmr-text-container>a,.cmr-panel .cmr-bottom-section .cmr-text-off-container>a {
+  display:block
+}
+#cmr-tab-toggle,.lpinvite-con-marketplace-wrapper {
+  display:none
+}
+
+.cmr-panel .cmr-bottom-section .cmr-text-container h2::before,.cmr-panel .cmr-bottom-section .cmr-text-off-container h2::before {
+  content:"\f335"
+}
+
+.cmr-panel .cmr-bottom-section .cmr-inactive h2::before,.cmr-panel .cmr-bottom-section .cmr-video-container h2::before {
+  content:"\f398"
+}
+
+.cmr-panel .cmr-bottom-section .cmr-inactive h2::before,.cmr-panel .cmr-bottom-section .cmr-tracking-container h2::before {
+  content:"\f363"
+}
+
+.cmr-panel .cmr-bottom-section .cmr-phone-container h2::before,.cmr-panel .cmr-bottom-section .cmr-voice-container h2::before {
+  content:"\f36f"
+}
+
+.cmr-panel .cmr-bottom-section .cmr-callback-container h2::before {
+  content:"\f33c"
+}
+
+.cmr-panel .cmr-bottom-section .cmr-email-container h2::before {
+  content:"\f34b"
+}
+
+.cmr-panel .cmr-bottom-section .cmr-schedule-container h2::before {
+  content:"\f332"
+}
+
+.cmr-panel .cmr-bottom-section .cmr-cobrowse-container h2::before {
+  content:"\f35f"
+}
+
+.cmr-panel .cmr-bottom-section .cmr-text-container {
+  cursor:pointer
+}
+
+.cmr-panel .cmr-bottom-section .cmr-inactive {
+  cursor:auto;
+  color:#FFF
+}
+
+
+/*.cmr-panel .cmr-bottom-section .cmr-phone-container,.cmr-panel .cmr-bottom-section .cmr-voice-container {
+  cursor:text
+}*/
+#cmr-tab-toggle:checked ~ #cmr-module {
+  -webkit-transition:right .5s ease;
+  transition:right .5s ease;
+  right:0
+}
+#cmr-tab-toggle:checked ~ label span {
+  right:-60px;
+  -webkit-transition:.5s ease;
+  transition:.5s ease
+}
+@media screen and (max-width: 375px) {
+  .cmr-panel .cmr-top-section p {
+    width:100%
+  }
+}
+
+ul>li,ol>li,ul li+li,ol li+li {
+  padding:0
+}
+ul>li::before,ol>li::before {
+  content:"";
+  display:none;
+  margin:0;
+  font-size:0
+}
+#cmr-module.bounce {
+  -webkit-animation-duration:.4s;
+  animation-duration:.4s;
+  -webkit-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  -webkit-animation-name:contact-module-bounce;
+  animation-name:contact-module-bounce;
+}
+
+@media only screen and (max-width: 768px) {
+  .lpinvite-con-marketplace {
+    display:none !important
+  }
+
+  .cmr-module-tab {
+    bottom:0;
+    margin:0;
+    right:0 !important;
+    position:fixed;
+    line-height:22px;
+    max-width:100%;
+    min-width:120px;
+    min-height:20px;
+    padding:11px 18px;
+    -webkit-transform:none;
+    -ms-transform:none;
+    transform:none;
+    -webkit-transition:bottom .5s ease;
+    transition:bottom .5s ease
+  }
+  #cmr-tab-toggle:checked ~ label span {
+    bottom:-60px;
+    -webkit-transition:1s ease;
+    transition:1s ease
+  }
+  #cmr-tab-toggle:checked ~ #cmr-module,.cmr-panel {
+    bottom:0;
+    -webkit-transition:all 0.4s cubic-bezier(0.2, 1, 0.2, 1);
+    transition:all 0.4s cubic-bezier(0.2, 1, 0.2, 1)
+  }
+
+  .cmr-panel {
+    z-index:1000;
+    right:0;
+    -webkit-transform:translate3d(0, 100%, 0);
+    transform:translate3d(0, 100%, 0)
+  }
+  #cmr-tab-toggle:checked ~ #cmr-module {
+    -webkit-transform:translate3d(0, 0, 0);
+    transform:translate3d(0, 0, 0)
+  }
+
+  .cmr-bottom-section>.cmr-block:last-child {
+    padding-bottom:20px
+  }
+}
+
+.cmr-panel .cmr-bottom-section .cmr-task-container h2::before {
+  content: "\f341" !important;
+}
+ul>li,ol>li,ul li+li,ol li+li {
+  padding:0
+}
+ul>li::before,ol>li::before {
+  content:"";display:none;margin:0;font-size:0
+}
+#cmr-module.bounce {
+  -webkit-animation-duration:.4s;animation-duration:.4s;-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out;-webkit-animation-name:contact-module-bounce;animation-name:contact-module-bounce
+}
+.cmr-panel .cmr-bottom-section .ibm-chat-btn h2::before {
+  content:"\f335"!important
+}
+
+/*  Modals  */
+
+.modal-mask {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 500px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+@media screen and (max-width: 568px) {
+  .modal-container {
+    max-width: 380px;
+  }
+}
+@media screen and (max-width: 720px) and (min-width: 569px){
+  .modal-container {
+    max-width: 640px;
+  }
+}
+@media screen and (max-width: 1400px) and (min-width: 721px) {
+  .modal-container {
+    max-width: 1024px;
+  }
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: var(--color-1);
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+/*
+* the following styles are auto-applied to elements with
+* v-transition="modal" when their visiblity is toggled
+* by Vue.js.
+*
+* You can easily play with the modal transition by editing
+* these styles.
+*/
+
+.modal-enter, .modal-leave {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}

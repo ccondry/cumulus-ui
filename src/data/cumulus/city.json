@@ -1,0 +1,189 @@
+{
+  "id": "city",
+  "name": "Cumulus City",
+  "logo": {
+    "title": "CUMULUS",
+    "subtitle": "CITY",
+    "color": "#7CC153"
+  },
+  "headingImage": "//static.dcloud.cisco.com/images/cumulus/verticals/city/bg-image.jpg",
+  "blogTitle": "Top Services",
+  "blogItems": [
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/blogpost1.jpg",
+      "title": "Charity",
+      "subTitle": "Charity Festival Planning",
+      "description": "Raise funds to support the city charity festival. How to increase awareness and knowledge about the festival."
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/blogpost2.jpg",
+      "title": "Offices",
+      "subTitle": "City Building Hours",
+      "description": "All municipal buildings are open based on their regular hours of operation."
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/blogpost3.jpg",
+      "title": "Environment",
+      "subTitle": "Trash and Recycling",
+      "description": "Pickup is on a normal schedule today. We collect leaf and yard waste this week."
+    }
+  ],
+  "products": [],
+  "services": [
+    {
+      "name": "Charity",
+      "description": "Charity Festival Planning",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product1.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product1_big.jpg"
+    },
+    {
+      "name": "Offices",
+      "description": "City Building Hours",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product2.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product2_big.jpg"
+    },
+    {
+      "name": "Environment",
+      "description": "Trash and Recycling",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product3.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product3_big.jpg"
+    },
+    {
+      "name": "Parking",
+      "description": "Parking Meters",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product4.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product4_big.jpg"
+    },
+    {
+      "name": "Crime",
+      "description": "Crime Reports",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product5.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product5_big.jpg"
+    },
+    {
+      "name": "Cleaning",
+      "description": "Street Cleaning",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product6.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product6_big.jpg"
+    },
+    {
+      "name": "Taxes",
+      "description": "Pay Your Real Estate Taxes",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product7.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product7_big.jpg"
+    },
+    {
+      "name": "Report",
+      "description": "Report an Issue on 311",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product8.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/product8_big.jpg"
+    }
+  ],
+  "authors": [
+    {
+      "firstName": "Sandra",
+      "lastName": "Jefferson",
+      "role": "Agent",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author1.png"
+    },
+    {
+      "firstName": "Josh",
+      "lastName": "Peterson",
+      "role": "Agent",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author2.png"
+    },
+    {
+      "firstName": "Rick",
+      "lastName": "Barrows",
+      "role": "Supervisor",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author3.png"
+    },
+    {
+      "firstName": "Helen",
+      "lastName": "Liang",
+      "role": "Manager",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author5.png"
+    }
+  ],
+  "sliders": [
+    {
+      "title": "We Make Cities Better!",
+      "text1": "Come and find our range of services to make cities a better place to live!",
+      "text2": "Discover and explore what we can do for you.",
+      "buttonText": "Know Cumulus",
+      "buttonLink": "about",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/slide1.jpg"
+    },
+    {
+      "title": "Our Services",
+      "text1": "Cumulus helps with a wide variety of services for your city. We manage the entire municipality services for you...",
+      "text2": "Once you've selected the service required we'll drive you to get all your needs accomplished.",
+      "buttonText": "Check Now",
+      "buttonLink": "services",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/slide2.jpg"
+    },
+    {
+      "title": "Need Help?",
+      "text1": "Here, you'll find answers to commonly asked questions about city building hours, trash and recycling,",
+      "text2": "charity initiatives, parking meters, street cleaning and all the rest of city services.",
+      "buttonText": "Questions?",
+      "buttonLink": "contact",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/slide3.jpg"
+    }
+  ],
+  "timelinePosts": [
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/timeline1.jpg",
+      "title": "Finance",
+      "link": "finance",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/timeline2.jpg",
+      "title": "Healthcare",
+      "link": "healthcare",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/timeline3.jpg",
+      "title": "Travel",
+      "link": "travel",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/timeline4.jpg",
+      "title": "Gas",
+      "link": "utility",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/timeline5.jpg",
+      "title": "Electricity",
+      "link": "utility",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/city/timeline6.jpg",
+      "title": "City",
+      "link": "city",
+      "text": ""
+    }
+  ],
+  "testimonials": [
+    {
+      "text": "Disney in December was absolutely delightful! From our 1 day at Magic Kingdom & 2 days at Animal Kingdom, our family was filled with excitement and magical memories.",
+      "author": "Lisa",
+      "authorRole": ""
+    },
+    {
+      "text": "You were an excellent Travel Agency for us! You considered our unique needs while planning our itinerary. Every suggestion you made was excellent!",
+      "author": "Nicholas",
+      "authorRole": ""
+    },
+    {
+      "text": "I’m sending you a sincere \"thank you\" for all of your assistance during my recent trip to Australia. It was invaluable to me and I realize and appreciate it greatly.",
+      "author": "Tanya",
+      "authorRole": ""
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": "healthcare",
+  "name": "Cumulus Health",
+  "logo": {
+    "title": "CUMULUS",
+    "subtitle": "HEALTH",
+    "color": "#7CC153"
+  },
+  "headingImage": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/bg-image.jpg",
+  "blogItems": [
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/blogpost1.jpg",
+      "title": "Cleaning",
+      "subTitle": "Bathing, Dressing and Grooming",
+      "description": "Support for bathing, dressing, grooming and bathroom assistance."
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/blogpost2.jpg",
+      "title": "Training",
+      "subTitle": "Training Programs",
+      "description": "Support to help seniors cope with their condition while maximizing their capabilities."
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/blogpost3.jpg",
+      "title": "Cooking",
+      "subTitle": "Menu Planning and Cooking",
+      "description": "Support for meals which includes menu planning and cooking."
+    }
+  ],
+  "services": [
+    {
+      "name": "Cleaning",
+      "description": "Cleaning Services",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product1.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product1_big.jpg"
+    },
+    {
+      "name": "Training",
+      "description": "Training Programs",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product2.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product2_big.jpg"
+    },
+    {
+      "name": "Cooking",
+      "description": "Menu Planning and Cooking",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product3.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product3_big.jpg"
+    },
+    {
+      "name": "Housekeeping",
+      "description": "Housekeeping and Laundry",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product4.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product4_big.jpg"
+    },
+    {
+      "name": "Transportation",
+      "description": "Errands and Transportations",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product5.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product5_big.jpg"
+    },
+    {
+      "name": "Medications",
+      "description": "Medications and Health Assistance",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product6.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product6_big.jpg"
+    },
+    {
+      "name": "Hospice",
+      "description": "Hospice Care Support",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product7.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product7_big.jpg"
+    },
+    {
+      "name": "Diseases",
+      "description": "Support and Detection of Specific Diseases",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product8.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product8_big.jpg"
+    }
+  ],
+  "authors": [
+    {
+      "firstName": "Sandra",
+      "lastName": "Jefferson",
+      "role": "Agent",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author1.png"
+    },
+    {
+      "firstName": "Josh",
+      "lastName": "Peterson",
+      "role": "Agent",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author2.png"
+    },
+    {
+      "firstName": "Rick",
+      "lastName": "Barrows",
+      "role": "Supervisor",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author3.png"
+    },
+    {
+      "firstName": "Helen",
+      "lastName": "Liang",
+      "role": "Manager",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author5.png"
+    }
+  ],
+  "sliders": [
+    {
+      "title": "What Do We Do: Everything",
+      "text1": "Overwhelmed, Unsure, Worried...",
+      "text2": "when it comes to making decisions about care for your elderly family member?",
+      "buttonText": "Know Cumulus",
+      "buttonLink": "about",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/slide1.jpg"
+    },
+    {
+      "title": "Our Services",
+      "text1": "Cumulus will provide you the guidance concerning your loved one including finding the best places to live,",
+      "text2": "receiving the proper care and navigating through a complex health care system.",
+      "buttonText": "Check Now",
+      "buttonLink": "products",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/slide2.jpg"
+    },
+    {
+      "title": "Need Help?",
+      "text1": "Making the right care decision for your loved one can be a daunting task filled with stress, tension and pressure.",
+      "text2": "Here, you'll find answers to commonly asked questions about our services.",
+      "buttonText": "Questions?",
+      "buttonLink": "contact",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/slide3.jpg"
+    }
+  ],
+  "timelinePosts": [
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline1.jpg",
+      "title": "Finance",
+      "link": "finance",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline2.jpg",
+      "title": "Healthcare",
+      "link": "healthcare",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline3.jpg",
+      "title": "Travel",
+      "link": "travel",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline4.jpg",
+      "title": "Gas",
+      "link": "utility",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline5.jpg",
+      "title": "Electricity",
+      "link": "utility",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline6.jpg",
+      "title": "City",
+      "link": "city",
+      "text": ""
+    }
+  ],
+  "testimonials": [
+    {
+      "text": "I wanted you to know that out of all products I have that run my business and all companies I do business with, I have never experienced more professional customer service on every level, all the time. Each and every time I call Cumulus my issues are resolved. In addition, getting an expert on the phone within minutes is impressive. Typically, you work with 1st level customer service people, then they escalate an issue and time is wasted and lost with nearly every company I have ever dealt with. With Cumulus, time is money and it is obvious that you get that as issues are resolved quickly and accurately!!!",
+      "author": "Jennifer",
+      "authorRole": "Chief Designer"
+    },
+    {
+      "text": "Just wanted to drop you a line with a report about your support team. I am a industry veteran that has been in frontline support for 15 years and now I work as a Sales Executive. I have enjoyed using Cumulus for the past 6 years and do my best to have it used where ever I work. I am writing to you today to let you know that your support team is one of the best I have interacted with. Even with me being in a unsupported environment your team is always willing to help me get through my issues. I would particularly like to call Sandra Jefferson out for going above and beyond to help me in my times of need. Coming from support I recognize that most people are quick to condemn, and not very quick to say thank you. Please pass a BIG THANK YOU on to your support team from myself and the rest of my team.",
+      "author": "Laureen",
+      "authorRole": "Sales Executive"
+    },
+    {
+      "text": "I have called several times now for support on setting up our Cumulus insurance. The last two times I have called I talked with Josh Peterson and both times he has been outstanding. He has answered my questions thoroughly, quickly and politely even when the question was simple or seemed stupid. In this day and age it is hard to find a real person to talk to in support and if you do they typically do not speak very good English. I appreciate the fantastic support and the ability to talk with a professional English speaking agent.",
+      "author": "Tanya",
+      "authorRole": "Creative Director"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+http://cumulus.dcloud.cisco.com/#/pcce/finance/home  - access Cumulus demo webpage for PCCE
+http://cumulus.dcloud.cisco.com/#/uccx/finance/home  - access Cumulus demo webpage for UCCX
+
+GLOBAL ENDPOINTS
+==========
+mobile-manager.cisco.com --> 128.x.x.x public IP of VM 198.19.253.37 in SJC
+mobile-manager-dev.cisco.com --> 128.x.x.x public IP of VM 198.19.253.38 in SJC
+
+http://http://mobile-manager.cisco.com/api/session/ - get/put/patch/delete dCloud session details and session active flag
+http://mobile-manager.cisco.com/api/verticals/ - get/put/patch/delete Cumulus vertical website configurations
+http://mobile-manager.cisco.com/static/
+
+
+SHARED SERVICES ENDPOINTS
+===================
+http://verticals.dcloud.cisco.com/  - access Cumulus demo vertical configuration wizard
+
+
+DEMO VPOD DNS - Common
+=============
+static.dcloud.cisco.com -> CNAME -> mobile-manager.cisco.com
+cumulus.dcloud.cisco.com -> CNAME -> mobile-manager.cisco.com
+verticals.dcloud.cisco.com --> CNAME -> mobile-manager.cisco.com
+api.dcloud.cisco.com -> 198.18.134.28
+
+
+DEMO VPOD REVERSE PROXY
+=======================
+http://api.dcloud.cisco.com/verticals -> http://mobile-manager.cisco.com/api.verticals
+
+
+DEMO VPOD ENDPOINTS - PCCE
+=============
+api.dcloud.cisco.com --> 198.18.134.28 linux VM in PCCE demo (branding.dcloud.cisco.com)
+
+http://api.dcloud.cisco.com/email - send email from the Cumulus demo webpage to local email server in demo
+
+
+DEMO VPOD ENDPOINTS - UCCX
+=============
+api.dcloud.cisco.com --> 198.18.134.28 linux VM in UCCX demo (branding.dcloud.cisco.com) ??
+
+http://api.dcloud.cisco.com/email - send email from the Cumulus demo webpage to local email server in demo

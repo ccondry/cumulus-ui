@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="main.css">
+<script src="https://rem2.cxdemo.net/assistserver/sdk/web/consumer/assist.js"></script>
+</head>
+<body>
+  <span>
+    <div id="form-header">
+    </div>
+    <div id="survey">
+      <form class="form form-horizontal">
+        <!-- <div class="form-group"> -->
+        <label for="first-name">First Name:</label>
+        <input id="first-name" type="text" name="first-name"/>
+        <!-- </div> -->
+        <label for="surname">Surname:</label>
+        <input id="surname" type="text" name="surname"/>
+        <label for="email">Email:</label>
+        <input id="email" type="email" name="email">
+        <label for="password">Password:</label>
+        <input id="password" type="password" name="password"/>
+        <label for="source">Where did you hear about us?</label>
+        <select id="source">
+          <option value="Friend or relative">A friend or relative.</option>
+          <option value="Internet">Internet search.</option>
+          <option value="Sales">A pushy sales guy.</option>
+          <option value="Classifieds">Decoded a message hidden in the classifieds.</option>
+          <option value="Dream">A prophetic dream...</option>
+          <option value="Celeb">A celebrity endorsement.</option>
+        </select><br/><br/>
+        <label for="essay">Please write a short essay on a topic of your choice:</label>
+        <textarea id="essay"></textarea>
+        <label>Do you have any comments to make about our site or service?</label>
+        <input type="radio" name="comments" value="Yes"/>Yes
+        <input type="radio" name="comments" value="No"/>No
+        <label for="marketing">Check this box if you would like us to send sales and marketing representatives to your place of business:</label>
+        <input id="marketing" type="checkbox" name="marketing" value="marketing" checked="true"/>
+
+        <label for="type-search">Search (search)</label>
+        <input type="search" name="type-search" id="type-search">
+        <label for="type-tel">Telephone (tel)</label>
+        <input type="tel" name="type-tel" id="type-tel">
+        <label for="type-url">URL (url)</label>
+        <input type="url" name="type-url" id="type-url">
+        <label for="type-datetime">Date and Time (datetime)</label>
+        <input type="datetime" name="type-datetime" id="type-datetime">
+        <label for="type-date">Date (date)</label>
+        <input type="date" name="type-date" id="type-date">
+        <label for="type-month">Month (month)</label>
+        <input type="month" name="type-month" id="type-month">
+        <label for="type-week">Week (week)</label>
+        <input type="week" name="type-week" id="type-week">
+        <label for="type-time">Time (time)</label>
+        <input type="time" name="type-time" id="type-time">
+        <label for="type-datetime-local">Local Date and Time (datetime-local)</label>
+        <input type="datetime-local" name="type-datetime-local" id="type-datetime-local">
+        <label for="type-number">Number (number)</label>
+        <input type="number" name="type-number" id="type-number" min="0" max="20">
+        <label for="type-range">Range (range)</label>
+        <input type="range" name="type-range" id="type-range" min="0" max="100">
+        <label for="type-color">Colour (color)</label>
+        <input type="color" name="type-color" id="type-color">
+        <input type="submit" value="Clear"/>
+      </form>
+    </div>
+  </span>
+
+  <!-- <script src="js/assist-support.js"></script>
+  <script src="js/short-code-assist.js"></script>
+  <script src="../assistserver/sdk/web/consumer/assist.js"></script> -->
+
+  <script>
+  (function() {
+    AssistBoot.addAssistBehaviour();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+{
+  "id": "utility",
+  "name": "Cumulus Gas & Utility",
+  "logo": {
+    "title": "CUMULUS",
+    "subtitle": "GAS & UTILITY",
+    "color": "#7CC153"
+  },
+  "headingImage": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/bg-image.jpg",
+  "blogTitle": "Top Services",
+  "blogItems": [
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/blogpost1.jpg",
+      "title": "Bill",
+      "subTitle": "Pay Your Bill",
+      "description": "Check your account balance and payment history, set up recurring payments and compare your rate options."
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/blogpost2.jpg",
+      "title": "Report",
+      "subTitle": "Report and view Gas and Electric outages",
+      "description": "You can sign up to receive outage updates via email, text or phone after reporting or selecting a known outage."
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/blogpost3.jpg",
+      "title": "Service",
+      "subTitle": "Start or Stop a Service",
+      "description": "Log in or use one-time access to transfer or stop service. New to Cumulus? Start service quickly and easily."
+    }
+  ],
+  "products": [],
+  "services": [
+    {
+      "name": "Bill",
+      "description": "Pay Your Bill",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product1.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product1_big.jpg"
+    },
+    {
+      "name": "Report",
+      "description": "Report Outages",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product2.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product2_big.jpg"
+    },
+    {
+      "name": "Service",
+      "description": "Start or Stop a Service",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product3.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product3_big.jpg"
+    },
+    {
+      "name": "Payment",
+      "description": "Get Payment Assistance",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product4.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product4_big.jpg"
+    },
+    {
+      "name": "Rates",
+      "description": "Change Your Rate",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product5.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product5_big.jpg"
+    },
+    {
+      "name": "Report",
+      "description": "Report Gas Leak",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product6.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product6_big.jpg"
+    },
+    {
+      "name": "Lights",
+      "description": "Street Light Outages",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product7.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product7_big.jpg"
+    },
+    {
+      "name": "Home",
+      "description": "Securing Your Smart Home",
+      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product8.jpg",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product8_big.jpg"
+    }
+  ],
+  "authors": [
+    {
+      "firstName": "Sandra",
+      "lastName": "Jefferson",
+      "role": "Agent",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author1.png"
+    },
+    {
+      "firstName": "Josh",
+      "lastName": "Peterson",
+      "role": "Agent",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author2.png"
+    },
+    {
+      "firstName": "Rick",
+      "lastName": "Barrows",
+      "role": "Supervisor",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author3.png"
+    },
+    {
+      "firstName": "Helen",
+      "lastName": "Liang",
+      "role": "Manager",
+      "image": "//static.dcloud.cisco.com/images/cumulus/common/author5.png"
+    }
+  ],
+  "sliders": [
+    {
+      "title": "Discover Who We Are",
+      "text1": "Cumulus Gas and Electric Company is one of the largest combined natural gas and electric energy companies in the world.",
+      "text2": "This company is a subsidiary of Cumulus Corporation.",
+      "buttonText": "Know Cumulus",
+      "buttonLink": "about",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/slide1.jpg"
+    },
+    {
+      "title": "Our Services",
+      "text1": "Cumulus provides natural gas and electric service to approximately 26 million people throughout a 120,000-square-mile service area.",
+      "text2": "From the ground to you, learn how we deliver natural gas and energy to our customers.",
+      "buttonText": "Check Now",
+      "buttonLink": "services",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/slide2.jpg"
+    },
+    {
+      "title": "Need Help?",
+      "text1": "Here, you'll find answers to commonly asked questions about how to pay your bill, report electric outages,",
+      "text2": "start or stop a service, report gas leak and our wide array of services.",
+      "buttonText": "Questions?",
+      "buttonLink": "contact",
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/slide3.jpg"
+    }
+  ],
+  "timelinePosts": [
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline1.jpg",
+      "title": "Finance",
+      "link": "finance",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline2.jpg",
+      "title": "Healthcare",
+      "link": "healthcare",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline3.jpg",
+      "title": "Travel",
+      "link": "travel",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline4.jpg",
+      "title": "Gas",
+      "link": "utility",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline5.jpg",
+      "title": "Electricity",
+      "link": "utility",
+      "text": ""
+    },
+    {
+      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline6.jpg",
+      "title": "City",
+      "link": "city",
+      "text": ""
+    }
+  ],
+  "testimonials": [
+    {
+      "text": "I wanted you to know that out of all products I have that run my business and all companies I do business with, I have never experienced more professional customer service on every level, all the time. Each and every time I call Cumulus my issues are resolved. In addition, getting an expert on the phone within minutes is impressive. Typically, you work with 1st level customer service people, then they escalate an issue and time is wasted and lost with nearly every company I have ever dealt with. With Cumulus, time is money and it is obvious that you get that as issues are resolved quickly and accurately!!!",
+      "author": "Jennifer",
+      "authorRole": "Chief Designer"
+    },
+    {
+      "text": "Just wanted to drop you a line with a report about your support team. I am a industry veteran that has been in frontline support for 15 years and now I work as a Sales Executive. I have enjoyed using Cumulus for the past 6 years and do my best to have it used where ever I work. I am writing to you today to let you know that your support team is one of the best I have interacted with. Even with me being in a unsupported environment your team is always willing to help me get through my issues. I would particularly like to call Sandra Jefferson out for going above and beyond to help me in my times of need. Coming from support I recognize that most people are quick to condemn, and not very quick to say thank you. Please pass a BIG THANK YOU on to your support team from myself and the rest of my team.",
+      "author": "Laureen",
+      "authorRole": "Sales Executive"
+    },
+    {
+      "text": "I have called several times now for support on setting up our Cumulus insurance. The last two times I have called I talked with Josh Peterson and both times he has been outstanding. He has answered my questions thoroughly, quickly and politely even when the question was simple or seemed stupid. In this day and age it is hard to find a real person to talk to in support and if you do they typically do not speak very good English. I appreciate the fantastic support and the ability to talk with a professional English speaking agent.",
+      "author": "Tanya",
+      "authorRole": "Creative Director"
+    }
+  ]
+}
