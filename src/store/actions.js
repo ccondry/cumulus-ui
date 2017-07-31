@@ -134,8 +134,7 @@ export const startChat = ({commit, state, rootState}, data) => {
   // open iframe
   // this.showChatIframe = true
   // open popup
-  let url = 'http://cceece.dcloud.cisco.com/system/templates/chat/kiwi/chat.html?subActivity=Chat&entryPointId=1001&templateName=kiwi&languageCode=en&countryCode=US&ver=v11'
-  url = addEceParameters(url, data)
+  let url = addEceParameters(config.ece.chatUrl, data)
   let w = 400
   let h = 600
   let top = (window.screen.height / 2) - (h / 2)
@@ -148,8 +147,12 @@ export const startCallback = ({commit, state, rootState}, data) => {
   // open iframe
   // this.showCallbackIframe = true
   // open popup
-  let url = 'http://cceece.dcloud.cisco.com/system/templates/chat/kiwi/chat.html?subActivity=Chat&entryPointId=1001&templateName=kiwi&languageCode=en&countryCode=US&ver=v11'
-  url = addEceParameters(url, data)
+  let url
+  if (data.delay && data.delay !== 0 && data.delay !== '') {
+    url = addEceParameters(config.ece.delayedCallbackUrl, data)
+  } else {
+    url = addEceParameters(config.ece.callbackUrl, data)
+  }
   let w = 400
   let h = 600
   let top = (window.screen.height / 2) - (h / 2)

@@ -77,57 +77,57 @@ const getters = {
 }
 
 const actions = {
-  startChat ({commit, state, getters, rootState, dispatch}, {autoStart = true, subject = 'Hello'}) {
-    let newUrl = `${getters.chatUrl}&subject=${encodeURIComponent(subject)}&submit=${autoStart}`
-    console.log('chat url = ', newUrl)
-    window.open(newUrl, '_blank', '...')
-  },
-  startEmail ({commit, state, getters, rootState, dispatch}) {
-    // add CS POD
-    dispatch('addPod', {
-      notes: 'Clicked to send an email for requesting an expert'
-    })
-    // open new email in OS
-    console.log('emailUrl = ', getters.emailUrl)
-    window.location.href = getters.emailUrl
-  },
-  sendEmail ({commit, state, getters, rootState, dispatch}, {body, subject, fromName, fromAddress, success, fail}) {
-    // send email using API
-    let formData = `body=${body}&subject=${subject}&fromName=${fromName}&fromAddress=${fromAddress}&toName=${state.toName}&toAddress=${state.email}&token=${state.sendEmailToken}`
-
-    jQuery.ajax({
-      method: 'POST',
-      url: rootState.apiBase + '/instance/pcce/demo/egain/email/send',
-      data: formData,
-      cache: false,
-      contentType: 'application/x-www-form-urlencoded',
-      processData: false
-    }).done(function (rsp) {
-      let message = 'Successfully sent email.'
-      notifications.actions.successNotification({commit, state}, message)
-      // run callback
-      if (typeof success === 'function') {
-        success(rsp)
-      }
-    }).fail(function (xhr, status, error) {
-      let message = 'Failed to send email. The server returned the following error: ' + xhr.responseText
-      notifications.actions.failNotification({commit, state}, xhr, message)
-      // run callback
-      if (typeof fail === 'function') {
-        fail(xhr)
-      }
-    })
-  },
-  getChatHistory ({commit, state, rootState, rootGetters}) {
-    jQuery.ajax(`${rootState.apiBase}/instance/pcce/demo/egain/chat/history?email=${rootGetters.authToken}&token=${state.chatHistoryToken}`)
-    .done(function (rsp) {
-      console.log('get chat history response:', rsp)
-      for (let i in rsp) {
-        parseHistory(rsp[i])
-      }
-      commit(types.SET_ECE_CHAT_HISTORY, rsp)
-    })
-  }
+  // startChat ({commit, state, getters, rootState, dispatch}, {autoStart = true, subject = 'Hello'}) {
+  //   let newUrl = `${getters.chatUrl}&subject=${encodeURIComponent(subject)}&submit=${autoStart}`
+  //   console.log('chat url = ', newUrl)
+  //   window.open(newUrl, '_blank', '...')
+  // },
+  // startEmail ({commit, state, getters, rootState, dispatch}) {
+  //   // add CS POD
+  //   dispatch('addPod', {
+  //     notes: 'Clicked to send an email for requesting an expert'
+  //   })
+  //   // open new email in OS
+  //   console.log('emailUrl = ', getters.emailUrl)
+  //   window.location.href = getters.emailUrl
+  // },
+  // sendEmail ({commit, state, getters, rootState, dispatch}, {body, subject, fromName, fromAddress, success, fail}) {
+  //   // send email using API
+  //   let formData = `body=${body}&subject=${subject}&fromName=${fromName}&fromAddress=${fromAddress}&toName=${state.toName}&toAddress=${state.email}&token=${state.sendEmailToken}`
+  //
+  //   jQuery.ajax({
+  //     method: 'POST',
+  //     url: rootState.apiBase + '/instance/pcce/demo/egain/email/send',
+  //     data: formData,
+  //     cache: false,
+  //     contentType: 'application/x-www-form-urlencoded',
+  //     processData: false
+  //   }).done(function (rsp) {
+  //     let message = 'Successfully sent email.'
+  //     notifications.actions.successNotification({commit, state}, message)
+  //     // run callback
+  //     if (typeof success === 'function') {
+  //       success(rsp)
+  //     }
+  //   }).fail(function (xhr, status, error) {
+  //     let message = 'Failed to send email. The server returned the following error: ' + xhr.responseText
+  //     notifications.actions.failNotification({commit, state}, xhr, message)
+  //     // run callback
+  //     if (typeof fail === 'function') {
+  //       fail(xhr)
+  //     }
+  //   })
+  // },
+  // getChatHistory ({commit, state, rootState, rootGetters}) {
+  //   jQuery.ajax(`${rootState.apiBase}/instance/pcce/demo/egain/chat/history?email=${rootGetters.authToken}&token=${state.chatHistoryToken}`)
+  //   .done(function (rsp) {
+  //     console.log('get chat history response:', rsp)
+  //     for (let i in rsp) {
+  //       parseHistory(rsp[i])
+  //     }
+  //     commit(types.SET_ECE_CHAT_HISTORY, rsp)
+  //   })
+  // }
 }
 
 const mutations = {
