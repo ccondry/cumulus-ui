@@ -6,23 +6,23 @@
     "subtitle": "GAS & UTILITY",
     "color": "#7CC153"
   },
-  "headingImage": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/bg-image.jpg",
+  "headingImage": "/static/images/cumulus/verticals/utility/bg-image.jpg",
   "blogTitle": "Top Services",
   "blogItems": [
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/blogpost1.jpg",
+      "image": "/static/images/cumulus/verticals/utility/blogpost1.jpg",
       "title": "Bill",
       "subTitle": "Pay Your Bill",
       "description": "Check your account balance and payment history, set up recurring payments and compare your rate options."
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/blogpost2.jpg",
+      "image": "/static/images/cumulus/verticals/utility/blogpost2.jpg",
       "title": "Report",
       "subTitle": "Report and view Gas and Electric outages",
       "description": "You can sign up to receive outage updates via email, text or phone after reporting or selecting a known outage."
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/blogpost3.jpg",
+      "image": "/static/images/cumulus/verticals/utility/blogpost3.jpg",
       "title": "Service",
       "subTitle": "Start or Stop a Service",
       "description": "Log in or use one-time access to transfer or stop service. New to Cumulus? Start service quickly and easily."
@@ -33,50 +33,50 @@
     {
       "name": "Bill",
       "description": "Pay Your Bill",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product1.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product1_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/utility/product1.jpg",
+      "image": "/static/images/cumulus/verticals/utility/product1_big.jpg"
     },
     {
       "name": "Report",
       "description": "Report Outages",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product2.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product2_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/utility/product2.jpg",
+      "image": "/static/images/cumulus/verticals/utility/product2_big.jpg"
     },
     {
       "name": "Service",
       "description": "Start or Stop a Service",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product3.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product3_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/utility/product3.jpg",
+      "image": "/static/images/cumulus/verticals/utility/product3_big.jpg"
     },
     {
       "name": "Payment",
       "description": "Get Payment Assistance",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product4.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product4_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/utility/product4.jpg",
+      "image": "/static/images/cumulus/verticals/utility/product4_big.jpg"
     },
     {
       "name": "Rates",
       "description": "Change Your Rate",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product5.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product5_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/utility/product5.jpg",
+      "image": "/static/images/cumulus/verticals/utility/product5_big.jpg"
     },
     {
       "name": "Report",
       "description": "Report Gas Leak",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product6.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product6_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/utility/product6.jpg",
+      "image": "/static/images/cumulus/verticals/utility/product6_big.jpg"
     },
     {
       "name": "Lights",
       "description": "Street Light Outages",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product7.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product7_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/utility/product7.jpg",
+      "image": "/static/images/cumulus/verticals/utility/product7_big.jpg"
     },
     {
       "name": "Home",
       "description": "Securing Your Smart Home",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product8.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/product8_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/utility/product8.jpg",
+      "image": "/static/images/cumulus/verticals/utility/product8_big.jpg"
     }
   ],
   "authors": [
@@ -84,25 +84,25 @@
       "firstName": "Sandra",
       "lastName": "Jefferson",
       "role": "Agent",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author1.png"
+      "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author1.png"
     },
     {
       "firstName": "Josh",
       "lastName": "Peterson",
       "role": "Agent",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author2.png"
+      "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author2.png"
     },
     {
       "firstName": "Rick",
       "lastName": "Barrows",
       "role": "Supervisor",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author3.png"
+      "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author3.png"
     },
     {
       "firstName": "Helen",
       "lastName": "Liang",
       "role": "Manager",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author5.png"
+      "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author5.png"
     }
   ],
   "sliders": [
@@ -112,7 +112,7 @@
       "text2": "This company is a subsidiary of Cumulus Corporation.",
       "buttonText": "Know Cumulus",
       "buttonLink": "about",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/slide1.jpg"
+      "image": "/static/images/cumulus/verticals/utility/slide1.jpg"
     },
     {
       "title": "Our Services",
@@ -120,7 +120,7 @@
       "text2": "From the ground to you, learn how we deliver natural gas and energy to our customers.",
       "buttonText": "Check Now",
       "buttonLink": "services",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/slide2.jpg"
+      "image": "/static/images/cumulus/verticals/utility/slide2.jpg"
     },
     {
       "title": "Need Help?",
@@ -128,42 +128,42 @@
       "text2": "start or stop a service, report gas leak and our wide array of services.",
       "buttonText": "Questions?",
       "buttonLink": "contact",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/slide3.jpg"
+      "image": "/static/images/cumulus/verticals/utility/slide3.jpg"
     }
   ],
   "timelinePosts": [
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline1.jpg",
+      "image": "/static/images/cumulus/verticals/utility/timeline1.jpg",
       "title": "Finance",
       "link": "finance",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline2.jpg",
+      "image": "/static/images/cumulus/verticals/utility/timeline2.jpg",
       "title": "Healthcare",
       "link": "healthcare",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline3.jpg",
+      "image": "/static/images/cumulus/verticals/utility/timeline3.jpg",
       "title": "Travel",
       "link": "travel",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline4.jpg",
+      "image": "/static/images/cumulus/verticals/utility/timeline4.jpg",
       "title": "Gas",
       "link": "utility",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline5.jpg",
+      "image": "/static/images/cumulus/verticals/utility/timeline5.jpg",
       "title": "Electricity",
       "link": "utility",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/utility/timeline6.jpg",
+      "image": "/static/images/cumulus/verticals/utility/timeline6.jpg",
       "title": "City",
       "link": "city",
       "text": ""

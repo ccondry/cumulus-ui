@@ -29,9 +29,9 @@ const getters = {
 
 // actions
 const actions = {
-  startCallback ({getters}) {
-    window.open(getters.callbackUrl, '_blank', 'width=400,height=500')
-  },
+  // startCallback ({getters}) {
+  //   window.open(getters.callbackUrl, '_blank', 'width=400,height=500')
+  // },
   setEmail ({commit, state}, email) {
     // commit to state
     commit(types.SET_EMAIL, email)

@@ -2,14 +2,14 @@
   <div class="col-md-3 col-sm-6 mix portfolio-item">
     <div class="portfolio-wrapper">
       <div class="portfolio-thumb">
-        <!-- <a href @click.prevent="lightbox(`//static.dcloud.cisco.com/images/cumulus/verticals/${vertical}/${model.image}`, model.description)">
-          <img :src="`//static.dcloud.cisco.com/images/cumulus/verticals/${vertical}/${model.thumbnail}`">
+        <!-- <a href @click.prevent="lightbox(`/static/images/cumulus/verticals/${vertical}/${model.image}`, model.description)">
+          <img :src="`/static/images/cumulus/verticals/${vertical}/${model.thumbnail}`">
         </a> -->
         <img :src="model.thumbnail">
         <div class="hover">
           <div class="hover-iner">
             <a href @click.prevent="lightbox(model.image, model.description)">
-              <img :src="`//static.dcloud.cisco.com/images/cumulus/common/open-icon.png`">
+              <img :src="`http://mobile-manager.cisco.com/static/images/cumulus/common/open-icon.png`">
             </a>
             <span>{{ model.name }}</span>
           </div>

@@ -6,22 +6,22 @@
     "subtitle": "FINANCE",
     "color": "#7CC153"
   },
-  "headingImage": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/bg-image.jpg",
+  "headingImage": "/static/images/cumulus/verticals/finance/bg-image.jpg",
   "blogItems": [
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/blogpost1.jpg",
+      "image": "/static/images/cumulus/verticals/finance/blogpost1.jpg",
       "title": "Finance",
       "subTitle": "Investor Services",
       "description": "Investor Services provides brokerage to millions of individuals who invest on their own or through a workplace-sponsored retirement or equity plan, as well as banking through Cumulus Bank."
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/blogpost2.jpg",
+      "image": "/static/images/cumulus/verticals/finance/blogpost2.jpg",
       "title": "Guidance",
       "subTitle": "Advisor Services",
       "description": "Advisor Services provides trading, custody, and technology practice management and other support services to nearly 7,000 independent investment advisors."
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/blogpost3.jpg",
+      "image": "/static/images/cumulus/verticals/finance/blogpost3.jpg",
       "title": "Retirement",
       "subTitle": "Retirement Plan Services",
       "description": "Retirement Plan Services provides comprehensive 401(k) plan services to employers and plan sponsors, including a range of plan types, investment solutions, trust and custody services, and recordkeeping."
@@ -31,50 +31,50 @@
     {
       "name": "Finance",
       "description": "Investor Services",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product1.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product1_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/finance/product1.jpg",
+      "image": "/static/images/cumulus/verticals/finance/product1_big.jpg"
     },
     {
       "name": "Guidance",
       "description": "Advisor Services",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product2.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product2_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/finance/product2.jpg",
+      "image": "/static/images/cumulus/verticals/finance/product2_big.jpg"
     },
     {
       "name": "Retirement",
       "description": "Retirement Plan Services",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product3.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product3_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/finance/product3.jpg",
+      "image": "/static/images/cumulus/verticals/finance/product3_big.jpg"
     },
     {
       "name": "Bank Accounts",
       "description": "Checking and Savings",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product4.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product4_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/finance/product4.jpg",
+      "image": "/static/images/cumulus/verticals/finance/product4_big.jpg"
     },
     {
       "name": "Mortgages",
       "description": "Mortgage and Refinance",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product5.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product5_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/finance/product5.jpg",
+      "image": "/static/images/cumulus/verticals/finance/product5_big.jpg"
     },
     {
       "name": "Loans",
       "description": "Loans and Credit Lines",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product6.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product6_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/finance/product6.jpg",
+      "image": "/static/images/cumulus/verticals/finance/product6_big.jpg"
     },
     {
       "name": "Credit",
       "description": "Credit Cards and Gift Cards",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product7.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product7_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/finance/product7.jpg",
+      "image": "/static/images/cumulus/verticals/finance/product7_big.jpg"
     },
     {
       "name": "Online",
       "description": "Online and Mobile Banking",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product8.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/product8_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/finance/product8.jpg",
+      "image": "/static/images/cumulus/verticals/finance/product8_big.jpg"
     }
   ],
   "authors": [
@@ -82,25 +82,25 @@
       "firstName": "Sandra",
       "lastName": "Jefferson",
       "role": "Agent",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author1.png"
+      "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author1.png"
     },
     {
       "firstName": "Josh",
       "lastName": "Peterson",
       "role": "Agent",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author2.png"
+      "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author2.png"
     },
     {
       "firstName": "Rick",
       "lastName": "Barrows",
       "role": "Supervisor",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author3.png"
+      "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author3.png"
     },
     {
       "firstName": "Helen",
       "lastName": "Liang",
       "role": "Manager",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author5.png"
+      "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author5.png"
     }
   ],
   "sliders": [
@@ -110,7 +110,7 @@
       "text2": "supporting its employees and furthering environmental sustainability.",
       "buttonText": "Know Cumulus",
       "buttonLink": "about",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/slide1.jpg"
+      "image": "/static/images/cumulus/verticals/finance/slide1.jpg"
     },
     {
       "title": "Our Businesses",
@@ -118,7 +118,7 @@
       "text2": "removing complexity but not the quality and sophistication of investment solutions.",
       "buttonText": "Check How",
       "buttonLink": "products",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/slide2.jpg"
+      "image": "/static/images/cumulus/verticals/finance/slide2.jpg"
     },
     {
       "title": "Need Help?",
@@ -126,42 +126,42 @@
       "text2": "saving accounts, mortgage options, loan refinancing and our wide array of services.",
       "buttonText": "Questions?",
       "buttonLink": "contact",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/slide3.jpg"
+      "image": "/static/images/cumulus/verticals/finance/slide3.jpg"
     }
   ],
   "timelinePosts": [
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/timeline1.jpg",
+      "image": "/static/images/cumulus/verticals/finance/timeline1.jpg",
       "title": "Finance",
       "link": "finance",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/timeline2.jpg",
+      "image": "/static/images/cumulus/verticals/finance/timeline2.jpg",
       "title": "Healthcare",
       "link": "healthcare",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/timeline3.jpg",
+      "image": "/static/images/cumulus/verticals/finance/timeline3.jpg",
       "title": "Travel",
       "link": "travel",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/timeline4.jpg",
+      "image": "/static/images/cumulus/verticals/finance/timeline4.jpg",
       "title": "Gas",
       "link": "utility",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/timeline5.jpg",
+      "image": "/static/images/cumulus/verticals/finance/timeline5.jpg",
       "title": "Electricity",
       "link": "utility",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/finance/timeline6.jpg",
+      "image": "/static/images/cumulus/verticals/finance/timeline6.jpg",
       "title": "City",
       "link": "city",
       "text": ""

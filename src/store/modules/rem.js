@@ -1,7 +1,5 @@
 import * as types from 'src/store/mutation-types'
-// import jQuery from 'jQuery'
-// import notifications from 'src/store/modules/notifications.js'
-
+import config from 'src/config'
 // encode a string into hexadecimal-endcoded string values
 function toHexString (str) {
   var hexStr = ''
@@ -23,12 +21,12 @@ function toHexString (str) {
 const state = {
   activeSession: false,
   inSupport: false,
-  destination: 'sip:7005@cxdemo.net',
-  baseUrl: 'https://rem2.cxdemo.net',
+  destination: config.rem.destination,
+  baseUrl: config.rem.url,
   configuration: {
-    url: 'https://rem2.cxdemo.net',
-    sdkPath: 'https://rem2.cxdemo.net/assistserver/sdk/web/consumer',
-    destination: 'sip:7005@cxdemo.net',
+    url: config.rem.url,
+    sdkPath: config.rem.url + '/assistserver/sdk/web/consumer',
+    destination: config.rem.destination,
     uui: toHexString(window.localStorage.userid)
   },
   shortCode: null,

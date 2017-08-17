@@ -1,5 +1,5 @@
 <template>
-  <img :src="`//static.dcloud.cisco.com/images/cumulus/common/under-heading.png`" alt="">
+  <img :src="`http://mobile-manager.cisco.com/static/images/cumulus/common/under-heading.png`" alt="">
 </template>
 
 <script>

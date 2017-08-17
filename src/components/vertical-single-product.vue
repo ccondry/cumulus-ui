@@ -17,7 +17,7 @@
                 <div class="col-md-8">
                   <div class="image">
                     <div class="image-post">
-                      <img src="//static.dcloud.cisco.com/images/cumulussingle-post.jpg" alt="">
+                      <img src="/static/images/cumulussingle-post.jpg" alt="">
                     </div>
                   </div>
                   <div class="product-content">
@@ -28,7 +28,7 @@
                     <p>Morbi consectetur velit et est placerat volutpat. Aliquam lacus libero, iaculis sit amet ornare eu, bibendum convallis. Curabitur vel erat imperdiet, ultrices dui et, mattis arcu. Donec nisi velit, dignissim mollis erat vehicula, iaculis eleifend sem. Mauris non ultrices ante, id porta odio. Pellentesque eget egestas lorem. <a href="#">Nullam vitae</a> varius lorem, ac tristique justo. Cras placerat tempus pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, an inceptos himenaeos. Morbi et feugiat justo. <br><br>Maecenas et ante eu sem viverra faucibus eget nec est. Aenean non felis diam. Praesent malesuada, lectus vel elementum tincidunt, sapien dolor interdum lacus, vel suscipit enim augue vel purus. Ut in augue mass. Etiam a leo at eros vehicula mattis. Aenean nec fringilla neque <a href="#">eget vulputate mi</a>. Aenean tincidunt elit sollicitudin libero hendrerit feugiat. Nunc purus leo, sollicitudin et vulputate vitae, auctor a lacus. Fusce aliquet erat quis nisi adipiscing, id eleifend quam venenatis. Integer non sem quis dui dignissim lacinia et a massa.</p>
                   </div>
                   <div class="divide-line">
-                    <img src="//static.dcloud.cisco.com/images/cumulusdiv-line.png')" alt="" />
+                    <img src="/static/images/cumulusdiv-line.png')" alt="" />
                   </div>
                   <div class="comments-title">
                     <div class="comment-section">
@@ -39,7 +39,7 @@
                     <div class="view-comments">
                       <div class="comments">
                         <div class="author-thumb">
-                          <img src="//static.dcloud.cisco.com/images/cumulusauthor-comment1.jpg" alt="">
+                          <img src="/static/images/cumulusauthor-comment1.jpg" alt="">
                         </div>
                         <div class="comment-body">
                           <h6>Catherine Hla</h6>
@@ -52,7 +52,7 @@
                     <div class="replyed-form">
                       <div class="comments replyed">
                         <div class="author-thumb">
-                          <img src="//static.dcloud.cisco.com/images/cumulusauthor-comment2.jpg" alt="">
+                          <img src="/static/images/cumulusauthor-comment2.jpg" alt="">
                         </div>
                         <div class="comment-body">
                           <h6>Anna Thiri</h6>
@@ -65,7 +65,7 @@
                     <div class="view-comments">
                       <div class="comments">
                         <div class="author-thumb">
-                          <img src="//static.dcloud.cisco.com/images/cumulusauthor-comment3.jpg" alt="">
+                          <img src="/static/images/cumulusauthor-comment3.jpg" alt="">
                         </div>
                         <div class="comment-body">
                           <h6>Diana Aung</h6>
@@ -78,7 +78,7 @@
                     <div class="view-comments">
                       <div class="comments">
                         <div class="author-thumb">
-                          <img src="//static.dcloud.cisco.com/images/cumulusauthor-comment4.jpg" alt="">
+                          <img src="/static/images/cumulusauthor-comment4.jpg" alt="">
                         </div>
                         <div class="comment-body">
                           <h6>Kimberly Mya</h6>
@@ -90,7 +90,7 @@
                     </div>
                   </div>
                   <div class="divide-line">
-                    <img src="//static.dcloud.cisco.com/images/cumulusdiv-line.png')" alt="" />
+                    <img src="/static/images/cumulusdiv-line.png')" alt="" />
                   </div>
                   <div class="leave-comment">
                     <div class="leave-one">
@@ -141,7 +141,7 @@
                       <div class="posts">
                         <div class="recent-post">
                           <div class="recent-post-thumb">
-                            <img src="//static.dcloud.cisco.com/images/cumulusrecent-post1.jpg" alt="">
+                            <img src="/static/images/cumulusrecent-post1.jpg" alt="">
                           </div>
                           <div class="recent-post-info">
                             <h6><a href="#">Vestibulum molestie odio sit amet</a></h6>
@@ -150,7 +150,7 @@
                         </div>
                         <div class="recent-post">
                           <div class="recent-post-thumb">
-                            <img src="//static.dcloud.cisco.com/images/cumulusrecent-post2.jpg" alt="">
+                            <img src="/static/images/cumulusrecent-post2.jpg" alt="">
                           </div>
                           <div class="recent-post-info">
                             <h6><a href="#">Vivamus mattis quam eget urna tincidunt</a></h6>
@@ -159,7 +159,7 @@
                         </div>
                         <div class="recent-post">
                           <div class="recent-post-thumb">
-                            <img src="//static.dcloud.cisco.com/images/cumulusrecent-post3.jpg" alt="">
+                            <img src="/static/images/cumulusrecent-post3.jpg" alt="">
                           </div>
                           <div class="recent-post-info">
                             <h6><a href="#">Curabitur in nunc eget neque posuere</a></h6>
@@ -173,28 +173,28 @@
                       <div class="flickr-images">
                         <div class="row">
                           <div class="col-md-4 col-sm-2 col-xs-3">
-                            <img src="//static.dcloud.cisco.com/images/cumulusflickr-image1.jpg" alt="">
+                            <img src="/static/images/cumulusflickr-image1.jpg" alt="">
                           </div>
                           <div class="col-md-4 col-sm-2 col-xs-3">
-                            <img src="//static.dcloud.cisco.com/images/cumulusflickr-image2.jpg" alt="">
+                            <img src="/static/images/cumulusflickr-image2.jpg" alt="">
                           </div>
                           <div class="col-md-4 col-sm-2 col-xs-3">
-                            <img src="//static.dcloud.cisco.com/images/cumulusflickr-image3.jpg" alt="">
+                            <img src="/static/images/cumulusflickr-image3.jpg" alt="">
                           </div>
                           <div class="col-md-4 col-sm-2 col-xs-3">
-                            <img src="//static.dcloud.cisco.com/images/cumulusflickr-image4.jpg" alt="">
+                            <img src="/static/images/cumulusflickr-image4.jpg" alt="">
                           </div>
                           <div class="col-md-4 col-sm-2 col-xs-3">
-                            <img src="//static.dcloud.cisco.com/images/cumulusflickr-image1.jpg" alt="">
+                            <img src="/static/images/cumulusflickr-image1.jpg" alt="">
                           </div>
                           <div class="col-md-4 col-sm-2 col-xs-3">
-                            <img src="//static.dcloud.cisco.com/images/cumulusflickr-image2.jpg" alt="">
+                            <img src="/static/images/cumulusflickr-image2.jpg" alt="">
                           </div>
                           <div class="col-md-4 col-sm-2 col-xs-3">
-                            <img src="//static.dcloud.cisco.com/images/cumulusflickr-image3.jpg" alt="">
+                            <img src="/static/images/cumulusflickr-image3.jpg" alt="">
                           </div>
                           <div class="col-md-4 col-sm-2 col-xs-3">
-                            <img src="//static.dcloud.cisco.com/images/cumulusflickr-image4.jpg" alt="">
+                            <img src="/static/images/cumulusflickr-image4.jpg" alt="">
                           </div>
                         </div>
                       </div>

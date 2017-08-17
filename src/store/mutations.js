@@ -1,6 +1,9 @@
 import * as types from './mutation-types'
 
 export default {
+  [types.SET_PLATFORM] (state, data) {
+    state.platform = data
+  },
   [types.SET_VERTICAL] (state, data) {
     state.vertical = data
   },

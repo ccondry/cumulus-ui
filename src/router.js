@@ -15,7 +15,7 @@ const contact = resolve => require(['src/routes/contact.vue'], resolve)
 const config = resolve => require(['src/routes/config.vue'], resolve)
 
 const routes = [
-  { path: '/:demo/' },
+  { path: '/:demo/', name: 'vertical-select', component: home },
   { path: '/:demo/:vertical/' },
   { path: '/:demo/:vertical/config', name: 'config', component: config },
   { path: '/:demo/:vertical/home', name: 'home', component: home },
@@ -28,7 +28,7 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-  mode: 'history'
+  mode: 'hash'
 })
 
 export default router

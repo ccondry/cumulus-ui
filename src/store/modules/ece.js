@@ -1,37 +1,34 @@
 import * as types from 'src/store/mutation-types'
-import jQuery from 'jQuery'
-import notifications from 'src/store/modules/notifications.js'
-// import contextService from 'src/store/modules/context-service.js'
-function parseHistory (data) {
-  // console.log('ece chat history data returned = ' + JSON.stringify(data))
-  // pull CONTENT property out and begin parsing by splitting it at the object
-  // border. CONTENT is a serialized object.
-  let objects = decodeURIComponent(data.CONTENT).split('O{')
-  let content = [objects.length]
-
-  // iterate over the split objects
-  for (let i = 0; i < objects.length; i++) {
-    let properties = objects[i].split('}')
-    // console.log('properties', properties)
-    let niceProps = {}
-    for (let j = 0; j < properties.length; j++) {
-      let s = properties[j]
-      let marker1 = s.indexOf('+|+')
-      let key = s.substring(0, marker1)
-      let marker2 = marker1 + '+|+'.length
-      // let type = s.substring(marker2, marker2 + 1)
-      let value = s.substring(marker2 + 2, s.length)
-      if (key !== '') {
-        niceProps[key] = value
-      }
-    }
-    content[i] = niceProps
-  }
-  // assign parsed content to new property
-  data.parsedContent = content
-  // console.log('final content = ', content)
-  // return content
-}
+// function parseHistory (data) {
+//   // console.log('ece chat history data returned = ' + JSON.stringify(data))
+//   // pull CONTENT property out and begin parsing by splitting it at the object
+//   // border. CONTENT is a serialized object.
+//   let objects = decodeURIComponent(data.CONTENT).split('O{')
+//   let content = [objects.length]
+//
+//   // iterate over the split objects
+//   for (let i = 0; i < objects.length; i++) {
+//     let properties = objects[i].split('}')
+//     // console.log('properties', properties)
+//     let niceProps = {}
+//     for (let j = 0; j < properties.length; j++) {
+//       let s = properties[j]
+//       let marker1 = s.indexOf('+|+')
+//       let key = s.substring(0, marker1)
+//       let marker2 = marker1 + '+|+'.length
+//       // let type = s.substring(marker2, marker2 + 1)
+//       let value = s.substring(marker2 + 2, s.length)
+//       if (key !== '') {
+//         niceProps[key] = value
+//       }
+//     }
+//     content[i] = niceProps
+//   }
+//   // assign parsed content to new property
+//   data.parsedContent = content
+//   // console.log('final content = ', content)
+//   // return content
+// }
 
 const state = {
   server: 'ece.cxdemo.net',
