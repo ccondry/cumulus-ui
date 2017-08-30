@@ -6,22 +6,22 @@
     "subtitle": "HEALTH",
     "color": "#7CC153"
   },
-  "headingImage": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/bg-image.jpg",
+  "headingImage": "/static/images/cumulus/verticals/healthcare/bg-image.jpg",
   "blogItems": [
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/blogpost1.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/blogpost1.jpg",
       "title": "Cleaning",
       "subTitle": "Bathing, Dressing and Grooming",
       "description": "Support for bathing, dressing, grooming and bathroom assistance."
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/blogpost2.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/blogpost2.jpg",
       "title": "Training",
       "subTitle": "Training Programs",
       "description": "Support to help seniors cope with their condition while maximizing their capabilities."
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/blogpost3.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/blogpost3.jpg",
       "title": "Cooking",
       "subTitle": "Menu Planning and Cooking",
       "description": "Support for meals which includes menu planning and cooking."
@@ -31,50 +31,50 @@
     {
       "name": "Cleaning",
       "description": "Cleaning Services",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product1.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product1_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/healthcare/product1.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/product1_big.jpg"
     },
     {
       "name": "Training",
       "description": "Training Programs",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product2.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product2_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/healthcare/product2.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/product2_big.jpg"
     },
     {
       "name": "Cooking",
       "description": "Menu Planning and Cooking",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product3.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product3_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/healthcare/product3.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/product3_big.jpg"
     },
     {
       "name": "Housekeeping",
       "description": "Housekeeping and Laundry",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product4.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product4_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/healthcare/product4.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/product4_big.jpg"
     },
     {
       "name": "Transportation",
       "description": "Errands and Transportations",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product5.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product5_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/healthcare/product5.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/product5_big.jpg"
     },
     {
       "name": "Medications",
       "description": "Medications and Health Assistance",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product6.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product6_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/healthcare/product6.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/product6_big.jpg"
     },
     {
       "name": "Hospice",
       "description": "Hospice Care Support",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product7.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product7_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/healthcare/product7.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/product7_big.jpg"
     },
     {
       "name": "Diseases",
       "description": "Support and Detection of Specific Diseases",
-      "thumbnail": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product8.jpg",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/product8_big.jpg"
+      "thumbnail": "/static/images/cumulus/verticals/healthcare/product8.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/product8_big.jpg"
     }
   ],
   "authors": [
@@ -82,25 +82,25 @@
       "firstName": "Sandra",
       "lastName": "Jefferson",
       "role": "Agent",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author1.png"
+      "image": "/static/images/cumulus/common/author1.png"
     },
     {
       "firstName": "Josh",
       "lastName": "Peterson",
       "role": "Agent",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author2.png"
+      "image": "/static/images/cumulus/common/author2.png"
     },
     {
       "firstName": "Rick",
       "lastName": "Barrows",
       "role": "Supervisor",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author3.png"
+      "image": "/static/images/cumulus/common/author3.png"
     },
     {
       "firstName": "Helen",
       "lastName": "Liang",
       "role": "Manager",
-      "image": "//static.dcloud.cisco.com/images/cumulus/common/author5.png"
+      "image": "/static/images/cumulus/common/author5.png"
     }
   ],
   "sliders": [
@@ -110,7 +110,7 @@
       "text2": "when it comes to making decisions about care for your elderly family member?",
       "buttonText": "Know Cumulus",
       "buttonLink": "about",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/slide1.jpg"
+      "image": "/static/images/cumulus/verticals/healthcare/slide1.jpg"
     },
     {
       "title": "Our Services",
@@ -118,7 +118,7 @@
       "text2": "receiving the proper care and navigating through a complex health care system.",
       "buttonText": "Check Now",
       "buttonLink": "products",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/slide2.jpg"
+      "image": "/static/images/cumulus/verticals/healthcare/slide2.jpg"
     },
     {
       "title": "Need Help?",
@@ -126,42 +126,42 @@
       "text2": "Here, you'll find answers to commonly asked questions about our services.",
       "buttonText": "Questions?",
       "buttonLink": "contact",
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/slide3.jpg"
+      "image": "/static/images/cumulus/verticals/healthcare/slide3.jpg"
     }
   ],
   "timelinePosts": [
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline1.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/timeline1.jpg",
       "title": "Finance",
       "link": "finance",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline2.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/timeline2.jpg",
       "title": "Healthcare",
       "link": "healthcare",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline3.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/timeline3.jpg",
       "title": "Travel",
       "link": "travel",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline4.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/timeline4.jpg",
       "title": "Gas",
       "link": "utility",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline5.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/timeline5.jpg",
       "title": "Electricity",
       "link": "utility",
       "text": ""
     },
     {
-      "image": "//static.dcloud.cisco.com/images/cumulus/verticals/healthcare/timeline6.jpg",
+      "image": "/static/images/cumulus/verticals/healthcare/timeline6.jpg",
       "title": "City",
       "link": "city",
       "text": ""

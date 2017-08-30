@@ -1,37 +1,34 @@
 import * as types from 'src/store/mutation-types'
-import jQuery from 'jQuery'
-import notifications from 'src/store/modules/notifications.js'
-// import contextService from 'src/store/modules/context-service.js'
-function parseHistory (data) {
-  // console.log('ece chat history data returned = ' + JSON.stringify(data))
-  // pull CONTENT property out and begin parsing by splitting it at the object
-  // border. CONTENT is a serialized object.
-  let objects = decodeURIComponent(data.CONTENT).split('O{')
-  let content = [objects.length]
-
-  // iterate over the split objects
-  for (let i = 0; i < objects.length; i++) {
-    let properties = objects[i].split('}')
-    // console.log('properties', properties)
-    let niceProps = {}
-    for (let j = 0; j < properties.length; j++) {
-      let s = properties[j]
-      let marker1 = s.indexOf('+|+')
-      let key = s.substring(0, marker1)
-      let marker2 = marker1 + '+|+'.length
-      // let type = s.substring(marker2, marker2 + 1)
-      let value = s.substring(marker2 + 2, s.length)
-      if (key !== '') {
-        niceProps[key] = value
-      }
-    }
-    content[i] = niceProps
-  }
-  // assign parsed content to new property
-  data.parsedContent = content
-  // console.log('final content = ', content)
-  // return content
-}
+// function parseHistory (data) {
+//   // console.log('ece chat history data returned = ' + JSON.stringify(data))
+//   // pull CONTENT property out and begin parsing by splitting it at the object
+//   // border. CONTENT is a serialized object.
+//   let objects = decodeURIComponent(data.CONTENT).split('O{')
+//   let content = [objects.length]
+//
+//   // iterate over the split objects
+//   for (let i = 0; i < objects.length; i++) {
+//     let properties = objects[i].split('}')
+//     // console.log('properties', properties)
+//     let niceProps = {}
+//     for (let j = 0; j < properties.length; j++) {
+//       let s = properties[j]
+//       let marker1 = s.indexOf('+|+')
+//       let key = s.substring(0, marker1)
+//       let marker2 = marker1 + '+|+'.length
+//       // let type = s.substring(marker2, marker2 + 1)
+//       let value = s.substring(marker2 + 2, s.length)
+//       if (key !== '') {
+//         niceProps[key] = value
+//       }
+//     }
+//     content[i] = niceProps
+//   }
+//   // assign parsed content to new property
+//   data.parsedContent = content
+//   // console.log('final content = ', content)
+//   // return content
+// }
 
 const state = {
   server: 'ece.cxdemo.net',
@@ -77,57 +74,57 @@ const getters = {
 }
 
 const actions = {
-  startChat ({commit, state, getters, rootState, dispatch}, {autoStart = true, subject = 'Hello'}) {
-    let newUrl = `${getters.chatUrl}&subject=${encodeURIComponent(subject)}&submit=${autoStart}`
-    console.log('chat url = ', newUrl)
-    window.open(newUrl, '_blank', '...')
-  },
-  startEmail ({commit, state, getters, rootState, dispatch}) {
-    // add CS POD
-    dispatch('addPod', {
-      notes: 'Clicked to send an email for requesting an expert'
-    })
-    // open new email in OS
-    console.log('emailUrl = ', getters.emailUrl)
-    window.location.href = getters.emailUrl
-  },
-  sendEmail ({commit, state, getters, rootState, dispatch}, {body, subject, fromName, fromAddress, success, fail}) {
-    // send email using API
-    let formData = `body=${body}&subject=${subject}&fromName=${fromName}&fromAddress=${fromAddress}&toName=${state.toName}&toAddress=${state.email}&token=${state.sendEmailToken}`
-
-    jQuery.ajax({
-      method: 'POST',
-      url: rootState.apiBase + '/instance/pcce/demo/egain/email/send',
-      data: formData,
-      cache: false,
-      contentType: 'application/x-www-form-urlencoded',
-      processData: false
-    }).done(function (rsp) {
-      let message = 'Successfully sent email.'
-      notifications.actions.successNotification({commit, state}, message)
-      // run callback
-      if (typeof success === 'function') {
-        success(rsp)
-      }
-    }).fail(function (xhr, status, error) {
-      let message = 'Failed to send email. The server returned the following error: ' + xhr.responseText
-      notifications.actions.failNotification({commit, state}, xhr, message)
-      // run callback
-      if (typeof fail === 'function') {
-        fail(xhr)
-      }
-    })
-  },
-  getChatHistory ({commit, state, rootState, rootGetters}) {
-    jQuery.ajax(`${rootState.apiBase}/instance/pcce/demo/egain/chat/history?email=${rootGetters.authToken}&token=${state.chatHistoryToken}`)
-    .done(function (rsp) {
-      console.log('get chat history response:', rsp)
-      for (let i in rsp) {
-        parseHistory(rsp[i])
-      }
-      commit(types.SET_ECE_CHAT_HISTORY, rsp)
-    })
-  }
+  // startChat ({commit, state, getters, rootState, dispatch}, {autoStart = true, subject = 'Hello'}) {
+  //   let newUrl = `${getters.chatUrl}&subject=${encodeURIComponent(subject)}&submit=${autoStart}`
+  //   console.log('chat url = ', newUrl)
+  //   window.open(newUrl, '_blank', '...')
+  // },
+  // startEmail ({commit, state, getters, rootState, dispatch}) {
+  //   // add CS POD
+  //   dispatch('addPod', {
+  //     notes: 'Clicked to send an email for requesting an expert'
+  //   })
+  //   // open new email in OS
+  //   console.log('emailUrl = ', getters.emailUrl)
+  //   window.location.href = getters.emailUrl
+  // },
+  // sendEmail ({commit, state, getters, rootState, dispatch}, {body, subject, fromName, fromAddress, success, fail}) {
+  //   // send email using API
+  //   let formData = `body=${body}&subject=${subject}&fromName=${fromName}&fromAddress=${fromAddress}&toName=${state.toName}&toAddress=${state.email}&token=${state.sendEmailToken}`
+  //
+  //   jQuery.ajax({
+  //     method: 'POST',
+  //     url: rootState.apiBase + '/instance/pcce/demo/egain/email/send',
+  //     data: formData,
+  //     cache: false,
+  //     contentType: 'application/x-www-form-urlencoded',
+  //     processData: false
+  //   }).done(function (rsp) {
+  //     let message = 'Successfully sent email.'
+  //     notifications.actions.successNotification({commit, state}, message)
+  //     // run callback
+  //     if (typeof success === 'function') {
+  //       success(rsp)
+  //     }
+  //   }).fail(function (xhr, status, error) {
+  //     let message = 'Failed to send email. The server returned the following error: ' + xhr.responseText
+  //     notifications.actions.failNotification({commit, state}, xhr, message)
+  //     // run callback
+  //     if (typeof fail === 'function') {
+  //       fail(xhr)
+  //     }
+  //   })
+  // },
+  // getChatHistory ({commit, state, rootState, rootGetters}) {
+  //   jQuery.ajax(`${rootState.apiBase}/instance/pcce/demo/egain/chat/history?email=${rootGetters.authToken}&token=${state.chatHistoryToken}`)
+  //   .done(function (rsp) {
+  //     console.log('get chat history response:', rsp)
+  //     for (let i in rsp) {
+  //       parseHistory(rsp[i])
+  //     }
+  //     commit(types.SET_ECE_CHAT_HISTORY, rsp)
+  //   })
+  // }
 }
 
 const mutations = {

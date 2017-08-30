@@ -26,6 +26,9 @@ export const SET_VERTICAL = 'SET_VERTICAL'
 export const SET_VERTICALS = 'SET_VERTICALS'
 export const SET_VERTICAL_CONFIG = 'SET_VERTICAL_CONFIG'
 
+/* platform */
+export const SET_PLATFORM = 'SET_PLATFORM'
+
 /* Lightbox (image popups) */
 export const LIGHTBOX_OPEN = 'LIGHTBOX_OPEN'
 export const LIGHTBOX_CLOSE = 'LIGHTBOX_CLOSE'

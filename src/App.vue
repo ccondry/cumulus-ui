@@ -29,10 +29,21 @@
         >Go</button>
       </div>
       <div v-else>
-        Choose
+        Choose your platform:
+        <select v-model="platformSelect">
+          <option disabled value="">Please Choose Platform</option>
+          <option v-for="platform in platforms" :value="platform.id">{{ platform.name }}</option>
+        </select>
+        <button
+        class="btn btn-success"
+        @click.prevent="go({ name: 'vertical-select', params: { demo: platformSelect }})"
+        :disabled="platformSelect === ''"
+        >Go</button>
+
+        <!-- Choose
         <router-link :to="{ path: '/pcce' }">PCCE</router-link>
         or
-        <router-link :to="{ path: '/uccx' }">UCCX</router-link>
+        <router-link :to="{ path: '/uccx' }">UCCX</router-link> -->
       </div>
     </div>
     <!-- Login Form -->
@@ -62,6 +73,20 @@ import Lightbox from 'src/components/lightbox.vue'
 
 import {mapGetters, mapActions} from 'vuex'
 
+const platforms = [{
+  name: 'dCloud PCCE',
+  id: 'dcloud-pcce'
+}, {
+  name: 'dCloud UCCX',
+  id: 'dcloud-uccx'
+}, {
+  name: 'CXDemo PCCE',
+  id: 'cxdemo-pcce'
+}, {
+  name: 'CXDemo UCCX',
+  id: 'cxdemo-uccx'
+}]
+
 export default {
   name: 'app',
   components: {
@@ -78,7 +103,9 @@ export default {
       activeSession: false,
       inSupport: false,
       userEmail: '',
-      verticalSelect: ''
+      verticalSelect: '',
+      platformSelect: '',
+      platforms
     }
   },
   created () {
@@ -129,6 +156,7 @@ export default {
       checkLogin: 'checkLogin',
       logout: 'logout',
       setVertical: 'setVertical',
+      setPlatform: 'setPlatform',
       setTitle: 'setTitle',
       getVerticals: 'getVerticals'
     }),
@@ -187,6 +215,10 @@ export default {
       this.setVertical(val)
       // update the vertical data
       // console.log(this.$route.params.vertical)
+    },
+    demo (val, oldVal) {
+      // update the platform ID in state
+      this.setPlatform(val)
     }
     // authToken (val, oldVal) {
     //   if (val !== null) {

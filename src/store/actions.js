@@ -1,5 +1,7 @@
 import * as types from './mutation-types'
 import axios from 'axios'
+import config from 'src/config'
+
 // export const addToCart = ({ commit }, product) => {
 //   if (product.inventory > 0) {
 //     commit(types.ADD_TO_CART, {
@@ -83,6 +85,11 @@ export const setVertical = async ({commit, state, rootState}, data) => {
   // return response
 }
 
+export const setPlatform = async ({commit, state, rootState}, data) => {
+  console.log('changing platform to ', data)
+  commit(types.SET_PLATFORM, data)
+}
+
 // change the HTML page title
 export const setTitle = ({commit, state}, data) => {
   console.log('changing page title to', data)
@@ -134,8 +141,7 @@ export const startChat = ({commit, state, rootState}, data) => {
   // open iframe
   // this.showChatIframe = true
   // open popup
-  let url = 'http://cceece.dcloud.cisco.com/system/templates/chat/kiwi/chat.html?subActivity=Chat&entryPointId=1001&templateName=kiwi&languageCode=en&countryCode=US&ver=v11'
-  url = addEceParameters(url, data)
+  let url = addEceChatParameters(config.platform[rootState.platform].ece.chatUrl, data)
   let w = 400
   let h = 600
   let top = (window.screen.height / 2) - (h / 2)
@@ -148,8 +154,12 @@ export const startCallback = ({commit, state, rootState}, data) => {
   // open iframe
   // this.showCallbackIframe = true
   // open popup
-  let url = 'http://cceece.dcloud.cisco.com/system/templates/chat/kiwi/chat.html?subActivity=Chat&entryPointId=1001&templateName=kiwi&languageCode=en&countryCode=US&ver=v11'
-  url = addEceParameters(url, data)
+  let url
+  // if (data.delay && data.delay !== 0 && data.delay !== '') {
+  //   url = addEceParameters(config.ece.delayedCallbackUrl, data)
+  // } else {
+  url = addEceCallbackParameters(config.platform[rootState.platform].ece.callbackUrl, data)
+  // }
   let w = 400
   let h = 600
   let top = (window.screen.height / 2) - (h / 2)
@@ -157,6 +167,10 @@ export const startCallback = ({commit, state, rootState}, data) => {
   window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
 }
 
-function addEceParameters (url, data) {
-  return url + `&email_address=${data.email}&full_name=${encodeURIComponent(data.name)}&phone_number=${data.phone}&subject=${encodeURIComponent(data.subject)}&submit=true`
+function addEceChatParameters (url, data) {
+  return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&&fieldname_3=${data.phone}&fieldname_4=${encodeURIComponent(data.subject)}`
+}
+
+function addEceCallbackParameters (url, data) {
+  return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&&fieldname_3=${data.phone}&fieldname_4=0&fieldname_5=${encodeURIComponent(data.subject)}`
 }

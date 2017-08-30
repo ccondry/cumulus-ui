@@ -32,7 +32,7 @@
               </div>
             </router-link>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="main-menu">
               <ul>
                 <li><router-link to="home" class="nav-item">Home</router-link></li>
@@ -51,6 +51,9 @@
               </form>
             </div>
           </div>
+          <div class="col-md-1 rem-support">
+            <a href @click.prevent="_startRemCall"><img src="static/support.png" />Assist</a>
+          </div>
         </div>
       </div>
     </div>
@@ -59,10 +62,17 @@
 
 <script>
 import 'src/compiled-icons/cumulus-logo'
+import {mapActions} from 'vuex'
 
 export default {
   name: 'vertical-header',
-  props: ['model']
+  props: ['model'],
+  methods: {
+    ...mapActions(['startRemCall']),
+    _startRemCall () {
+      this.startRemCall()
+    }
+  }
 }
 </script>
 
@@ -154,7 +164,7 @@ background-color: #333;
   border: 0;
   content: '';
   color: transparent;
-  background: url(//static.dcloud.cisco.com/images/cumulus/common/search-icon.png);
+  background: url(/static/images/cumulus/common/search-icon.png);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -165,5 +175,14 @@ background-color: #333;
   line-height: 34px;
   outline: 0;
   border: 1px solid #ddd;
+}
+
+.rem-support a {
+  color: #05407c;
+  font-size: 1.6em;
+}
+
+.rem-support img {
+  width: 2.7em;
 }
 </style>
