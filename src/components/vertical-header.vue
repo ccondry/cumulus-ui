@@ -164,7 +164,7 @@ background-color: #333;
   border: 0;
   content: '';
   color: transparent;
-  background: url(http://mobile-manager.cisco.com/static/images/cumulus/common/search-icon.png);
+  background: url(/static/images/cumulus/common/search-icon.png);
   background-position: center;
   background-repeat: no-repeat;
 }

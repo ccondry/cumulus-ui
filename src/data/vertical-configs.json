@@ -93,25 +93,25 @@
                     "firstName": "Sandra",
                     "lastName": "Jefferson",
                     "role": "Agent",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author1.png"
+                    "image": "/static/images/cumulus/common/author1.png"
                 },
                 {
                     "firstName": "Josh",
                     "lastName": "Peterson",
                     "role": "Agent",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author2.png"
+                    "image": "/static/images/cumulus/common/author2.png"
                 },
                 {
                     "firstName": "Rick",
                     "lastName": "Barrows",
                     "role": "Supervisor",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author3.png"
+                    "image": "/static/images/cumulus/common/author3.png"
                 },
                 {
                     "firstName": "Helen",
                     "lastName": "Liang",
                     "role": "Manager",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author5.png"
+                    "image": "/static/images/cumulus/common/author5.png"
                 }
             ],
             "sliders": [
@@ -280,25 +280,25 @@
                     "firstName": "Sandra",
                     "lastName": "Jefferson",
                     "role": "Agent",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author1.png"
+                    "image": "/static/images/cumulus/common/author1.png"
                 },
                 {
                     "firstName": "Josh",
                     "lastName": "Peterson",
                     "role": "Agent",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author2.png"
+                    "image": "/static/images/cumulus/common/author2.png"
                 },
                 {
                     "firstName": "Rick",
                     "lastName": "Barrows",
                     "role": "Supervisor",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author3.png"
+                    "image": "/static/images/cumulus/common/author3.png"
                 },
                 {
                     "firstName": "Helen",
                     "lastName": "Liang",
                     "role": "Manager",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author5.png"
+                    "image": "/static/images/cumulus/common/author5.png"
                 }
             ],
             "sliders": [
@@ -470,25 +470,25 @@
                     "firstName": "Sandra",
                     "lastName": "Jefferson",
                     "role": "Agent",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author1.png"
+                    "image": "/static/images/cumulus/common/author1.png"
                 },
                 {
                     "firstName": "Josh",
                     "lastName": "Peterson",
                     "role": "Agent",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author2.png"
+                    "image": "/static/images/cumulus/common/author2.png"
                 },
                 {
                     "firstName": "Rick",
                     "lastName": "Barrows",
                     "role": "Supervisor",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author3.png"
+                    "image": "/static/images/cumulus/common/author3.png"
                 },
                 {
                     "firstName": "Helen",
                     "lastName": "Liang",
                     "role": "Manager",
-                    "image": "http://mobile-manager.cisco.com/static/images/cumulus/common/author5.png"
+                    "image": "/static/images/cumulus/common/author5.png"
                 }
             ],
             "sliders": [
