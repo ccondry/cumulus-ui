@@ -10,27 +10,27 @@ import config from 'src/config'
 //   }
 // }
 
-export const shortenUrl = ({state, rootState}, {longUrl, callback}) => {
-  var xhr = new window.XMLHttpRequest()
-  var apiKey = rootState.tokens.createLink
-  var apiPath = '//public.cxdemo.net/create-link'
-  var apiUrl = apiPath + '?token=' + apiKey + '&longUrl=' + encodeURIComponent(longUrl)
-  xhr.open('GET', apiUrl)
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      console.log('shortenUrl: returned status ' + xhr.status)
-      if (xhr.status === 200) {
-        var shortUrl = JSON.parse(xhr.response).url
-        console.log('shortened URL = ', shortUrl)
-        console.log('entire response = ', xhr.response)
-        callback(shortUrl)
-      } else {
-        console.log('failed to shorten URL: ', xhr)
-      }
-    }
-  }
-  xhr.send()
-}
+// export const shortenUrl = ({state, rootState}, {longUrl, callback}) => {
+//   var xhr = new window.XMLHttpRequest()
+//   var apiKey = rootState.tokens.createLink
+//   var apiPath = '//public.cxdemo.net/create-link'
+//   var apiUrl = apiPath + '?token=' + apiKey + '&longUrl=' + encodeURIComponent(longUrl)
+//   xhr.open('GET', apiUrl)
+//   xhr.onreadystatechange = function () {
+//     if (xhr.readyState === 4) {
+//       console.log('shortenUrl: returned status ' + xhr.status)
+//       if (xhr.status === 200) {
+//         var shortUrl = JSON.parse(xhr.response).url
+//         console.log('shortened URL = ', shortUrl)
+//         console.log('entire response = ', xhr.response)
+//         callback(shortUrl)
+//       } else {
+//         console.log('failed to shorten URL: ', xhr)
+//       }
+//     }
+//   }
+//   xhr.send()
+// }
 
 export const setFavicon = ({commit, state, rootState}, src) => {
   /*

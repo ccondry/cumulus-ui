@@ -88,17 +88,17 @@ const actions = {
   startTask ({dispatch}, {success, fail}) {
     try {
       let longUrl = window.location.href
-      dispatch('shortenUrl', {
-        longUrl,
-        callback: shortUrl => {
-          dispatch('createTaskRequest', {
-            mediaType: 'alert',
-            cv1: 'Credit Alert',
-            cv2: shortUrl,
-            success
-          })
-        }
+      // dispatch('shortenUrl', {
+      //   longUrl,
+      //   callback: shortUrl => {
+      dispatch('createTaskRequest', {
+        mediaType: 'alert',
+        cv1: 'Credit Alert',
+        //       cv2: shortUrl,
+        success
       })
+      //   }
+      // })
     } catch (e) {
       if (typeof fail === 'function') {
         fail(e)
