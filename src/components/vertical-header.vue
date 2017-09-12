@@ -9,6 +9,7 @@
             </div>
           </div>
           <div class="col-md-6">
+            <a href="#" class="pull-right" @click.prevent="setNeedsSession">{{ datacenter }} {{ sessionId }} </a>
           </div>
         </div>
       </div>
@@ -52,7 +53,7 @@
             </div>
           </div>
           <div class="col-md-1 rem-support">
-            <a href @click.prevent="_startRemCall"><img src="static/support.png" />Assist</a>
+            <a href @click.prevent="startRemCall"><img src="static/support.png" />Assist</a>
           </div>
         </div>
       </div>
@@ -62,16 +63,28 @@
 
 <script>
 import 'src/compiled-icons/cumulus-logo'
-import {mapActions} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   name: 'vertical-header',
   props: ['model'],
   methods: {
-    ...mapActions(['startRemCall']),
-    _startRemCall () {
-      this.startRemCall()
+    ...mapActions({
+      '_startRemCall': 'startRemCall',
+      '_setNeedsSession': 'setNeedsSession'
+    }),
+    startRemCall () {
+      this._startRemCall()
+    },
+    setNeedsSession () {
+      this._setNeedsSession(true)
     }
+  },
+  computed: {
+    ...mapGetters([
+      'sessionId',
+      'datacenter'
+    ])
   }
 }
 </script>

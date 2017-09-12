@@ -227,7 +227,7 @@ export default {
   methods: {
     ...mapActions({
       createTaskRequest: 'createTaskRequest',
-      shortenUrl: 'shortenUrl',
+      // shortenUrl: 'shortenUrl',
       addPod: 'addPod',
       startRemCall: 'startRemCall',
       getChatHistory: 'getChatHistory',
