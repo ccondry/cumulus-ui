@@ -12,5 +12,14 @@ export default {
   },
   [types.SET_VERTICAL_CONFIG] (state, data) {
     state.verticalConfig = data
+  },
+  [types.SET_SESSION_ID] (state, data) {
+    state.sessionId = data
+  },
+  [types.SET_DATACENTER] (state, data) {
+    state.datacenter = data
+  },
+  [types.SET_NEEDS_SESSION] (state, data) {
+    state.needsSession = data
   }
 }
