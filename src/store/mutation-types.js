@@ -32,3 +32,8 @@ export const SET_PLATFORM = 'SET_PLATFORM'
 /* Lightbox (image popups) */
 export const LIGHTBOX_OPEN = 'LIGHTBOX_OPEN'
 export const LIGHTBOX_CLOSE = 'LIGHTBOX_CLOSE'
+
+/* dCloud session identifiers */
+export const SET_SESSION_ID = 'SET_SESSION_ID'
+export const SET_DATACENTER = 'SET_DATACENTER'
+export const SET_NEEDS_SESSION = 'SET_NEEDS_SESSION'

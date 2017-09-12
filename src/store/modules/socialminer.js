@@ -87,7 +87,7 @@ const actions = {
   },
   startTask ({dispatch}, {success, fail}) {
     try {
-      let longUrl = window.location.href
+      // let longUrl = window.location.href
       // dispatch('shortenUrl', {
       //   longUrl,
       //   callback: shortUrl => {

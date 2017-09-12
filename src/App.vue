@@ -58,8 +58,8 @@
     v-show="showCobrowseModal"
     v-on:close="showCobrowseModal = false"></cobrowse-modal> -->
 
-    <!-- Login Form -->
-    <!-- <login-modal v-show="needsAuthentication"></login-modal> -->
+    <!-- Session & Datacenter Form -->
+    <session-modal v-show="needsSession"></session-modal>
   </div>
 </template>
 
@@ -70,6 +70,7 @@ import notifications from 'src/components/notifications/notifications.vue'
 import VerticalHeader from 'src/components/vertical-header.vue'
 import VerticalFooter from 'src/components/vertical-footer.vue'
 import Lightbox from 'src/components/lightbox.vue'
+import SessionModal from 'src/components/session-modal.vue'
 
 import {mapGetters, mapActions} from 'vuex'
 
@@ -95,7 +96,8 @@ export default {
     notifications,
     VerticalHeader,
     VerticalFooter,
-    Lightbox
+    Lightbox,
+    SessionModal
   },
   data () {
     return {
@@ -115,8 +117,8 @@ export default {
     // update the HTML page title
     this.setTitle(this.verticalConfig.name)
 
-    // see if user is logged in
-    // this.checkLogin()
+    // see if session is in localStorage
+    this.checkSession()
 
     // set up REM event handlers
     try {
@@ -158,7 +160,9 @@ export default {
       setVertical: 'setVertical',
       setPlatform: 'setPlatform',
       setTitle: 'setTitle',
-      getVerticals: 'getVerticals'
+      getVerticals: 'getVerticals',
+      setNeedsSession: 'setNeedsSession',
+      checkSession: 'checkSession'
     }),
     submit (e) {
     },
@@ -194,7 +198,10 @@ export default {
   computed: {
     ...mapGetters([
       'verticalConfig',
-      'verticals'
+      'verticals',
+      'needsSession',
+      'datacenter',
+      'sessionId'
     ]),
     // customer: 'customer',
     // needsAuthentication: 'needsAuthentication',
@@ -219,6 +226,18 @@ export default {
     demo (val, oldVal) {
       // update the platform ID in state
       this.setPlatform(val)
+    },
+    datacenter (val, oldVal) {
+      if (val === null && val === '') {
+        console.log('datacenter is not valid. requesting session info from user.')
+        this.setNeedsSession(true)
+      }
+    },
+    sessionId (val, oldVal) {
+      if (val === null && val === '') {
+        console.log('sessionId is not valid. requesting session info from user.')
+        this.setNeedsSession(true)
+      }
     }
     // authToken (val, oldVal) {
     //   if (val !== null) {
