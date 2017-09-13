@@ -221,3 +221,18 @@ export const checkSession = ({state, commit}) => {
 export const setNeedsSession = ({commit, state, rootState}, data) => {
   commit(types.SET_NEEDS_SESSION, data)
 }
+
+export const getSessionInfo = async ({commit, state, rootState}) => {
+  console.log('getting session info')
+  try {
+    const response = await axios.get(`${rootState.apiBase}/datacenters/${rootState.datacenter}/sessions/${rootState.sessionId}`)
+    console.log('session info acquired:', response)
+    console.log('storing session info config in state')
+    // store vertical config in state
+    commit(types.SET_SESSION_INFO, response.data)
+  } catch (e) {
+    console.log('failed to get session info.', e)
+    // set state data to null
+    commit(types.SET_SESSION_INFO, null)
+  }
+}

@@ -162,7 +162,8 @@ export default {
       setTitle: 'setTitle',
       getVerticals: 'getVerticals',
       setNeedsSession: 'setNeedsSession',
-      checkSession: 'checkSession'
+      checkSession: 'checkSession',
+      getSessionInfo: 'getSessionInfo'
     }),
     submit (e) {
     },
@@ -237,6 +238,9 @@ export default {
       if (val === null && val === '') {
         console.log('sessionId is not valid. requesting session info from user.')
         this.setNeedsSession(true)
+      } else {
+        console.log('sessionId received. Getting session info.')
+        this.getSessionInfo()
       }
     }
     // authToken (val, oldVal) {

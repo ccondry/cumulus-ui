@@ -9,7 +9,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <a href="#" class="pull-right" @click.prevent="setNeedsSession">{{ datacenter }} {{ sessionId }} </a>
+            <a href="#" class="pull-right" :style="validSession ? '' : 'color: red'" @click.prevent="setNeedsSession">{{ datacenter }} {{ sessionId }} </a>
           </div>
         </div>
       </div>
@@ -83,8 +83,12 @@ export default {
   computed: {
     ...mapGetters([
       'sessionId',
-      'datacenter'
-    ])
+      'datacenter',
+      'sessionInfo'
+    ]),
+    validSession () {
+      return this.sessionInfo
+    }
   }
 }
 </script>
