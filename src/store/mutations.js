@@ -21,5 +21,8 @@ export default {
   },
   [types.SET_NEEDS_SESSION] (state, data) {
     state.needsSession = data
+  },
+  [types.SET_SESSION_INFO] (state, data) {
+    state.sessionInfo = data
   }
 }
