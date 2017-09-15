@@ -1,5 +1,6 @@
 import * as types from './mutation-types'
 import axios from 'axios'
+import notifications from './modules/notifications'
 // import config from 'src/config'
 
 // export const addToCart = ({ commit }, product) => {
@@ -126,50 +127,67 @@ export const getVerticals = async ({commit, state, rootState}, data) => {
 
 export const sendEmail = ({commit, state, rootState}, data) => {
   return new Promise((resolve, reject) => {
-    const url = `${rootState.apiBase}/email`
-    const body = {
-      session: rootState.sessionId,
-      datacenter: rootState.datacenter,
-      email: data
+    // check session is valid
+    if (state.sessionInfo === null) {
+      // invalid session
+      const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
+      reject(message)
+    } else {
+      const url = `${rootState.apiBase}/email`
+      const body = {
+        session: rootState.sessionId,
+        datacenter: rootState.datacenter,
+        email: data
+      }
+      axios.post(url, body)
+      .then(response => {
+        resolve(response)
+      })
+      .catch(error => {
+        reject(error)
+      })
     }
-    axios.post(url, body)
-    .then(response => {
-      resolve(response)
-    })
-    .catch(error => {
-      reject(error)
-    })
   })
 }
 
 export const startChat = ({commit, state, rootState, getters}, data) => {
-  // open iframe
-  // this.showChatIframe = true
-  // open popup
-  let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
-  let w = 400
-  let h = 600
-  let top = (window.screen.height / 2) - (h / 2)
-  let left = (window.screen.width / 2) - (w / 2)
-  window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
-  // window.resize('400', '600')
+  // check session is valid
+  if (state.sessionInfo === null) {
+    // invalid session
+    const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
+    notifications.actions.failNotification({commit, state}, message)
+  } else {
+    // open popup
+    let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
+    let w = 400
+    let h = 600
+    let top = (window.screen.height / 2) - (h / 2)
+    let left = (window.screen.width / 2) - (w / 2)
+    window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+    // window.resize('400', '600')
+  }
 }
 
 export const startCallback = ({commit, state, rootState, getters}, data) => {
-  // open iframe
-  // this.showCallbackIframe = true
-  // open popup
-  let url
-  // if (data.delay && data.delay !== 0 && data.delay !== '') {
-  //   url = addEceParameters(config.ece.delayedCallbackUrl, data)
-  // } else {
-  url = addEceCallbackParameters(getters.dCloudEceCallbackUrl, data)
-  // }
-  let w = 400
-  let h = 600
-  let top = (window.screen.height / 2) - (h / 2)
-  let left = (window.screen.width / 2) - (w / 2)
-  window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+  // check session is valid
+  if (state.sessionInfo === null) {
+    // invalid session
+    const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
+    notifications.actions.failNotification({commit, state}, message)
+  } else {
+    // open popup
+    let url
+    // if (data.delay && data.delay !== 0 && data.delay !== '') {
+    //   url = addEceParameters(config.ece.delayedCallbackUrl, data)
+    // } else {
+    url = addEceCallbackParameters(getters.dCloudEceCallbackUrl, data)
+    // }
+    let w = 400
+    let h = 600
+    let top = (window.screen.height / 2) - (h / 2)
+    let left = (window.screen.width / 2) - (w / 2)
+    window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+  }
 }
 
 function addEceChatParameters (url, data) {
