@@ -120,6 +120,8 @@ export default {
     // see if session is in localStorage
     this.checkSession()
 
+    this.getSessionInfo()
+
     // set up REM event handlers
     try {
       window.AssistSDK.onConnectionEstablished = () => {
@@ -238,8 +240,11 @@ export default {
       if (val === null && val === '') {
         console.log('sessionId is not valid. requesting session info from user.')
         this.setNeedsSession(true)
-      } else {
-        console.log('sessionId received. Getting session info.')
+      }
+    },
+    needsSession (val, oldVal) {
+      if (val === false) {
+        console.log('sessionId/datacenter changed. Getting session info.')
         this.getSessionInfo()
       }
     }
