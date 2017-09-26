@@ -1,6 +1,6 @@
 export default {
   gmapsApiKey: '***REMOVED***',
-  // productionApiUrl: '/api/v1',
+  // productionApiUrl: 'https://mm.cxdemo.net/api/v1',
   productionApiUrl: '/api/v1',
   rem: {
     destination: 'sip:7705@dcloud.cisco.com',
