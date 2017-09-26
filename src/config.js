@@ -1,7 +1,7 @@
 export default {
   gmapsApiKey: 'AIzaSyDPRyTrLw1tzRWR761gBCcmXoj7u4nRKxY',
-  // productionApiUrl: 'https://mm.cxdemo.net/api/v1',
-  productionApiUrl: '/api/v1',
+  productionApiUrl: 'https://mm.cxdemo.net/api/v1',
+  // productionApiUrl: '/api/v1',
   rem: {
     destination: 'sip:7705@dcloud.cisco.com',
     url: 'https://rem1.dcloud.cisco.com:8443'

@@ -107,13 +107,15 @@ export default {
   },
   created () {
     console.log('needsSession =', this.needsSession)
+    console.log('query =', this.$route.query)
     // watch scroll, to detect when to pop the menu out
     window.addEventListener('keyup', this.handleKeyUp)
 
-    // see if session is in localStorage
+    // see if session, datacenter, vertical are in queryString or localStorage
     this.checkSession(this.$route.query)
 
     this.getSessionInfo()
+    this.getVerticalConfig()
 
     // update the HTML page title
     this.setTitle(this.verticalConfig.name)
@@ -161,7 +163,8 @@ export default {
       getVerticals: 'getVerticals',
       setNeedsSession: 'setNeedsSession',
       checkSession: 'checkSession',
-      getSessionInfo: 'getSessionInfo'
+      getSessionInfo: 'getSessionInfo',
+      getVerticalConfig: 'getVerticalConfig'
     }),
     isActive (path) {
       return this.$route.path === path
@@ -231,12 +234,9 @@ export default {
     //     this.setNeedsSession(true)
     //   }
     // },
-    // vertical (val, oldVal) {
-    //   if (val === null && val === '') {
-    //     console.log('vertical is not valid. requesting session info from user.')
-    //     this.setNeedsSession(true)
-    //   }
-    // },
+    vertical (val, oldVal) {
+      this.getVerticalConfig()
+    },
     needsSession (val, oldVal) {
       if (val === false) {
         console.log('sessionId/datacenter changed. Getting session info.')
