@@ -25,6 +25,7 @@ export const SET_DEMO_DNIS = 'SET_DEMO_DNIS'
 export const SET_VERTICAL = 'SET_VERTICAL'
 export const SET_VERTICALS = 'SET_VERTICALS'
 export const SET_VERTICAL_CONFIG = 'SET_VERTICAL_CONFIG'
+export const SET_CONTACT_PHONE = 'SET_CONTACT_PHONE'
 
 /* platform */
 export const SET_PLATFORM = 'SET_PLATFORM'

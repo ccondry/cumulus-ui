@@ -15,15 +15,15 @@ const contact = resolve => require(['src/routes/contact.vue'], resolve)
 const config = resolve => require(['src/routes/config.vue'], resolve)
 
 const routes = [
-  { path: '/:demo/', name: 'vertical-select', component: home },
-  { path: '/:demo/:vertical/' },
-  { path: '/:demo/:vertical/config', name: 'config', component: config },
-  { path: '/:demo/:vertical/home', name: 'home', component: home },
-  { path: '/:demo/:vertical/about', name: 'about', component: about },
-  { path: '/:demo/:vertical/products', name: 'products', component: products },
-  { path: '/:demo/:vertical/services', name: 'services', component: services },
-  { path: '/:demo/:vertical/single-product', name: 'single-product', component: singleProduct },
-  { path: '/:demo/:vertical/contact', name: 'contact', component: contact }
+  // { path: '/:demo/', name: 'vertical-select', component: home },
+  // { path: '/:demo/:vertical/' },
+  { path: '/config', name: 'config', component: config },
+  { path: '/home', name: 'home', component: home },
+  { path: '/about', name: 'about', component: about },
+  { path: '/products', name: 'products', component: products },
+  { path: '/services', name: 'services', component: services },
+  { path: '/single-product', name: 'single-product', component: singleProduct },
+  { path: '/contact', name: 'contact', component: contact }
 ]
 
 const router = new VueRouter({

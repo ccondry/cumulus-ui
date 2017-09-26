@@ -17,7 +17,7 @@ export default {
     email: 'info@cumulus.com'
   },
   verticalConfig,
-  platform: '',
+  platform: null,
   platformConfig: null,
   datacenter: null,
   sessionId: null,
