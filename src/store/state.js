@@ -22,5 +22,6 @@ export default {
   datacenter: null,
   sessionId: null,
   needsSession: false,
-  sessionInfo: null
+  sessionInfo: null,
+  isLocal: false
 }

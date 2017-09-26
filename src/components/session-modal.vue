@@ -37,6 +37,15 @@
                 </select>
               </div>
             </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Local:</label>
+              <div class="col-sm-6">
+                <select v-model="isLocal">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+              </div>
+            </div>
             <div class="form-group pull-right">
               <button type="submit" class="btn btn-success" :disabled="submitDisabled">Set</button>
               <button type="button" class="btn btn-default" @click.prevent="cancel">Cancel</button>
@@ -83,13 +92,15 @@ export default {
     this.sessionId = this._sessionId
     this.datacenter = this._datacenter
     this.vertical = this._vertical
+    this.isLocal = this._isLocal
   },
   data () {
     return {
       sessionId: '',
       datacenter: '',
       datacenters,
-      vertical: ''
+      vertical: '',
+      isLocal: false
     }
   },
   methods: {
@@ -111,11 +122,13 @@ export default {
       const sessionId = this.sessionId.trim()
       const datacenter = this.datacenter
       const vertical = this.vertical
+      const isLocal = this.isLocal
       // change the session and datacenter in state
       this.setSession({
         sessionId,
         datacenter,
-        vertical
+        vertical,
+        isLocal
       })
       this.setNeedsSession(false)
     },
@@ -131,6 +144,7 @@ export default {
       _datacenter: 'datacenter',
       needsSession: 'needsSession',
       _vertical: 'vertical',
+      _isLocal: 'isLocal',
       verticals: 'verticals'
     }),
     submitDisabled () {
