@@ -27,5 +27,8 @@ export default {
   },
   [types.SET_CONTACT_PHONE] (state, data) {
     state.contact.phone = data
+  },
+  [types.SET_IS_LOCAL] (state, data) {
+    state.isLocal = data
   }
 }

@@ -27,5 +27,26 @@ export const datacenter = state => state.datacenter
 export const needsSession = state => state.needsSession
 export const sessionInfo = state => state.sessionInfo
 
-export const dCloudEceChatUrl = state => state.sessionInfo === null ? null : `http://${state.sessionInfo.dns}/ece/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
-export const dCloudEceCallbackUrl = state => state.sessionInfo === null ? null : `http://${state.sessionInfo.dns}/ece/system/templates/callback/cumulus/call.html?subActivity=Chat&entryPointId=1002&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+export const dCloudEceChatUrl = state => {
+  if (state.sessionInfo === null) {
+    return null
+  } else {
+    if (state.isLocal) {
+      return `http://cceece.dcloud.cisco.com/ece/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+    } else {
+      return `http://${state.sessionInfo.dns}/ece/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+    }
+  }
+}
+export const dCloudEceCallbackUrl = state => {
+  if (state.sessionInfo === null) {
+    return null
+  } else {
+    if (state.isLocal) {
+      return `http://cceece.dcloud.cisco.com/ece/system/templates/callback/cumulus/call.html?subActivity=Chat&entryPointId=1002&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+    } else {
+      return `http://${state.sessionInfo.dns}/ece/system/templates/callback/cumulus/call.html?subActivity=Chat&entryPointId=1002&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+    }
+  }
+}
+export const isLocal = state => state.isLocal

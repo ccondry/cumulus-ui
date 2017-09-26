@@ -52,16 +52,9 @@ export const setFavicon = ({commit, state, rootState}, src) => {
   document.head.appendChild(link)
 }
 
-export const setVertical = async ({commit, state, rootState}, data) => {
-  console.log('changing vertical to ', data)
-  commit(types.SET_VERTICAL, data)
-  // load vertical config from web services
-  let options = {
-    // headers: {
-    //   'X-Auth-Token': authToken
-    // }
-  }
-  let response = await axios.get(`${rootState.apiBase}/verticals/${rootState.vertical}`, options)
+export const getVerticalConfig = async ({commit, state, rootState}) => {
+  console.log('getting vertical config')
+  let response = await axios.get(`${rootState.apiBase}/verticals/${rootState.vertical}`)
   console.log(response)
   if (response.status >= 200 && response.status < 300) {
     console.log('server response is valid.')
@@ -76,7 +69,7 @@ export const setVertical = async ({commit, state, rootState}, data) => {
         setFavicon(response.data.favicon)
       }
     } else {
-      console.log('vertical config for "' + data + '" was null (vertical not found).')
+      console.log('vertical config for "' + state.vertical + '" was null (vertical not found).')
       // TODO display notification
     }
   } else {
@@ -133,12 +126,25 @@ export const sendEmail = ({commit, state, rootState}, data) => {
       const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
       reject(message)
     } else {
-      const url = `${rootState.apiBase}/email`
-      const body = {
-        session: rootState.sessionId,
-        datacenter: rootState.datacenter,
-        email: data
+      console.log(`state.isLocal = ${rootState.isLocal}`)
+      let url
+      let body
+      if (rootState.isLocal === true) {
+        console.log(`rootState.isLocal is true?`)
+        // local
+        url = `https://branding.dcloud.cisco.com/api/v1/email`
+        body = data
+      } else {
+        console.log(`rootState.isLocal is false?`)
+        // remote
+        url = `${rootState.apiBase}/email`
+        body = {
+          session: rootState.sessionId,
+          datacenter: rootState.datacenter,
+          email: data
+        }
       }
+      console.log(`sending email to ${url}`)
       axios.post(url, body)
       .then(response => {
         resolve(response)
@@ -213,12 +219,17 @@ export const setSession = ({commit, state, rootState}, data) => {
   commit(types.SET_VERTICAL, data.vertical)
   // save in localStorage
   window.localStorage.vertical = data.vertical
+
+  console.log('setting isLocal to ' + data.isLocal)
+  commit(types.SET_IS_LOCAL, data.isLocal === 'true')
+  // save in localStorage
+  window.localStorage.isLocal = data.isLocal
 }
 
 // check localStorage for site config data, and load into state if found
 export const checkSession = ({state, commit}, qs) => {
   console.log('window.localStorage.sessionId', window.localStorage.sessionId)
-  // check localStorage for sessionId, and copy to state if state sessionId is not set
+  // check localStorage for sessionId, and copy to state
   if (qs.session) {
     commit(types.SET_SESSION_ID, qs.session)
     window.localStorage.sessionId = qs.session
@@ -242,7 +253,7 @@ export const checkSession = ({state, commit}, qs) => {
   }
 
   console.log('window.localStorage.vertical', window.localStorage.vertical)
-  // check localStorage for datacenter, and copy to state if state datacenter is not set
+  // check localStorage for datacenter, and copy to state
   if (qs.vertical) {
     commit(types.SET_VERTICAL, qs.vertical)
     window.localStorage.vertical = qs.vertical
@@ -251,6 +262,20 @@ export const checkSession = ({state, commit}, qs) => {
   } else {
     // not set, we need to ask
     commit(types.SET_NEEDS_SESSION, true)
+  }
+
+  console.log('window.localStorage.isLocal', window.localStorage.isLocal)
+  // check localStorage for isLocal, and copy to state
+  if (qs.local === 'true') {
+    commit(types.SET_IS_LOCAL, true)
+    window.localStorage.isLocal = true
+  } else if (qs.local === 'false') {
+    commit(types.SET_IS_LOCAL, false)
+    window.localStorage.isLocal = false
+  } else if (window.localStorage.isLocal) {
+    commit(types.SET_IS_LOCAL, window.localStorage.isLocal)
+  } else {
+    // we don't need to ask on this one
   }
 }
 
