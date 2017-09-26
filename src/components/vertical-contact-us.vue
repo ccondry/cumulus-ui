@@ -228,7 +228,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .active {
   text-decoration: underline;
 }
