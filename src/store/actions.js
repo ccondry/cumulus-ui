@@ -266,6 +266,13 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
     console.log('storing session info config in state')
     // store vertical config in state
     commit(types.SET_SESSION_INFO, response.data)
+    // set up the voice call phone number
+    try {
+      commit(types.SET_CONTACT_PHONE, response.data.phone.international)
+    } catch (e1) {
+      console.log(e1)
+      // do nothing
+    }
   } catch (e) {
     console.log('failed to get session info.', e)
     // set state data to null

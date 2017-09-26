@@ -24,5 +24,8 @@ export default {
   },
   [types.SET_SESSION_INFO] (state, data) {
     state.sessionInfo = data
+  },
+  [types.SET_CONTACT_PHONE] (state, data) {
+    state.contact.phone = data
   }
 }
