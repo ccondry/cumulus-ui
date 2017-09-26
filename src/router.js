@@ -18,6 +18,7 @@ const routes = [
   // { path: '/:demo/', name: 'vertical-select', component: home },
   // { path: '/:demo/:vertical/' },
   { path: '/config', name: 'config', component: config },
+  { path: '/', name: 'index', component: home },
   { path: '/home', name: 'home', component: home },
   { path: '/about', name: 'about', component: about },
   { path: '/products', name: 'products', component: products },
