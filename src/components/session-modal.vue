@@ -8,36 +8,41 @@
         <div class="modal-header">
           <h3>Set dCloud Session</h3>
         </div>
-
-        <form class="form-horizontal modal-body" role="form" @submit.prevent="submit">
-          <div class="form-group">
-            Set the session ID and datacenter to match your dCloud session.
-          </div>
-          <div class="form-group">
-            Session ID: <input class="form-control" v-model="sessionId">
-          </div>
-          <!-- <div class="form-group">
-            Datacenter: <input class="form-control" v-model="datacenter">
-          </div> -->
-          <div class="form-group">
-            Datacenter:
-            <select v-model="datacenter">
-              <option disabled value="">Please Choose Datacenter</option>
-              <option v-for="dc in datacenters" :value="dc.value">{{ dc.name }}</option>
-
-              <!-- <option value="city">Cumulus City</option>
-              <option value="travel">Cumulus Travel</option>
-              <option value="utility">Cumulus Utility</option>
-              <option value="finance">Cumulus Finance</option>
-              <option value="healthcare">Cumulus Healthcare</option> -->
-            </select>
-          </div>
-          <div class="form-group pull-right">
-            <button type="submit" class="btn btn-success" :disabled="submitDisabled">Set</button>
-            <button type="button" class="btn btn-default" @click.prevent="cancel">Cancel</button>
-          </div>
-        </form>
-
+        <div class="modal-body">
+          <form class="form-horizontal" role="form" @submit.prevent="submit">
+            <div class="form-group">
+              Set the session ID and datacenter to match your dCloud session.
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Session ID:</label>
+              <div class="col-sm-6">
+                <input class="form-control" v-model="sessionId">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Datacenter:</label>
+              <div class="col-sm-6">
+                <select v-model="datacenter">
+                  <option disabled value="">Please Choose Datacenter</option>
+                  <option v-for="dc in datacenters" :value="dc.value">{{ dc.name }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Vertical:</label>
+              <div class="col-sm-6">
+                <select v-model="vertical">
+                  <option disabled value="">Please Choose Vertical</option>
+                  <option v-for="vertical in verticals" :value="vertical.id">{{ vertical.name }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group pull-right">
+              <button type="submit" class="btn btn-success" :disabled="submitDisabled">Set</button>
+              <button type="button" class="btn btn-default" @click.prevent="cancel">Cancel</button>
+            </div>
+          </form>
+        </div>
         <div class="modal-footer"></div>
       </div>
     </div>
@@ -77,12 +82,14 @@ export default {
   mounted () {
     this.sessionId = this._sessionId
     this.datacenter = this._datacenter
+    this.vertical = this._vertical
   },
   data () {
     return {
       sessionId: '',
       datacenter: '',
-      datacenters
+      datacenters,
+      vertical: ''
     }
   },
   methods: {
@@ -102,11 +109,13 @@ export default {
     submit () {
       console.log('submit')
       const sessionId = this.sessionId.trim()
-      const datacenter = this.datacenter.trim()
+      const datacenter = this.datacenter
+      const vertical = this.vertical
       // change the session and datacenter in state
       this.setSession({
         sessionId,
-        datacenter
+        datacenter,
+        vertical
       })
       this.setNeedsSession(false)
     },
@@ -120,11 +129,18 @@ export default {
     ...mapGetters({
       _sessionId: 'sessionId',
       _datacenter: 'datacenter',
-      needsSession: 'needsSession'
+      needsSession: 'needsSession',
+      _vertical: 'vertical',
+      verticals: 'verticals'
     }),
     submitDisabled () {
       // disable the submit button if either input is empty/not set
       return this.sessionId === '' || this.datacenter === ''
+    }
+  },
+  watch: {
+    _vertical (val, oldVal) {
+      this.vertical = val
     }
   }
 }
