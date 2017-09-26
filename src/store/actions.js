@@ -208,30 +208,48 @@ export const setSession = ({commit, state, rootState}, data) => {
   commit(types.SET_DATACENTER, data.datacenter)
   // save in localStorage
   window.localStorage.datacenter = data.datacenter
+
+  console.log('setting vertical to ' + data.vertical)
+  commit(types.SET_VERTICAL, data.vertical)
+  // save in localStorage
+  window.localStorage.vertical = data.vertical
 }
 
-export const checkSession = ({state, commit}) => {
+// check localStorage for site config data, and load into state if found
+export const checkSession = ({state, commit}, qs) => {
   console.log('window.localStorage.sessionId', window.localStorage.sessionId)
   // check localStorage for sessionId, and copy to state if state sessionId is not set
-  if (window.localStorage.sessionId) {
-    if (state.sessionId === null || state.sessionId === '') {
-      commit(types.SET_SESSION_ID, window.localStorage.sessionId)
-    } else {
-      commit(types.SET_NEEDS_SESSION, true)
-    }
+  if (qs.session) {
+    commit(types.SET_SESSION_ID, qs.session)
+    window.localStorage.sessionId = qs.session
+  } else if (window.localStorage.sessionId) {
+    commit(types.SET_SESSION_ID, window.localStorage.sessionId)
   } else {
+    // not set, we need to ask
     commit(types.SET_NEEDS_SESSION, true)
   }
 
   console.log('window.localStorage.datacenter', window.localStorage.datacenter)
-  // check localStorage for datacenter, and copy to state if state datacenter is not set
-  if (window.localStorage.datacenter) {
-    if (state.datacenter === null || state.datacenter === '') {
-      commit(types.SET_DATACENTER, window.localStorage.datacenter)
-    } else {
-      commit(types.SET_NEEDS_SESSION, true)
-    }
+  // check query string and localStorage for datacenter, and copy to state
+  if (qs.datacenter) {
+    commit(types.SET_DATACENTER, qs.datacenter)
+    window.localStorage.datacenter = qs.datacenter
+  } else if (window.localStorage.datacenter) {
+    commit(types.SET_DATACENTER, window.localStorage.datacenter)
   } else {
+    // not set, we need to ask
+    commit(types.SET_NEEDS_SESSION, true)
+  }
+
+  console.log('window.localStorage.vertical', window.localStorage.vertical)
+  // check localStorage for datacenter, and copy to state if state datacenter is not set
+  if (qs.vertical) {
+    commit(types.SET_VERTICAL, qs.vertical)
+    window.localStorage.vertical = qs.vertical
+  } else if (window.localStorage.vertical) {
+    commit(types.SET_VERTICAL, window.localStorage.vertical)
+  } else {
+    // not set, we need to ask
     commit(types.SET_NEEDS_SESSION, true)
   }
 }

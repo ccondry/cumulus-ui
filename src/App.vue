@@ -2,33 +2,28 @@
   <div id="app">
     <notifications></notifications>
     <lightbox></lightbox>
-    <div v-if="demo && vertical">
+    <!-- <div v-if="demo && vertical"> -->
       <vertical-header :model="verticalConfig"></vertical-header>
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
       <vertical-footer></vertical-footer>
-    </div>
-    <div v-else>
-      <div v-if="demo">
+    <!-- </div> -->
+    <!-- <div v-else> -->
+      <!-- <div v-if="demo">
         Choose a vertical:
         <select v-model="verticalSelect">
           <option disabled value="">Please Choose Vertical</option>
           <option v-for="vertical in verticals" :value="vertical.id">{{ vertical.name }}</option>
 
-          <!-- <option value="city">Cumulus City</option>
-          <option value="travel">Cumulus Travel</option>
-          <option value="utility">Cumulus Utility</option>
-          <option value="finance">Cumulus Finance</option>
-          <option value="healthcare">Cumulus Healthcare</option> -->
         </select>
         <button
         class="btn btn-success"
         @click.prevent="go({ name: 'home', params: { demo: demo, vertical: verticalSelect }})"
         :disabled="verticalSelect === ''"
         >Go</button>
-      </div>
-      <div v-else>
+      </div> -->
+      <!-- <div v-else>
         Choose your platform:
         <select v-model="platformSelect">
           <option disabled value="">Please Choose Platform</option>
@@ -38,14 +33,14 @@
         class="btn btn-success"
         @click.prevent="go({ name: 'vertical-select', params: { demo: platformSelect }})"
         :disabled="platformSelect === ''"
-        >Go</button>
+        >Go</button> -->
 
         <!-- Choose
         <router-link :to="{ path: '/pcce' }">PCCE</router-link>
         or
         <router-link :to="{ path: '/uccx' }">UCCX</router-link> -->
-      </div>
-    </div>
+      <!-- </div> -->
+    <!-- </div> -->
     <!-- Login Form -->
     <!-- <email-modal
     v-show="showEmailModal"
@@ -74,19 +69,19 @@ import SessionModal from 'src/components/session-modal.vue'
 
 import {mapGetters, mapActions} from 'vuex'
 
-const platforms = [{
-  name: 'dCloud PCCE',
-  id: 'dcloud-pcce'
-}, {
-  name: 'dCloud UCCX',
-  id: 'dcloud-uccx'
-}, {
-  name: 'CXDemo PCCE',
-  id: 'cxdemo-pcce'
-}, {
-  name: 'CXDemo UCCX',
-  id: 'cxdemo-uccx'
-}]
+// const platforms = [{
+//   name: 'dCloud PCCE',
+//   id: 'dcloud-pcce'
+// }, {
+//   name: 'dCloud UCCX',
+//   id: 'dcloud-uccx'
+// }, {
+//   name: 'CXDemo PCCE',
+//   id: 'cxdemo-pcce'
+// }, {
+//   name: 'CXDemo UCCX',
+//   id: 'cxdemo-uccx'
+// }]
 
 export default {
   name: 'app',
@@ -105,22 +100,23 @@ export default {
       activeSession: false,
       inSupport: false,
       userEmail: '',
-      verticalSelect: '',
-      platformSelect: '',
-      platforms
+      verticalSelect: ''
+      // platformSelect: '',
+      // platforms
     }
   },
   created () {
+    console.log('needsSession =', this.needsSession)
     // watch scroll, to detect when to pop the menu out
     window.addEventListener('keyup', this.handleKeyUp)
 
-    // update the HTML page title
-    this.setTitle(this.verticalConfig.name)
-
     // see if session is in localStorage
-    this.checkSession()
+    this.checkSession(this.$route.query)
 
     this.getSessionInfo()
+
+    // update the HTML page title
+    this.setTitle(this.verticalConfig.name)
 
     // set up REM event handlers
     try {
@@ -137,7 +133,7 @@ export default {
     } catch (e) {
       console.log('exception: ', e)
     }
-    console.log('demo =', this.demo)
+    // console.log('demo =', this.demo)
     console.log('vertical =', this.vertical)
 
     // load verticals list
@@ -167,8 +163,6 @@ export default {
       checkSession: 'checkSession',
       getSessionInfo: 'getSessionInfo'
     }),
-    submit (e) {
-    },
     isActive (path) {
       return this.$route.path === path
     },
@@ -204,44 +198,45 @@ export default {
       'verticals',
       'needsSession',
       'datacenter',
-      'sessionId'
-    ]),
+      'sessionId',
+      'vertical'
+    ])
     // customer: 'customer',
     // needsAuthentication: 'needsAuthentication',
     // authToken: 'authToken'
     // }),
-    vertical () {
-      // pull the vertical ID from route
-      return this.$route.params.vertical
-    },
-    demo () {
-      // pull the demo type from route
-      return this.$route.params.demo
-    }
+    // verticalRoute () {
+    //   // pull the vertical ID from route
+    //   // return this.$route.params.vertical
+    // },
+    // demo () {
+    //   // pull the demo type from route
+    //   return this.$route.params.demo
+    // }
   },
   watch: {
-    vertical (val, oldVal) {
-      // update the vertical ID in state
-      this.setVertical(val)
-      // update the vertical data
-      // console.log(this.$route.params.vertical)
-    },
     demo (val, oldVal) {
       // update the platform ID in state
       this.setPlatform(val)
     },
-    datacenter (val, oldVal) {
-      if (val === null && val === '') {
-        console.log('datacenter is not valid. requesting session info from user.')
-        this.setNeedsSession(true)
-      }
-    },
-    sessionId (val, oldVal) {
-      if (val === null && val === '') {
-        console.log('sessionId is not valid. requesting session info from user.')
-        this.setNeedsSession(true)
-      }
-    },
+    // datacenter (val, oldVal) {
+    //   if (val === null && val === '') {
+    //     console.log('datacenter is not valid. requesting session info from user.')
+    //     this.setNeedsSession(true)
+    //   }
+    // },
+    // sessionId (val, oldVal) {
+    //   if (val === null && val === '') {
+    //     console.log('sessionId is not valid. requesting session info from user.')
+    //     this.setNeedsSession(true)
+    //   }
+    // },
+    // vertical (val, oldVal) {
+    //   if (val === null && val === '') {
+    //     console.log('vertical is not valid. requesting session info from user.')
+    //     this.setNeedsSession(true)
+    //   }
+    // },
     needsSession (val, oldVal) {
       if (val === false) {
         console.log('sessionId/datacenter changed. Getting session info.')
