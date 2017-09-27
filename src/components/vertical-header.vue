@@ -181,7 +181,7 @@ background-color: #333;
   border: 0;
   content: '';
   color: transparent;
-  background: url(/static/images/cumulus/common/search-icon.png);
+  background: url(https://mm.cxdemo.net/static/images/cumulus/common/search-icon.png);
   background-position: center;
   background-repeat: no-repeat;
 }
