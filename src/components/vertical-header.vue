@@ -26,7 +26,7 @@
                   <div class="logo-title">
                     {{ model.logo.title }}
                   </div>
-                  <div class="logo-subtitle">
+                  <div class="logo-subtitle" :style="`color: ${model.logo.color}`">
                     {{ model.logo.subtitle }}
                   </div>
                 </div>
