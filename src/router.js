@@ -10,20 +10,16 @@ const home = resolve => require(['src/routes/home.vue'], resolve)
 const about = resolve => require(['src/routes/about.vue'], resolve)
 const products = resolve => require(['src/routes/products.vue'], resolve)
 const services = resolve => require(['src/routes/services.vue'], resolve)
-const singleProduct = resolve => require(['src/routes/single-product.vue'], resolve)
 const contact = resolve => require(['src/routes/contact.vue'], resolve)
 const config = resolve => require(['src/routes/config.vue'], resolve)
 
 const routes = [
-  // { path: '/:demo/', name: 'vertical-select', component: home },
-  // { path: '/:demo/:vertical/' },
   { path: '/config', name: 'config', component: config },
   { path: '/', name: 'index', component: home },
   { path: '/home', name: 'home', component: home },
   { path: '/about', name: 'about', component: about },
   { path: '/products', name: 'products', component: products },
   { path: '/services', name: 'services', component: services },
-  { path: '/single-product', name: 'single-product', component: singleProduct },
   { path: '/contact', name: 'contact', component: contact }
 ]
 

@@ -21,12 +21,12 @@
             <router-link to="home">
               <div class="logo">
                 <img v-if="model.logo.image" :src="model.logo.image" :title="model.name" :alt="model.name">
-                <svgicon v-if="!model.logo.image" icon="cumulus-logo" width="48" height="48" :color="`r-${model.logo.color} #FFFFFF ${model.logo.color}`"></svgicon>
+                <svgicon v-if="!model.logo.image" icon="cumulus-logo" width="48" height="48" :color="model.logo.color"></svgicon>
                 <div>
                   <div class="logo-title">
                     {{ model.logo.title }}
                   </div>
-                  <div class="logo-subtitle">
+                  <div class="logo-subtitle" :style="`color: ${model.logo.color}`">
                     {{ model.logo.subtitle }}
                   </div>
                 </div>
@@ -181,7 +181,7 @@ background-color: #333;
   border: 0;
   content: '';
   color: transparent;
-  background: url(/static/images/cumulus/common/search-icon.png);
+  background: url(https://mm.cxdemo.net/static/images/cumulus/common/search-icon.png);
   background-position: center;
   background-repeat: no-repeat;
 }

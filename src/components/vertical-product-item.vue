@@ -9,14 +9,14 @@
         <div class="hover">
           <div class="hover-iner">
             <a href @click.prevent="lightbox(model.image, model.description)">
-              <img :src="`/static/images/cumulus/common/open-icon.png`">
+              <img :src="`https://mm.cxdemo.net/static/images/cumulus/common/open-icon.png`">
             </a>
             <span>{{ model.name }}</span>
           </div>
         </div>
       </div>
       <div class="label-text">
-        <h3><router-link to="single-product">{{ model.description }}</router-link></h3>
+        <h3><a href="http://cceeimwim.dcloud.cisco.com/system/templates/selfservice/cumulus_knowledge/help/customer/locale/en-US/portal/200100000001000">{{ model.description }}</a></h3>
         <span class="text-category">{{ model.price }}</span>
       </div>
     </div>

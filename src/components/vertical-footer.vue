@@ -54,7 +54,7 @@
               <h4 class="footer-title">Recent Posts</h4>
               <div class="recent-post">
                 <div class="recent-post-thumb">
-                  <img :src="`/static/images/cumulus/common/recent-post1.jpg`" alt="Cisco Spark">
+                  <img :src="`https://mm.cxdemo.net/static/images/cumulus/common/recent-post1.jpg`" alt="Cisco Spark">
                 </div>
                 <div class="recent-post-info">
                   <h6><a href="https://www.ciscospark.com" target="_blank">Cisco Spark</a></h6>
@@ -62,7 +62,7 @@
               </div>
               <div class="recent-post">
                 <div class="recent-post-thumb">
-                  <img :src="`/static/images/cumulus/common/recent-post2.jpg`" alt="Cisco Spark Care">
+                  <img :src="`https://mm.cxdemo.net/static/images/cumulus/common/recent-post2.jpg`" alt="Cisco Spark Care">
                 </div>
                 <div class="recent-post-info">
                   <h6><a href="https://www.ciscospark.com/sparkcare.html" target="_blank">Cisco Spark Care</a></h6>
@@ -70,7 +70,7 @@
               </div>
               <div class="recent-post">
                 <div class="recent-post-thumb">
-                  <img :src="`/static/images/cumulus/common/recent-post3.jpg`" alt="The Omnichannel Experience">
+                  <img :src="`https://mm.cxdemo.net/static/images/cumulus/common/recent-post3.jpg`" alt="The Omnichannel Experience">
                 </div>
                 <div class="recent-post-info">
                   <h6><a href="http://www.cisco.com/c/dam/en/us/products/customer-collaboration/unified-contact-center-enterprise/stronger-customer-relationships.pdf" target="_blank">The Omnichannel Experience</a></h6>

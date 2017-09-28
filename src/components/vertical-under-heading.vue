@@ -1,5 +1,5 @@
 <template>
-  <img :src="`/static/images/cumulus/common/under-heading.png`" alt="">
+  <img :src="`https://mm.cxdemo.net/static/images/cumulus/common/under-heading.png`" alt="">
 </template>
 
 <script>
