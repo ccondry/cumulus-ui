@@ -8,7 +8,7 @@
         <img :src="model.thumbnail">
         <div class="hover">
           <div class="hover-iner">
-            <a href @click.prevent="lightbox(model.image, model.description)">
+            <a :href="wssUrl" target="_blank">
               <img :src="`https://mm.cxdemo.net/static/images/cumulus/common/open-icon.png`">
             </a>
             <span>{{ model.name }}</span>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="label-text">
-        <h3><a href="http://cceeimwim.dcloud.cisco.com/system/templates/selfservice/cumulus_knowledge/help/customer/locale/en-US/portal/200100000001000">{{ model.description }}</a></h3>
+        <h3><a :href="wssUrl" target="_blank">{{ model.description }}</a></h3>
         <span class="text-category">{{ model.price }}</span>
       </div>
     </div>
@@ -33,8 +33,16 @@ export default {
   ],
   computed: {
     ...mapGetters([
-      'vertical'
-    ])
+      'vertical',
+      'egainWssUrls'
+    ]),
+    wssUrl () {
+      if (this.egainWssUrls && this.egainWssUrls[this.vertical]) {
+        return this.egainWssUrls[this.vertical]
+      } else {
+        return ''
+      }
+    }
   },
   methods: {
     ...mapActions([

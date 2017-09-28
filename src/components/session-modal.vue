@@ -38,11 +38,11 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-4 col-form-label">Local:</label>
+              <label class="col-sm-4 col-form-label">In vPod Workstation:</label>
               <div class="col-sm-6">
                 <select v-model="isLocal">
-                  <option value="false">No</option>
                   <option value="true">Yes</option>
+                  <option value="false">No</option>
                 </select>
               </div>
             </div>
