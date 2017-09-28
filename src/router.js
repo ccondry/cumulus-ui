@@ -14,8 +14,6 @@ const contact = resolve => require(['src/routes/contact.vue'], resolve)
 const config = resolve => require(['src/routes/config.vue'], resolve)
 
 const routes = [
-  // { path: '/:demo/', name: 'vertical-select', component: home },
-  // { path: '/:demo/:vertical/' },
   { path: '/config', name: 'config', component: config },
   { path: '/', name: 'index', component: home },
   { path: '/home', name: 'home', component: home },
