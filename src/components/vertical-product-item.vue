@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="label-text">
-        <h3><router-link to="single-product">{{ model.description }}</router-link></h3>
+        <h3><a href="http://cceeimwim.dcloud.cisco.com/system/templates/selfservice/cumulus_knowledge/help/customer/locale/en-US/portal/200100000001000">{{ model.description }}</a></h3>
         <span class="text-category">{{ model.price }}</span>
       </div>
     </div>
