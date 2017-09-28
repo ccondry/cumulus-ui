@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="label-text">
-        <h3><a href="http://cceeimwim.dcloud.cisco.com/system/templates/selfservice/cumulus_knowledge/help/customer/locale/en-US/portal/200100000001000">{{ model.description }}</a></h3>
+        <h3><a :href="wssUrl" target="_blank">{{ model.description }}</a></h3>
         <span class="text-category">{{ model.price }}</span>
       </div>
     </div>
@@ -33,8 +33,16 @@ export default {
   ],
   computed: {
     ...mapGetters([
-      'vertical'
-    ])
+      'vertical',
+      'egainWssUrls'
+    ]),
+    wssUrl () {
+      if (this.egainWssUrls && this.egainWssUrls[this.vertical]) {
+        return this.egainWssUrls[this.vertical]
+      } else {
+        return ''
+      }
+    }
   },
   methods: {
     ...mapActions([
