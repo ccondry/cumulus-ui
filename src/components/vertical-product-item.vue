@@ -9,7 +9,7 @@
         <div class="hover">
           <div class="hover-iner">
             <a href @click.prevent="lightbox(model.image, model.description)">
-              <img :src="`/static/images/cumulus/common/open-icon.png`">
+              <img :src="`https://mm.cxdemo.net/static/images/cumulus/common/open-icon.png`">
             </a>
             <span>{{ model.name }}</span>
           </div>
