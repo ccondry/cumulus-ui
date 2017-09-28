@@ -21,7 +21,7 @@
             <router-link to="home">
               <div class="logo">
                 <img v-if="model.logo.image" :src="model.logo.image" :title="model.name" :alt="model.name">
-                <svgicon v-if="!model.logo.image" icon="cumulus-logo" width="48" height="48" :color="`r-${model.logo.color} #FFFFFF ${model.logo.color}`"></svgicon>
+                <svgicon v-if="!model.logo.image" icon="cumulus-logo" width="48" height="48" :color="`${model.logo.color} ${model.logo.color} ${model.logo.color}`"></svgicon>
                 <div>
                   <div class="logo-title">
                     {{ model.logo.title }}
