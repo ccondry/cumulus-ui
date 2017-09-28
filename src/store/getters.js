@@ -50,3 +50,15 @@ export const dCloudEceCallbackUrl = state => {
   }
 }
 export const isLocal = state => state.isLocal
+
+export const egainWssUrls = state => {
+  if (state.sessionInfo === null) {
+    return null
+  } else {
+    if (state.isLocal) {
+      return state.sessionInfo.urls.wss.internal
+    } else {
+      return state.sessionInfo.urls.wss.external
+    }
+  }
+}
