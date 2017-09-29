@@ -129,21 +129,21 @@ export const sendEmail = ({commit, state, rootState}, data) => {
       console.log(`state.isLocal = ${rootState.isLocal}`)
       let url
       let body
-      if (rootState.isLocal === true) {
-        console.log(`rootState.isLocal is true?`)
-        // local
-        url = `https://branding.dcloud.cisco.com/api/v1/email`
-        body = data
-      } else {
-        console.log(`rootState.isLocal is false?`)
-        // remote
-        url = `${rootState.apiBase}/email`
-        body = {
-          session: rootState.sessionId,
-          datacenter: rootState.datacenter,
-          email: data
-        }
+      // if (rootState.isLocal === true) {
+      //   console.log(`rootState.isLocal is true?`)
+      //   // local
+      //   url = `https://branding.dcloud.cisco.com/api/v1/email`
+      //   body = data
+      // } else {
+      // console.log(`rootState.isLocal is false?`)
+      // remote
+      url = `${rootState.apiBase}/email`
+      body = {
+        session: rootState.sessionId,
+        datacenter: rootState.datacenter,
+        email: data
       }
+      // }
       console.log(`sending email to ${url}`)
       axios.post(url, body)
       .then(response => {
