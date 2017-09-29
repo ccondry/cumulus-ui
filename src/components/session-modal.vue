@@ -100,7 +100,7 @@ export default {
       datacenter: '',
       datacenters,
       vertical: '',
-      isLocal: false
+      isLocal: true
     }
   },
   methods: {

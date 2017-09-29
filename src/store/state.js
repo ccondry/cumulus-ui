@@ -23,5 +23,5 @@ export default {
   sessionId: null,
   needsSession: false,
   sessionInfo: null,
-  isLocal: false
+  isLocal: true
 }
