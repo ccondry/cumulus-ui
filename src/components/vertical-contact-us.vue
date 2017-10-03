@@ -114,7 +114,9 @@
                   <div class="info">
                     <p>Please select an option to get in contact with us.</p>
                     <ul>
-                      <li><i class="fa fa-phone"></i>{{ contact.phone }}</li>
+                      <li><a :href="`tel:${contact.phone}`"><i class="fa fa-phone"></i>{{ contact.phone }}</a></li>
+                      <li><a :href="`tel:${contact.mobile}`"><i class="fa fa-mobile"></i>{{ contact.mobile }}</a></li>
+                      <li><a :href="`tel:${contact.jacada}`"><i class="fa fa-mobile"></i>{{ contact.jacada }}</a></li>
                       <li><i class="fa fa-globe"></i>{{ contact.address }}</li>
                       <li><i class="fa fa-envelope"></i><a :href="`mailto:${contact.email}`">{{ contact.email }}</a></li>
                       <li><i class="fa fa-clipboard"></i><router-link to="/form">Fill Form</router-link></li>
