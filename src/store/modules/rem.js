@@ -26,8 +26,7 @@ const state = {
   configuration: {
     url: config.rem.url,
     sdkPath: config.rem.url + '/assistserver/sdk/web/consumer',
-    destination: config.rem.destination,
-    uui: toHexString(window.localStorage.userid)
+    destination: config.rem.destination
   },
   shortCode: null,
   lib1: () => {
@@ -60,20 +59,25 @@ const actions = {
     console.log('on connection established called')
     window.localStorage.removeItem('cid-only')
   },
-  storeRemConfiguration ({commit, state, rootState}) {
+  storeRemConfiguration ({commit, state, rootState, getters}) {
     console.log('storing REM config')
     commit(types.SET_REM_CONFIG, {
       url: state.baseUrl,
       sdkPath: state.sdkPath(),
-      destination: state.destination,
-      uui: toHexString(rootState.user.userid)
+      destination: state.destination
+      // uui: toHexString(getters.vertical)
       // correlationId: "assist-altocloud-1707"
     })
   },
-  startRemCall ({commit, state, rootState}) {
+  startRemCall ({commit, state, rootState, getters}) {
     console.log('attempting to start REM call')
+    // get current REM config
+    const config = state.configuration
+    // add vertical into UUI
+    // console.log('getters.vertical = ', getters.vertical)
+    config.uui = toHexString(getters.vertical)
     // start REM Call
-    window.AssistSDK.startSupport(state.configuration)
+    window.AssistSDK.startSupport(config)
   },
   getShortCode ({commit, state, rootState, dispatch}) {
     // get a cid/session token via the short code servlet
