@@ -117,6 +117,7 @@
                       <li><i class="fa fa-phone"></i>{{ contact.phone }}</li>
                       <li><i class="fa fa-globe"></i>{{ contact.address }}</li>
                       <li><i class="fa fa-envelope"></i><a :href="`mailto:${contact.email}`">{{ contact.email }}</a></li>
+                      <li><i class="fa fa-clipboard"></i><router-link to="/form">Fill Form</router-link></li>
                     </ul>
                   </div>
                 </div>
