@@ -28,6 +28,12 @@ export default {
   [types.SET_CONTACT_PHONE] (state, data) {
     state.contact.phone = data
   },
+  [types.SET_CONTACT_JACADA] (state, data) {
+    state.contact.jacada = data
+  },
+  [types.SET_CONTACT_MOBILE] (state, data) {
+    state.contact.mobile = data
+  },
   [types.SET_IS_LOCAL] (state, data) {
     state.isLocal = data
   }
