@@ -1,5 +1,7 @@
 import * as types from 'src/store/mutation-types'
 import config from 'src/config'
+import notifications from './notifications'
+
 // encode a string into hexadecimal-endcoded string values
 function toHexString (str) {
   var hexStr = ''
@@ -64,20 +66,21 @@ const actions = {
     commit(types.SET_REM_CONFIG, {
       url: state.baseUrl,
       sdkPath: state.sdkPath(),
-      destination: state.destination
-      // uui: toHexString(getters.vertical)
+      destination: state.destination,
+      uui: toHexString(getters.vertical)
       // correlationId: "assist-altocloud-1707"
     })
   },
   startRemCall ({commit, state, rootState, getters}) {
     console.log('attempting to start REM call')
-    // get current REM config
-    const config = state.configuration
-    // add vertical into UUI
-    // console.log('getters.vertical = ', getters.vertical)
-    config.uui = toHexString(getters.vertical)
     // start REM Call
-    window.AssistSDK.startSupport(config)
+    window.AssistSDK.startSupport({
+      url: state.baseUrl,
+      sdkPath: state.sdkPath(),
+      destination: state.destination,
+      uui: toHexString(getters.vertical)
+      // correlationId: "assist-altocloud-1707"
+    })
   },
   getShortCode ({commit, state, rootState, dispatch}) {
     // get a cid/session token via the short code servlet
@@ -92,9 +95,9 @@ const actions = {
           console.log('getShortCode shortCode = ', shortCode)
           // store shortCode in state
           commit(types.SET_REM_SHORT_CODE, shortCode)
-          dispatch('startWithShortCode', shortCode)
+          // dispatch('startWithShortCode', shortCode)
         } else {
-          // TODO Report failure to start
+          notifications.actions.failNotification({commit, state}, 'Sorry, we failed to get a cobrowse code to start your screen share.')
         }
       }
     }
