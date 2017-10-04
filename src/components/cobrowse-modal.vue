@@ -17,11 +17,14 @@
         </div>
 
         <div class="modal-body">
-          <p>Here is your Cobrowse Code</p>
+          <!-- <p>Here is your Cobrowse Code</p> -->
           <div class="short-code">
             Your cobrowse code is <strong>{{ shortCode }}</strong>. Please give this code to the agent.
           </div>
-          <button type="button" class="btn btn-default" @click="ok">OK</button>
+
+          <div class="pull-right">
+            <button type="button" class="btn btn-default" @click="ok">OK</button>
+          </div>
         </div>
 
         <div class="modal-footer"></div>
