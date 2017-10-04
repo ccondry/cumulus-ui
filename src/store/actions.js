@@ -297,6 +297,8 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
     // set up the voice call phone number
     try {
       commit(types.SET_CONTACT_PHONE, response.data.phone.international)
+      commit(types.SET_CONTACT_MOBILE, response.data.mobile.international)
+      commit(types.SET_CONTACT_JACADA, response.data.jacada.international)
     } catch (e1) {
       console.log(e1)
       // do nothing
