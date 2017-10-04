@@ -38,7 +38,7 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-4 col-form-label">Using Browser on Demo Workstation:</label>
+              <label class="col-sm-4 col-form-label">On VPN:</label>
               <div class="col-sm-6">
                 <select v-model="isLocal">
                   <option value="true">Yes</option>
