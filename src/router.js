@@ -12,6 +12,7 @@ const products = resolve => require(['src/routes/products.vue'], resolve)
 const services = resolve => require(['src/routes/services.vue'], resolve)
 const contact = resolve => require(['src/routes/contact.vue'], resolve)
 const config = resolve => require(['src/routes/config.vue'], resolve)
+const form = resolve => require(['src/routes/form.vue'], resolve)
 
 const routes = [
   { path: '/config', name: 'config', component: config },
@@ -20,7 +21,8 @@ const routes = [
   { path: '/about', name: 'about', component: about },
   { path: '/products', name: 'products', component: products },
   { path: '/services', name: 'services', component: services },
-  { path: '/contact', name: 'contact', component: contact }
+  { path: '/contact', name: 'contact', component: contact },
+  { path: '/form', name: 'form', component: form }
 ]
 
 const router = new VueRouter({

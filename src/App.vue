@@ -3,7 +3,7 @@
     <notifications></notifications>
     <lightbox></lightbox>
     <!-- <div v-if="demo && vertical"> -->
-      <vertical-header :model="verticalConfig"></vertical-header>
+      <vertical-header :model="verticalConfig" v-on:assist="showAssistModal = true"></vertical-header>
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
@@ -48,10 +48,15 @@
     :initialName="initialName"
     ></email-modal> -->
     <!-- REM cobrowse short code display -->
-    <!-- <cobrowse-modal
+    <cobrowse-modal
     :short-code="shortCode"
     v-show="showCobrowseModal"
-    v-on:close="showCobrowseModal = false"></cobrowse-modal> -->
+    v-on:close="showCobrowseModal = false"></cobrowse-modal>
+
+    <assist-modal
+    v-show="showAssistModal"
+    v-on:cobrowse="startCobrowse"
+    v-on:close="showAssistModal = false"></assist-modal>
 
     <!-- Session & Datacenter Form -->
     <session-modal v-show="needsSession"></session-modal>
@@ -66,22 +71,10 @@ import VerticalHeader from 'src/components/vertical-header.vue'
 import VerticalFooter from 'src/components/vertical-footer.vue'
 import Lightbox from 'src/components/lightbox.vue'
 import SessionModal from 'src/components/session-modal.vue'
+import AssistModal from 'src/components/assist-modal.vue'
+import CobrowseModal from 'src/components/cobrowse-modal.vue'
 
 import {mapGetters, mapActions} from 'vuex'
-
-// const platforms = [{
-//   name: 'dCloud PCCE',
-//   id: 'dcloud-pcce'
-// }, {
-//   name: 'dCloud UCCX',
-//   id: 'dcloud-uccx'
-// }, {
-//   name: 'CXDemo PCCE',
-//   id: 'cxdemo-pcce'
-// }, {
-//   name: 'CXDemo UCCX',
-//   id: 'cxdemo-uccx'
-// }]
 
 export default {
   name: 'app',
@@ -92,7 +85,9 @@ export default {
     VerticalHeader,
     VerticalFooter,
     Lightbox,
-    SessionModal
+    SessionModal,
+    AssistModal,
+    CobrowseModal
   },
   data () {
     return {
@@ -100,9 +95,9 @@ export default {
       activeSession: false,
       inSupport: false,
       userEmail: '',
-      verticalSelect: ''
-      // platformSelect: '',
-      // platforms
+      verticalSelect: '',
+      showAssistModal: false,
+      showCobrowseModal: false
     }
   },
   created () {
@@ -164,7 +159,8 @@ export default {
       setNeedsSession: 'setNeedsSession',
       checkSession: 'checkSession',
       getSessionInfo: 'getSessionInfo',
-      getVerticalConfig: 'getVerticalConfig'
+      getVerticalConfig: 'getVerticalConfig',
+      getShortCode: 'getShortCode'
     }),
     isActive (path) {
       return this.$route.path === path
@@ -193,6 +189,14 @@ export default {
       // supportEnded () {
       //   console.log('hey supportEnded')
       //
+    },
+    startCobrowse () {
+      console.log('user wants cobrowse')
+      // dismiss the assist modal
+      this.showAssistModal = false
+      // go get short code
+      this.getShortCode()
+      // now the watcher for short code should trigger the shortcode modal momentarily
     }
   },
   computed: {
@@ -202,7 +206,8 @@ export default {
       'needsSession',
       'datacenter',
       'sessionId',
-      'vertical'
+      'vertical',
+      'shortCode'
     ])
     // customer: 'customer',
     // needsAuthentication: 'needsAuthentication',
@@ -218,6 +223,10 @@ export default {
     // }
   },
   watch: {
+    shortCode (val, oldVal) {
+      // got short code, so pop the cobrowse modal
+      this.showCobrowseModal = true
+    },
     demo (val, oldVal) {
       // update the platform ID in state
       this.setPlatform(val)

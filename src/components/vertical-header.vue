@@ -9,7 +9,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <a href="#" class="pull-right" :style="validSession ? '' : 'color: red'" @click.prevent="setNeedsSession">{{ datacenter }} {{ sessionId }} </a>
+            <a href="#" class="pull-right" :style="validSession ? '' : 'color: red'" @click.prevent="clickSession">{{ datacenter }} {{ sessionId }} </a>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@
             </div>
           </div>
           <div class="col-md-1 rem-support">
-            <a href @click.prevent="startRemCall"><img src="static/support.png" />Assist</a>
+            <a href @click.prevent="clickAssist"><img src="static/support.png" />Assist</a>
           </div>
         </div>
       </div>
@@ -69,15 +69,16 @@ export default {
   name: 'vertical-header',
   props: ['model'],
   methods: {
-    ...mapActions({
-      '_startRemCall': 'startRemCall',
-      '_setNeedsSession': 'setNeedsSession'
-    }),
-    startRemCall () {
-      this._startRemCall()
+    ...mapActions([
+      'setNeedsSession',
+      'getShortCode'
+    ]),
+    clickSession () {
+      this.setNeedsSession(true)
     },
-    setNeedsSession () {
-      this._setNeedsSession(true)
+    clickAssist () {
+      // pop modal to ask if they want cobrowse only or video call
+      this.$emit('assist')
     }
   },
   computed: {
