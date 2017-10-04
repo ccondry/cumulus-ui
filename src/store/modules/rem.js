@@ -95,7 +95,7 @@ const actions = {
           console.log('getShortCode shortCode = ', shortCode)
           // store shortCode in state
           commit(types.SET_REM_SHORT_CODE, shortCode)
-          // dispatch('startWithShortCode', shortCode)
+          dispatch('startWithShortCode', shortCode)
         } else {
           notifications.actions.failNotification({commit, state}, 'Sorry, we failed to get a cobrowse code to start your screen share.')
         }
