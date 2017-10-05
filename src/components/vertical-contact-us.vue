@@ -115,7 +115,9 @@
                     <form action="#" method="post" class="send-message" @submit.prevent="">
                       <vertical-formgroup
                       v-for="field in verticalConfig.form.fields"
-                      :private="verticalConfig.form.private.includes(field)">{{ field }}</vertical-formgroup>
+                      :private="verticalConfig.form.private.includes(field)"
+                      :name="field"
+                      :placeholder="field"></vertical-formgroup>
                       <div>
                         <button class="btn btn-success" type="submit">Submit</button>
                       </div>
