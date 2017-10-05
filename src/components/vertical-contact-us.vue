@@ -22,7 +22,6 @@
               <div class="row">
                 <div class="col-md-8">
 
-
                   <!-- Email Tab -->
                   <div class="message-form" v-show="currentTab === 'email'">
                     <form action="#" method="post" class="send-message">
@@ -114,6 +113,7 @@
                   <div class="message-form" v-show="currentTab === 'form'">
                     <form action="#" method="post" class="send-message" @submit.prevent="">
                       <vertical-formgroup
+                      v-if="verticalConfig.form"
                       v-for="field in verticalConfig.form.fields"
                       :private="verticalConfig.form.private.includes(field)"
                       :name="field"
