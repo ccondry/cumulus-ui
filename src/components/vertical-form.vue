@@ -16,7 +16,10 @@
               <div class="col-md-8">
 
                 <form class="form-horizontal" role="form" @submit.prevent="">
-                  <vertical-formgroup v-for="field in verticalConfig.form.fields" :private="verticalConfig.form.private.includes(field)">{{ field }}</vertical-formgroup>
+                  <vertical-formgroup
+                  v-for="field in verticalConfig.form.fields"
+                  :private="verticalConfig.form.private.includes(field)"
+                  :name="field">{{ field }}</vertical-formgroup>
                   <div>
                     <button class="btn btn-success" type="submit">Submit</button>
                   </div>

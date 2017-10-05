@@ -112,15 +112,10 @@
 
                   <!-- Form Tab -->
                   <div class="message-form" v-show="currentTab === 'form'">
-                    <form class="send-message" role="form" @submit.prevent="">
-                      <!-- <vertical-formgroup
+                    <form action="#" method="post" class="send-message" @submit.prevent="">
+                      <vertical-formgroup
                       v-for="field in verticalConfig.form.fields"
-                      :private="verticalConfig.form.private.includes(field)">{{ field }}</vertical-formgroup> -->
-                      <vertical-formgroup>Username</vertical-formgroup>
-                      <vertical-formgroup private="true">Password</vertical-formgroup>
-                      <vertical-formgroup>City</vertical-formgroup>
-                      <vertical-formgroup>State</vertical-formgroup>
-                      <vertical-formgroup>Zip</vertical-formgroup>
+                      :private="verticalConfig.form.private.includes(field)">{{ field }}</vertical-formgroup>
                       <div>
                         <button class="btn btn-success" type="submit">Submit</button>
                       </div>
