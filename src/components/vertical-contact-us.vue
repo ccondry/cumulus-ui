@@ -10,6 +10,7 @@
               <li><a href @click.prevent="currentTab = 'email'" :class="currentTab === 'email' ? 'active' : ''">Email</a></li>
               <li><a href @click.prevent="currentTab = 'chat'" :class="currentTab === 'chat' ? 'active' : ''">Chat</a></li>
               <li><a href @click.prevent="currentTab = 'callback'" :class="currentTab === 'callback' ? 'active' : ''">Callback</a></li>
+              <li><a href @click.prevent="currentTab = 'form'" :class="currentTab === 'form' ? 'active' : ''">Form</a></li>
             </ul>
           </div>
         </div>
@@ -20,7 +21,6 @@
             <div class="product-item col-md-12">
               <div class="row">
                 <div class="col-md-8">
-
 
                   <!-- Email Tab -->
                   <div class="message-form" v-show="currentTab === 'email'">
@@ -109,18 +109,33 @@
                     <!-- </div> -->
                   </div>
 
+                  <!-- Form Tab -->
+                  <div class="message-form" v-show="currentTab === 'form'">
+                    <form action="#" method="post" class="send-message" @submit.prevent="">
+                      <vertical-formgroup
+                      v-if="verticalConfig.form"
+                      v-for="field in verticalConfig.form.fields"
+                      :private="verticalConfig.form.private.includes(field)"
+                      :name="field"
+                      :placeholder="field"></vertical-formgroup>
+                      <div>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+
                 </div>
                 <div class="col-md-4">
                   <div class="info">
                     <p>Please select an option to get in contact with us.</p>
                     <ul>
                       <li><a :href="`tel:${contact.phone}`"><i class="fa fa-phone"></i>{{ contact.phone }}</a></li>
-                      <li><a :href="`tel:${contact.mobile}`"><i class="fa fa-mobile"></i>{{ contact.mobile }}</a></li>
                       <li><a :href="`tel:${contact.jacada}`"><i class="fa fa-mobile"></i>{{ contact.jacada }}</a></li>
+                      <li><a :href="`tel:${contact.mobile}`"><i class="fa fa-mobile"></i>{{ contact.mobile }}</a></li>
                       <li><i class="fa fa-globe"></i>{{ contact.address }}</li>
                       <li><i class="fa fa-envelope"></i><a :href="`mailto:${contact.email}`">{{ contact.email }}</a></li>
                       <!-- <li><i class="fa fa-clipboard"></i><router-link to="/form">Fill Form</router-link></li> -->
-                      <li><i class="fa fa-clipboard"></i><a href="static/finance/form.html" target="_blank">Fill Form</a></li>
+                      <!-- <li><i class="fa fa-clipboard"></i><a href="static/finance/form.html">Fill Form</a></li> -->
                     </ul>
                   </div>
                 </div>
@@ -150,11 +165,13 @@
 <script>
 import {mapActions, mapGetters} from 'vuex'
 import VerticalMap from './vertical-map'
+import VerticalFormgroup from './vertical-formgroup'
 
 export default {
   name: 'contact-us',
   components: {
-    VerticalMap
+    VerticalMap,
+    VerticalFormgroup
   },
   data () {
     return {
@@ -172,7 +189,8 @@ export default {
   computed: {
     ...mapGetters([
       'apiBase',
-      'contact'
+      'contact',
+      'verticalConfig'
     ])
   },
   methods: {
