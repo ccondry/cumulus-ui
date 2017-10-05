@@ -56,6 +56,7 @@ export default {
     clickAssist () {
       console.log('click Assist')
       this.startRemCall()
+      this.$emit('close')
     },
     clickCobrowse () {
       console.log('click Cobrowse')
