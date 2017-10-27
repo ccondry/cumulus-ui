@@ -280,7 +280,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   }
   dispatch('getSessionInfo')
   // always pop up modal to ask for session info
-  commit(types.SET_NEEDS_SESSION, true)
+  // commit(types.SET_NEEDS_SESSION, true)
 }
 
 export const setNeedsSession = ({commit, state, rootState}, data) => {
