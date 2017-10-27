@@ -41,6 +41,7 @@
               <label class="col-sm-4 col-form-label">On VPN:</label>
               <div class="col-sm-6">
                 <select v-model="isLocal">
+                  <option disabled value="">Please Choose</option>
                   <option value="true">Yes</option>
                   <option value="false">No</option>
                 </select>
@@ -100,7 +101,7 @@ export default {
       datacenter: '',
       datacenters,
       vertical: '',
-      isLocal: true
+      isLocal: null
     }
   },
   methods: {
