@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'About',
@@ -25,6 +25,16 @@ export default {
     ...mapGetters([
       'verticalConfig'
     ])
+  },
+  methods: {
+    ...mapActions([
+      'checkSession'
+    ])
+  },
+  mounted () {
+    console.log('query =', this.$route.query)
+    // see if session, datacenter, vertical are in queryString or localStorage
+    this.checkSession(this.$route.query)
   }
 }
 </script>

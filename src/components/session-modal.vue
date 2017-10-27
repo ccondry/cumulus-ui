@@ -156,6 +156,15 @@ export default {
   watch: {
     _vertical (val, oldVal) {
       this.vertical = val
+    },
+    _sessionId (val, oldVal) {
+      this.sessionId = val
+    },
+    _datacenter (val, oldVal) {
+      this.datacenter = val
+    },
+    _isLocal (val, oldVal) {
+      this.isLocal = val
     }
   }
 }
