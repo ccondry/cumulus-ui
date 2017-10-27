@@ -100,16 +100,11 @@ export default {
       showCobrowseModal: false
     }
   },
-  created () {
-    console.log('needsSession =', this.needsSession)
-    console.log('query =', this.$route.query)
+  mounted () {
     // watch scroll, to detect when to pop the menu out
     window.addEventListener('keyup', this.handleKeyUp)
 
-    // see if session, datacenter, vertical are in queryString or localStorage
-    this.checkSession(this.$route.query)
-
-    this.getSessionInfo()
+    // this.getSessionInfo()
     this.getVerticalConfig()
 
     // update the HTML page title
