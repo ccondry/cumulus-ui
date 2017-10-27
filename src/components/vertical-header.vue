@@ -9,7 +9,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <a href="#" class="pull-right" :style="validSession ? '' : 'color: red'" @click.prevent="clickSession">{{ datacenter }} {{ sessionId }} </a>
+            <a href="#" class="pull-right" :style="validSession ? '' : 'color: red'" @click.prevent="clickSession">{{ sessionLink }}</a>
           </div>
         </div>
       </div>
@@ -89,6 +89,12 @@ export default {
     ]),
     validSession () {
       return this.sessionInfo
+    },
+    sessionLink () {
+      if (this.datacenter && this.sessionId) {
+        return `${this.datacenter} ${this.sessionId}`
+      }
+      return 'No Session'
     }
   }
 }
