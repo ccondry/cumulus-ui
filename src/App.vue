@@ -105,6 +105,7 @@ export default {
     window.addEventListener('keyup', this.handleKeyUp)
 
     // this.getSessionInfo()
+    this.setNeedsSession(true)
     this.getVerticalConfig()
 
     // update the HTML page title
