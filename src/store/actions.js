@@ -227,7 +227,8 @@ export const setSession = ({commit, state, rootState}, data) => {
 }
 
 // check localStorage for site config data, and load into state if found
-export const checkSession = ({state, commit}, qs) => {
+export const checkSession = ({state, commit, dispatch}, qs) => {
+  console.log('query string =', qs)
   console.log('window.localStorage.sessionId', window.localStorage.sessionId)
   // check localStorage for sessionId, and copy to state
   if (qs.session) {
@@ -277,7 +278,7 @@ export const checkSession = ({state, commit}, qs) => {
   } else {
     // we don't need to ask on this one
   }
-
+  dispatch('getSessionInfo')
   // always pop up modal to ask for session info
   commit(types.SET_NEEDS_SESSION, true)
 }
