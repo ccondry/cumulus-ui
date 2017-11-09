@@ -64,10 +64,10 @@ import { mapActions, mapGetters } from 'vuex'
 
 const datacenters = [{
   name: 'AJP',
-  value: 'APJ'
+  value: 'SNG'
 }, {
   name: 'EMEAR',
-  value: 'EMEAR'
+  value: 'LON'
 }, {
   name: 'GC',
   value: 'GC'
