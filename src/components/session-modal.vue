@@ -37,12 +37,12 @@
                 </select>
               </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row" v-show="false">
               <label class="col-sm-4 col-form-label">On VPN:</label>
               <div class="col-sm-6">
                 <select v-model="isLocal">
                   <option disabled value="">Please Choose</option>
-                  <option value="true">Yes</option>
+                  <option value="true" selected>Yes</option>
                   <option value="false">No</option>
                 </select>
               </div>
