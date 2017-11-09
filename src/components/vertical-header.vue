@@ -53,7 +53,7 @@
             </div>
           </div>
           <div class="col-md-1 rem-support">
-            <a href @click.prevent="clickAssist"><img src="static/support.png" />Assist</a>
+            <a href @click.prevent="clickAssist"><img src="assets/support.png" />Assist</a>
           </div>
         </div>
       </div>
