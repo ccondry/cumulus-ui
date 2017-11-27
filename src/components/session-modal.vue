@@ -63,7 +63,7 @@
 import { mapActions, mapGetters } from 'vuex'
 
 const datacenters = [{
-  name: 'AJP',
+  name: 'APJ',
   value: 'SNG'
 }, {
   name: 'EMEAR',
