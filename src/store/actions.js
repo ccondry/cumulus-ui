@@ -266,7 +266,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   }
 
   console.log('window.localStorage.isLocal', window.localStorage.isLocal)
-  // check localStorage for isLocal, and copy to state
+  // check query string then localStorage for isLocal, and copy to state
   if (qs.local === 'true') {
     commit(types.SET_IS_LOCAL, true)
     window.localStorage.isLocal = true
@@ -276,7 +276,9 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   } else if (window.localStorage.isLocal) {
     commit(types.SET_IS_LOCAL, window.localStorage.isLocal)
   } else {
-    // we don't need to ask on this one
+    // default to true
+    window.localStorage.isLocal = true
+    commit(types.SET_IS_LOCAL, true)
   }
   dispatch('getSessionInfo')
   // always pop up modal to ask for session info
