@@ -27,6 +27,10 @@ export const datacenter = state => state.datacenter
 export const needsSession = state => state.needsSession
 export const sessionInfo = state => state.sessionInfo
 
+export const dCloudSparkyUrl = state => {
+  return `https://mm-chat.cxdemo.net/`
+}
+
 export const dCloudEceChatUrl = state => {
   if (state.sessionInfo === null) {
     return null
@@ -38,6 +42,7 @@ export const dCloudEceChatUrl = state => {
     }
   }
 }
+
 export const dCloudEceCallbackUrl = state => {
   if (state.sessionInfo === null) {
     return null
