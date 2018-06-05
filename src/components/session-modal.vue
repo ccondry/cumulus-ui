@@ -42,8 +42,8 @@
               <div class="col-sm-6">
                 <select v-model="isLocal">
                   <option disabled value="">Please Choose</option>
-                  <option value="true" selected>Yes</option>
-                  <option value="false">No</option>
+                  <option :value="true" selected>Yes</option>
+                  <option :value="false">No</option>
                 </select>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default {
       datacenter: '',
       datacenters,
       vertical: '',
-      isLocal: null
+      isLocal: true
     }
   },
   methods: {

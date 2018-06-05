@@ -9,6 +9,7 @@
             <ul class="list-inline tab-list">
               <li><a href @click.prevent="currentTab = 'email'" :class="currentTab === 'email' ? 'active' : ''">Email</a></li>
               <li><a href @click.prevent="currentTab = 'chat'" :class="currentTab === 'chat' ? 'active' : ''">Chat</a></li>
+              <li v-if="sessionInfo.demo && sessionInfo.version"><a href @click.prevent="currentTab = 'bot'" :class="currentTab === 'bot' ? 'active' : ''">ChatBot</a></li>
               <li><a href @click.prevent="currentTab = 'callback'" :class="currentTab === 'callback' ? 'active' : ''">Callback</a></li>
               <li><a href @click.prevent="currentTab = 'form'" :class="currentTab === 'form' ? 'active' : ''">Form</a></li>
             </ul>
@@ -124,6 +125,33 @@
                     </form>
                   </div>
 
+                  <!-- Bot Tab -->
+                  <div class="message-form" v-show="currentTab === 'bot'">
+                    <form action="#" method="post" class="send-message">
+                      <div class="row">
+                        <div class="name col-md-4">
+                          <input type="text" name="name" placeholder="Name" v-model="name"/>
+                        </div>
+                        <div class="email col-md-4">
+                          <input type="text" name="email" placeholder="Email" v-model="email"/>
+                        </div>
+                        <div class="subject col-md-4">
+                          <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
+                        </div>
+                      </div>
+                      <div class="row">
+                        &nbsp;
+                        <!-- <div class="text col-md-12">
+                          <textarea name="text" placeholder="Message" v-model="message"></textarea>
+                        </div> -->
+                      </div>
+                      <div>
+                        <button class="btn btn-success" type="submit" @click.prevent="doStartBot">Send</button>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /Bot Tab -->
+
                 </div>
                 <div class="col-md-4">
                   <div class="info">
@@ -190,7 +218,8 @@ export default {
     ...mapGetters([
       'apiBase',
       'contact',
-      'verticalConfig'
+      'verticalConfig',
+      'sessionInfo'
     ])
   },
   methods: {
@@ -199,7 +228,8 @@ export default {
       'successNotification',
       'sendEmail',
       'startChat',
-      'startCallback'
+      'startCallback',
+      'startBot'
     ]),
     doSendEmail () {
       console.log('user clicked Send Email')
@@ -236,6 +266,15 @@ export default {
         email: this.email,
         phone: this.phone,
         subject: this.message
+      })
+    },
+    doStartBot () {
+      // TODO validate input
+      this.startBot({
+        firstName: this.name.split(' ')[0],
+        lastName: this.name.substring(this.name.split(' ')[0].length),
+        email: this.email,
+        phone: this.phone
       })
     },
     doStartCallback () {

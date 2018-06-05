@@ -156,6 +156,7 @@ export const sendEmail = ({commit, state, rootState}, data) => {
   })
 }
 
+// Start ECE chat
 export const startChat = ({commit, state, rootState, getters}, data) => {
   // check session is valid
   if (state.sessionInfo === null) {
@@ -165,6 +166,25 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
   } else {
     // open popup
     let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
+    let w = 400
+    let h = 600
+    let top = (window.screen.height / 2) - (h / 2)
+    let left = (window.screen.width / 2) - (w / 2)
+    window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+    // window.resize('400', '600')
+  }
+}
+
+// Start Sparky chat bot
+export const startBot = ({commit, state, rootState, getters}, data) => {
+  // check session is valid
+  if (state.sessionInfo === null) {
+    // invalid session
+    const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
+    notifications.actions.failNotification({commit, state}, message)
+  } else {
+    // open popup
+    let url = addSparkyChatParameters(getters.dCloudSparkyUrl, getters.datacenter, getters.sessionId, data)
     let w = 400
     let h = 600
     let top = (window.screen.height / 2) - (h / 2)
@@ -198,6 +218,10 @@ export const startCallback = ({commit, state, rootState, getters}, data) => {
 
 function addEceChatParameters (url, data) {
   return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&&fieldname_3=${data.phone}&fieldname_4=${encodeURIComponent(data.subject)}`
+}
+
+function addSparkyChatParameters (url, datacenter, session, data) {
+  return url + `?firstName=${encodeURIComponent(data.firstName)}&lastName=${encodeURIComponent(data.lastName)}&email=${encodeURIComponent(data.email)}&&phone=${data.phone}&session=${session}&datacenter=${datacenter}`
 }
 
 function addEceCallbackParameters (url, data) {
@@ -266,7 +290,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   }
 
   console.log('window.localStorage.isLocal', window.localStorage.isLocal)
-  // check localStorage for isLocal, and copy to state
+  // check query string then localStorage for isLocal, and copy to state
   if (qs.local === 'true') {
     commit(types.SET_IS_LOCAL, true)
     window.localStorage.isLocal = true
@@ -276,7 +300,9 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   } else if (window.localStorage.isLocal) {
     commit(types.SET_IS_LOCAL, window.localStorage.isLocal)
   } else {
-    // we don't need to ask on this one
+    // default to true
+    window.localStorage.isLocal = true
+    commit(types.SET_IS_LOCAL, true)
   }
   dispatch('getSessionInfo')
   // always pop up modal to ask for session info
