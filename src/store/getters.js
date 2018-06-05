@@ -26,6 +26,7 @@ export const sessionId = state => state.sessionId
 export const datacenter = state => state.datacenter
 export const needsSession = state => state.needsSession
 export const sessionInfo = state => state.sessionInfo
+export const isLocal = state => state.isLocal
 
 export const dCloudSparkyUrl = state => {
   return `https://mm-chat.cxdemo.net/`
@@ -35,11 +36,12 @@ export const dCloudEceChatUrl = state => {
   if (state.sessionInfo === null) {
     return null
   } else {
-    if (state.isLocal) {
-      return `http://cceece.dcloud.cisco.com/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
-    } else {
-      return `http://${state.sessionInfo.dns}/ece/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
-    }
+    // if (state.isLocal === false) {
+    //   return `http://${state.sessionInfo.dns}/ece/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+    // } else {
+    //   return `http://cceece.dcloud.cisco.com/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+    // }
+    return `https://mm-ece.cxdemo.net/${state.datacenter}-${state.sessionId}/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
   }
 }
 
@@ -47,23 +49,24 @@ export const dCloudEceCallbackUrl = state => {
   if (state.sessionInfo === null) {
     return null
   } else {
-    if (state.isLocal) {
-      return `http://cceece.dcloud.cisco.com/system/templates/callback/cumulus/call.html?subActivity=Chat&entryPointId=1002&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
-    } else {
-      return `http://${state.sessionInfo.dns}/ece/system/templates/callback/cumulus/call.html?subActivity=Chat&entryPointId=1002&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
-    }
+    // if (state.isLocal === false) {
+    //   return `http://${state.sessionInfo.dns}/ece/system/templates/callback/cumulus/call.html?subActivity=Chat&entryPointId=1002&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+    // } else {
+    //   return `http://cceece.dcloud.cisco.com/system/templates/callback/cumulus/call.html?subActivity=Chat&entryPointId=1002&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+    // }
+    return `https://mm-ece.cxdemo.net/${state.datacenter}-${state.sessionId}/system/templates/callback/cumulus/call.html?subActivity=Chat&entryPointId=1002&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
   }
 }
-export const isLocal = state => state.isLocal
 
 export const egainWssUrls = state => {
   if (state.sessionInfo === null) {
     return null
   } else {
-    if (state.isLocal) {
-      return state.sessionInfo.urls.wss.internal
-    } else {
-      return state.sessionInfo.urls.wss.external
-    }
+    // if (state.isLocal === false) {
+    //   return state.sessionInfo.urls.wss.external
+    // } else {
+    return state.sessionInfo.urls.wss.internal
+    // }
+    // return `https://mm-egain.cxdemo.net/${state.datacenter}-${state.sessionId}/system/templates/selfservice/cumulus_knowledge/help/customer/locale/en-US/portal/200100000001000`
   }
 }
