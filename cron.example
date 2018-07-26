@@ -1,0 +1,1 @@
+*/2 * * * * /bin/sh -c 'cd /opt/dcloud/cumulus-ui && ./update.sh' 2>&1 | /usr/bin/logger -t cron-update-cumulus-ui
