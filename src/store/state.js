@@ -4,7 +4,7 @@ import verticalConfig from 'src/data/cumulus/travel.json'
 
 var apiBase = {
   'production': '/api/v1',
-  // 'development': 'http://localhost:302'
+  // 'development': 'http://localhost:3025'
   'development': 'https://mm-dev.cxdemo.net/api/v1'
 }
 
@@ -29,5 +29,9 @@ export default {
   sessionId: null,
   needsSession: false,
   sessionInfo: {},
-  isLocal: null
+  isLocal: null,
+  endpoints: {
+    eceProxy: 'https://mm-ece.cxdemo.net',
+    sparky: 'https://mm-chat.cxdemo.net'
+  }
 }
