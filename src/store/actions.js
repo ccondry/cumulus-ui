@@ -156,7 +156,7 @@ export const sendEmail = ({commit, state, rootState}, data) => {
   })
 }
 
-// Start ECE chat
+// Start non-bot chat
 export const startChat = ({commit, state, rootState, getters}, data) => {
   // check session is valid
   if (state.sessionInfo === null) {
@@ -164,6 +164,23 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
     const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
     notifications.actions.failNotification({commit, state}, message)
   } else {
+    // valid session
+    if (getters.sessionDemo === 'uccx') {
+      // UCCX mode
+      // open chat bot window with bot = false
+      // open popup
+      let url = addSparkyChatParameters(getters.dCloudSparkyUrl, getters.datacenter, getters.sessionId, data)
+      // add bot = false to sparky URL
+      url += '&botEnabled=false'
+      let w = 400
+      let h = 600
+      let top = (window.screen.height / 2) - (h / 2)
+      let left = (window.screen.width / 2) - (w / 2)
+      window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+      // window.resize('400', '600')
+      return
+    }
+    // PCCE mode
     // open popup
     let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
     let w = 400
@@ -194,25 +211,50 @@ export const startBot = ({commit, state, rootState, getters}, data) => {
   }
 }
 
-export const startCallback = ({commit, state, rootState, getters}, data) => {
+export const startCallback = async ({commit, state, rootState, getters}, data) => {
   // check session is valid
   if (state.sessionInfo === null) {
     // invalid session
     const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
     notifications.actions.failNotification({commit, state}, message)
   } else {
-    // open popup
-    let url
-    // if (data.delay && data.delay !== 0 && data.delay !== '') {
-    //   url = addEceParameters(config.ece.delayedCallbackUrl, data)
-    // } else {
-    url = addEceCallbackParameters(getters.dCloudEceCallbackUrl, data)
-    // }
-    let w = 400
-    let h = 600
-    let top = (window.screen.height / 2) - (h / 2)
-    let left = (window.screen.width / 2) - (w / 2)
-    window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+    if (getters.sessionDemo === 'uccx') {
+      console.log('sending callback request to UCCX demo')
+      // send REST request to reverse proxy on UCCX demo to start callback
+      try {
+        const url = `${rootState.apiBase}/callback`
+        const body = {
+          session: rootState.sessionId,
+          datacenter: rootState.datacenter,
+          callback: {
+            firstname: data.name.split(' ')[0],
+            lastname: data.name.split(' ')[1],
+            callback: data.phone
+          }
+        }
+        console.log(`sending callback request to ${url}`)
+        const response = await axios.post(url, body)
+
+        notifications.actions.successNotification({commit, state}, `Your callback request has been successfully scheduled. Your estimated wait time is ${response.data.WaitingSecond} seconds.`)
+      } catch (e) {
+        // failed to start callback - send notification
+        notifications.actions.failNotification({commit, state}, e)
+      }
+    } else {
+      // pcce
+      // open popup to ECE callback
+      let url
+      // if (data.delay && data.delay !== 0 && data.delay !== '') {
+      //   url = addEceParameters(config.ece.delayedCallbackUrl, data)
+      // } else {
+      url = addEceCallbackParameters(getters.dCloudEceCallbackUrl, data)
+      // }
+      let w = 400
+      let h = 600
+      let top = (window.screen.height / 2) - (h / 2)
+      let left = (window.screen.width / 2) - (w / 2)
+      window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+    }
   }
 }
 
