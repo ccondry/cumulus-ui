@@ -26,6 +26,35 @@ export const sessionId = state => state.sessionId
 export const datacenter = state => state.datacenter
 export const needsSession = state => state.needsSession
 export const sessionInfo = state => state.sessionInfo
+
+export const sessionDemo = (state, rootState, getters) => {
+  // check UCCX or PCCE
+  if (getters.sessionInfo.demo) {
+    // session.demo is set
+    // check if UCCX
+    if (getters.sessionInfo.demo.toLowerCase() === 'uccx') {
+      return 'uccx'
+    } else {
+      // PCCE 11.6 v2 and on
+      return 'pcce'
+    }
+  } else {
+    // old PCCE 11.6 v1
+    return 'pcce'
+  }
+}
+
+export const sessionVersion = (state, rootState, getters) => {
+  // check UCCX or PCCE
+  if (getters.sessionInfo.version) {
+    // UCCX or PCCE 11.6 v2 or newer
+    return getters.sessionInfo.version
+  } else {
+    // old PCCE 11.6 v1
+    return '11.6v1'
+  }
+}
+
 export const isLocal = state => state.isLocal
 
 export const dCloudSparkyUrl = state => {
