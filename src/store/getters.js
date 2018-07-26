@@ -21,6 +21,10 @@ export const verticals = state => state.verticals
 export const contact = state => state.contact
 // vertical configuration for site
 export const verticalConfig = state => state.verticalConfig
+// working state
+export const working = state => state.working
+// loading state
+export const loading = state => state.loading
 
 export const sessionId = state => state.sessionId
 export const datacenter = state => state.datacenter

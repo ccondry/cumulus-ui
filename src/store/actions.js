@@ -1,37 +1,6 @@
 import * as types from './mutation-types'
 import axios from 'axios'
 import notifications from './modules/notifications'
-// import config from 'src/config'
-
-// export const addToCart = ({ commit }, product) => {
-//   if (product.inventory > 0) {
-//     commit(types.ADD_TO_CART, {
-//       id: product.id
-//     })
-//   }
-// }
-
-// export const shortenUrl = ({state, rootState}, {longUrl, callback}) => {
-//   var xhr = new window.XMLHttpRequest()
-//   var apiKey = rootState.tokens.createLink
-//   var apiPath = '//public.cxdemo.net/create-link'
-//   var apiUrl = apiPath + '?token=' + apiKey + '&longUrl=' + encodeURIComponent(longUrl)
-//   xhr.open('GET', apiUrl)
-//   xhr.onreadystatechange = function () {
-//     if (xhr.readyState === 4) {
-//       console.log('shortenUrl: returned status ' + xhr.status)
-//       if (xhr.status === 200) {
-//         var shortUrl = JSON.parse(xhr.response).url
-//         console.log('shortened URL = ', shortUrl)
-//         console.log('entire response = ', xhr.response)
-//         callback(shortUrl)
-//       } else {
-//         console.log('failed to shorten URL: ', xhr)
-//       }
-//     }
-//   }
-//   xhr.send()
-// }
 
 export const setFavicon = ({commit, state, rootState}, src) => {
   /*
@@ -93,12 +62,7 @@ export const setTitle = ({commit, state}, data) => {
 export const getVerticals = async ({commit, state, rootState}, data) => {
   console.log('getting verticals list')
   // load vertical config from web services
-  let options = {
-    // headers: {
-    //   'X-Auth-Token': authToken
-    // }
-  }
-  let response = await axios.get(`${rootState.apiBase}/verticals`, options)
+  let response = await axios.get(`${rootState.apiBase}/verticals`)
   // console.log(response)
   if (response.status >= 200 && response.status < 300) {
     // console.log('verticals list server response is valid.')
@@ -118,42 +82,46 @@ export const getVerticals = async ({commit, state, rootState}, data) => {
   // return response
 }
 
-export const sendEmail = ({commit, state, rootState}, data) => {
-  return new Promise((resolve, reject) => {
-    // check session is valid
-    if (state.sessionInfo === null) {
-      // invalid session
-      const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
-      reject(message)
-    } else {
-      console.log(`state.isLocal = ${rootState.isLocal}`)
-      let url
-      let body
-      // if (rootState.isLocal === true) {
-      //   console.log(`rootState.isLocal is true?`)
-      //   // local
-      //   url = `https://branding.dcloud.cisco.com/api/v1/email`
-      //   body = data
-      // } else {
-      // console.log(`rootState.isLocal is false?`)
-      // remote
-      url = `${rootState.apiBase}/email`
-      body = {
-        session: rootState.sessionId,
-        datacenter: rootState.datacenter,
-        email: data
-      }
-      // }
-      console.log(`sending email to ${url}`)
-      axios.post(url, body)
-      .then(response => {
-        resolve(response)
-      })
-      .catch(error => {
-        reject(error)
-      })
+export const sendEmail = async ({commit, state, rootState, dispatch}, data) => {
+  // check session is valid
+  if (state.sessionInfo === null) {
+    // invalid session
+    const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
+    dispatch('failNotification', message)
+    throw new Error(message)
+  } else {
+    console.log(`state.isLocal = ${rootState.isLocal}`)
+    let url
+    let body
+    // if (rootState.isLocal === true) {
+    //   console.log(`rootState.isLocal is true?`)
+    //   // local
+    //   url = `https://branding.dcloud.cisco.com/api/v1/email`
+    //   body = data
+    // } else {
+    // console.log(`rootState.isLocal is false?`)
+    // remote
+    url = `${rootState.apiBase}/email`
+    body = {
+      session: rootState.sessionId,
+      datacenter: rootState.datacenter,
+      email: data
     }
-  })
+    // }
+    console.log(`sending email to ${url}`)
+    try {
+      commit(types.SET_WORKING, {key: 'email', value: true})
+      const response = await axios.post(url, body)
+      dispatch('successNotification', 'Successfully sent email')
+      return response
+    } catch (e) {
+      console.log('failed to send email', e.response.data)
+      dispatch('failNotification', e.response.data)
+      throw e
+    } finally {
+      commit(types.SET_WORKING, {key: 'email', value: false})
+    }
+  }
 }
 
 // Start non-bot chat
@@ -213,12 +181,13 @@ export const startBot = ({commit, state, rootState, getters}, data) => {
   }
 }
 
-export const startCallback = async ({commit, state, rootState, getters}, data) => {
+export const startCallback = async ({commit, state, rootState, getters, dispatch}, data) => {
   // check session is valid
   if (state.sessionInfo === null) {
     // invalid session
     const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
-    notifications.actions.failNotification({commit, state}, message)
+    // notifications.actions.failNotification({commit, state}, message)
+    dispatch('failNotification', message)
   } else {
     if (getters.sessionDemo === 'uccx') {
       console.log('sending callback request to UCCX demo')
@@ -235,12 +204,18 @@ export const startCallback = async ({commit, state, rootState, getters}, data) =
           }
         }
         console.log(`sending callback request to ${url}`)
+        commit(types.SET_WORKING, {key: 'callback', value: true})
         const response = await axios.post(url, body)
 
-        notifications.actions.successNotification({commit, state}, `Your callback request has been successfully scheduled. Your estimated wait time is ${response.data.WaitingSecond} seconds.`)
+        // notifications.actions.successNotification({commit, state}, `Your callback request has been successfully scheduled. Your estimated wait time is ${response.data.WaitingSecond} seconds.`)
+        dispatch('successNotification', `Your callback request has been successfully scheduled. Your estimated wait time is ${response.data.WaitingSecond} seconds.`)
       } catch (e) {
+        console.log('failed to send callback request', e)
         // failed to start callback - send notification
-        notifications.actions.failNotification({commit, state}, e)
+        // notifications.actions.failNotification({commit, state}, e)
+        dispatch('failNotification', e)
+      } finally {
+        commit(types.SET_WORKING, {key: 'callback', value: false})
       }
     } else {
       // pcce
@@ -381,6 +356,7 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
   }
 }
 
+// get REST API endpoint URLs for this environment
 export const getEndpoints = async ({commit, state, rootState}) => {
   console.log('getting REST endpoints')
   try {

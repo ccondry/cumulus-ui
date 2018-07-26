@@ -1,4 +1,5 @@
 import * as types from './mutation-types'
+import Vue from 'vue'
 
 export default {
   [types.SET_PLATFORM] (state, data) {
@@ -39,5 +40,11 @@ export default {
   },
   [types.SET_ENDPOINTS] (state, data) {
     state.endpoints = data
+  },
+  [types.SET_WORKING] (state, data) {
+    Vue.set(state.working, data.key, data.value)
+  },
+  [types.SET_LOADING] (state, data) {
+    Vue.set(state.loading, data.key, data.value)
   }
 }

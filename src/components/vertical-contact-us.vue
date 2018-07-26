@@ -44,7 +44,15 @@
                         </div>
                       </div>
                       <div>
-                        <button class="btn btn-success" type="submit" @click.prevent="doSendEmail">{{ working ? 'Working...' : 'Send' }}</button>
+                        <button class="btn btn-success" type="submit" @click.prevent="doSendEmail" :disabled="working.email">
+                          <span v-if="working.email" >
+                            <i class="fa fa-spin fa-spinner"></i>
+                            Working...
+                          </span>
+                          <span v-else>
+                            Send
+                          </span>
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -107,7 +115,15 @@
                           </div>
                         </div>
                         <div>
-                          <button class="btn btn-success" type="submit" @click.prevent="doStartCallback">Send</button>
+                          <button class="btn btn-success" type="submit" @click.prevent="doStartCallback" :disabled="working.callback">
+                            <span v-if="working.callback" >
+                              <i class="fa fa-spin fa-spinner"></i>
+                              Working...
+                            </span>
+                            <span v-else>
+                              Send
+                            </span>
+                          </button>
                         </div>
                       </form>
                     <!-- </div> -->
@@ -206,7 +222,7 @@ export default {
   },
   data () {
     return {
-      working: false,
+      // working: false,
       name: '',
       email: '',
       subject: '',
@@ -223,7 +239,9 @@ export default {
       'contact',
       'verticalConfig',
       'sessionInfo',
-      'sessionDemo'
+      'sessionDemo',
+      'loading',
+      'working'
     ]),
     firstName () {
       return this.name.split(' ')[0]
@@ -247,30 +265,13 @@ export default {
     doSendEmail () {
       console.log('user clicked Send Email')
       console.log('sending email...')
-      this.working = true
+      // this.working = true
       this.sendEmail({
         name: this.name,
         subject: this.subject,
         text: this.message,
         email: this.email,
         html: this.message
-      })
-      .then(response => {
-        this.working = false
-        console.log('response', response)
-        if (response.status >= 200 && response.status < 300) {
-          // success!
-          this.successNotification('Your message has been sent!')
-        } else {
-          // failed?!
-          this.failNotification('Sorry, failed to send your message.<br />' + response)
-        }
-      })
-      .catch(error => {
-        // failed?!
-        this.working = false
-        console.log('error', error)
-        this.failNotification('Sorry, failed to send your message.<br />' + error)
       })
     },
     doStartChat () {
