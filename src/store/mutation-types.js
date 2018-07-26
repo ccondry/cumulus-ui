@@ -42,3 +42,6 @@ export const SET_DATACENTER = 'SET_DATACENTER'
 export const SET_NEEDS_SESSION = 'SET_NEEDS_SESSION'
 export const SET_SESSION_INFO = 'SET_SESSION_INFO'
 export const SET_IS_LOCAL = 'SET_IS_LOCAL'
+
+// REST endpoints
+export const SET_ENDPOINTS = 'SET_ENDPOINTS'

@@ -380,3 +380,17 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
     commit(types.SET_SESSION_INFO, null)
   }
 }
+
+export const getEndpoints = async ({commit, state, rootState}) => {
+  console.log('getting REST endpoints')
+  try {
+    const response = await axios.get(`${rootState.apiBase}/endpoints`)
+    console.log('endpoints acquired:', response)
+    console.log('storing endpoints info in state')
+    // store vertical config in state
+    commit(types.SET_ENDPOINTS, response.data)
+  } catch (e) {
+    console.log('failed to get endpoints:', e)
+    // leave the default values in state
+  }
+}

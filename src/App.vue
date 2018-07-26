@@ -105,6 +105,8 @@ export default {
     window.addEventListener('keyup', this.handleKeyUp)
 
     // this.getSessionInfo()
+    // get REST endpoints info
+    this.getEndpoints()
     this.setNeedsSession(true)
     this.getVerticalConfig()
 
@@ -156,7 +158,8 @@ export default {
       checkSession: 'checkSession',
       getSessionInfo: 'getSessionInfo',
       getVerticalConfig: 'getVerticalConfig',
-      getShortCode: 'getShortCode'
+      getShortCode: 'getShortCode',
+      getEndpoints: 'getEndpoints'
     }),
     isActive (path) {
       return this.$route.path === path
