@@ -1,10 +1,16 @@
 import version from 'src/version.js'
 import verticalConfig from 'src/data/cumulus/travel.json'
-import config from 'src/config'
+// import config from 'src/config'
+
+var apiBase = {
+  'production': '/api/v1',
+  // 'development': 'http://localhost:302'
+  'development': 'https://mm-dev.cxdemo.net/api/v1'
+}
 
 export default {
   version,
-  apiBase: config.productionApiUrl,
+  apiBase: apiBase[process.env.NODE_ENV],
   tokens: {
     createLink: 'l1mrf02vop6dkf3qjc6a2s016k7isf5mduqcs91e2k1slon8lh2ln6litlkgi5cmdiqcv8e4tivdgkpdas9kimgkul42pleh2dg04ol2g0gr'
   },
