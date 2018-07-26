@@ -45,3 +45,7 @@ export const SET_IS_LOCAL = 'SET_IS_LOCAL'
 
 // REST endpoints
 export const SET_ENDPOINTS = 'SET_ENDPOINTS'
+
+// working state
+export const SET_WORKING = 'SET_WORKING'
+export const SET_LOADING = 'SET_LOADING'
