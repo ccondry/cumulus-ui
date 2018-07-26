@@ -9,7 +9,7 @@
             <ul class="list-inline tab-list">
               <li><a href @click.prevent="currentTab = 'email'" :class="currentTab === 'email' ? 'active' : ''">Email</a></li>
               <li><a href @click.prevent="currentTab = 'chat'" :class="currentTab === 'chat' ? 'active' : ''">Chat</a></li>
-              <li v-if="sessionInfo.demo && sessionInfo.version"><a href @click.prevent="currentTab = 'bot'" :class="currentTab === 'bot' ? 'active' : ''">ChatBot</a></li>
+              <li v-if="sessionDemo"><a href @click.prevent="currentTab = 'bot'" :class="currentTab === 'bot' ? 'active' : ''">ChatBot</a></li>
               <li><a href @click.prevent="currentTab = 'callback'" :class="currentTab === 'callback' ? 'active' : ''">Callback</a></li>
               <li><a href @click.prevent="currentTab = 'form'" :class="currentTab === 'form' ? 'active' : ''">Form</a></li>
             </ul>
@@ -33,6 +33,7 @@
                         <div class="email col-md-4">
                           <input type="text" name="email" placeholder="Email" v-model="email"/>
                         </div>
+
                         <div class="subject col-md-4">
                           <input type="text" name="subject" placeholder="Subject" v-model="subject" />
                         </div>
@@ -70,7 +71,8 @@
                         </div>
                         <div class="row">
                           <div class="text col-md-12">
-                            <textarea name="text" placeholder="Message" v-model="message"></textarea>
+                            <textarea v-if="sessionDemo !=='uccx'" name="text" placeholder="Message" v-model="message"></textarea>
+                            <span v-else>&nbsp;</span>
                           </div>
                         </div>
                         <div>
@@ -100,7 +102,8 @@
                         </div>
                         <div class="row">
                           <div class="text col-md-12">
-                            <textarea name="text" placeholder="Message" v-model="message"></textarea>
+                            <textarea v-if="sessionDemo !=='uccx'" name="text" placeholder="Message" v-model="message"></textarea>
+                            <span v-else>&nbsp;</span>
                           </div>
                         </div>
                         <div>
@@ -219,13 +222,17 @@ export default {
       'apiBase',
       'contact',
       'verticalConfig',
-      'sessionInfo'
+      'sessionInfo',
+      'sessionDemo'
     ]),
     firstName () {
       return this.name.split(' ')[0]
     },
     lastName () {
       return this.name.substring(this.name.split(' ')[0].length)
+    },
+    messageEnabled () {
+      return false
     }
   },
   methods: {
