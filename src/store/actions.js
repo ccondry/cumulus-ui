@@ -179,16 +179,18 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
       // window.resize('400', '600')
       return
+    } else {
+      // PCCE mode
+      // open popup
+      let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
+      let w = 400
+      let h = 600
+      let top = (window.screen.height / 2) - (h / 2)
+      let left = (window.screen.width / 2) - (w / 2)
+      window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+      // window.resize('400', '600')
+      return
     }
-    // PCCE mode
-    // open popup
-    let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
-    let w = 400
-    let h = 600
-    let top = (window.screen.height / 2) - (h / 2)
-    let left = (window.screen.width / 2) - (w / 2)
-    window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
-    // window.resize('400', '600')
   }
 }
 
