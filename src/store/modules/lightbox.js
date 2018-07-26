@@ -1,5 +1,5 @@
 import * as types from 'src/store/mutation-types'
-import Vue from 'Vue'
+import Vue from 'vue'
 
 // initial state
 const state = {

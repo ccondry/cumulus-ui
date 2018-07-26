@@ -6,7 +6,8 @@ import store from 'src/store'
 import router from 'src/router.js'
 import VueSVGIcon from 'vue-svgicon'
 
-global.jQuery = require('jQuery')
+// global.jQuery = require('jQuery')
+require('expose?$!expose?jQuery!jquery')
 
 require('font-awesome/css/font-awesome.css')
 require('bootstrap-webpack')

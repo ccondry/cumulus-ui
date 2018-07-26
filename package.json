@@ -19,6 +19,7 @@
     "bootstrap-webpack": "0.0.5",
     "exports-loader": "^0.6.3",
     "expose": "^0.1.4",
+    "expose-loader": "^0.7.5",
     "font-awesome": "^4.7.0",
     "glyphicons": "^0.2.0",
     "imports-loader": "^0.7.0",
