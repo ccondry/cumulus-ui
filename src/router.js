@@ -4,7 +4,6 @@ import VueRouter from 'vue-router'
 Vue.component('formgroup', require('src/components/formgroup'))
 Vue.component('formgroup-submit', require('src/components/formgroup-submit'))
 Vue.component('tooltip', require('src/components/tooltip'))
-Vue.component('login-modal', require('src/components/login-modal'))
 
 const home = resolve => require(['src/routes/home.vue'], resolve)
 const about = resolve => require(['src/routes/about.vue'], resolve)

@@ -209,8 +209,6 @@ export default {
       'shortCode'
     ])
     // customer: 'customer',
-    // needsAuthentication: 'needsAuthentication',
-    // authToken: 'authToken'
     // }),
     // verticalRoute () {
     //   // pull the vertical ID from route
