@@ -1,5 +1,5 @@
 import * as types from 'src/store/mutation-types'
-import jQuery from 'jQuery'
+import axios from 'axios'
 // import notifications from 'src/store/modules/notifications.js'
 
 // module state
@@ -36,7 +36,7 @@ const actions = {
     // commit to state
     commit(types.SET_EMAIL, email)
   },
-  createTaskRequest ({commit, state, rootState}, {title, description, userid, mediaType, cv1, cv2, success}) {
+  async createTaskRequest ({commit, state, rootState}, {title, description, userid, mediaType, cv1, cv2, success}) {
     let postData = {
       'token': state.taskRequest.token,
       'feedId': state.taskRequest.feedId,
@@ -70,17 +70,21 @@ const actions = {
       })
     }
 
-    jQuery.ajax({
-      url: state.taskRequest.apiUrl,
-      data: JSON.stringify(postData),
-      method: 'POST',
-      contentType: 'application/json'
-    }).done(function (rsp) {
+    try {
+      // perform REST operation
+      const rsp = await axios({
+        url: state.taskRequest.apiUrl,
+        method: 'POST',
+        // params: params.qs,
+        data: postData
+      })
       console.log('created Task in SocialMiner. response: ', rsp)
       if (typeof success === 'function') {
         success(rsp)
       }
-    })
+    } catch (e) {
+      throw e
+    }
   },
   agentRequest: function (sessionId) {
     return `//demos.cxdemo.net/callback/dynamic.html?title=${state.socialminer.title}&feed=${state.socialminer.feedId}&cv8=${sessionId}&logo=${encodeURIComponent(state.socialminers.logo)}&titleColor=${encodeURIComponent(state.socialminer.titleColor)}&hideTitle=${state.socialminer.hideTitle}&favicon=${encodeURIComponent(state.socialminer.favicon)}&buttonBackground=${encodeURIComponent(state.socialminer.buttonBackground)}`
