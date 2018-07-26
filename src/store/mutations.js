@@ -36,5 +36,8 @@ export default {
   },
   [types.SET_IS_LOCAL] (state, data) {
     state.isLocal = data
+  },
+  [types.SET_ENDPOINTS] (state, data) {
+    state.endpoints = data
   }
 }
