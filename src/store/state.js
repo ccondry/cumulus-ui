@@ -28,6 +28,6 @@ export default {
   datacenter: null,
   sessionId: null,
   needsSession: false,
-  sessionInfo: null,
+  sessionInfo: {},
   isLocal: null
 }
