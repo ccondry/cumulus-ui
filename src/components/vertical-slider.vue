@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slider animation="fade" :speed="1000" :interval="15000" height="600px">
+    <slider animation="fade" :speed="1000" :interval="30000" height="600px">
       <slider-item v-for="slider in model.sliders">
         <div class="slider-caption">
           <h1>{{ slider.title }}</h1>
