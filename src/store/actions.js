@@ -227,8 +227,8 @@ export const startCallback = async ({commit, state, rootState, getters}, data) =
           session: rootState.sessionId,
           datacenter: rootState.datacenter,
           callback: {
-            firstname: data.name.split(' ')[0],
-            lastname: data.name.split(' ')[1],
+            firstname: data.firstName,
+            lastname: data.lastName,
             callback: data.phone
           }
         }

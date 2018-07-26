@@ -220,7 +220,13 @@ export default {
       'contact',
       'verticalConfig',
       'sessionInfo'
-    ])
+    ]),
+    firstName () {
+      return this.name.split(' ')[0]
+    },
+    lastName () {
+      return this.name.substring(this.name.split(' ')[0].length)
+    }
   },
   methods: {
     ...mapActions([
@@ -262,7 +268,8 @@ export default {
     },
     doStartChat () {
       this.startChat({
-        name: this.name,
+        firstName: this.firstName,
+        lastName: this.lastName,
         email: this.email,
         phone: this.phone,
         subject: this.message
@@ -271,15 +278,16 @@ export default {
     doStartBot () {
       // TODO validate input
       this.startBot({
-        firstName: this.name.split(' ')[0],
-        lastName: this.name.substring(this.name.split(' ')[0].length),
+        firstName: this.firstName,
+        lastName: this.lastName,
         email: this.email,
         phone: this.phone
       })
     },
     doStartCallback () {
       this.startCallback({
-        name: this.name,
+        firstName: this.firstName,
+        lastName: this.lastName,
         email: this.email,
         phone: this.phone,
         subject: this.message
