@@ -214,7 +214,7 @@ export const startCallback = async ({commit, state, rootState, getters, dispatch
         console.log('failed to send callback request', e)
         // failed to start callback - send notification
         // notifications.actions.failNotification({commit, state}, e)
-        dispatch('failNotification', e)
+        dispatch('failNotification', e.response.data)
       } finally {
         commit(types.SET_WORKING, {key: 'callback', value: false})
       }
