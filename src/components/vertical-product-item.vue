@@ -9,7 +9,7 @@
         <div class="hover">
           <div class="hover-iner">
             <a :href="wssUrl" target="_blank">
-              <img :src="`https://mm.cxdemo.net/static/images/cumulus/common/open-icon.png`">
+              <img :src="`/static/images/cumulus/common/open-icon.png`">
             </a>
             <span>{{ model.name }}</span>
           </div>
