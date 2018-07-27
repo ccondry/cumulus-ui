@@ -200,6 +200,7 @@ export const startCallback = async ({commit, state, rootState, getters, dispatch
           callback: {
             firstname: data.firstName,
             lastname: data.lastName,
+            emailaddress: data.email,
             callback: data.phone
           }
         }
