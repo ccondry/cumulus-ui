@@ -278,6 +278,7 @@ export default {
       this.startChat({
         firstName: this.firstName,
         lastName: this.lastName,
+        name: this.name,
         email: this.email,
         phone: this.phone,
         subject: this.message
@@ -288,6 +289,7 @@ export default {
       this.startBot({
         firstName: this.firstName,
         lastName: this.lastName,
+        name: this.name,
         email: this.email,
         phone: this.phone
       })
@@ -296,6 +298,7 @@ export default {
       this.startCallback({
         firstName: this.firstName,
         lastName: this.lastName,
+        name: this.name,
         email: this.email,
         phone: this.phone,
         subject: this.message
