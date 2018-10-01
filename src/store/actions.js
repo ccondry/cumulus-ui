@@ -125,6 +125,36 @@ export const sendEmail = async ({commit, state, rootState, dispatch, getters}, d
   }
 }
 
+export const sendTaskRequest = async ({commit, state, rootState, dispatch}, data) => {
+  // check session is valid
+  if (state.sessionInfo === null) {
+    // invalid session
+    const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
+    dispatch('failNotification', message)
+    throw new Error(message)
+  } else {
+    let url = `${rootState.apiBase}/task`
+    let body = {
+      session: rootState.sessionId,
+      datacenter: rootState.datacenter,
+      task: data
+    }
+    console.log(`sending Task Request to ${url}`)
+    try {
+      commit(types.SET_WORKING, {key: 'task', value: true})
+      const response = await axios.post(url, body)
+      dispatch('successNotification', 'Successfully sent request')
+      return response
+    } catch (e) {
+      console.log('failed to send task request', e.message)
+      dispatch('failNotification', 'Failed to send request: ' + e.message)
+      throw e
+    } finally {
+      commit(types.SET_WORKING, {key: 'task', value: false})
+    }
+  }
+}
+
 // Start non-bot chat
 export const startChat = ({commit, state, rootState, getters}, data) => {
   // check session is valid

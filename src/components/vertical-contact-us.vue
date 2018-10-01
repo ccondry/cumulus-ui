@@ -12,6 +12,13 @@
               <li v-if="sessionDemo"><a href @click.prevent="currentTab = 'bot'" :class="currentTab === 'bot' ? 'active' : ''">ChatBot</a></li>
               <li><a href @click.prevent="currentTab = 'callback'" :class="currentTab === 'callback' ? 'active' : ''">Callback</a></li>
               <li><a href @click.prevent="currentTab = 'form'" :class="currentTab === 'form' ? 'active' : ''">Form</a></li>
+              <!-- Show Task Request option if demo is PCCE and task request has been enabled in demo session configuration -->
+              <li v-if="sessionDemo === 'pcce' && String(sessionConfig.taskRequestEnabled) === 'true'">
+                <a href
+                @click.prevent="currentTab = 'request'"
+                :class="currentTab === 'request' ? 'active' : ''">
+                Request</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -60,153 +67,180 @@
                   <!-- Chat Tab -->
                   <div class="message-form" v-show="currentTab === 'chat'">
                     <!-- <div v-if="showChatIframe">
-                      <iframe
-                      class="chat-frame"
-                      src="http://cceece.dcloud.cisco.com/system/web/view/live/customer/storeparams.html"></iframe>
-                    </div> -->
-                    <!-- <div v-else> -->
-                      <form action="#" method="post" class="send-message">
-                        <div class="row">
-                          <div class="name col-md-4">
-                            <input type="text" name="name" placeholder="Name" v-model="name"/>
-                          </div>
-                          <div class="email col-md-4">
-                            <input type="text" name="email" placeholder="Email" v-model="email"/>
-                          </div>
-                          <div class="subject col-md-4">
-                            <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="text col-md-12">
-                            <textarea v-if="sessionDemo !=='uccx'" name="text" placeholder="Message" v-model="message"></textarea>
-                            <span v-else>&nbsp;</span>
-                          </div>
-                        </div>
-                        <div>
-                          <button class="btn btn-success" type="submit" @click.prevent="doStartChat">Send</button>
-                        </div>
-                      </form>
-                    <!-- </div> -->
-                  </div>
-
-                  <!-- Callback Tab -->
-                  <div class="message-form" v-show="currentTab === 'callback'">
-                    <!-- <div v-if="showCallbackIframe">
-                      <iframe class="chat-frame" src="http://cceece.dcloud.cisco.com/system/templates/callback/kiwi/callback.html?subActivity=Callback&entryPointId=1001&templateName=kiwi&languageCode=en&countryCode=US&ver=v11"></iframe>
+                    <iframe
+                    class="chat-frame"
+                    src="http://cceece.dcloud.cisco.com/system/web/view/live/customer/storeparams.html"></iframe>
+                  </div> -->
+                  <!-- <div v-else> -->
+                  <form action="#" method="post" class="send-message">
+                    <div class="row">
+                      <div class="name col-md-4">
+                        <input type="text" name="name" placeholder="Name" v-model="name"/>
+                      </div>
+                      <div class="email col-md-4">
+                        <input type="text" name="email" placeholder="Email" v-model="email"/>
+                      </div>
+                      <div class="subject col-md-4">
+                        <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
+                      </div>
                     </div>
-                    <div v-else> -->
-                      <form action="#" method="post" class="send-message">
-                        <div class="row">
-                          <div class="name col-md-4">
-                            <input type="text" name="name" placeholder="Name" v-model="name"/>
-                          </div>
-                          <div class="email col-md-4">
-                            <input type="text" name="email" placeholder="Email" v-model="email"/>
-                          </div>
-                          <div class="subject col-md-4">
-                            <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="text col-md-12">
-                            <textarea v-if="sessionDemo !=='uccx'" name="text" placeholder="Message" v-model="message"></textarea>
-                            <span v-else>&nbsp;</span>
-                          </div>
-                        </div>
-                        <div>
-                          <button class="btn btn-success" type="submit" @click.prevent="doStartCallback" :disabled="working.callback">
-                            <span v-if="working.callback" >
-                              <i class="fa fa-spin fa-spinner"></i>
-                              Working...
-                            </span>
-                            <span v-else>
-                              Send
-                            </span>
-                          </button>
-                        </div>
-                      </form>
-                    <!-- </div> -->
-                  </div>
-
-                  <!-- Form Tab -->
-                  <div class="message-form" v-show="currentTab === 'form'">
-                    <form action="#" method="post" class="send-message" @submit.prevent="">
-                      <vertical-formgroup
-                      v-if="verticalConfig.form"
-                      v-for="field in verticalConfig.form.fields"
-                      :private="verticalConfig.form.private.includes(field)"
-                      :name="field"
-                      :placeholder="field"></vertical-formgroup>
-                      <div>
-                        <button class="btn btn-success" type="submit">Submit</button>
+                    <div class="row">
+                      <div class="text col-md-12">
+                        <textarea v-if="sessionDemo !=='uccx'" name="text" placeholder="Message" v-model="message"></textarea>
+                        <span v-else>&nbsp;</span>
                       </div>
-                    </form>
-                  </div>
-
-                  <!-- Bot Tab -->
-                  <div class="message-form" v-show="currentTab === 'bot'">
-                    <form action="#" method="post" class="send-message">
-                      <div class="row">
-                        <div class="name col-md-4">
-                          <input type="text" name="name" placeholder="Name" v-model="name"/>
-                        </div>
-                        <div class="email col-md-4">
-                          <input type="text" name="email" placeholder="Email" v-model="email"/>
-                        </div>
-                        <div class="subject col-md-4">
-                          <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
-                        </div>
-                      </div>
-                      <div class="row">
-                        &nbsp;
-                        <!-- <div class="text col-md-12">
-                          <textarea name="text" placeholder="Message" v-model="message"></textarea>
-                        </div> -->
-                      </div>
-                      <div>
-                        <button class="btn btn-success" type="submit" @click.prevent="doStartBot">Send</button>
-                      </div>
-                    </form>
-                  </div>
-                  <!-- /Bot Tab -->
-
+                    </div>
+                    <div>
+                      <button class="btn btn-success" type="submit" @click.prevent="doStartChat">Send</button>
+                    </div>
+                  </form>
+                  <!-- </div> -->
                 </div>
-                <div class="col-md-4">
-                  <div class="info">
-                    <p>Please select an option to get in contact with us.</p>
-                    <ul>
-                      <li><a :href="`tel:${contact.phone}`"><i class="fa fa-phone"></i>{{ contact.phone }}</a></li>
-                      <li><a :href="`tel:${contact.jacada}`"><i class="fa fa-mobile"></i>{{ contact.jacada }}</a></li>
-                      <!-- <li><a :href="`tel:${contact.mobile}`"><i class="fa fa-mobile"></i>{{ contact.mobile }}</a></li> -->
-                      <li><i class="fa fa-globe"></i>{{ contact.address }}</li>
-                      <li><i class="fa fa-envelope"></i><a :href="`mailto:${contact.email}`">{{ contact.email }}</a></li>
-                      <!-- <li><i class="fa fa-clipboard"></i><router-link to="/form">Fill Form</router-link></li> -->
-                      <!-- <li><i class="fa fa-clipboard"></i><a href="assets/finance/form.html">Fill Form</a></li> -->
-                    </ul>
-                  </div>
+
+                <!-- Callback Tab -->
+                <div class="message-form" v-show="currentTab === 'callback'">
+                  <!-- <div v-if="showCallbackIframe">
+                  <iframe class="chat-frame" src="http://cceece.dcloud.cisco.com/system/templates/callback/kiwi/callback.html?subActivity=Callback&entryPointId=1001&templateName=kiwi&languageCode=en&countryCode=US&ver=v11"></iframe>
                 </div>
+                <div v-else> -->
+                <form action="#" method="post" class="send-message">
+                  <div class="row">
+                    <div class="name col-md-4">
+                      <input type="text" name="name" placeholder="Name" v-model="name"/>
+                    </div>
+                    <div class="email col-md-4">
+                      <input type="text" name="email" placeholder="Email" v-model="email"/>
+                    </div>
+                    <div class="subject col-md-4">
+                      <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="text col-md-12">
+                      <textarea v-if="sessionDemo !=='uccx'" name="text" placeholder="Message" v-model="message"></textarea>
+                      <span v-else>&nbsp;</span>
+                    </div>
+                  </div>
+                  <div>
+                    <button class="btn btn-success" type="submit" @click.prevent="doStartCallback" :disabled="working.callback">
+                      <span v-if="working.callback" >
+                        <i class="fa fa-spin fa-spinner"></i>
+                        Working...
+                      </span>
+                      <span v-else>
+                        Send
+                      </span>
+                    </button>
+                  </div>
+                </form>
+                <!-- </div> -->
               </div>
+
+              <!-- Form Tab -->
+              <div class="message-form" v-show="currentTab === 'form'">
+                <form action="#" method="post" class="send-message" @submit.prevent="">
+                  <vertical-formgroup
+                  v-if="verticalConfig.form"
+                  v-for="field in verticalConfig.form.fields"
+                  :private="verticalConfig.form.private.includes(field)"
+                  :name="field"
+                  :placeholder="field"></vertical-formgroup>
+                  <div>
+                    <button class="btn btn-success" type="submit">Submit</button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Bot Tab -->
+              <div class="message-form" v-show="currentTab === 'bot'">
+                <form action="#" method="post" class="send-message">
+                  <div class="row">
+                    <div class="name col-md-4">
+                      <input type="text" name="name" placeholder="Name" v-model="name"/>
+                    </div>
+                    <div class="email col-md-4">
+                      <input type="text" name="email" placeholder="Email" v-model="email"/>
+                    </div>
+                    <div class="subject col-md-4">
+                      <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    &nbsp;
+                    <!-- <div class="text col-md-12">
+                    <textarea name="text" placeholder="Message" v-model="message"></textarea>
+                  </div> -->
+                </div>
+                <div>
+                  <button class="btn btn-success" type="submit" @click.prevent="doStartBot">Send</button>
+                </div>
+              </form>
             </div>
+            <!-- /Bot Tab -->
+
+            <!-- Request Tab -->
+            <div class="message-form" v-show="currentTab === 'request'">
+              <form action="#" method="post" class="send-message">
+                <div class="row">
+                  <div class="name col-md-4">
+                    <input type="text" name="name" placeholder="Name" v-model="name"/>
+                  </div>
+                  <div class="email col-md-4">
+                    <input type="text" name="email" placeholder="Email" v-model="email"/>
+                  </div>
+                  <div class="subject col-md-4">
+                    <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
+                  </div>
+                </div>
+                <div class="row">
+                  &nbsp;
+                  <!-- <div class="text col-md-12">
+                  <textarea name="text" placeholder="Message" v-model="message"></textarea>
+                </div> -->
+              </div>
+              <div>
+                <button class="btn btn-success" type="submit" @click.prevent="clickTaskRequest">Send</button>
+              </div>
+            </form>
           </div>
+          <!-- /Request Tab -->
+
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="heading-section">
-            <h2>Our Locations</h2>
-            <under-heading></under-heading>
+        <div class="col-md-4">
+          <div class="info">
+            <p>Please select an option to get in contact with us.</p>
+            <ul>
+              <li><a :href="`tel:${contact.phone}`"><i class="fa fa-phone"></i>{{ contact.phone }}</a></li>
+              <li><a :href="`tel:${contact.jacada}`"><i class="fa fa-mobile"></i>{{ contact.jacada }}</a></li>
+              <!-- <li><a :href="`tel:${contact.mobile}`"><i class="fa fa-mobile"></i>{{ contact.mobile }}</a></li> -->
+              <li><i class="fa fa-globe"></i>{{ contact.address }}</li>
+              <li><i class="fa fa-envelope"></i><a :href="`mailto:${contact.email}`">{{ contact.email }}</a></li>
+              <!-- <li><i class="fa fa-clipboard"></i><router-link to="/form">Fill Form</router-link></li> -->
+              <!-- <li><i class="fa fa-clipboard"></i><a href="assets/finance/form.html">Fill Form</a></li> -->
+            </ul>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <!-- <div id="googleMap" style="height:420px;"></div> -->
-          <vertical-map></vertical-map>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="heading-section">
+      <h2>Our Locations</h2>
+      <under-heading></under-heading>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <!-- <div id="googleMap" style="height:420px;"></div> -->
+    <vertical-map></vertical-map>
+  </div>
+</div>
+</div>
+</div>
 </template>
 
 <script>
@@ -238,7 +272,7 @@ export default {
       'apiBase',
       'contact',
       'verticalConfig',
-      'sessionInfo',
+      'sessionConfig',
       'sessionDemo',
       'loading',
       'working'
@@ -258,10 +292,19 @@ export default {
       'failNotification',
       'successNotification',
       'sendEmail',
+      'sendTaskRequest',
       'startChat',
       'startCallback',
       'startBot'
     ]),
+    clickTaskRequest () {
+      console.log('clicked send task request')
+      this.sendTaskRequest({
+        name: this.name,
+        email: this.email,
+        phone: this.phone
+      })
+    },
     doSendEmail () {
       console.log('user clicked Send Email')
       console.log('sending email...')
