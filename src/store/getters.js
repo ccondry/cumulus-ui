@@ -33,8 +33,7 @@ export const sessionInfo = state => state.sessionInfo
 
 export const sessionDemo = (state, rootState, getters) => {
   // check UCCX or PCCE
-  if (getters.sessionInfo.demo) {
-    // session.demo is set
+  try {
     // check if UCCX
     if (getters.sessionInfo.demo.toLowerCase() === 'uccx') {
       return 'uccx'
@@ -42,8 +41,8 @@ export const sessionDemo = (state, rootState, getters) => {
       // PCCE 11.6 v2 and on
       return 'pcce'
     }
-  } else {
-    // old PCCE 11.6 v1
+  } catch (e) {
+    // default to PCCE
     return 'pcce'
   }
 }
