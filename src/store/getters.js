@@ -53,9 +53,19 @@ export const sessionConfig = (state, rootState, getters) => {
   return getters.sessionInfo.configuration || {}
 }
 
-// user-defined session configuration
+// user-defined multichannel type
 export const multichannelType = (state, rootState, getters) => {
-  return getters.sessionConfig.multichannel.toLowerCase()
+  try {
+    // try to return user-configured value
+    return getters.sessionConfig.multichannel.toLowerCase()
+  } catch (e) {
+    // use defaults
+    if (getters.sessionDemo === 'uccx') {
+      return 'socialminer'
+    } else {
+      return 'ece'
+    }
+  }
 }
 
 // the destination email address for sending email to the demo
@@ -110,6 +120,14 @@ export const dCloudEceChatUrl = state => {
     //   return `http://cceece.dcloud.cisco.com/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
     // }
     return `${state.endpoints.eceProxy}/${state.datacenter}-${state.sessionId}/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+  }
+}
+
+export const upstreamChatUrl = state => {
+  try {
+    return `${state.endpoints.eceProxy}/${state.datacenter}-${state.sessionId}/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+  } catch (e) {
+    return ''
   }
 }
 
