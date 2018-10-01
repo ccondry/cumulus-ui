@@ -48,6 +48,41 @@ export const sessionDemo = (state, rootState, getters) => {
   }
 }
 
+// user-defined session configuration
+export const sessionConfig = (state, rootState, getters) => {
+  return getters.sessionInfo.configuration || {}
+}
+
+// user-defined session configuration
+export const multichannelType = (state, rootState, getters) => {
+  return getters.sessionConfig.multichannel.toLowerCase()
+}
+
+// the destination email address for sending email to the demo
+export const demoEmailAddress = (state, rootState, getters) => {
+  if (getters.sessionDemo === 'pcce') {
+    // PCCE demo
+    // check for UWF/SFDC/ECE config
+    if (getters.multichannelType === 'upstream') {
+      // UpstreamWorks for Finesse
+      return 'cumulusuwf'
+    } else if (getters.multichannelType === 'sfdc') {
+      // Bucher+Suter SFDC
+      return 'cumulussfdc'
+    } else {
+      // default to ECE
+      return 'cumulus'
+    }
+  } else if (getters.sessionDemo === 'uccx') {
+    // UCCX demo
+    return 'cumulus'
+  } else {
+    // unknown demo type
+    console.log('unknown demo type found:', demoType)
+    return 'cumulus'
+  }
+}
+
 export const sessionVersion = (state, rootState, getters) => {
   // check UCCX or PCCE
   if (getters.sessionInfo.version) {

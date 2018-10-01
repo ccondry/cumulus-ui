@@ -82,7 +82,7 @@ export const getVerticals = async ({commit, state, rootState}, data) => {
   // return response
 }
 
-export const sendEmail = async ({commit, state, rootState, dispatch}, data) => {
+export const sendEmail = async ({commit, state, rootState, dispatch, getters}, data) => {
   // check session is valid
   if (state.sessionInfo === null) {
     // invalid session
@@ -103,6 +103,7 @@ export const sendEmail = async ({commit, state, rootState, dispatch}, data) => {
     // remote
     url = `${rootState.apiBase}/email`
     body = {
+      to: getters.demoEmailAddress,
       session: rootState.sessionId,
       datacenter: rootState.datacenter,
       email: data
