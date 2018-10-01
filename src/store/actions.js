@@ -90,7 +90,12 @@ export const sendEmail = async ({commit, state, rootState, dispatch, getters}, d
     dispatch('failNotification', message)
     throw new Error(message)
   } else {
-    console.log(`state.isLocal = ${rootState.isLocal}`)
+    // console.log(`state.isLocal = ${rootState.isLocal}`)
+    let demoEmailAddress = 'cumulus'
+    if (getters.multichannelType === 'upstream') {
+      demoEmailAddress = 'cumulusuwf'
+    }
+    console.log('sending email to', demoEmailAddress)
     let url
     let body
     // if (rootState.isLocal === true) {
@@ -103,7 +108,7 @@ export const sendEmail = async ({commit, state, rootState, dispatch, getters}, d
     // remote
     url = `${rootState.apiBase}/email`
     body = {
-      to: getters.demoEmailAddress,
+      to: demoEmailAddress,
       session: rootState.sessionId,
       datacenter: rootState.datacenter,
       email: data

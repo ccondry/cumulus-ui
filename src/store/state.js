@@ -33,6 +33,7 @@ export default {
   isLocal: null,
   endpoints: {
     eceProxy: 'https://mm-ece.cxdemo.net',
-    sparky: 'https://mm-chat.cxdemo.net'
+    sparky: 'https://mm-chat.cxdemo.net',
+    upstreamProxy: 'https://mm-uwf.cxdemo.net'
   }
 }
