@@ -79,29 +79,30 @@ export const multichannelType = function (state, rootState, getters) {
 }
 
 // the destination email address for sending email to the demo
-export const demoEmailAddress = (state, rootState, getters) => {
-  if (getters.sessionDemo === 'pcce') {
-    // PCCE demo
-    // check for UWF/SFDC/ECE config
-    if (getters.multichannelType === 'upstream') {
-      // UpstreamWorks for Finesse
-      return 'cumulusuwf'
-    } else if (getters.multichannelType === 'sfdc') {
-      // Bucher+Suter SFDC
-      return 'cumulussfdc'
-    } else {
-      // default to ECE
-      return 'cumulus'
-    }
-  } else if (getters.sessionDemo === 'uccx') {
-    // UCCX demo
-    return 'cumulus'
-  } else {
-    // unknown demo type
-    console.log('unknown demo type found:', demoType)
-    return 'cumulus'
-  }
-}
+// TODO fix this? seems that getters don't cascade?
+// export const demoEmailAddress = (state, rootState, getters) => {
+//   if (getters.sessionDemo === 'pcce') {
+//     // PCCE demo
+//     // check for UWF/SFDC/ECE config
+//     if (getters.multichannelType === 'upstream') {
+//       // UpstreamWorks for Finesse
+//       return 'cumulusuwf'
+//     } else if (getters.multichannelType === 'sfdc') {
+//       // Bucher+Suter SFDC
+//       return 'cumulussfdc'
+//     } else {
+//       // default to ECE
+//       return 'cumulus'
+//     }
+//   } else if (getters.sessionDemo === 'uccx') {
+//     // UCCX demo
+//     return 'cumulus'
+//   } else {
+//     // unknown demo type
+//     console.log('unknown demo type found:', demoType)
+//     return 'cumulus'
+//   }
+// }
 
 export const sessionVersion = (state, rootState, getters) => {
   // check UCCX or PCCE
