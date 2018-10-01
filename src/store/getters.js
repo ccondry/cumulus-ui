@@ -34,8 +34,15 @@ export const sessionInfo = state => state.sessionInfo
 export const sessionDemo = (state, rootState, getters) => {
   // check UCCX or PCCE
   try {
+    let demoType
+    // determine if the demo is an array or string
+    if (Array.isArray(getters.sessionInfo.demo)) {
+      demoType = getters.sessionInfo.demo.pop()
+    } else {
+      demoType = getters.sessionInfo.demo
+    }
     // check if UCCX
-    if (getters.sessionInfo.demo.toLowerCase() === 'uccx') {
+    if (demoType.toLowerCase() === 'uccx') {
       return 'uccx'
     } else {
       // PCCE 11.6 v2 and on
@@ -49,14 +56,18 @@ export const sessionDemo = (state, rootState, getters) => {
 
 // user-defined session configuration
 export const sessionConfig = (state, rootState, getters) => {
-  return getters.sessionInfo.configuration || {}
+  try {
+    return getters.sessionInfo.configuration || {}
+  } catch (e) {
+    return {}
+  }
 }
 
 // user-defined multichannel type
-export const multichannelType = (state, rootState, getters) => {
+export const multichannelType = function (state, rootState, getters) {
   try {
     // try to return user-configured value
-    return getters.sessionConfig.multichannel.toLowerCase()
+    return getters.sessionInfo.configuration.multichannel.toLowerCase()
   } catch (e) {
     // use defaults
     if (getters.sessionDemo === 'uccx') {
