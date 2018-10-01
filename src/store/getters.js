@@ -124,7 +124,7 @@ export const dCloudEceChatUrl = state => {
 
 export const upstreamChatUrl = state => {
   try {
-    return `${state.endpoints.eceProxy}/${state.datacenter}-${state.sessionId}/system/templates/chat/cumulus/chat.html?subActivity=Chat&entryPointId=1001&templateName=cumulus&languageCode=en&countryCode=US&ver=v11`
+    return `${state.endpoints.upstreamProxy}/${state.datacenter}-${state.sessionId}/`
   } catch (e) {
     return ''
   }
