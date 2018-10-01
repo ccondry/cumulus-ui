@@ -150,15 +150,31 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       return
     } else {
       // PCCE mode
-      // open popup
-      let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
-      let w = 400
-      let h = 600
-      let top = (window.screen.height / 2) - (h / 2)
-      let left = (window.screen.width / 2) - (w / 2)
-      window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
-      // window.resize('400', '600')
-      return
+      // check which multichannel is set up
+      if (getters.multichannel === 'ece') {
+        // open popup
+        let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
+        let w = 400
+        let h = 600
+        let top = (window.screen.height / 2) - (h / 2)
+        let left = (window.screen.width / 2) - (w / 2)
+        window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+        // window.resize('400', '600')
+        return
+      } else if (getters.multichannel === 'upstream') {
+        // open popup
+        let url = addUpstreamChatParameters(getters.upstreamChatUrl, data)
+        let w = 400
+        let h = 600
+        let top = (window.screen.height / 2) - (h / 2)
+        let left = (window.screen.width / 2) - (w / 2)
+        window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+        // window.resize('400', '600')
+        return
+      } else if (getters.multichannel === 'sfdc') {
+        // TODO implement this
+        console.log('this is where we would open SFDC chat form')
+      }
     }
   }
 }
@@ -237,6 +253,10 @@ export const startCallback = async ({commit, state, rootState, getters, dispatch
   }
 }
 
+/*
+ add URL query parameters to the chat URLs to pass customer data, for
+ bypassing the pre-chat forms
+*/
 function addEceChatParameters (url, data) {
   return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&&fieldname_3=${data.phone}&fieldname_4=${encodeURIComponent(data.subject)}`
 }
@@ -246,6 +266,10 @@ function addSparkyChatParameters (url, datacenter, session, data) {
 }
 
 function addEceCallbackParameters (url, data) {
+  return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&&fieldname_3=${data.phone}&fieldname_4=0&fieldname_5=${encodeURIComponent(data.subject)}`
+}
+
+function addUpstreamChatParameters (url, data) {
   return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&&fieldname_3=${data.phone}&fieldname_4=0&fieldname_5=${encodeURIComponent(data.subject)}`
 }
 
