@@ -17,7 +17,7 @@
                 <a href
                 @click.prevent="currentTab = 'request'"
                 :class="currentTab === 'request' ? 'active' : ''">
-                Request</a>
+                Support</a>
               </li>
             </ul>
           </div>
@@ -178,7 +178,7 @@
             </div>
             <!-- /Bot Tab -->
 
-            <!-- Request Tab -->
+            <!-- Task Request Tab -->
             <div class="message-form" v-show="currentTab === 'request'">
               <form action="#" method="post" class="send-message">
                 <div class="row">
@@ -203,7 +203,7 @@
               </div>
             </form>
           </div>
-          <!-- /Request Tab -->
+          <!-- /Task Request Tab -->
 
         </div>
         <div class="col-md-4">
