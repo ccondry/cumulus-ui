@@ -177,6 +177,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       // open chat bot window with bot = false
       // open popup
       let url = addSparkyChatParameters(getters.dCloudSparkyUrl, getters.datacenter, getters.sessionId, data)
+      console.log('chat bot URL:', url)
       // add bot = false to sparky URL
       url += '&botEnabled=false'
       let w = 400
@@ -190,10 +191,11 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       console.log('startChat pcce')
       // PCCE mode
       // check which multichannel is set up
-      if (getters.multichannel === 'ece') {
+      if (getters.multichannelType === 'ece') {
         console.log('opening ECE chat form')
         // open popup
         let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
+        console.log('ECE URL:', url)
         let w = 400
         let h = 600
         let top = (window.screen.height / 2) - (h / 2)
@@ -201,10 +203,11 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
         window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
         // window.resize('400', '600')
         return
-      } else if (getters.multichannel === 'upstream') {
+      } else if (getters.multichannelType === 'upstream') {
         console.log('opening upstream chat form')
         // open popup
         let url = addUpstreamChatParameters(getters.upstreamChatUrl, data)
+        console.log('Upstream URL:', url)
         let w = 400
         let h = 600
         let top = (window.screen.height / 2) - (h / 2)
@@ -212,9 +215,23 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
         window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
         // window.resize('400', '600')
         return
-      } else if (getters.multichannel === 'sfdc') {
+      } else if (getters.multichannelType === 'sfdc') {
         // TODO implement this
         console.log('this is where we would open SFDC chat form')
+        return
+      } else {
+        console.log('startChat using default multichannel for PCCE - ECE. getters.multichannelType was', getters.multichannelType)
+        console.log('opening ECE chat form')
+        // open popup
+        let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
+        console.log('ECE URL:', url)
+        let w = 400
+        let h = 600
+        let top = (window.screen.height / 2) - (h / 2)
+        let left = (window.screen.width / 2) - (w / 2)
+        window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+        // window.resize('400', '600')
+        return
       }
     }
   }
