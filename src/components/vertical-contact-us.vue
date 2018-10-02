@@ -318,7 +318,9 @@ export default {
         title: this.requestType,
         description: this.requestType,
         cv1: this.name,
-        cv2: this.requestType
+        cv2: this.requestType,
+        cv3: this.phone,
+        cv4: this.email
       })
     },
     doSendEmail () {
