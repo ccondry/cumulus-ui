@@ -17,7 +17,7 @@
                 <a href
                 @click.prevent="currentTab = 'request'"
                 :class="currentTab === 'request' ? 'active' : ''">
-                Support</a>
+                Request</a>
               </li>
             </ul>
           </div>
@@ -194,9 +194,17 @@
                 </div>
                 <div class="row">
                   &nbsp;
-                  <!-- <div class="text col-md-12">
-                  <textarea name="text" placeholder="Message" v-model="message"></textarea>
-                </div> -->
+                  <div class="form-group" style="margin-left: 15px; margin-right: 15px;">
+                    <select class="form-control" v-model="requestType">
+                      <option value="Send My Bank Statement">Send My Bank Statement</option>
+                      <option value="Send My Boarding Pass">Send My Boarding Pass</option>
+                      <option value="Refill My Prescription">Refill My Prescription</option>
+                      <option value="Report Power Outage">Report Power Outage</option>
+                      <option value="Request Trash Pickup">Request Trash Pickup</option>
+                    </select>
+                  </div>
+                  <!-- <textarea name="text" placeholder="Message" v-model="message"></textarea> -->
+                <!-- </div> -->
               </div>
               <div>
                 <button class="btn btn-success" type="submit" @click.prevent="clickTaskRequest">Send</button>
@@ -264,7 +272,8 @@ export default {
       message: '',
       currentTab: 'email',
       showChatIframe: false,
-      showCallbackIframe: false
+      showCallbackIframe: false,
+      requestType: 'Send My Bank Statement'
     }
   },
   computed: {
@@ -305,7 +314,11 @@ export default {
       this.sendTaskRequest({
         name: this.name,
         email: this.email,
-        phone: this.phone
+        phone: this.phone,
+        title: this.requestType,
+        description: this.requestType,
+        cv1: this.name,
+        cv2: this.requestType
       })
     },
     doSendEmail () {
