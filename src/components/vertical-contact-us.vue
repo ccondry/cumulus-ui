@@ -13,7 +13,7 @@
               <li><a href @click.prevent="currentTab = 'callback'" :class="currentTab === 'callback' ? 'active' : ''">Callback</a></li>
               <li><a href @click.prevent="currentTab = 'form'" :class="currentTab === 'form' ? 'active' : ''">Form</a></li>
               <!-- Show Task Request option if demo is PCCE and task request has been enabled in demo session configuration -->
-              <li v-if="sessionDemo === 'pcce' && String(sessionConfig.taskRequestEnabled) === 'true'">
+              <li v-if="sessionDemo === 'pcce' && sessionVersion === '11.6v3'">
                 <a href
                 @click.prevent="currentTab = 'request'"
                 :class="currentTab === 'request' ? 'active' : ''">
@@ -268,6 +268,8 @@ export default {
     }
   },
   computed: {
+    // ...mapState([
+    // ]),
     ...mapGetters([
       'apiBase',
       'contact',
@@ -275,7 +277,8 @@ export default {
       'sessionConfig',
       'sessionDemo',
       'loading',
-      'working'
+      'working',
+      'sessionVersion'
     ]),
     firstName () {
       return this.name.split(' ')[0]
