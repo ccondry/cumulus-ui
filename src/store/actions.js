@@ -187,6 +187,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       // PCCE mode
       // check which multichannel is set up
       if (getters.multichannel === 'ece') {
+        console.log('opening ECE chat form')
         // open popup
         let url = addEceChatParameters(getters.dCloudEceChatUrl, data)
         let w = 400
@@ -197,6 +198,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
         // window.resize('400', '600')
         return
       } else if (getters.multichannel === 'upstream') {
+        console.log('opening upstream chat form')
         // open popup
         let url = addUpstreamChatParameters(getters.upstreamChatUrl, data)
         let w = 400
