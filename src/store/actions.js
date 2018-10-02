@@ -162,14 +162,17 @@ export const sendTaskRequest = async ({commit, state, rootState, dispatch}, data
 
 // Start non-bot chat
 export const startChat = ({commit, state, rootState, getters}, data) => {
+  console.log('vuex action startChat')
   // check session is valid
   if (state.sessionInfo === null) {
+    console.log('startChat failed - no session info found')
     // invalid session
     const message = `Your Session ID, ${state.sessionId} is not valid for the selected datacenter, ${state.datacenter}. Please update the information and try again.`
     notifications.actions.failNotification({commit, state}, message)
   } else {
     // valid session
     if (getters.sessionDemo === 'uccx') {
+      console.log('startChat uccx')
       // UCCX mode
       // open chat bot window with bot = false
       // open popup
@@ -184,6 +187,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       // window.resize('400', '600')
       return
     } else {
+      console.log('startChat pcce')
       // PCCE mode
       // check which multichannel is set up
       if (getters.multichannel === 'ece') {
