@@ -106,10 +106,10 @@ export const multichannelType = function (state, rootState, getters) {
 
 export const sessionVersion = (state, rootState, getters) => {
   // check UCCX or PCCE
-  if (getters.sessionInfo.version) {
+  try {
     // UCCX or PCCE 11.6 v2 or newer
     return getters.sessionInfo.version
-  } else {
+  } catch (e) {
     // old PCCE 11.6 v1
     return '11.6v1'
   }
