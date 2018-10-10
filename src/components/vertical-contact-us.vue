@@ -196,11 +196,7 @@
                   &nbsp;
                   <div class="form-group" style="margin-left: 15px; margin-right: 15px;">
                     <select class="form-control" v-model="requestType">
-                      <option value="Send My Bank Statement">Send My Bank Statement</option>
-                      <option value="Send My Boarding Pass">Send My Boarding Pass</option>
-                      <option value="Refill My Prescription">Refill My Prescription</option>
-                      <option value="Report Power Outage">Report Power Outage</option>
-                      <option value="Request Trash Pickup">Request Trash Pickup</option>
+                      <option v-for="option of verticalConfig.taskOptions" :value="option">{{ option.text }}</option>
                     </select>
                   </div>
                   <!-- <textarea name="text" placeholder="Message" v-model="message"></textarea> -->
@@ -270,11 +266,14 @@ export default {
       subject: '',
       phone: '',
       message: '',
-      currentTab: 'email',
+      currentTab: 'request',
       showChatIframe: false,
       showCallbackIframe: false,
-      requestType: 'Send My Bank Statement'
+      requestType: {text: ''}
     }
+  },
+  mounted () {
+    this.chooseFirstRequestType()
   },
   computed: {
     // ...mapState([
@@ -309,6 +308,14 @@ export default {
       'startCallback',
       'startBot'
     ]),
+    chooseFirstRequestType () {
+      // set the task request type option to the first option
+      try {
+        this.requestType = this.verticalConfig.taskOptions[0]
+      } catch (e) {
+        // do nothing
+      }
+    },
     clickTaskRequest () {
       console.log('clicked send task request')
       this.sendTaskRequest({
@@ -364,6 +371,13 @@ export default {
         phone: this.phone,
         subject: this.message
       })
+    }
+  },
+  watch: {
+    verticalConfig () {
+      console.log('verticalConfig changed - updating the request type selection to choose first available option')
+      // vertical config changed - update UI where necessary
+      this.chooseFirstRequestType()
     }
   }
 }
