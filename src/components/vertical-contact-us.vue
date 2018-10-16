@@ -395,7 +395,7 @@ export default {
   text-decoration: inherit;
 }
 .chat-frame {
-  height: 600px;
+  height: 700px;
   width: 100%;
   /* border: none; */
 }
