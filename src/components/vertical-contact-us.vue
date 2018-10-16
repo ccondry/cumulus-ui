@@ -396,7 +396,7 @@ export default {
 }
 .chat-frame {
   height: 700px;
-  width: 100%;
+  width: 70%;
   border: none;
 }
 
