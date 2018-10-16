@@ -66,8 +66,10 @@
 
                   <!-- Chat Tab -->
                   <div class="message-form" v-show="currentTab === 'chat'">
-                    <div v-if="multichannelType === 'upstream'">
+                    <div v-if="multichannelType === 'upstream'" class="chat-frame-div">
+                      <button class="btn btn-warning pull-right" style="margin-bottom:4px;" @click.prevent="resetChatIframe">Restart Chat</button>
                       <iframe
+                      ref="upstreamIframe"
                       class="chat-frame"
                       src="https://cceweb.dcloud.cisco.com:446/"></iframe>
                     </div>
@@ -309,6 +311,9 @@ export default {
       'startCallback',
       'startBot'
     ]),
+    resetChatIframe () {
+      this.$refs.upstreamIframe.src = 'https://cceweb.dcloud.cisco.com:446/'
+    },
     chooseFirstRequestType () {
       // set the task request type option to the first option
       try {
@@ -394,11 +399,17 @@ export default {
 .tab-list li a:visited {
   text-decoration: inherit;
 }
+.chat-frame-div {
+  /* height: 700px; */
+  width: 60%;
+  /* border: none; */
+  margin-left: 40%;
+}
 .chat-frame {
   height: 700px;
-  width: 60%;
+  width: 100%;
   border: none;
-  margin-left: 40%;
+  /* margin-left: 40%; */
 }
 
 .message-form input {
