@@ -107,8 +107,11 @@ export const sendEmail = async ({commit, state, rootState, dispatch, getters}, d
     // console.log(`rootState.isLocal is false?`)
     // remote
     url = `${rootState.apiBase}/email`
+    // set TO address
+    data.to = demoEmailAddress
+    // set up request body
     body = {
-      to: demoEmailAddress,
+      // to: demoEmailAddress,
       session: rootState.sessionId,
       datacenter: rootState.datacenter,
       email: data
