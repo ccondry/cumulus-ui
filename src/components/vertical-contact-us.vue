@@ -66,35 +66,35 @@
 
                   <!-- Chat Tab -->
                   <div class="message-form" v-show="currentTab === 'chat'">
-                    <!-- <div v-if="showChatIframe">
-                    <iframe
-                    class="chat-frame"
-                    src="http://cceece.dcloud.cisco.com/system/web/view/live/customer/storeparams.html"></iframe>
-                  </div> -->
-                  <!-- <div v-else> -->
-                  <form action="#" method="post" class="send-message">
-                    <div class="row">
-                      <div class="name col-md-4">
-                        <input type="text" name="name" placeholder="Name" v-model="name"/>
-                      </div>
-                      <div class="email col-md-4">
-                        <input type="text" name="email" placeholder="Email" v-model="email"/>
-                      </div>
-                      <div class="subject col-md-4">
-                        <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
-                      </div>
+                    <div v-if="multichannelType === 'upstream'">
+                      <iframe
+                      class="chat-frame"
+                      src="https://cceweb.dcloud.cisco.com:446/"></iframe>
                     </div>
-                    <div class="row">
-                      <div class="text col-md-12">
-                        <textarea v-if="sessionDemo !=='uccx'" name="text" placeholder="Message" v-model="message"></textarea>
-                        <span v-else>&nbsp;</span>
-                      </div>
+                    <div v-else>
+                      <form action="#" method="post" class="send-message">
+                        <div class="row">
+                          <div class="name col-md-4">
+                            <input type="text" name="name" placeholder="Name" v-model="name"/>
+                          </div>
+                          <div class="email col-md-4">
+                            <input type="text" name="email" placeholder="Email" v-model="email"/>
+                          </div>
+                          <div class="subject col-md-4">
+                            <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="text col-md-12">
+                            <textarea v-if="sessionDemo !=='uccx'" name="text" placeholder="Message" v-model="message"></textarea>
+                            <span v-else>&nbsp;</span>
+                          </div>
+                        </div>
+                        <div>
+                          <button class="btn btn-success" type="submit" @click.prevent="doStartChat">Send</button>
+                        </div>
+                      </form>
                     </div>
-                    <div>
-                      <button class="btn btn-success" type="submit" @click.prevent="doStartChat">Send</button>
-                    </div>
-                  </form>
-                  <!-- </div> -->
                 </div>
 
                 <!-- Callback Tab -->
@@ -286,7 +286,8 @@ export default {
       'sessionDemo',
       'loading',
       'working',
-      'sessionVersion'
+      'sessionVersion',
+      'multichannelType'
     ]),
     firstName () {
       return this.name.split(' ')[0]
@@ -395,7 +396,8 @@ export default {
 }
 .chat-frame {
   height: 600px;
-  width: 400px;
+  width: 100%;
+  /* border: none; */
 }
 
 .message-form input {
