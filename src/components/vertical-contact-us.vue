@@ -396,9 +396,9 @@ export default {
 }
 .chat-frame {
   height: 700px;
-  width: 70%;
+  width: 60%;
   border: none;
-  margin-left: 30%;
+  margin-left: 40%;
 }
 
 .message-form input {
