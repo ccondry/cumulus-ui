@@ -298,18 +298,50 @@ export const startCallback = async ({commit, state, rootState, getters, dispatch
       }
     } else {
       // pcce
-      // open popup to ECE callback
-      let url
-      // if (data.delay && data.delay !== 0 && data.delay !== '') {
-      //   url = addEceParameters(config.ece.delayedCallbackUrl, data)
-      // } else {
-      url = addEceCallbackParameters(getters.dCloudEceCallbackUrl, data)
-      // }
-      let w = 400
-      let h = 600
-      let top = (window.screen.height / 2) - (h / 2)
-      let left = (window.screen.width / 2) - (w / 2)
-      window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+      if (!getters.multichannelType === 'ece') {
+        // open popup to ECE callback
+        let url
+        // if (data.delay && data.delay !== 0 && data.delay !== '') {
+        //   url = addEceParameters(config.ece.delayedCallbackUrl, data)
+        // } else {
+        url = addEceCallbackParameters(getters.dCloudEceCallbackUrl, data)
+        // }
+        let w = 400
+        let h = 600
+        let top = (window.screen.height / 2) - (h / 2)
+        let left = (window.screen.width / 2) - (w / 2)
+        window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+      } else {
+        // upstream or sfdc multichannel - use SocialMiner Agent Request API
+        try {
+          const url = `${rootState.apiBase}/callback`
+          const body = {
+            session: rootState.sessionId,
+            datacenter: rootState.datacenter,
+            callback: {
+              description: data.subject,
+              name: data.firstName + ' ' + data.lastName,
+              title: data.subject,
+              mediaAddress: data.phone,
+              tags: '',
+              variables: []
+            }
+          }
+          console.log(`sending callback request to ${url}`)
+          commit(types.SET_WORKING, {key: 'callback', value: true})
+          const response = await axios.post(url, body)
+          console.log('callback response', response)
+          // notifications.actions.successNotification({commit, state}, `Your callback request has been successfully scheduled. Your estimated wait time is ${response.data.WaitingSecond} seconds.`)
+          dispatch('successNotification', `Your callback request has been successfully scheduled. Your estimated wait time is ${response.data.WaitingSecond} seconds.`)
+        } catch (e) {
+          console.log('failed to send callback request', e)
+          // failed to start callback - send notification
+          // notifications.actions.failNotification({commit, state}, e)
+          dispatch('failNotification', e.response.data)
+        } finally {
+          commit(types.SET_WORKING, {key: 'callback', value: false})
+        }
+      }
     }
   }
 }
