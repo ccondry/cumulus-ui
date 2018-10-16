@@ -266,7 +266,7 @@ export default {
       subject: '',
       phone: '',
       message: '',
-      currentTab: 'request',
+      currentTab: 'email',
       showChatIframe: false,
       showCallbackIframe: false,
       requestType: {text: ''}
