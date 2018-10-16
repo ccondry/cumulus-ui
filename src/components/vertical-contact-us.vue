@@ -398,6 +398,7 @@ export default {
   height: 700px;
   width: 70%;
   border: none;
+  margin-left: 30%;
 }
 
 .message-form input {
