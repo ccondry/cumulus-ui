@@ -328,10 +328,10 @@ export default {
         name: this.name,
         email: this.email,
         phone: this.phone,
-        title: this.requestType,
-        description: this.requestType,
+        title: this.requestType.text,
+        description: this.requestType.text,
         cv1: this.name,
-        cv2: this.requestType,
+        cv2: this.requestType.text,
         cv3: this.phone,
         cv4: this.email
       })
