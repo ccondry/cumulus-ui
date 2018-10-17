@@ -85,7 +85,7 @@
               <ul>
                 <li><i class="fa fa-phone"></i>{{ contact.phone }}</li>
                 <li><i class="fa fa-globe"></i>{{ contact.address }}</li>
-                <li><i class="fa fa-envelope"></i><a :href="`mailto:${contact.email}`">{{ contact.email }}</a></li>
+                <li><i class="fa fa-envelope"></i><a :href="`mailto:${multichannelType}@cumulus.com`">{{ `${multichannelType}@cumulus.com` }}</a></li>
               </ul>
             </div>
           </div>
@@ -120,7 +120,8 @@ export default {
     ...mapGetters([
       'vertical',
       'contact',
-      'version'
+      'version',
+      'multichannelType'
     ])
   }
 }
