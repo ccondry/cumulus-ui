@@ -312,7 +312,7 @@ export const startCallback = async ({commit, state, rootState, getters, dispatch
         let left = (window.screen.width / 2) - (w / 2)
         window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
       } else {
-        // upstream or sfdc multichannel - use SocialMiner Agent Request API
+        // not ECE multichannel - use SocialMiner Agent Request API
         try {
           const url = `${rootState.apiBase}/callback`
           const body = {
