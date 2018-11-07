@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="heading-section">
-            <h2>Why Cumulus?</h2>
+            <h2>Why Us?</h2>
             <under-heading></under-heading>
           </div>
         </div>
@@ -17,7 +17,7 @@
             </div>
             <h4>The Best Service</h4>
             <p>
-              Cumulus is always committed to provide the best service on any
+              We are always committed to provide the best service on any
               good. Delivering great services is our main goal. We do this on
               every business that our company is providing.
             </p>
