@@ -13,9 +13,9 @@
 
         <div class="row">
           <div class="col-md-6">
-            <h3>Cumulus</h3>
+            <h3>About Us</h3>
             <p>
-              Cumulus is a multinational company headquartered in California.
+              We are a multinational company headquartered in California.
               We are involved in many businesses operating in different
               countries at the same time. We have offices and employees spread
               over the globe, and we produce a variety of goods and services.
@@ -24,7 +24,7 @@
           <div class="col-md-6">
             <h3>Our Business</h3>
             <p>
-              Cumulus is a corporation with many business. We have financial
+              We are a corporation with many business. We have financial
               institutions, healthcare organizations, travel agencies, gas and
               electricity distributions, and city services for municipalities.
             </p>
