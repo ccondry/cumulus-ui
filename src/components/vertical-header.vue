@@ -20,7 +20,8 @@
           <div class="col-md-3">
             <router-link to="home">
               <div class="logo">
-                <img v-if="model.logo.image" :src="model.logo.image" :title="model.name" :alt="model.name">
+                <img :src="model.logo.rasterised" :title="model.name" :alt="model.name" height="50">
+                <!-- <img v-if="model.logo.image" :src="model.logo.image" :title="model.name" :alt="model.name">
                 <svgicon v-if="!model.logo.image" icon="cumulus-logo" width="48" height="48" :color="model.logo.color"></svgicon>
                 <div>
                   <div class="logo-title">
@@ -29,7 +30,7 @@
                   <div class="logo-subtitle" :style="`color: ${model.logo.color}`">
                     {{ model.logo.subtitle }}
                   </div>
-                </div>
+                </div> -->
               </div>
             </router-link>
           </div>
