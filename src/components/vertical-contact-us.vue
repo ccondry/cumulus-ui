@@ -242,7 +242,7 @@
 <div class="row">
   <div class="col-md-12">
     <!-- <div id="googleMap" style="height:420px;"></div> -->
-    <vertical-map></vertical-map>
+    <vertical-map :vertical="verticalConfig"></vertical-map>
   </div>
 </div>
 </div>
