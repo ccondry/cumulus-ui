@@ -28,6 +28,7 @@ Vue.use(VueGoogleMaps, {
 
 export default {
   name: 'vertical-map',
+  props: ['vertical'],
   data () {
     return {
       center: {lat: 37.4084425, lng: -121.9561531},
