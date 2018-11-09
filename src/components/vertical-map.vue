@@ -38,6 +38,19 @@ export default {
         position: {lat: 11.0, lng: 11.0}
       }]
     }
+  },
+  watch: {
+    vertical (val) {
+      // vertical changed
+      // update map markers
+      this.markers.pop()
+      this.markers.push({
+        position: {lat: Number(val.gps.latitude), lng: Number(val.gps.longitude)}
+      })
+      // update map center
+      this.center.lat = Number(val.gps.latitude)
+      this.center.lng = Number(val.gps.longitude)
+    }
   }
 }
 </script>
