@@ -155,11 +155,33 @@ export default {
       _isLocal: 'isLocal',
       verticals: 'verticals'
     }),
+    sortedVerticals () {
+      // make a mutable copy of the store data
+      try {
+        const copy = JSON.parse(JSON.stringify(this.verticals))
+        // case-insensitive sort by name
+        copy.sort((a, b) => {
+          var nameA = a.name.toUpperCase() // ignore upper and lowercase
+          var nameB = b.name.toUpperCase() // ignore upper and lowercase
+          if (nameA < nameB) {
+            return -1
+          }
+          if (nameA > nameB) {
+            return 1
+          }
+          // names must be equal
+          return 0
+        })
+        return copy
+      } catch (e) {
+        console.log(`couldn't get sorted verticals`, e)
+      }
+    },
     systemVerticals () {
-      return this.verticals.filter(v => !v.owner || v.owner === 'system' || v.owner === null)
+      return this.sortedVerticals.filter(v => !v.owner || v.owner === 'system' || v.owner === null)
     },
     userVerticals () {
-      return this.verticals.filter(v => v.owner && v.owner !== 'system' && v.owner !== null)
+      return this.sortedVerticals.filter(v => v.owner && v.owner !== 'system' && v.owner !== null)
     },
     submitDisabled () {
       // disable the submit button if either input is empty/not set
