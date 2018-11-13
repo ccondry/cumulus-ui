@@ -33,8 +33,12 @@
               <div class="col-sm-6">
                 <select v-model="vertical">
                   <option disabled value="">Please Choose Vertical</option>
-                  <option v-for="vertical in verticals" :value="vertical.id">{{ vertical.name }}</option>
+                  <option v-for="vertical in systemVerticals" :value="vertical.id">{{ vertical.name }}</option>
+                  <option val="b" class="select-hr" v-if="showAllVerticals">-------------------------</option>
+                  <option v-for="vertical in userVerticals" :value="vertical.id" v-if="showAllVerticals">{{ vertical.name }}</option>
                 </select>
+                show all
+                <input type="checkbox" v-model="showAllVerticals" />
               </div>
             </div>
             <div class="form-group row" v-show="false">
@@ -101,7 +105,8 @@ export default {
       datacenter: '',
       datacenters,
       vertical: '',
-      isLocal: true
+      isLocal: true,
+      showAllVerticals: false
     }
   },
   methods: {
@@ -148,6 +153,12 @@ export default {
       _isLocal: 'isLocal',
       verticals: 'verticals'
     }),
+    systemVerticals () {
+      return this.verticals.filter(v => !v.owner || v.owner === 'system' || v.owner === null)
+    },
+    userVerticals () {
+      return this.verticals.filter(v => v.owner && v.owner !== 'system' && v.owner !== null)
+    },
     submitDisabled () {
       // disable the submit button if either input is empty/not set
       return this.sessionId === '' || this.datacenter === ''
