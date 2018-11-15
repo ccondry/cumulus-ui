@@ -209,7 +209,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       } else if (getters.multichannelType === 'upstream') {
         console.log('opening upstream chat form')
         // open popup
-        let url = addUpstreamChatParameters(getters.upstreamChatUrl, data)
+        let url = addUpstreamChatParameters('/upstream', data)
         console.log('Upstream URL:', url)
         let w = 400
         let h = 600
@@ -363,7 +363,7 @@ function addEceCallbackParameters (url, data) {
 }
 
 function addUpstreamChatParameters (url, data) {
-  return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&&fieldname_3=${data.phone}&fieldname_4=0&fieldname_5=${encodeURIComponent(data.subject)}`
+  return url + `&name=${encodeURIComponent(data.name)}&email=${data.email}&phone=${data.phone}&message=${encodeURIComponent(data.subject)}`
 }
 
 export const setSession = ({commit, state, rootState}, data) => {
