@@ -66,34 +66,6 @@
 
                   <!-- Chat Tab -->
                   <div class="message-form" v-show="currentTab === 'chat'">
-                    <!-- <div v-if="multichannelType === 'upstream'" class="chat-frame-div">
-                      <form method="post" class="send-message" action="https://cceweb.dcloud.cisco.com:446/Home/Chat" target="">
-                        <div class="row">
-                          <div class="name col-md-4">
-                            <input type="text" name="ContactName" placeholder="Name" v-model="name"/>
-                          </div>
-                          <div class="email col-md-4">
-                            <input type="text" name="Email" placeholder="Email" v-model="email"/>
-                          </div>
-                          <div class="subject col-md-4">
-                            <input type="text" name="Phone" placeholder="Phone Number" v-model="phone" />
-                          </div>
-                          <input type="hidden" name="CustomerId" value="1" />
-                          <input type="hidden" name="UserLanguage" value="en" />
-                          <input type="hidden" name="Reason" value="Billing" />
-                          <input type="hidden" name="Parameters[CustomKey]" value="CustomValue" />
-                          <input type="hidden" name="Parameters[TimeZoneOffset]" value="Central Standard Time" />
-                        </div>
-                        <div class="row">
-                          <div class="text col-md-12">
-                            <textarea name="text" placeholder="Message" v-model="message"></textarea>
-                          </div>
-                        </div>
-                        <div>
-                          <button class="btn btn-success" type="submit">Send</button>
-                        </div>
-                      </form>
-                    </div> -->
                     <div>
                       <form action="#" method="post" class="send-message">
                         <div class="row">
