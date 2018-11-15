@@ -351,7 +351,7 @@ export const startCallback = async ({commit, state, rootState, getters, dispatch
  bypassing the pre-chat forms
 */
 function addEceChatParameters (url, data) {
-  return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&&fieldname_3=${data.phone}&fieldname_4=${encodeURIComponent(data.subject)}`
+  return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&fieldname_3=${data.phone}&fieldname_4=${encodeURIComponent(data.subject)}`
 }
 
 function addSparkyChatParameters (url, datacenter, session, data) {
@@ -359,7 +359,7 @@ function addSparkyChatParameters (url, datacenter, session, data) {
 }
 
 function addEceCallbackParameters (url, data) {
-  return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&&fieldname_3=${data.phone}&fieldname_4=0&fieldname_5=${encodeURIComponent(data.subject)}`
+  return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&fieldname_3=${data.phone}&fieldname_4=0&fieldname_5=${encodeURIComponent(data.subject)}`
 }
 
 function addUpstreamChatParameters (url, data) {
