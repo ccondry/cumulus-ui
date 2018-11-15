@@ -209,7 +209,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       } else if (getters.multichannelType === 'upstream') {
         console.log('opening upstream chat form')
         // open popup
-        let url = addUpstreamChatParameters('/upstream', data)
+        let url = addUpstreamChatParameters('/upstream?id=' + getters.sessionId + '&datacenter=' + getters.datacenter, data)
         console.log('Upstream URL:', url)
         let w = 400
         let h = 600
