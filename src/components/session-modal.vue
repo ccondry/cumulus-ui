@@ -31,7 +31,7 @@
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">Vertical:</label>
               <div class="col-sm-6">
-                <select v-model="vertical">
+                <select v-model="vertical" v-if="verticals && verticals.length">
                   <option disabled value="">Please Choose Vertical</option>
                   <option v-for="vertical in systemVerticals" :value="vertical.id">{{ vertical.name }}</option>
                   <option v-if="showAllVerticals" disabled>----------------------------</option>
@@ -98,7 +98,10 @@ export default {
   mounted () {
     this.sessionId = this._sessionId
     this.datacenter = this._datacenter
+    this.showAllVerticals = this._showAllVerticals
+    console.log('session-modal.vue - mounted - setting this.showAllVerticals to', this.showAllVerticals)
     this.vertical = this._vertical
+    console.log('session-modal.vue - mounted - setting this.vertical to', this._vertical)
     this.isLocal = this._isLocal
   },
   data () {
@@ -106,7 +109,7 @@ export default {
       sessionId: '',
       datacenter: '',
       datacenters,
-      vertical: '',
+      vertical: 'travel',
       isLocal: true,
       showAllVerticals: false
     }
@@ -131,12 +134,14 @@ export default {
       const datacenter = this.datacenter
       const vertical = this.vertical
       const isLocal = this.isLocal
+      const showAllVerticals = this.showAllVerticals
       // change the session and datacenter in state
       this.setSession({
         sessionId,
         datacenter,
         vertical,
-        isLocal
+        isLocal,
+        showAllVerticals
       })
       this.setNeedsSession(false)
     },
@@ -153,6 +158,7 @@ export default {
       needsSession: 'needsSession',
       _vertical: 'vertical',
       _isLocal: 'isLocal',
+      _showAllVerticals: 'showAllVerticals',
       verticals: 'verticals'
     }),
     sortedVerticals () {
@@ -189,8 +195,18 @@ export default {
     }
   },
   watch: {
+    vertical (val) {
+      // if vertical is undefined, select the first option
+      if (val === undefined) {
+        this.vertical = this.verticals[0]
+      }
+    },
     _vertical (val, oldVal) {
+      console.log('session-modal.vue - this._vertical changed to', val)
       this.vertical = val
+      if (val === undefined) {
+        this.vertical = this.verticals[0]
+      }
     },
     _sessionId (val, oldVal) {
       this.sessionId = val
@@ -200,6 +216,11 @@ export default {
     },
     _isLocal (val, oldVal) {
       this.isLocal = val
+    },
+    _showAllVerticals (val, oldVal) {
+      console.log('session-modal.vue - this._showAllVerticals changed to', val)
+      this.showAllVerticals = val
+      // update the select
     }
   }
 }

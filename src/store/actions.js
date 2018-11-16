@@ -367,25 +367,30 @@ function addUpstreamChatParameters (url, data) {
 }
 
 export const setSession = ({commit, state, rootState}, data) => {
-  console.log('setting session ID to ' + data.sessionId)
+  console.log('setting session ID to ', data.sessionId)
   commit(types.SET_SESSION_ID, data.sessionId)
   // save in localStorage
   window.localStorage.sessionId = data.sessionId
 
-  console.log('setting datacenter to ' + data.datacenter)
+  console.log('setting datacenter to ', data.datacenter)
   commit(types.SET_DATACENTER, data.datacenter)
   // save in localStorage
   window.localStorage.datacenter = data.datacenter
 
-  console.log('setting vertical to ' + data.vertical)
+  console.log('setting vertical to ', data.vertical)
   commit(types.SET_VERTICAL, data.vertical)
   // save in localStorage
   window.localStorage.vertical = data.vertical
 
-  console.log('setting isLocal to ' + data.isLocal)
+  console.log('setting isLocal to ', data.isLocal)
   commit(types.SET_IS_LOCAL, data.isLocal === 'true')
   // save in localStorage
   window.localStorage.isLocal = data.isLocal
+
+  console.log('setting showAllVerticals to ', data.showAllVerticals)
+  commit(types.SET_SHOW_ALL_VERTICALS, data.showAllVerticals)
+  // save in localStorage
+  window.localStorage.showAllVerticals = data.showAllVerticals
 }
 
 // check localStorage for site config data, and load into state if found
@@ -413,6 +418,27 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   } else {
     // not set, we need to ask
     commit(types.SET_NEEDS_SESSION, true)
+  }
+
+  console.log('window.localStorage.showAllVerticals', window.localStorage.showAllVerticals)
+  // check localStorage for datacenter, and copy to state
+  console.log('typeof window.localStorage.showAllVerticals ===', typeof window.localStorage.showAllVerticals)
+  // check localStorage for datacenter, and copy to state
+  if (qs.showAllVerticals) {
+    commit(types.SET_SHOW_ALL_VERTICALS, qs.showAllVerticals === 'true')
+    window.localStorage.showAllVerticals = qs.showAllVerticals === 'true'
+  } else if (window.localStorage.showAllVerticals !== undefined) {
+    if (typeof window.localStorage.showAllVerticals === 'boolean') {
+      commit(types.SET_SHOW_ALL_VERTICALS, window.localStorage.showAllVerticals)
+    } else if (typeof window.localStorage.showAllVerticals === 'string' && window.localStorage.showAllVerticals === 'true') {
+      console.log('window.localStorage.showAllVerticals is true string. setting state.showAllVerticals to boolean true')
+      commit(types.SET_SHOW_ALL_VERTICALS, window.localStorage.showAllVerticals === 'true')
+    } else {
+      // leave false
+    }
+  } else {
+    // not set, we need to ask
+    // commit(types.SET_NEEDS_SESSION, true)
   }
 
   console.log('window.localStorage.vertical', window.localStorage.vertical)

@@ -31,6 +31,7 @@ export default {
   needsSession: false,
   sessionInfo: {},
   isLocal: null,
+  showAllVerticals: false,
   endpoints: {
     eceProxy: 'https://mm-ece.cxdemo.net',
     sparky: 'https://mm-chat.cxdemo.net',
