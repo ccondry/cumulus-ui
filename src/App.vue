@@ -3,11 +3,11 @@
     <notifications></notifications>
     <lightbox></lightbox>
     <!-- <div v-if="demo && vertical"> -->
-      <vertical-header :model="verticalConfig" v-on:assist="showAssistModal = true"></vertical-header>
+      <vertical-header :model="verticalConfig" v-on:assist="showAssistModal = true" v-if="!upstream"></vertical-header>
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
-      <vertical-footer></vertical-footer>
+      <vertical-footer v-if="!upstream"></vertical-footer>
     <!-- </div> -->
     <!-- <div v-else> -->
       <!-- <div v-if="demo">
@@ -59,7 +59,7 @@
     v-on:close="showAssistModal = false"></assist-modal>
 
     <!-- Session & Datacenter Form -->
-    <session-modal v-show="needsSession"></session-modal>
+    <session-modal v-show="needsSession" v-if="!upstream"></session-modal>
   </div>
 </template>
 
@@ -73,6 +73,7 @@ import Lightbox from 'src/components/lightbox.vue'
 import SessionModal from 'src/components/session-modal.vue'
 import AssistModal from 'src/components/assist-modal.vue'
 import CobrowseModal from 'src/components/cobrowse-modal.vue'
+import router from './router.js'
 
 import {mapGetters, mapActions} from 'vuex'
 
@@ -207,7 +208,12 @@ export default {
       'sessionId',
       'vertical',
       'shortCode'
-    ])
+    ]),
+    upstream () {
+      // console.log('App.vue - this.router.route.path ===', router.app.$route.path)
+      // return true if client is viewing the /upstream route
+      return router.app.$route.path === '/upstream'
+    }
     // customer: 'customer',
     // }),
     // verticalRoute () {
