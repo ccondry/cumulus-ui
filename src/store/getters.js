@@ -31,6 +31,9 @@ export const datacenter = state => state.datacenter
 export const needsSession = state => state.needsSession
 export const sessionInfo = state => state.sessionInfo
 
+export const isLocal = state => state.isLocal
+export const showAllVerticals = state => state.showAllVerticals
+
 export const sessionDemo = (state, rootState, getters) => {
   // check UCCX or PCCE
   try {
@@ -114,8 +117,6 @@ export const sessionVersion = (state, rootState, getters) => {
     return '11.6v1'
   }
 }
-
-export const isLocal = state => state.isLocal
 
 export const dCloudSparkyUrl = state => {
   return state.endpoints.sparky
