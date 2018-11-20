@@ -298,7 +298,7 @@ export const startCallback = async ({commit, state, rootState, getters, dispatch
       }
     } else {
       // pcce
-      if (!getters.multichannelType === 'ece') {
+      if (getters.multichannelType === 'ece') {
         // open popup to ECE callback
         let url
         // if (data.delay && data.delay !== 0 && data.delay !== '') {
