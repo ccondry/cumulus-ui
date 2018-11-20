@@ -4,8 +4,8 @@ import verticalConfig from 'src/data/cumulus/travel.json'
 
 var apiBase = {
   'production': '/api/v1',
-  'development': 'http://localhost:3025/api/v1'
-  // 'development': 'https://mm-dev.cxdemo.net/api/v1'
+  // 'development': 'http://localhost:3025/api/v1'
+  'development': 'https://mm-dev.cxdemo.net/api/v1'
 }
 
 export default {
