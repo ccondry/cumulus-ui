@@ -53,15 +53,16 @@
               </form>
             </div>
           </div>
-          <!-- <div class="col-md-1 rem-support" v-if="sessionInfo.demo === 'pcce'">
+          <div class="col-md-1 rem-support" v-if="multichannelType === 'sfdc'">
             <a href @click.prevent="clickCobrowse">Cobrowse</a>
-          </div> -->
+          </div>
           <div class="col-md-1 rem-support">
             <a href @click.prevent="clickAssist"><img src="assets/support.png" />Assist</a>
           </div>
         </div>
       </div>
     </div>
+    <a href="#" ref="cblink" onclick="javascript: eGain.cobrowse.startCobrowse()" style="displa: none;">Start Cobrowse</a>
   </header>
 </template>
 
@@ -85,23 +86,26 @@ export default {
       this.$emit('assist')
     },
     clickCobrowse () {
+      console.log('click cobrowse button')
+      this.$refs.cblink.click()
       // console.log('document', document)
-      if (document.eGain) {
-        console.log('running document.eGain.cobrowse.startCobrowse()')
-        document.eGain.cobrowse.startCobrowse()
-      } else if (window.eGain) {
-        console.log('running window.eGain.cobrowse.startCobrowse()')
-        window.eGain.cobrowse.startCobrowse()
-      } else {
-        console.log('failed to start cobrowse - window.eGain and document.eGain are undefined.')
-      }
+      // if (document.eGain) {
+      //   console.log('running document.eGain.cobrowse.startCobrowse()')
+      //   document.eGain.cobrowse.startCobrowse()
+      // } else if (window.eGain) {
+      //   console.log('running window.eGain.cobrowse.startCobrowse()')
+      //   window.eGain.cobrowse.startCobrowse()
+      // } else {
+      //   console.log('failed to start cobrowse - window.eGain and document.eGain are undefined.')
+      // }
     }
   },
   computed: {
     ...mapGetters([
       'sessionId',
       'datacenter',
-      'sessionInfo'
+      'sessionInfo',
+      'multichannelType'
     ]),
     validSession () {
       return this.sessionInfo
