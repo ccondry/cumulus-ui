@@ -268,6 +268,7 @@ export const startCallback = async ({commit, state, rootState, getters, dispatch
     dispatch('failNotification', message)
   } else {
     if (getters.sessionDemo === 'uccx') {
+      // UCCX web callback
       console.log('sending callback request to UCCX demo')
       // send REST request to reverse proxy on UCCX demo to start callback
       try {
