@@ -13,7 +13,7 @@
               <li><a href @click.prevent="currentTab = 'callback'" :class="currentTab === 'callback' ? 'active' : ''">Callback</a></li>
               <li><a href @click.prevent="currentTab = 'form'" :class="currentTab === 'form' ? 'active' : ''">Form</a></li>
               <!-- Show Task Request option if demo is PCCE and task request has been enabled in demo session configuration -->
-              <li v-if="sessionDemo === 'pcce' && sessionVersion === '11.6v3'">
+              <li v-if="sessionDemo === 'pcce' && sessionVersion === '11.6v3' && multichannelType !== 'upstream'">
                 <a href
                 @click.prevent="currentTab = 'request'"
                 :class="currentTab === 'request' ? 'active' : ''">
