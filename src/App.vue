@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <iframe ref="egcobrowse" src="about:blank" title="" id="egot_iframe" style="width:0; height:0; border:0;" />
     <notifications></notifications>
     <lightbox></lightbox>
     <!-- <div v-if="demo && vertical"> -->
@@ -134,6 +135,22 @@ export default {
 
     // load verticals list
     this.getVerticals()
+
+    // set up egain cobrowse
+    const onetagUrl = '//cloud-us.analytics-egain.com/onetag/EG16529739'
+    const documentDomain = document.domain
+    const cobrowseIframe = this.$refs.egcobrowse
+    cobrowseIframe.src = "javascript:var d=document.open();d.domain='" + documentDomain + "';void(0);"
+    const cobrowseDocument = this.$refs.egcobrowse.contentWindow.document
+    cobrowseDocument.open()._d = function () {
+      let s = this.createElement('script')
+      documentDomain && (this.domain = documentDomain)
+      s.src = onetagUrl
+      this.isEGFIF = !0
+      this.body.appendChild(cobrowseIframe)
+    }
+    cobrowseDocument.write('<body onload="document._d();">')
+    cobrowseDocument.close()
   },
   destroyed () {
     // stop watching to avoid errors

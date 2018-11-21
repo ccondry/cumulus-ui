@@ -45,13 +45,16 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <div class="search-box">
               <form name="search_form" method="get" class="search_form" @submit.prevent="">
                 <input type="text" />
                 <input type="submit" />
               </form>
             </div>
+          </div>
+          <div class="col-md-1 rem-support">
+            <a href @click.prevent="clickCobrowse">Cobrowse</a>
           </div>
           <div class="col-md-1 rem-support">
             <a href @click.prevent="clickAssist"><img src="assets/support.png" />Assist</a>
@@ -80,6 +83,18 @@ export default {
     clickAssist () {
       // pop modal to ask if they want cobrowse only or video call
       this.$emit('assist')
+    },
+    clickCobrowse () {
+      // console.log('document', document)
+      if (document.eGain) {
+        console.log('running document.eGain.cobrowse.startCobrowse()')
+        document.eGain.cobrowse.startCobrowse()
+      } else if (window.eGain) {
+        console.log('running window.eGain.cobrowse.startCobrowse()')
+        window.eGain.cobrowse.startCobrowse()
+      } else {
+        console.log('failed to start cobrowse - window.eGain and document.eGain are undefined.')
+      }
     }
   },
   computed: {
