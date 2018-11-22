@@ -67,7 +67,7 @@
                   <!-- Chat Tab -->
                   <div class="message-form" v-show="currentTab === 'chat'">
                     <div v-if="multichannelType === 'sfdc'">
-                      <a id="liveagent_button_online_5731N000000XZYE" href="javascript://Chat" onclick="liveagent.startChat('5731N000000XZYE')">Chat Online</a>
+                      <a id="liveagent_button_online_5731N000000XZYE" href="javascript://Chat" onclick="liveagent.startChat('5731N000000XZYE')" style="display: none;">Chat Online</a>
                       <div id="liveagent_button_offline_5731N000000XZYE" style="display: none;">Chat Offline</div>
                     </div>
                     <div v-else>
