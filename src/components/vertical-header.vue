@@ -62,7 +62,7 @@
         </div>
       </div>
     </div>
-    <a href="#" ref="cblink" onclick="javascript: eGain.cobrowse.startCobrowse()" style="displa: none;">Start Cobrowse</a>
+    <a v-hide href="#" ref="cblink" onclick="javascript: eGain.cobrowse.startCobrowse()">Start Cobrowse</a>
   </header>
 </template>
 
