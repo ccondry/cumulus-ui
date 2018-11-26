@@ -36,7 +36,7 @@ export default {
     this.checkForm(this.$route.query)
   },
   computed: {
-    ...mapGetters(['endpoints'])
+    ...mapGetters(['endpoints']),
     query () {
       return this.$route.query
     },
