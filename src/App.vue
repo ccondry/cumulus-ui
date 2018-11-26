@@ -108,7 +108,7 @@ export default {
 
     // this.getSessionInfo()
     // get REST endpoints info
-    this.getEndpoints()
+    await this.getEndpoints()
     this.setNeedsSession(true)
     this.getVerticalConfig()
 
