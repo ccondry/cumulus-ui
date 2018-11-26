@@ -87,13 +87,15 @@ export default {
       }
       // log action URL
       console.log('submit upstream chat form - this.tunnelHost = ', this.tunnelHost)
-      // submit form
-      this.$refs.form.submit()
-    }
-  },
-  watch: {
-    query (val) {
-      this.checkForm(val)
+      const interval = setInterval(() => {
+        // wait until tunnelHost is in the state before submtting the form
+        if (this.tunnelHost && this.tunnelHost.length) {
+          // submit form
+          this.$refs.form.submit()
+          // stop the interval
+          clearInterval(interval)
+        }
+      }, 100)
     }
   }
 }
