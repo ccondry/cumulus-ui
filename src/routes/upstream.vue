@@ -1,5 +1,10 @@
+<!--
+this route is built to accept URL query parameters to fill out and POST the
+form to start a chat on UpstreamWorks
+-->
 <template>
-  <form ref="form" method="post" class="send-message" action="https://cceweb.dcloud.cisco.com:446/Home/Chat" target="">
+  <!-- <form ref="form" method="post" class="send-message" action="https://cceweb.dcloud.cisco.com:446/Home/Chat" target=""> -->
+  <form ref="form" method="post" class="send-message" :action="`https://${datacenter}-${session}.tunnel.cc-dcloud.com/Home/Chat`" target="">
     <input type="hidden" name="ContactName" placeholder="Name" v-model="name"/>
     <input type="hidden" name="Email" placeholder="Email" v-model="email"/>
     <input type="hidden" name="Phone" placeholder="Phone Number" v-model="phone" />
@@ -31,24 +36,51 @@ export default {
   computed: {
     query () {
       return this.$route.query
+    },
+    datacenter () {
+      return this.query.datacenter
+    },
+    session () {
+      return this.query.session
     }
   },
   methods: {
     checkForm (val) {
       console.log('query string changed', val)
-      // was there any query data set?
+      // update form values with query string values
       if (val.name) {
-        // update form values with query string values
-        this.name = val.name ? val.name : this.name
-        this.email = val.email ? val.email : this.email
-        this.phone = val.phone ? val.phone : this.phone
-        this.customerId = val.customerId ? val.customerId : this.customerId
-        this.language = val.language ? val.language : this.language
-        this.reason = val.reason ? val.reason : this.reason
-        this.message = val.message ? val.message : this.message
-        // submit form
-        this.$refs.form.submit()
+        this.name = val.name
+      } else if (val.fieldname_1) {
+        this.name = val.fieldname_1
       }
+      if (val.email) {
+        this.email = val.email
+      } else if (val.fieldname_2) {
+        this.email = val.fieldname_2
+      }
+      if (val.phone) {
+        this.phone = val.phone
+        this.customerId = val.phone
+      } else if (val.fieldname_3) {
+        this.phone = val.fieldname_3
+        this.customerId = val.fieldname_3
+      }
+      if (val.message) {
+        this.message = val.message
+      } else if (val.fieldname_4) {
+        this.message = val.fieldname_4
+      }
+      if (val.customerId) {
+        this.customerId = val.customerId
+      }
+      if (val.language) {
+        this.language = val.language
+      }
+      if (val.reason) {
+        this.reason = val.reason
+      }
+      // submit form
+      this.$refs.form.submit()
     }
   },
   watch: {
