@@ -102,7 +102,7 @@ export default {
       showCobrowseModal: false
     }
   },
-  mounted () {
+  async mounted () {
     // watch scroll, to detect when to pop the menu out
     window.addEventListener('keyup', this.handleKeyUp)
 
