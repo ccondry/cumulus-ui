@@ -143,6 +143,14 @@ export const upstreamChatUrl = state => {
   }
 }
 
+export const tunnelHost = state => {
+  try {
+    return state.endpoints.tunnel
+  } catch (e) {
+    return ''
+  }
+}
+
 export const dCloudEceCallbackUrl = state => {
   if (state.sessionInfo === null) {
     return null

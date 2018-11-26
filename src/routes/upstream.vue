@@ -36,7 +36,7 @@ export default {
     this.checkForm(this.$route.query)
   },
   computed: {
-    ...mapGetters(['endpoints']),
+    ...mapGetters(['tunnelHost']),
     query () {
       return this.$route.query
     },
@@ -47,7 +47,7 @@ export default {
       return this.query.session
     },
     action () {
-      return `https://${this.datacenter}-${this.session}.${this.endpoints.tunnel}/Home/Chat`
+      return `https://${this.datacenter}-${this.session}.${this.tunnelHost}/Home/Chat`
     }
   },
   methods: {
