@@ -34,13 +34,13 @@
                 <select v-model="vertical" v-if="verticals && verticals.length">
                   <option disabled value="">Please Choose Vertical</option>
                   <option v-for="vertical in systemVerticals" :value="vertical.id">{{ vertical.name }}</option>
-                  <!-- <option v-if="showAllVerticals" disabled>----------------------------</option> -->
-                  <!-- <option v-for="vertical in userVerticals" :value="vertical.id" v-if="showAllVerticals">{{ vertical.name }}</option> -->
+                  <option v-if="showAllVerticals" disabled>----------------------------</option>
+                  <option v-for="vertical in userVerticals" :value="vertical.id" v-if="showAllVerticals">{{ vertical.name }}</option>
                 </select>
-                <!-- <strong>
+                <strong>
                   Show All
                 </strong>
-                <input type="checkbox" v-model="showAllVerticals" /> -->
+                <input type="checkbox" v-model="showAllVerticals" />
               </div>
             </div>
             <div class="form-group row" v-show="false">
