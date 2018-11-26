@@ -4,7 +4,7 @@ form to start a chat on UpstreamWorks
 -->
 <template>
   <!-- <form ref="form" method="post" class="send-message" action="https://cceweb.dcloud.cisco.com:446/Home/Chat" target=""> -->
-  <form ref="form" method="post" class="send-message" :action="`https://${datacenter}-${session}.tunnel.cc-dcloud.com/Home/Chat`" target="">
+  <form ref="form" method="post" class="send-message" :action="action" target="">
     <input type="hidden" name="ContactName" placeholder="Name" v-model="name"/>
     <input type="hidden" name="Email" placeholder="Email" v-model="email"/>
     <input type="hidden" name="Phone" placeholder="Phone Number" v-model="phone" />
@@ -18,6 +18,8 @@ form to start a chat on UpstreamWorks
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   data () {
     return {
@@ -34,6 +36,7 @@ export default {
     this.checkForm(this.$route.query)
   },
   computed: {
+    ...mapGetters(['endpoints'])
     query () {
       return this.$route.query
     },
@@ -42,6 +45,9 @@ export default {
     },
     session () {
       return this.query.session
+    },
+    action () {
+      return `https://${this.datacenter}-${this.session}.${this.endpoints.tunnel}/Home/Chat`
     }
   },
   methods: {
