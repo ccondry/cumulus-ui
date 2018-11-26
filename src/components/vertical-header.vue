@@ -53,16 +53,16 @@
               </form>
             </div>
           </div>
-          <div class="col-md-1 rem-support" v-if="multichannelType === 'sfdc'">
+          <!-- <div class="col-md-1 rem-support" v-if="multichannelType === 'sfdc'">
             <a href @click.prevent="clickCobrowse">Cobrowse</a>
-          </div>
+          </div> -->
           <div class="col-md-1 rem-support">
             <a href @click.prevent="clickAssist"><img src="assets/support.png" />Assist</a>
           </div>
         </div>
       </div>
     </div>
-    <a v-hide href="#" ref="cblink" onclick="javascript: eGain.cobrowse.startCobrowse()">Start Cobrowse</a>
+    <!-- <a v-hide href="#" ref="cblink" onclick="javascript: eGain.cobrowse.startCobrowse()">Start Cobrowse</a> -->
   </header>
 </template>
 
