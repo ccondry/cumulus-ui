@@ -1,13 +1,14 @@
 <template>
   <div id="app">
+    <!-- <iframe ref="egcobrowse" src="about:blank" title="" id="egot_iframe" style="width:0; height:0; border:0; padding: 0 0 0 0; margin: 0 0 0 0;" /> -->
     <notifications></notifications>
     <lightbox></lightbox>
     <!-- <div v-if="demo && vertical"> -->
-      <vertical-header :model="verticalConfig" v-on:assist="showAssistModal = true"></vertical-header>
+      <vertical-header :model="verticalConfig" v-on:assist="showAssistModal = true" v-if="!upstream"></vertical-header>
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
-      <vertical-footer></vertical-footer>
+      <vertical-footer v-if="!upstream"></vertical-footer>
     <!-- </div> -->
     <!-- <div v-else> -->
       <!-- <div v-if="demo">
@@ -59,7 +60,7 @@
     v-on:close="showAssistModal = false"></assist-modal>
 
     <!-- Session & Datacenter Form -->
-    <session-modal v-show="needsSession"></session-modal>
+    <session-modal v-show="needsSession" v-if="!upstream"></session-modal>
   </div>
 </template>
 
@@ -73,6 +74,7 @@ import Lightbox from 'src/components/lightbox.vue'
 import SessionModal from 'src/components/session-modal.vue'
 import AssistModal from 'src/components/assist-modal.vue'
 import CobrowseModal from 'src/components/cobrowse-modal.vue'
+import router from './router.js'
 
 import {mapGetters, mapActions} from 'vuex'
 
@@ -100,13 +102,13 @@ export default {
       showCobrowseModal: false
     }
   },
-  mounted () {
+  async mounted () {
     // watch scroll, to detect when to pop the menu out
     window.addEventListener('keyup', this.handleKeyUp)
 
     // this.getSessionInfo()
     // get REST endpoints info
-    this.getEndpoints()
+    await this.getEndpoints()
     this.setNeedsSession(true)
     this.getVerticalConfig()
 
@@ -133,6 +135,22 @@ export default {
 
     // load verticals list
     this.getVerticals()
+
+    // set up egain cobrowse
+    // const onetagUrl = 'https://cloud-us.analytics-egain.com/onetag/EG16529739'
+    // const documentDomain = document.domain
+    // const cobrowseIframe = this.$refs.egcobrowse
+    // cobrowseIframe.src = "javascript:var d=document.open();d.domain='" + documentDomain + "';void(0);"
+    // const cobrowseDocument = this.$refs.egcobrowse.contentWindow.document
+    // cobrowseDocument.open()._d = function () {
+    //   let s = this.createElement('script')
+    //   documentDomain && (this.domain = documentDomain)
+    //   s.src = onetagUrl
+    //   this.isEGFIF = !0
+    //   this.body.appendChild(cobrowseIframe)
+    // }
+    // cobrowseDocument.write('<body onload="document._d();">')
+    // cobrowseDocument.close()
   },
   destroyed () {
     // stop watching to avoid errors
@@ -207,7 +225,12 @@ export default {
       'sessionId',
       'vertical',
       'shortCode'
-    ])
+    ]),
+    upstream () {
+      // console.log('App.vue - this.router.route.path ===', router.app.$route.path)
+      // return true if client is viewing the /upstream route
+      return router.app.$route.path === '/upstream'
+    }
     // customer: 'customer',
     // }),
     // verticalRoute () {

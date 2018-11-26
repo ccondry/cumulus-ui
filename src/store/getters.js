@@ -31,6 +31,9 @@ export const datacenter = state => state.datacenter
 export const needsSession = state => state.needsSession
 export const sessionInfo = state => state.sessionInfo
 
+export const isLocal = state => state.isLocal
+export const showAllVerticals = state => state.showAllVerticals
+
 export const sessionDemo = (state, rootState, getters) => {
   // check UCCX or PCCE
   try {
@@ -115,8 +118,6 @@ export const sessionVersion = (state, rootState, getters) => {
   }
 }
 
-export const isLocal = state => state.isLocal
-
 export const dCloudSparkyUrl = state => {
   return state.endpoints.sparky
 }
@@ -137,6 +138,14 @@ export const dCloudEceChatUrl = state => {
 export const upstreamChatUrl = state => {
   try {
     return `${state.endpoints.upstreamProxy}/${state.datacenter}-${state.sessionId}/`
+  } catch (e) {
+    return ''
+  }
+}
+
+export const tunnelHost = state => {
+  try {
+    return state.endpoints.tunnel
   } catch (e) {
     return ''
   }

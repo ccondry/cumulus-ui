@@ -13,7 +13,7 @@
               <li><a href @click.prevent="currentTab = 'callback'" :class="currentTab === 'callback' ? 'active' : ''">Callback</a></li>
               <li><a href @click.prevent="currentTab = 'form'" :class="currentTab === 'form' ? 'active' : ''">Form</a></li>
               <!-- Show Task Request option if demo is PCCE and task request has been enabled in demo session configuration -->
-              <li v-if="sessionDemo === 'pcce' && sessionVersion === '11.6v3'">
+              <li v-if="sessionDemo === 'pcce' && sessionVersion === '11.6v3' && multichannelType !== 'upstream'">
                 <a href
                 @click.prevent="currentTab = 'request'"
                 :class="currentTab === 'request' ? 'active' : ''">
@@ -66,12 +66,9 @@
 
                   <!-- Chat Tab -->
                   <div class="message-form" v-show="currentTab === 'chat'">
-                    <div v-if="multichannelType === 'upstream'" class="chat-frame-div">
-                      <button class="btn btn-warning pull-right" style="margin-bottom:4px;" @click.prevent="resetChatIframe">Restart Chat</button>
-                      <iframe
-                      ref="upstreamIframe"
-                      class="chat-frame"
-                      src="https://cceweb.dcloud.cisco.com:446/"></iframe>
+                    <div v-if="multichannelType === 'sfdc'">
+                      <a id="liveagent_button_online_5731N000000XZYE" href="javascript://Chat" onclick="liveagent.startChat('5731N000000XZYE')" style="display: none;">Chat Online</a>
+                      <div id="liveagent_button_offline_5731N000000XZYE" style="display: none;">Chat Offline</div>
                     </div>
                     <div v-else>
                       <form action="#" method="post" class="send-message">
