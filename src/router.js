@@ -12,6 +12,7 @@ const services = resolve => require(['src/routes/services.vue'], resolve)
 const contact = resolve => require(['src/routes/contact.vue'], resolve)
 const config = resolve => require(['src/routes/config.vue'], resolve)
 const form = resolve => require(['src/routes/form.vue'], resolve)
+const upstream = resolve => require(['src/routes/upstream.vue'], resolve)
 
 const routes = [
   { path: '/config', name: 'config', component: config },
@@ -21,7 +22,8 @@ const routes = [
   { path: '/products', name: 'products', component: products },
   { path: '/services', name: 'services', component: services },
   { path: '/contact', name: 'contact', component: contact },
-  { path: '/form', name: 'form', component: form }
+  { path: '/form', name: 'form', component: form },
+  { path: '/upstream', name: 'upstream', component: upstream }
 ]
 
 const router = new VueRouter({

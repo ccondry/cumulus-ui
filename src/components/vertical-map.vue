@@ -1,7 +1,7 @@
 <template>
   <gmap-map
   :center="center"
-  :zoom="7"
+  :zoom="12"
   style="width: 100%; height: 420px;">
   <gmap-marker
   :key="index"
@@ -41,15 +41,19 @@ export default {
   },
   watch: {
     vertical (val) {
-      // vertical changed
-      // update map markers
-      this.markers.pop()
-      this.markers.push({
-        position: {lat: Number(val.gps.latitude), lng: Number(val.gps.longitude)}
-      })
-      // update map center
-      this.center.lat = Number(val.gps.latitude)
-      this.center.lng = Number(val.gps.longitude)
+      if (val && val.gps && val.gps.latitude && val.gps.longitude) {
+        // vertical changed
+        // update map markers
+        this.markers.pop()
+        this.markers.push({
+          position: {lat: Number(val.gps.latitude), lng: Number(val.gps.longitude)}
+        })
+        // update map center
+        this.center.lat = Number(val.gps.latitude)
+        this.center.lng = Number(val.gps.longitude)
+      } else {
+        console.log('gps latitude and longitude not set')
+      }
     }
   }
 }
