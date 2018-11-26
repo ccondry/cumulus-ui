@@ -85,6 +85,8 @@ export default {
       if (val.reason) {
         this.reason = val.reason
       }
+      // log action URL
+      console.log('submit upstream chat form - this.tunnelHost = ', this.tunnelHost)
       // submit form
       this.$refs.form.submit()
     }
