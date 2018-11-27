@@ -87,8 +87,9 @@ export default {
       }
       // log action URL
       console.log('submit upstream chat form - this.tunnelHost = ', this.tunnelHost)
+      // set up an interval to check for the tunnelHost getter data to exist
       const interval = setInterval(() => {
-        // wait until tunnelHost is in the state before submtting the form
+        // wait until tunnelHost is valid before submtting the form
         if (this.tunnelHost && this.tunnelHost.length) {
           // submit form
           this.$refs.form.submit()
