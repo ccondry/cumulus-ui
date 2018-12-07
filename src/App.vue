@@ -110,10 +110,7 @@ export default {
     // get REST endpoints info
     await this.getEndpoints()
 
-    this.getVerticalConfig()
-
-    // update the HTML page title
-    this.setTitle(this.verticalConfig.name)
+    // this.getVerticalConfig()
 
     // set up REM event handlers
     try {
@@ -263,8 +260,11 @@ export default {
     //     this.setNeedsSession(true)
     //   }
     // },
-    vertical (val, oldVal) {
-      this.getVerticalConfig()
+    async vertical (val, oldVal) {
+      // get the config for the new vertical
+      await this.getVerticalConfig()
+      // update the HTML page title
+      this.setTitle(this.verticalConfig.name)
     },
     needsSession (val, oldVal) {
       if (val === false) {
