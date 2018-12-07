@@ -1,3 +1,8 @@
+/* hide the eGain cobrowse iframe, at least for now */
+#egot_iframe {
+  display: none;
+}
+
 #survey {
     width: 930px;
     /*height: 300px;*/
