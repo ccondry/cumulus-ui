@@ -132,7 +132,8 @@ export default {
 
     // load verticals list
     this.getVerticals()
-
+    // see if session, datacenter, vertical are in queryString or localStorage
+    this.checkSession(this.getQueryVars())
     // set up egain cobrowse
     // const onetagUrl = 'https://cloud-us.analytics-egain.com/onetag/EG16529739'
     // const documentDomain = document.domain
@@ -176,6 +177,20 @@ export default {
       getShortCode: 'getShortCode',
       getEndpoints: 'getEndpoints'
     }),
+    getQueryVars () {
+      // get URL query parameters
+      let uri = window.location.href.split('?')
+      if (uri.length === 2) {
+        let vars = uri[1].split('&')
+        let getVars = {}
+        let tmp = ''
+        vars.forEach(v => {
+          tmp = v.split('=')
+          if (tmp.length === 2) getVars[tmp[0]] = tmp[1]
+        })
+        return getVars
+      }
+    },
     isActive (path) {
       return this.$route.path === path
     },
