@@ -44,6 +44,9 @@ export default {
   [types.SET_ENDPOINTS] (state, data) {
     state.endpoints = data
   },
+  [types.SET_USE_SESSION_VERTICAL] (state, data) {
+    state.useSessionVertical = data
+  },
   [types.SET_WORKING] (state, data) {
     Vue.set(state.working, data.key, data.value)
   },
