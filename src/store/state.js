@@ -1,5 +1,5 @@
 import version from 'src/version.js'
-import verticalConfig from 'src/data/cumulus/travel.json'
+// import verticalConfig from 'src/data/cumulus/travel.json'
 // import config from 'src/config'
 
 var apiBase = {
@@ -23,7 +23,7 @@ export default {
     address: '170 West Tasman Dr., San Jose, CA',
     email: 'info@cumulus.com'
   },
-  verticalConfig,
+  verticalConfig: null,
   platform: null,
   platformConfig: null,
   datacenter: null,
