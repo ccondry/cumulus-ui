@@ -450,7 +450,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
     commit(types.SET_VERTICAL, window.localStorage.vertical)
   } else {
     // not set, we need to ask
-    commit(types.SET_NEEDS_SESSION, true)
+    // commit(types.SET_NEEDS_SESSION, true)
   }
 
   console.log('window.localStorage.isLocal', window.localStorage.isLocal)
@@ -473,7 +473,10 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   // commit(types.SET_NEEDS_SESSION, true)
 
   // do we need to pop session modal to ask for vertical?
-  if (qs.config !== 'true') {
+  if (qs.config === 'true') {
+    // use the session configuration's vertical when we load session info
+    commit(types.SET_USE_SESSION_VERTICAL, true)
+  } else {
     // not set, we need to ask
     commit(types.SET_NEEDS_SESSION, true)
   }
@@ -493,8 +496,13 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
     commit(types.SET_SESSION_INFO, response.data)
     // set up the voice call phone number
     try {
+      // do we need to set the vertical using session config data?
+      if (state.useSessionVertical === true) {
+        commit(types.SET_VERTICAL, response.data.configuration.vertical)
+      }
       commit(types.SET_CONTACT_PHONE, response.data.phone.international)
       commit(types.SET_CONTACT_MOBILE, response.data.mobile.international)
+      commit(types.SET_CONTACT_JACADA, response.data.jacada.international)
       commit(types.SET_CONTACT_JACADA, response.data.jacada.international)
     } catch (e1) {
       console.log(e1)
