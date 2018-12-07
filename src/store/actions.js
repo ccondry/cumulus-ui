@@ -422,9 +422,8 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   }
 
   console.log('window.localStorage.showAllVerticals', window.localStorage.showAllVerticals)
-  // check localStorage for datacenter, and copy to state
   console.log('typeof window.localStorage.showAllVerticals ===', typeof window.localStorage.showAllVerticals)
-  // check localStorage for datacenter, and copy to state
+  // check localStorage for showAllVerticals, and copy to state
   if (qs.showAllVerticals) {
     commit(types.SET_SHOW_ALL_VERTICALS, qs.showAllVerticals === 'true')
     window.localStorage.showAllVerticals = qs.showAllVerticals === 'true'
@@ -472,6 +471,12 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   dispatch('getSessionInfo')
   // always pop up modal to ask for session info
   // commit(types.SET_NEEDS_SESSION, true)
+
+  // do we need to pop session modal to ask for vertical?
+  if (qs.config !== 'true') {
+    // not set, we need to ask
+    commit(types.SET_NEEDS_SESSION, true)
+  }
 }
 
 export const setNeedsSession = ({commit, state, rootState}, data) => {

@@ -109,7 +109,7 @@ export default {
     // this.getSessionInfo()
     // get REST endpoints info
     await this.getEndpoints()
-    this.setNeedsSession(true)
+    
     this.getVerticalConfig()
 
     // update the HTML page title
