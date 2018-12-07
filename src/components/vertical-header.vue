@@ -62,7 +62,7 @@
         </div>
       </div>
     </div>
-    <a v-hide href="#" ref="cblink" onclick="javascript: eGain.cobrowse.startCobrowse()">Start Cobrowse</a>
+    <a v-if="multichannelType === 'sfdc'" href="#" ref="cblink" onclick="javascript: eGain.cobrowse.startCobrowse()">Start Cobrowse</a>
   </header>
 </template>
 
