@@ -22,11 +22,6 @@ export default {
     ...mapActions([
       'checkSession'
     ])
-  },
-  mounted () {
-    console.log('query =', this.$route.query)
-    // see if session, datacenter, vertical are in queryString or localStorage
-    this.checkSession(this.$route.query)
   }
 }
 </script>
