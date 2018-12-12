@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <iframe ref="egcobrowse" src="about:blank" title="" id="egot_iframe" style="width:0; height:0; border:0;" />
+    <iframe ref="egcobrowse" src="about:blank" title="" id="egot_iframe" style="width:0; height:0; border:0; display:none;" />
     <notifications></notifications>
     <lightbox></lightbox>
     <!-- <div v-if="demo && vertical"> -->
