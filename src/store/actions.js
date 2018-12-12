@@ -402,6 +402,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   if (!qs) {
     // need to ask for info for sure
     commit(types.SET_NEEDS_SESSION, true)
+    return
   }
   // check localStorage for sessionId, and copy to state
   if (qs.session) {
