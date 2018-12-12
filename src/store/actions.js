@@ -398,6 +398,11 @@ export const setSession = ({commit, state, rootState}, data) => {
 export const checkSession = ({state, commit, dispatch}, qs) => {
   console.log('query string =', qs)
   console.log('window.localStorage.sessionId', window.localStorage.sessionId)
+  // is there no query string at all?
+  if (!qs) {
+    // need to ask for info for sure
+    commit(types.SET_NEEDS_SESSION, true)
+  }
   // check localStorage for sessionId, and copy to state
   if (qs.session) {
     commit(types.SET_SESSION_ID, qs.session)
