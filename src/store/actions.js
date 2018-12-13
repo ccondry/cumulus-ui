@@ -367,6 +367,8 @@ function addUpstreamChatParameters (url, data) {
   return url + `&name=${encodeURIComponent(data.name)}&email=${data.email}&phone=${data.phone}&message=${encodeURIComponent(data.subject)}`
 }
 
+import router from '../router.js'
+
 export const setSession = ({commit, state, rootState}, data) => {
   console.log('setting session ID to ', data.sessionId)
   commit(types.SET_SESSION_ID, data.sessionId)
@@ -392,6 +394,16 @@ export const setSession = ({commit, state, rootState}, data) => {
   commit(types.SET_SHOW_ALL_VERTICALS, data.showAllVerticals)
   // save in localStorage
   window.localStorage.showAllVerticals = data.showAllVerticals
+  // set query string
+  router.app.$router.replace({
+    query: {
+      session: data.sessionId,
+      datacenter: data.datacenter,
+      vertical: data.vertical,
+      showAllVerticals: data.showAllVerticals
+      // config: data.sessionId
+    }
+  })
 }
 
 // check localStorage for site config data, and load into state if found
