@@ -3,51 +3,12 @@
     <iframe ref="egcobrowse" src="about:blank" title="" id="egot_iframe" style="width:0; height:0; border:0; display:none;" />
     <notifications></notifications>
     <lightbox></lightbox>
-    <!-- <div v-if="demo && vertical"> -->
-      <vertical-header :model="verticalConfig" v-on:assist="showAssistModal = true" v-if="!upstream"></vertical-header>
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
-      <vertical-footer v-if="!upstream"></vertical-footer>
-    <!-- </div> -->
-    <!-- <div v-else> -->
-      <!-- <div v-if="demo">
-        Choose a vertical:
-        <select v-model="verticalSelect">
-          <option disabled value="">Please Choose Vertical</option>
-          <option v-for="vertical in verticals" :value="vertical.id">{{ vertical.name }}</option>
+    <vertical-header :model="verticalConfig" v-on:assist="showAssistModal = true" v-if="!upstream"></vertical-header>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+    <vertical-footer v-if="!upstream"></vertical-footer>
 
-        </select>
-        <button
-        class="btn btn-success"
-        @click.prevent="go({ name: 'home', params: { demo: demo, vertical: verticalSelect }})"
-        :disabled="verticalSelect === ''"
-        >Go</button>
-      </div> -->
-      <!-- <div v-else>
-        Choose your platform:
-        <select v-model="platformSelect">
-          <option disabled value="">Please Choose Platform</option>
-          <option v-for="platform in platforms" :value="platform.id">{{ platform.name }}</option>
-        </select>
-        <button
-        class="btn btn-success"
-        @click.prevent="go({ name: 'vertical-select', params: { demo: platformSelect }})"
-        :disabled="platformSelect === ''"
-        >Go</button> -->
-
-        <!-- Choose
-        <router-link :to="{ path: '/pcce' }">PCCE</router-link>
-        or
-        <router-link :to="{ path: '/uccx' }">UCCX</router-link> -->
-      <!-- </div> -->
-    <!-- </div> -->
-    <!-- Login Form -->
-    <!-- <email-modal
-    v-show="showEmailModal"
-    :initialEmail="initialEmail"
-    :initialName="initialName"
-    ></email-modal> -->
     <!-- REM cobrowse short code display -->
     <cobrowse-modal
     :short-code="shortCode"
@@ -61,6 +22,7 @@
 
     <!-- Session & Datacenter Form -->
     <session-modal v-show="needsSession" v-if="!upstream"></session-modal>
+
   </div>
 </template>
 
@@ -243,16 +205,6 @@ export default {
       // return true if client is viewing the /upstream route
       return router.app.$route.path === '/upstream'
     }
-    // customer: 'customer',
-    // }),
-    // verticalRoute () {
-    //   // pull the vertical ID from route
-    //   // return this.$route.params.vertical
-    // },
-    // demo () {
-    //   // pull the demo type from route
-    //   return this.$route.params.demo
-    // }
   },
   watch: {
     shortCode (val, oldVal) {
@@ -263,18 +215,6 @@ export default {
       // update the platform ID in state
       this.setPlatform(val)
     },
-    // datacenter (val, oldVal) {
-    //   if (val === null && val === '') {
-    //     console.log('datacenter is not valid. requesting session info from user.')
-    //     this.setNeedsSession(true)
-    //   }
-    // },
-    // sessionId (val, oldVal) {
-    //   if (val === null && val === '') {
-    //     console.log('sessionId is not valid. requesting session info from user.')
-    //     this.setNeedsSession(true)
-    //   }
-    // },
     async vertical (val, oldVal) {
       // get the config for the new vertical
       await this.getVerticalConfig()
@@ -287,39 +227,6 @@ export default {
         this.getSessionInfo()
       }
     }
-    // authToken (val, oldVal) {
-    //   if (val !== null) {
-    //     // when the user authToken (email address) changes (login or re-login)
-    //     // get customer info from Context Service
-    //     this.getCustomer()
-    //   }
-    // }
-    // customer (val, oldVal) {
-    //   if (val !== null) {
-    //     // set up CS Request data
-    //     let dataElements = {
-    //       'Context_Title': 'Customer Website Visit',
-    //       'Context_Description': 'Authenticated customer is visiting ' + window.location.href
-    //     }
-    //     console.log('creating Context Service Request')
-    //     // create CS Request
-    //     this.createCsRequest({
-    //       dataElements,
-    //       callback: rsp => {
-    //         this.$nextTick(function () {
-    //           // add CS POD
-    //           console.log('adding POD')
-    //           this.addPod({
-    //             notes: 'Visited website ' + window.location.href
-    //           })
-    //           // init REM library
-    //           // window.AssistBoot.addAssistBehaviour()
-    //           this.storeRemConfiguration()
-    //         })
-    //       }
-    //     })
-    //   }
-    // }
   }
 }
 </script>
