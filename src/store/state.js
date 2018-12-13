@@ -23,7 +23,7 @@ export default {
     address: '170 West Tasman Dr., San Jose, CA',
     email: 'info@cumulus.com'
   },
-  verticalConfig: null,
+  verticalConfig: {},
   platform: null,
   platformConfig: null,
   datacenter: null,
