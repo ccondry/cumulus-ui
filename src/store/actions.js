@@ -405,14 +405,8 @@ export const setSession = ({commit, state, rootState}, data) => {
 export const checkSession = ({state, commit, dispatch}, qs) => {
   console.log('query string =', qs)
   console.log('window.localStorage.sessionId', window.localStorage.sessionId)
-  // is there no query string at all?
-  if (!qs) {
-    // need to ask for info for sure
-    commit(types.SET_NEEDS_SESSION, true)
-    return
-  }
   // check localStorage for sessionId, and copy to state
-  if (qs.session) {
+  if (qs && qs.session) {
     commit(types.SET_SESSION_ID, qs.session)
     window.localStorage.sessionId = qs.session
   } else if (window.localStorage.sessionId) {
@@ -424,7 +418,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
 
   console.log('window.localStorage.datacenter', window.localStorage.datacenter)
   // check query string and localStorage for datacenter, and copy to state
-  if (qs.datacenter) {
+  if (qs && qs.datacenter) {
     commit(types.SET_DATACENTER, qs.datacenter)
     window.localStorage.datacenter = qs.datacenter
   } else if (window.localStorage.datacenter) {
@@ -437,7 +431,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   console.log('window.localStorage.showAllVerticals', window.localStorage.showAllVerticals)
   console.log('typeof window.localStorage.showAllVerticals ===', typeof window.localStorage.showAllVerticals)
   // check localStorage for showAllVerticals, and copy to state
-  if (qs.showAllVerticals) {
+  if (qs && qs.showAllVerticals) {
     commit(types.SET_SHOW_ALL_VERTICALS, qs.showAllVerticals === 'true')
     window.localStorage.showAllVerticals = qs.showAllVerticals === 'true'
   } else if (window.localStorage.showAllVerticals !== undefined) {
@@ -456,7 +450,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
 
   console.log('window.localStorage.vertical', window.localStorage.vertical)
   // check localStorage for datacenter, and copy to state
-  if (qs.vertical) {
+  if (qs && qs.vertical) {
     commit(types.SET_VERTICAL, qs.vertical)
     window.localStorage.vertical = qs.vertical
   } else if (window.localStorage.vertical) {
@@ -472,7 +466,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   // commit(types.SET_NEEDS_SESSION, true)
 
   // do we need to pop session modal to ask for vertical?
-  if (qs.config === 'true') {
+  if (qs && qs.config === 'true') {
     // use the session configuration's vertical when we load session info
     commit(types.SET_USE_SESSION_VERTICAL, true)
   } else {
