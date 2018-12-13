@@ -2,11 +2,11 @@
   <div id="app">
     <notifications></notifications>
     <lightbox></lightbox>
-    <vertical-header :model="verticalConfig" v-on:assist="showAssistModal = true" v-if="!upstream"></vertical-header>
+    <vertical-header :model="verticalConfig" v-on:assist="showAssistModal = true" v-if="!needsSession && !upstream"></vertical-header>
     <keep-alive>
-      <router-view></router-view>
+      <router-view v-if="!needsSession"></router-view>
     </keep-alive>
-    <vertical-footer v-if="!upstream"></vertical-footer>
+    <vertical-footer v-if="!needsSession && !upstream"></vertical-footer>
 
     <!-- REM cobrowse short code display -->
     <cobrowse-modal
