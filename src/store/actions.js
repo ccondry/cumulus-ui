@@ -385,11 +385,6 @@ export const setSession = ({commit, state, rootState}, data) => {
   // save in localStorage
   window.localStorage.vertical = data.vertical
 
-  console.log('setting isLocal to ', data.isLocal)
-  commit(types.SET_IS_LOCAL, data.isLocal === 'true')
-  // save in localStorage
-  window.localStorage.isLocal = data.isLocal
-
   console.log('setting showAllVerticals to ', data.showAllVerticals)
   commit(types.SET_SHOW_ALL_VERTICALS, data.showAllVerticals)
   // save in localStorage
@@ -471,21 +466,6 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
     // commit(types.SET_NEEDS_SESSION, true)
   }
 
-  console.log('window.localStorage.isLocal', window.localStorage.isLocal)
-  // check query string then localStorage for isLocal, and copy to state
-  if (qs.local === 'true') {
-    commit(types.SET_IS_LOCAL, true)
-    window.localStorage.isLocal = true
-  } else if (qs.local === 'false') {
-    commit(types.SET_IS_LOCAL, false)
-    window.localStorage.isLocal = false
-  } else if (window.localStorage.isLocal) {
-    commit(types.SET_IS_LOCAL, window.localStorage.isLocal)
-  } else {
-    // default to true
-    window.localStorage.isLocal = true
-    commit(types.SET_IS_LOCAL, true)
-  }
   dispatch('getSessionInfo')
   // always pop up modal to ask for session info
   // commit(types.SET_NEEDS_SESSION, true)
