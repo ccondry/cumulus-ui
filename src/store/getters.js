@@ -165,14 +165,9 @@ export const dCloudEceCallbackUrl = state => {
 }
 
 export const egainWssUrls = state => {
-  if (state.sessionInfo === null) {
-    return null
-  } else {
-    // if (state.isLocal === false) {
-    //   return state.sessionInfo.urls.wss.external
-    // } else {
+  try {
     return state.sessionInfo.urls.wss.internal
-    // }
-    // return `https://mm-egain.cxdemo.net/${state.datacenter}-${state.sessionId}/system/templates/selfservice/cumulus_knowledge/help/customer/locale/en-US/portal/200100000001000`
+  } catch (e) {
+    return null
   }
 }
