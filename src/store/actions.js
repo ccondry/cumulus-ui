@@ -462,8 +462,6 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
 
   // get get the session info now
   dispatch('getSessionInfo')
-  // always pop up modal to ask for session info
-  // commit(types.SET_NEEDS_SESSION, true)
 
   // do we need to pop session modal to ask for vertical?
   if (qs && qs.config === 'true') {
