@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <iframe ref="egcobrowse" src="about:blank" title="" id="egot_iframe" style="width:0; height:0; border:0; display:none;" />
     <notifications></notifications>
     <lightbox></lightbox>
     <vertical-header :model="verticalConfig" v-on:assist="showAssistModal = true" v-if="!upstream"></vertical-header>
