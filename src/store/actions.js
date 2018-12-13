@@ -348,8 +348,8 @@ export const startCallback = async ({commit, state, rootState, getters, dispatch
 }
 
 /*
- add URL query parameters to the chat URLs to pass customer data, for
- bypassing the pre-chat forms
+add URL query parameters to the chat URLs to pass customer data, for
+bypassing the pre-chat forms
 */
 function addEceChatParameters (url, data) {
   return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&fieldname_3=${data.phone}&fieldname_4=${encodeURIComponent(data.subject)}`
