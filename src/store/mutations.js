@@ -35,6 +35,12 @@ export default {
   [types.SET_CONTACT_MOBILE] (state, data) {
     state.contact.mobile = data
   },
+  [types.SET_CONTACT_PQ] (state, data) {
+    state.contact.pq = data
+  },
+  [types.SET_CONTACT_UWF] (state, data) {
+    state.contact.uwf = data
+  },
   [types.SET_IS_LOCAL] (state, data) {
     state.isLocal = data
   },
