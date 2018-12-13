@@ -491,10 +491,16 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
       if (state.useSessionVertical === true) {
         commit(types.SET_VERTICAL, response.data.configuration.vertical)
       }
+      // main demo IVR number
       commit(types.SET_CONTACT_PHONE, response.data.phone.international)
+      // mobile app demo number
       commit(types.SET_CONTACT_MOBILE, response.data.mobile.international)
+      // Jacada demo number
       commit(types.SET_CONTACT_JACADA, response.data.jacada.international)
-      commit(types.SET_CONTACT_JACADA, response.data.jacada.international)
+      // PQ certification demo number
+      commit(types.SET_CONTACT_PQ, response.data.pq.international)
+      // upstream works demo number
+      commit(types.SET_CONTACT_UWF, response.data.uwf.international)
     } catch (e1) {
       console.log(e1)
       // do nothing
