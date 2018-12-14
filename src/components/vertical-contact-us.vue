@@ -212,11 +212,13 @@
         </div>
         <div class="col-md-4">
           <div class="info">
-              <li><a :href="`tel:${contact.phone}`"><i class="fa fa-phone"></i>{{ contact.phone }}</a></li>
-              <li><a :href="`tel:${contact.jacada}`"><i class="fa fa-mobile"></i>{{ contact.jacada }}</a></li>
             <!-- <p>Please select an option to get in contact with us</p> -->
             <ul class="contact-numbers">
+              <li v-if="multichannelType !== 'upstream'"><a :href="`tel:${contact.phone}`"><i class="fa fa-phone"></i>{{ contact.phone }}</a></li>
+              <li v-if="sessionDemo === 'pcce' && multichannelType !== 'upstream'"><a :href="`tel:${contact.pq}`"><i class="fa fa-phone-square"></i>{{ contact.pq }}</a></li>
+              <li v-if="multichannelType === 'ece'"><a :href="`tel:${contact.jacada}`"><i class="fa fa-mobile"></i>{{ contact.jacada }}</a></li>
               <!-- <li><a :href="`tel:${contact.mobile}`"><i class="fa fa-mobile"></i>{{ contact.mobile }}</a></li> -->
+              <li v-if="multichannelType === 'upstream'"><a :href="`tel:${contact.uwf}`"><i class="fa fa-phone"></i>{{ contact.uwf }}</a></li>
               <li><i class="fa fa-globe"></i>{{ verticalConfig.address }}</li>
               <li><i class="fa fa-envelope"></i><a :href="`mailto:${multichannelType}@${verticalConfig.domain}`">{{ `${multichannelType}@${verticalConfig.domain}` }}</a></li>
               <!-- <li><i class="fa fa-clipboard"></i><router-link to="/form">Fill Form</router-link></li> -->
