@@ -67,8 +67,8 @@
                   <!-- Chat Tab -->
                   <div class="message-form" v-show="currentTab === 'chat'">
                     <div v-if="multichannelType === 'sfdc'">
-                      <a id="liveagent_button_online_5731N000000XZYE" href="javascript://Chat" onclick="liveagent.startChat('5731N000000XZYE')">Chat Online</a>
-                      <div id="liveagent_button_offline_5731N000000XZYE">Chat Offline</div>
+                      <!-- <a id="liveagent_button_online_5731N000000XZYE" href="javascript://Chat" onclick="liveagent.startChat('5731N000000XZYE')">Chat Online</a> -->
+                      <!-- <div id="liveagent_button_offline_5731N000000XZYE">Chat Offline</div> -->
                     </div>
                     <div v-else>
                       <form action="#" method="post" class="send-message">
@@ -276,15 +276,15 @@ export default {
   mounted () {
     this.chooseFirstRequestType()
     // init SFDC liveagent chat
-    window.liveagent.init('https://d.la1-c1-iad.salesforceliveagent.com/chat', '5721N000000Xbdn', '00D1N000001S9Vk')
-    if (!window._laq) {
-      window._laq = []
-    }
+    // window.liveagent.init('https://d.la1-c1-iad.salesforceliveagent.com/chat', '5721N000000Xbdn', '00D1N000001S9Vk')
+    // if (!window._laq) {
+    //   window._laq = []
+    // }
     // init the SFDC liveagent watchers for the agent availability in SFDC
-    window._laq.push(function () {
-      window.liveagent.showWhenOnline('5731N000000XZYE', document.getElementById('liveagent_button_online_5731N000000XZYE'))
-      window.liveagent.showWhenOffline('5731N000000XZYE', document.getElementById('liveagent_button_offline_5731N000000XZYE'))
-    })
+    // window._laq.push(function () {
+    //   window.liveagent.showWhenOnline('5731N000000XZYE', document.getElementById('liveagent_button_online_5731N000000XZYE'))
+    //   window.liveagent.showWhenOffline('5731N000000XZYE', document.getElementById('liveagent_button_offline_5731N000000XZYE'))
+    // })
   },
   computed: {
     // ...mapState([
