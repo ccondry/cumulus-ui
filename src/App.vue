@@ -9,15 +9,15 @@
     <vertical-footer v-if="!needsSession && !upstream"></vertical-footer>
 
     <!-- REM cobrowse short code display -->
-    <cobrowse-modal
+    <!-- <cobrowse-modal
     :short-code="shortCode"
     v-show="showCobrowseModal"
-    v-on:close="showCobrowseModal = false"></cobrowse-modal>
+    v-on:close="showCobrowseModal = false"></cobrowse-modal> -->
 
-    <assist-modal
+    <!-- <assist-modal
     v-show="showAssistModal"
     v-on:cobrowse="startCobrowse"
-    v-on:close="showAssistModal = false"></assist-modal>
+    v-on:close="showAssistModal = false"></assist-modal> -->
 
     <!-- Session & Datacenter Form -->
     <session-modal v-show="needsSession" v-if="!upstream"></session-modal>
@@ -33,8 +33,8 @@ import VerticalHeader from 'src/components/vertical-header.vue'
 import VerticalFooter from 'src/components/vertical-footer.vue'
 import Lightbox from 'src/components/lightbox.vue'
 import SessionModal from 'src/components/session-modal.vue'
-import AssistModal from 'src/components/assist-modal.vue'
-import CobrowseModal from 'src/components/cobrowse-modal.vue'
+// import AssistModal from 'src/components/assist-modal.vue'
+// import CobrowseModal from 'src/components/cobrowse-modal.vue'
 import router from './router.js'
 
 import {mapGetters, mapActions} from 'vuex'
@@ -48,24 +48,24 @@ export default {
     VerticalHeader,
     VerticalFooter,
     Lightbox,
-    SessionModal,
-    AssistModal,
-    CobrowseModal
+    SessionModal
+    // AssistModal,
+    // CobrowseModal
   },
   data () {
     return {
-      sidebarShown: false,
-      activeSession: false,
-      inSupport: false,
-      userEmail: '',
-      verticalSelect: '',
-      showAssistModal: false,
-      showCobrowseModal: false
+      // sidebarShown: false,
+      // activeSession: false,
+      // inSupport: false,
+      // userEmail: '',
+      // verticalSelect: ''
+      // showAssistModal: false,
+      // showCobrowseModal: false
     }
   },
   async mounted () {
     // watch scroll, to detect when to pop the menu out
-    window.addEventListener('keyup', this.handleKeyUp)
+    // window.addEventListener('keyup', this.handleKeyUp)
 
     // this.getSessionInfo()
     // get REST endpoints info
@@ -74,20 +74,20 @@ export default {
     // this.getVerticalConfig()
 
     // set up REM event handlers
-    try {
-      window.AssistSDK.onConnectionEstablished = () => {
-        this.connectionEstablished()
-      }
-    } catch (e) {
-      console.log('exception: ', e)
-    }
-    try {
-      window.AssistSDK.onEndSupport = () => {
-        this.supportEnded()
-      }
-    } catch (e) {
-      console.log('exception: ', e)
-    }
+    // try {
+    //   window.AssistSDK.onConnectionEstablished = () => {
+    //     this.connectionEstablished()
+    //   }
+    // } catch (e) {
+    //   console.log('exception: ', e)
+    // }
+    // try {
+    //   window.AssistSDK.onEndSupport = () => {
+    //     this.supportEnded()
+    //   }
+    // } catch (e) {
+    //   console.log('exception: ', e)
+    // }
     // console.log('demo =', this.demo)
     console.log('vertical =', this.vertical)
 
@@ -113,18 +113,18 @@ export default {
   },
   destroyed () {
     // stop watching to avoid errors
-    window.removeEventListener('keyup', this.handleKeyUp)
+    // window.removeEventListener('keyup', this.handleKeyUp)
   },
   methods: {
     ...mapActions({
       getCustomer: 'getCustomer',
       createCsRequest: 'createCsRequest',
       addPod: 'addPod',
-      storeRemConfiguration: 'storeRemConfiguration',
+      // storeRemConfiguration: 'storeRemConfiguration',
       successNotification: 'successNotification',
       failNotification: 'failNotification',
-      supportEnded: 'supportEnded',
-      connectionEstablished: 'connectionEstablished',
+      // supportEnded: 'supportEnded',
+      // connectionEstablished: 'connectionEstablished',
       checkLogin: 'checkLogin',
       logout: 'logout',
       setVertical: 'setVertical',
@@ -135,7 +135,7 @@ export default {
       checkSession: 'checkSession',
       getSessionInfo: 'getSessionInfo',
       getVerticalConfig: 'getVerticalConfig',
-      getShortCode: 'getShortCode',
+      // getShortCode: 'getShortCode',
       getEndpoints: 'getEndpoints'
     }),
     getQueryVars () {
@@ -157,37 +157,37 @@ export default {
     },
     go (path) {
       this.$router.push(path)
-    },
-    handleKeyUp (e) {
-      switch (e.keyCode) {
-        case 112: {
-          this.logout()
-          break
-        }
-        case 113: {
-          window.AssistSDK.endSupport()
-          break
-        }
-      }
-    },
-    addEndSupportGui () {
-      console.log('addEndSupportGui')
-    },
-    dismissCidDisplay () {
-      console.log('dismissCidDisplay')
-      // },
-      // supportEnded () {
-      //   console.log('hey supportEnded')
-      //
-    },
-    startCobrowse () {
-      console.log('user wants cobrowse')
-      // dismiss the assist modal
-      this.showAssistModal = false
-      // go get short code
-      this.getShortCode()
-      // now the watcher for short code should trigger the shortcode modal momentarily
     }
+    // handleKeyUp (e) {
+    //   switch (e.keyCode) {
+    //     case 112: {
+    //       this.logout()
+    //       break
+    //     }
+    //     case 113: {
+    //       window.AssistSDK.endSupport()
+    //       break
+    //     }
+    //   }
+    // },
+    // addEndSupportGui () {
+    //   console.log('addEndSupportGui')
+    // },
+    // dismissCidDisplay () {
+    //   console.log('dismissCidDisplay')
+    //   // },
+    //   // supportEnded () {
+    //   //   console.log('hey supportEnded')
+    //   //
+    // },
+    // startCobrowse () {
+    //   console.log('user wants cobrowse')
+    //   // dismiss the assist modal
+    //   this.showAssistModal = false
+    //   // go get short code
+    //   this.getShortCode()
+    //   // now the watcher for short code should trigger the shortcode modal momentarily
+    // }
   },
   computed: {
     ...mapGetters([
@@ -196,8 +196,8 @@ export default {
       'needsSession',
       'datacenter',
       'sessionId',
-      'vertical',
-      'shortCode'
+      'vertical'
+      // 'shortCode'
     ]),
     upstream () {
       // console.log('App.vue - this.router.route.path ===', router.app.$route.path)
@@ -206,10 +206,10 @@ export default {
     }
   },
   watch: {
-    shortCode (val, oldVal) {
-      // got short code, so pop the cobrowse modal
-      this.showCobrowseModal = true
-    },
+    // shortCode (val, oldVal) {
+    //   // got short code, so pop the cobrowse modal
+    //   this.showCobrowseModal = true
+    // },
     demo (val, oldVal) {
       // update the platform ID in state
       this.setPlatform(val)
