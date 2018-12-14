@@ -73,7 +73,7 @@ export const multichannelType = function (state, rootState, getters) {
     return getters.sessionInfo.configuration.multichannel.toLowerCase()
   } catch (e) {
     // use defaults
-    if (getters.sessionDemo === 'uccx') {
+    if (state.sessionInfo.demo === 'uccx') {
       return 'socialminer'
     } else {
       return 'ece'
