@@ -138,12 +138,13 @@
               <!-- Form Tab -->
               <div class="message-form" v-show="currentTab === 'form'">
                 <form action="#" method="post" class="send-message" @submit.prevent="">
-                  <vertical-formgroup
-                  v-if="verticalConfig.form"
-                  v-for="field in verticalConfig.form.fields"
-                  :private="verticalConfig.form.private.includes(field)"
-                  :name="field"
-                  :placeholder="field"></vertical-formgroup>
+                  <span v-if="verticalConfig.form">
+                    <vertical-formgroup
+                    v-for="field in verticalConfig.form.fields"
+                    :private="verticalConfig.form.private.includes(field)"
+                    :name="field"
+                    :placeholder="field"></vertical-formgroup>
+                  </span>
                   <div>
                     <button class="btn btn-success" type="submit">Submit</button>
                   </div>
