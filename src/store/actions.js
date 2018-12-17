@@ -394,7 +394,7 @@ export const setSession = ({commit, state, rootState}, data) => {
     query: {
       session: data.sessionId,
       datacenter: data.datacenter,
-      vertical: data.vertical,
+      // vertical: data.vertical,
       showAllVerticals: data.showAllVerticals
       // config: data.sessionId
     }
