@@ -56,13 +56,13 @@
           <div class="col-md-1 rem-support" v-if="multichannelType === 'sfdc'">
             <!-- <a href @click.prevent="clickCobrowse">Cobrowse</a> -->
           </div>
-          <!-- <div class="col-md-1 rem-support">
-            <a href @click.prevent="clickAssist"><img src="assets/support.png" />Assist</a>
-          </div> -->
+          <div class="col-md-1 rem-support" v-if="multichannelType === 'sfdc'" >
+            <a href @click.prevent="clickCobrowse"><img src="assets/support.png" />Cobrowse</a>
+          </div>
         </div>
       </div>
     </div>
-    <!-- <a v-if="multichannelType === 'sfdc'" href="#" ref="cblink" onclick="javascript: eGain.cobrowse.startCobrowse()">Start Cobrowse</a> -->
+    <!-- <a v-if="multichannelType === 'sfdc'" style="display: none;" href="#" ref="cblink" onclick="javascript: eGain.cobrowse.startCobrowse()"></a> -->
   </header>
 </template>
 
@@ -87,17 +87,17 @@ export default {
     },
     clickCobrowse () {
       console.log('click cobrowse button')
-      this.$refs.cblink.click()
+      // this.$refs.cblink.click()
       // console.log('document', document)
-      // if (document.eGain) {
-      //   console.log('running document.eGain.cobrowse.startCobrowse()')
-      //   document.eGain.cobrowse.startCobrowse()
-      // } else if (window.eGain) {
-      //   console.log('running window.eGain.cobrowse.startCobrowse()')
-      //   window.eGain.cobrowse.startCobrowse()
-      // } else {
-      //   console.log('failed to start cobrowse - window.eGain and document.eGain are undefined.')
-      // }
+      if (document.eGain) {
+        console.log('running document.eGain.cobrowse.startCobrowse()')
+        document.eGain.cobrowse.startCobrowse()
+      } else if (window.eGain) {
+        console.log('running window.eGain.cobrowse.startCobrowse()')
+        window.eGain.cobrowse.startCobrowse()
+      } else {
+        console.log('failed to start cobrowse - window.eGain and document.eGain are undefined.')
+      }
     }
   },
   computed: {
