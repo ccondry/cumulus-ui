@@ -449,7 +449,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   }
 
   console.log('window.localStorage.vertical', window.localStorage.vertical)
-  // check localStorage for datacenter, and copy to state
+  // check localStorage for vertical, and copy to state
   if (qs && qs.vertical) {
     commit(types.SET_VERTICAL, qs.vertical)
     window.localStorage.vertical = qs.vertical
