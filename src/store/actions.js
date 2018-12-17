@@ -510,13 +510,15 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
       if (response.data.configuration.vertical) {
         // use the session configuration's vertical when we load session info
         commit(types.SET_USE_SESSION_VERTICAL, true)
-      } else {
+      } else if (!state.vertical) {
         // vertical not set, we need to ask the user for vertical
         commit(types.SET_NEEDS_SESSION, true)
       }
     } catch (e) {
-      // vertical not set, we need to ask the user for vertical
-      commit(types.SET_NEEDS_SESSION, true)
+      if (!state.vertical) {
+        // vertical not set, we need to ask the user for vertical
+        commit(types.SET_NEEDS_SESSION, true)
+      }
     }
   } catch (e) {
     console.log('failed to get session info.', e)
