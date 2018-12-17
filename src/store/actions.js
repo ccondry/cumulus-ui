@@ -464,13 +464,13 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   dispatch('getSessionInfo')
 
   // do we need to pop session modal to ask for vertical?
-  // if (qs && qs.config === 'true') {
-  //   // use the session configuration's vertical when we load session info
-  //   commit(types.SET_USE_SESSION_VERTICAL, true)
-  // } else {
-  //   // not set, we need to ask
-  //   commit(types.SET_NEEDS_SESSION, true)
-  // }
+  if (qs && qs.config === 'true') {
+    // use the session configuration's vertical when we load session info
+    commit(types.SET_USE_SESSION_VERTICAL, true)
+  } else {
+    // not set, we need to ask
+    commit(types.SET_NEEDS_SESSION, true)
+  }
 }
 
 export const setNeedsSession = ({commit, state, rootState}, data) => {
@@ -504,19 +504,6 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
     } catch (e1) {
       console.log(e1)
       // do nothing
-    }
-    try {
-      // vertical is set in session configuration data?
-      if (response.data.configuration.vertical) {
-        // use the session configuration's vertical when we load session info
-        commit(types.SET_USE_SESSION_VERTICAL, true)
-      } else {
-        // vertical not set, we need to ask the user for vertical
-        commit(types.SET_NEEDS_SESSION, true)
-      }
-    } catch (e) {
-      // vertical not set, we need to ask the user for vertical
-      commit(types.SET_NEEDS_SESSION, true)
     }
   } catch (e) {
     console.log('failed to get session info.', e)
