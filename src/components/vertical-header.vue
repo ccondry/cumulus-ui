@@ -56,7 +56,7 @@
           <div class="col-md-1 rem-support" v-if="multichannelType === 'sfdc'">
             <!-- <a href @click.prevent="clickCobrowse">Cobrowse</a> -->
           </div>
-          <div class="col-md-1 rem-support" v-if="cobrowseEnabled" >
+          <div class="col-md-1 rem-support" v-if="multichannelType === 'sfdc'" >
             <a href @click.prevent="clickCobrowse"><img src="assets/support.png" />Cobrowse</a>
           </div>
         </div>
@@ -107,9 +107,6 @@ export default {
       'sessionInfo',
       'multichannelType'
     ]),
-    cobrowseEnabled () {
-      return this.multichannelType === 'sfdc' && window.eGain
-    },
     validSession () {
       return this.sessionInfo
     },
