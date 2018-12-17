@@ -487,10 +487,6 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
     commit(types.SET_SESSION_INFO, response.data)
     // set up the voice call phone number
     try {
-      // do we need to set the vertical using session config data?
-      if (state.useSessionVertical === true) {
-        commit(types.SET_VERTICAL, response.data.configuration.vertical)
-      }
       // main demo IVR number
       commit(types.SET_CONTACT_PHONE, response.data.phone.international)
       // mobile app demo number
@@ -508,16 +504,23 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
     try {
       // vertical is set in session configuration data?
       if (response.data.configuration.vertical) {
+        console.log('using vertical in session configuration:', response.data.configuration.vertical)
         // use the session configuration's vertical when we load session info
-        commit(types.SET_USE_SESSION_VERTICAL, true)
-      } else if (!state.vertical || !state.vertical.length) {
+        // commit(types.SET_USE_SESSION_VERTICAL, true)
+        commit(types.SET_VERTICAL, response.data.configuration.vertical)
+      } else if (!rootState.vertical || !rootState.vertical.length) {
+        console.log('state.vertical is not set. prompting user with session modal.')
         // vertical not set, we need to ask the user for vertical
         commit(types.SET_NEEDS_SESSION, true)
       }
     } catch (e) {
-      if (!state.vertical || !state.vertical.length) {
+      console.log('session configuration does not contain vertical info')
+      if (!rootState.vertical || !rootState.vertical.length) {
+        console.log('state.vertical is not set. prompting user with session modal.')
         // vertical not set, we need to ask the user for vertical
         commit(types.SET_NEEDS_SESSION, true)
+      } else {
+        console.log('state.vertical is already set to', rootState.vertical)
       }
     }
   } catch (e) {
