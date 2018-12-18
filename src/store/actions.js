@@ -525,8 +525,8 @@ export const getSessionInfo = async ({commit, state, rootState}) => {
     }
   } catch (e) {
     console.log('failed to get session info.', e)
-    // set state data to null
-    commit(types.SET_SESSION_INFO, null)
+    // set state data to empty object
+    commit(types.SET_SESSION_INFO, {})
   }
 }
 
