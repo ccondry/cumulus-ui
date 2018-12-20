@@ -79,7 +79,7 @@
                           <div class="email col-md-4">
                             <input type="text" name="email" placeholder="Email" v-model="email"/>
                           </div>
-                          <div class="subject col-md-4">
+                          <div class="subject col-md-4" v-if="multichannelType !== 'upstream'">
                             <input type="text" name="subject" placeholder="Phone Number" v-model="phone" />
                           </div>
                         </div>
