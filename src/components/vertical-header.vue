@@ -73,7 +73,8 @@ export default {
   methods: {
     ...mapActions([
       'setNeedsSession',
-      'getShortCode'
+      'getShortCode',
+      'failNotification'
     ]),
     clickSession () {
       this.setNeedsSession(true)
@@ -94,7 +95,7 @@ export default {
         window.eGain.cobrowse.startCobrowse()
       } else {
         console.log('failed to start cobrowse - window.eGain and document.eGain are undefined.')
-        // TODO pop an error or warning or something here
+        this.failNotification('eGain cobrowse library failed to load. If you are using a browser outside of the demo workstations, please make sure you are connected to your demo VPN.')
       }
     }
   },
