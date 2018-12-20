@@ -105,10 +105,11 @@ export default {
       'sessionId',
       'datacenter',
       'sessionInfo',
-      'multichannelType'
+      'multichannelType',
+      'sessionVersion'
     ]),
     cobrowseEnabled () {
-      return this.multichannelType === 'sfdc' && window.eGain
+      return window.eGain && this.multichannelType === 'ece' && this.sessionVersion !== '11.6v2'
     },
     validSession () {
       return Object.keys(this.sessionInfo).length
