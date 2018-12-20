@@ -57,7 +57,7 @@
             <!-- <a href @click.prevent="clickCobrowse">Cobrowse</a> -->
           </div>
           <div class="col-md-1 rem-support" v-if="cobrowseEnabled" >
-            <a href @click.prevent="clickCobrowse"><img src="assets/support.png" />Cobrowse</a>
+            <a href @click.prevent="clickCobrowse"><img src="assets/support.png" style="margin-left: 20px;"/><span>Cobrowse</span></a>
           </div>
         </div>
       </div>
