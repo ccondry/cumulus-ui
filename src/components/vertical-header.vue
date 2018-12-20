@@ -94,6 +94,7 @@ export default {
         window.eGain.cobrowse.startCobrowse()
       } else {
         console.log('failed to start cobrowse - window.eGain and document.eGain are undefined.')
+        // TODO pop an error or warning or something here
       }
     }
   },
