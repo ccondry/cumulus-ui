@@ -111,7 +111,7 @@ export default {
       return this.multichannelType === 'sfdc' && window.eGain
     },
     validSession () {
-      return this.sessionInfo
+      return Object.keys(this.sessionInfo).length
     },
     sessionLink () {
       if (this.datacenter && this.sessionId) {
