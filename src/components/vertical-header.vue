@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="col-md-1 rem-support" v-if="cobrowseEnabled" >
-            <a href @click.prevent="clickCobrowse"><img src="assets/support.png" style="margin-left: 20px;"/><span>Cobrowse</span></a>
+            <a href @click.prevent="clickCobrowse"><img src="assets/cobrowsing.png" /></a>
           </div>
         </div>
       </div>
@@ -230,6 +230,6 @@ background-color: #333;
 }
 
 .rem-support img {
-  width: 2.7em;
+  width: 9.5em;
 }
 </style>
