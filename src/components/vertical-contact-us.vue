@@ -216,7 +216,7 @@
             <!-- <p>Please select an option to get in contact with us</p> -->
             <ul class="contact-numbers">
               <li v-if="multichannelType !== 'upstream'"><a :href="`tel:${contact.phone}`"><i class="fa fa-phone"></i>{{ contact.phone }}</a></li>
-              <li v-if="sessionDemo === 'pcce' && multichannelType !== 'upstream'"><a :href="`tel:${contact.pq}`"><i class="fa fa-phone-square" style="color: gold;"></i>{{ contact.pq }}</a></li>
+              <li v-if="sessionDemo === 'pcce' && multichannelType !== 'upstream' && sessionVersion !== '11.6v2'"><a :href="`tel:${contact.pq}`"><i class="fa fa-phone-square" style="color: gold;"></i>{{ contact.pq }}</a></li>
               <li v-if="multichannelType === 'ece'"><a :href="`tel:${contact.jacada}`"><i class="fa fa-mobile"></i>{{ contact.jacada }}</a></li>
               <!-- <li><a :href="`tel:${contact.mobile}`"><i class="fa fa-mobile"></i>{{ contact.mobile }}</a></li> -->
               <li v-if="multichannelType === 'upstream'"><a :href="`tel:${contact.uwf}`"><i class="fa fa-phone"></i>{{ contact.uwf }}</a></li>
