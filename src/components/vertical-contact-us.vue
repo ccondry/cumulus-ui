@@ -213,18 +213,23 @@
         </div>
         <div class="col-md-4">
           <div class="info">
-            <!-- <p>Please select an option to get in contact with us</p> -->
-            <ul class="contact-numbers">
-              <li v-if="multichannelType !== 'upstream'"><a :href="`tel:${contact.phone}`"><i class="fa fa-phone"></i>{{ contact.phone }}</a></li>
-              <li v-if="sessionDemo === 'pcce' && multichannelType !== 'upstream' && sessionVersion !== '11.6v2'"><a :href="`tel:${contact.pq}`"><i class="fa fa-phone-square" style="color: gold;"></i>{{ contact.pq }}</a></li>
-              <li v-if="multichannelType === 'ece'"><a :href="`tel:${contact.jacada}`"><i class="fa fa-mobile"></i>{{ contact.jacada }}</a></li>
-              <!-- <li><a :href="`tel:${contact.mobile}`"><i class="fa fa-mobile"></i>{{ contact.mobile }}</a></li> -->
-              <li v-if="multichannelType === 'upstream'"><a :href="`tel:${contact.uwf}`"><i class="fa fa-phone"></i>{{ contact.uwf }}</a></li>
-              <li><i class="fa fa-globe"></i>{{ verticalConfig.address }}</li>
-              <li><i class="fa fa-envelope"></i><a :href="`mailto:${multichannelType}@${verticalConfig.domain}`">{{ `${multichannelType}@${verticalConfig.domain}` }}</a></li>
-              <!-- <li><i class="fa fa-clipboard"></i><router-link to="/form">Fill Form</router-link></li> -->
-              <!-- <li><i class="fa fa-clipboard"></i><a href="assets/finance/form.html">Fill Form</a></li> -->
-            </ul>
+            <table class="contact-numbers">
+              <tr v-if="mainPhoneEnabled"><td><a>Main</a></td><td><a>&gt;</a></td><td>{{ contact.phone }}</td></tr>
+              <tr v-if="pqEnabled"><td><a>Gold</a></td><td><a>&gt;</a></td><td>{{ contact.pq }}</td></tr>
+              <tr v-if="vivrEnabled"><td><a>VIVR</a></td><td><a>&gt;</a></td><td>{{ contact.jacada }}</td></tr>
+              <tr v-if="upstreamEnabled"><td><a>UWF</a></td><td><a>&gt;</a></td><td>{{ contact.uwf }}</td></tr>
+              <tr><td nowrap><a>Address</a></td><td><a>&gt;</a></td><td>{{ verticalConfig.address }}</td></tr>
+              <tr><td><a>Email</a></td><td><a>&gt;</a></td><td>{{ `${multichannelType}@${verticalConfig.domain}` }}</td></tr>
+            </table>
+
+            <!-- <ul class="contact-numbers">
+              <li v-if="multichannelType !== 'upstream'"><a :href="`tel:${contact.phone}`">Main &gt; {{ contact.phone }}</a></li>
+              <li v-if="pqEnabled"><a :href="`tel:${contact.pq}`">Gold &gt; {{ contact.pq }}</a></li>
+              <li v-if="multichannelType === 'ece'"><a :href="`tel:${contact.jacada}`">VIVR &gt; {{ contact.jacada }}</a></li>
+              <li v-if="multichannelType === 'upstream'"><a :href="`tel:${contact.uwf}`">UWF &gt; {{ contact.uwf }}</a></li>
+              <li>Address &gt; {{ verticalConfig.address }}</li>
+              <li>Email &gt; <a :href="`mailto:${multichannelType}@${verticalConfig.domain}`">{{ `${multichannelType}@${verticalConfig.domain}` }}</a></li>
+            </ul> -->
           </div>
         </div>
       </div>
@@ -302,6 +307,18 @@ export default {
       'sessionVersion',
       'multichannelType'
     ]),
+    mainPhoneEnabled () {
+      return this.multichannelType !== 'upstream'
+    },
+    pqEnabled () {
+      return this.sessionDemo === 'pcce' && this.multichannelType !== 'upstream' && this.sessionVersion !== '11.6v2'
+    },
+    vivrEnabled () {
+      return this.multichannelType === 'ece'
+    },
+    upstreamEnabled () {
+      return this.multichannelType === 'upstream'
+    },
     firstName () {
       return this.name.split(' ')[0]
     },
@@ -478,8 +495,23 @@ textarea {
   width: 100%
 }
 
-ul.contact-numbers li {
-  font-size: 14px;
+table.contact-numbers {
+  font-size: 1em;
+}
+
+table.contact-numbers tr {
+  /* border-bottom: 1px solid lightgrey; */
+}
+
+table.contact-numbers tr td {
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+table.contact-numbers tr td:nth-child(3) {
+  /* border-left: 1px solid lightgrey; */
 }
 
 ul.contact-numbers li a:link {
