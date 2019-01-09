@@ -230,6 +230,7 @@ background-color: #333;
 }
 
 .rem-support img {
-  width: 9.5em;
+  width: 6em;
+  margin-top: 0.6em;
 }
 </style>
