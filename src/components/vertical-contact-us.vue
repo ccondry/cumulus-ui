@@ -147,10 +147,17 @@
                     :placeholder="field"></vertical-formgroup>
                   </span>
                   <div>
-                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-success" type="submit" @click="currentTab = 'formSubmitted'">Submit</button>
                   </div>
                 </form>
               </div>
+              <!-- /Form Tab -->
+
+              <!-- Form Submitted Tab -->
+              <div class="message-form" v-show="currentTab === 'formSubmitted'">
+                <h1>Form Submitted!</h1>
+              </div>
+              <!-- /Form Submitted Tab -->
 
               <!-- Bot Tab -->
               <div class="message-form" v-show="currentTab === 'bot'">
