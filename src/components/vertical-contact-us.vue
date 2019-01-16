@@ -346,9 +346,9 @@ export default {
       'startCallback',
       'startBot'
     ]),
-    resetChatIframe () {
-      this.$refs.upstreamIframe.src = 'https://cceweb.dcloud.cisco.com:446/'
-    },
+    // resetChatIframe () {
+    //   this.$refs.upstreamIframe.src = 'https://cceweb.dcloud.cisco.com:446/'
+    // },
     chooseFirstRequestType () {
       // set the task request type option to the first option
       try {
