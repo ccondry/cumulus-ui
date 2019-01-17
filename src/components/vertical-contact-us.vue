@@ -188,7 +188,7 @@
 
             <!-- Task Request Tab -->
             <div class="message-form" v-show="currentTab === 'request'">
-              <form action="#" method="post" class="send-message">
+              <form action="#" method="post" class="send-message" name="cobrowse-form">
                 <div class="row">
                   <div class="name col-md-4">
                     <input type="text" name="name" placeholder="Name" v-model="name"/>
