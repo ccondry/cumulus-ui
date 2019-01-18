@@ -2,7 +2,7 @@
   <div class="form-group row">
     <label v-if="$slots['default']" class="col-sm-3 col-form-label" :style="private ? 'color: red;' : ''"><slot></slot></label>
     <div class="col-sm-6">
-      <input class="form-control" :type="private ? 'password' : ''" :placeholder="placeholder" :name="name">
+      <input class="form-control" :type="private ? 'password' : 'text'" :placeholder="placeholder" :name="name">
     </div>
   </div>
 </template>
