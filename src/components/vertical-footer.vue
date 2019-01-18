@@ -2,7 +2,7 @@
   <footer>
     <div class="container">
       <div>
-        <p>cumulus-ui v{{ version }} - Copyright © 2018 - <a href="#" @click.prevent="">Cisco Systems, Inc.</a></p>
+        <p>cumulus-ui v{{ version }} - Copyright © 2019 - <a href="#" @click.prevent="">Cisco Systems, Inc.</a></p>
       </div>
     </div>
   </footer>
