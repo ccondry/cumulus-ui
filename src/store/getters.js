@@ -70,7 +70,7 @@ export const sessionConfig = (state, rootState, getters) => {
 export const multichannelType = function (state, rootState, getters) {
   try {
     // try to return user-configured value
-    return getters.sessionInfo.configuration.multichannel.toLowerCase()
+    return state.multichannelType || getters.sessionInfo.configuration.multichannel.toLowerCase()
   } catch (e) {
     // use defaults
     if (state.sessionInfo.demo === 'uccx') {
