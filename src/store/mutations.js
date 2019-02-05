@@ -5,6 +5,9 @@ export default {
   [types.SET_PLATFORM] (state, data) {
     state.platform = data
   },
+  [types.SET_MULTICHANNEL_TYPE] (state, data) {
+    state.multichannelType = data
+  },
   [types.SET_VERTICAL] (state, data) {
     state.vertical = data
   },

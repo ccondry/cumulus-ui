@@ -17,6 +17,7 @@ export default {
     createLink: 'l1mrf02vop6dkf3qjc6a2s016k7isf5mduqcs91e2k1slon8lh2ln6litlkgi5cmdiqcv8e4tivdgkpdas9kimgkul42pleh2dg04ol2g0gr'
   },
   vertical: '',
+  multichannelType: null,
   verticals: [],
   contact: {
     phone: '+1 (408) 526-4000',
