@@ -460,15 +460,9 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
     // commit(types.SET_NEEDS_SESSION, true)
   }
 
-  // check query string and localStorage for multichannelType, and copy to state
-  console.log('window.localStorage.multichannelType', window.localStorage.multichannelType)
+  // check query string for multichannelType, and copy to state if it exists
   if (qs && qs.multichannel) {
     commit(types.SET_MULTICHANNEL_TYPE, qs.multichannel)
-    window.localStorage.multichannelType = qs.multichannel
-  } else if (window.localStorage.multichannelType) {
-    commit(types.SET_MULTICHANNEL_TYPE, window.localStorage.multichannelType)
-  } else {
-    // do nothing
   }
 
   // get get the session info now
