@@ -466,7 +466,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   }
 
   // get get the session info now
-  dispatch('getSessionInfo')
+  dispatch('getSessionInfo', qs.username)
 
   // do we need to pop session modal to ask for vertical?
   // if (qs && qs.config === 'true') {
@@ -482,10 +482,10 @@ export const setNeedsSession = ({commit, state, rootState}, data) => {
   commit(types.SET_NEEDS_SESSION, data)
 }
 
-export const getSessionInfo = async ({commit, state, rootState}) => {
+export const getSessionInfo = async ({commit, state, rootState}, username) => {
   console.log('getting session info')
   try {
-    const response = await axios.get(`${rootState.apiBase}/datacenters/${rootState.datacenter}/sessions/${rootState.sessionId}`)
+    const response = await axios.get(`${rootState.apiBase}/datacenters/${rootState.datacenter}/sessions/${rootState.sessionId}?username=${username}`)
     console.log('session info acquired:', response)
     console.log('storing session info config in state')
     // store vertical config in state
