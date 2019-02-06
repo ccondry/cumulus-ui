@@ -356,7 +356,7 @@ function addEceChatParameters (url, data) {
 }
 
 function addSparkyChatParameters (url, datacenter, session, data) {
-  return url + `?firstName=${encodeURIComponent(data.firstName)}&lastName=${encodeURIComponent(data.lastName)}&email=${encodeURIComponent(data.email)}&phone=${data.phone}&session=${session}&datacenter=${datacenter}`
+  return url + `?firstName=${encodeURIComponent(data.firstName)}&lastName=${encodeURIComponent(data.lastName)}&email=${encodeURIComponent(data.email)}&username=${data.username}&phone=${data.phone}&session=${session}&datacenter=${datacenter}`
 }
 
 function addEceCallbackParameters (url, data) {

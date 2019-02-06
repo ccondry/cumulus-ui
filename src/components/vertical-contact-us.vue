@@ -400,6 +400,7 @@ export default {
         lastName: this.lastName,
         name: this.name,
         email: this.email,
+        username: this.$route.query.username,
         phone: this.phone
       })
     },
