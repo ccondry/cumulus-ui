@@ -470,11 +470,10 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
     commit(types.SET_MULTICHANNEL_TYPE, qs.multichannel)
   }
   if (qs && qs.username) {
-      // set username in state
-      commit(types.SET_USERNAME, qs.username)
-      // set username in local storage
-      window.localStorage.username = qs.username
-    }
+    // set username in state
+    commit(types.SET_USERNAME, qs.username)
+    // set username in local storage
+    window.localStorage.username = qs.username
   } else if (window.localStorage.username) {
     // username is in local storage, so use that
     // set username in state
