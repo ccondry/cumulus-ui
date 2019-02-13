@@ -390,14 +390,19 @@ export const setSession = ({commit, state, rootState}, data) => {
   // save in localStorage
   window.localStorage.showAllVerticals = data.showAllVerticals
   // set query string
+  const query = {
+    session: data.sessionId,
+    datacenter: data.datacenter,
+    // vertical: data.vertical,
+    showAllVerticals: data.showAllVerticals
+    // config: data.sessionId
+  }
+  // attach username, if it exists
+  if (rootState.username) {
+    query.username = rootState.username
+  }
   router.app.$router.replace({
-    query: {
-      session: data.sessionId,
-      datacenter: data.datacenter,
-      // vertical: data.vertical,
-      showAllVerticals: data.showAllVerticals
-      // config: data.sessionId
-    }
+    query
   })
 }
 
