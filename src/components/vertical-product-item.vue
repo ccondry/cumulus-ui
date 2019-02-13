@@ -45,13 +45,13 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'openLightbox'
-    ]),
-    lightbox (src, alt) {
-      console.log('opening lightbox', src)
-      this.openLightbox({src, alt})
-    }
+    // ...mapActions([
+    //   'openLightbox'
+    // ]),
+    // lightbox (src, alt) {
+    //   console.log('opening lightbox', src)
+    //   this.openLightbox({src, alt})
+    // }
   }
 }
 </script>
