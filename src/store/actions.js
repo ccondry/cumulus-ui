@@ -477,7 +477,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   } else if (window.localStorage.username) {
     // username is in local storage, so use that
     // set username in state
-    commit(types.SET_USERNAME, qs.username)
+    commit(types.SET_USERNAME, window.localStorage.username)
   }
   // get get the session info now
   dispatch('getSessionInfo', state.username)
