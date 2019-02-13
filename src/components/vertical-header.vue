@@ -41,7 +41,7 @@
                 <li><router-link to="about" class="nav-item">About</router-link></li>
                 <li v-if="model.products && model.products.length"><router-link to="products" class="nav-item">Products</router-link></li>
                 <!-- <li v-if="model.services && model.services.length"><router-link to="services" class="nav-item">Services</router-link></li> -->
-                <li v-if="model.services && model.services.length"><a :href="servicesLink" class="nav-item">Services</a></li>
+                <li v-if="model.services && model.services.length"><a href="https://mm.cxdemo.net/services" class="nav-item">Services</a></li>
                 <li><router-link to="contact" class="nav-item">Contact</router-link></li>
               </ul>
             </div>
@@ -119,18 +119,6 @@ export default {
         return `${this.datacenter} ${this.sessionId}`
       }
       return 'No Session'
-    },
-    servicesLink () {
-      // generate the URL for the services page
-      let url = 'https://mm.cxdemo.net/services'
-      url += '?session=' + this.sessionId
-      url += '&datacenter=' + this.datacenter
-      if (this.$route.query.showAllVerticals) {
-        url += '&showAllVerticals=' + this.$route.query.showAllVerticals
-      }
-      if (this.$route.query.username) {
-        url += '&username=' + this.$route.query.username
-      }
     }
   }
 }
