@@ -469,9 +469,12 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   if (qs && qs.multichannel) {
     commit(types.SET_MULTICHANNEL_TYPE, qs.multichannel)
   }
-
-  // get get the session info now
-  dispatch('getSessionInfo', qs.username)
+  if (qs && qs.username) {
+    // get get the session info now
+    dispatch('getSessionInfo', qs.username)
+  } else {
+    dispatch('getSessionInfo')
+  }
 
   // do we need to pop session modal to ask for vertical?
   // if (qs && qs.config === 'true') {
