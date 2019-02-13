@@ -2,6 +2,9 @@ import * as types from './mutation-types'
 import Vue from 'vue'
 
 export default {
+  [types.SET_USERNAME] (state, data) {
+    state.username = data
+  },
   [types.SET_PLATFORM] (state, data) {
     state.platform = data
   },

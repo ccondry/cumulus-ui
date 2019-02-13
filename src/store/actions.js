@@ -506,6 +506,10 @@ export const getSessionInfo = async ({commit, state, rootState}, username) => {
       console.log(e1)
       // do nothing
     }
+    // set username in state
+    if (username) {
+      commit(types.SET_USERNAME, username)
+    }
     try {
       // vertical is set in session configuration data?
       if (response.data.configuration.vertical) {
