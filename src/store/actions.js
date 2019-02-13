@@ -470,12 +470,18 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
     commit(types.SET_MULTICHANNEL_TYPE, qs.multichannel)
   }
   if (qs && qs.username) {
-    // get get the session info now
-    dispatch('getSessionInfo', qs.username)
-  } else {
-    dispatch('getSessionInfo')
+      // set username in state
+      commit(types.SET_USERNAME, qs.username)
+      // set username in local storage
+      window.localStorage.username = qs.username
+    }
+  } else if (window.localStorage.username) {
+    // username is in local storage, so use that
+    // set username in state
+    commit(types.SET_USERNAME, qs.username)
   }
-
+  // get get the session info now
+  dispatch('getSessionInfo', state.username)
   // do we need to pop session modal to ask for vertical?
   // if (qs && qs.config === 'true') {
   //   // use the session configuration's vertical when we load session info
@@ -513,10 +519,6 @@ export const getSessionInfo = async ({commit, state, rootState}, username) => {
     } catch (e1) {
       console.log(e1)
       // do nothing
-    }
-    // set username in state
-    if (username) {
-      commit(types.SET_USERNAME, username)
     }
     try {
       // vertical is set in session configuration data?
