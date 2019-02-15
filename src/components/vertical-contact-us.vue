@@ -227,6 +227,7 @@
               <tr v-if="upstreamEnabled"><td><a>UWF</a></td><td><a>&gt;</a></td><td>{{ contact.uwf }}</td></tr>
               <tr><td nowrap><a>Address</a></td><td><a>&gt;</a></td><td>{{ verticalConfig.address }}</td></tr>
               <tr><td><a>Email</a></td><td><a>&gt;</a></td><td>{{ `${multichannelType}@${verticalConfig.domain}` }}</td></tr>
+              <tr><td><a :href="facebookLink" target="facebook">Facebook</a></td><td><a>&gt;</a></td><td><a :href="facebookLink" target="facebook">{{ facebookLinkFriendly }}</a></td></tr>
             </table>
 
             <!-- <ul class="contact-numbers">
@@ -314,6 +315,12 @@ export default {
       'sessionVersion',
       'multichannelType'
     ]),
+    facebookLink () {
+      return this.verticalConfig.facebook || 'https://fb.com/103018720547240'
+    },
+    facebookLinkFriendly () {
+      return this.facebookLink.replace('https://', '')
+    },
     mainPhoneEnabled () {
       return this.multichannelType !== 'upstream'
     },
