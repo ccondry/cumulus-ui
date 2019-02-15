@@ -10,7 +10,7 @@
           <p>
             {{ slider.text2 }}
           </p>
-          <router-link :to="slider.buttonLink">{{ slider.buttonText }}</router-link>
+          <router-link v-if="slider.buttonText" :to="slider.buttonLink">{{ slider.buttonText }}</router-link>
         </div>
         <img :src="slider.image">
       </slider-item>
