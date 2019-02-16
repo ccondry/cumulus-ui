@@ -356,7 +356,7 @@ function addEceChatParameters (url, data) {
 }
 
 function addSparkyChatParameters (url, datacenter, session, data) {
-  return url + `?firstName=${encodeURIComponent(data.firstName)}&lastName=${encodeURIComponent(data.lastName)}&email=${encodeURIComponent(data.email)}&username=${data.username}&phone=${data.phone}&session=${session}&datacenter=${datacenter}`
+  return url + `?firstName=${encodeURIComponent(data.firstName)}&lastName=${encodeURIComponent(data.lastName)}&email=${encodeURIComponent(data.email)}&userId=${data.userId}&phone=${data.phone}&session=${session}&datacenter=${datacenter}`
 }
 
 function addEceCallbackParameters (url, data) {
@@ -397,9 +397,9 @@ export const setSession = ({commit, state, rootState}, data) => {
     showAllVerticals: data.showAllVerticals
     // config: data.sessionId
   }
-  // attach username, if it exists
-  if (rootState.username) {
-    query.username = rootState.username
+  // attach userId, if it exists
+  if (rootState.userId) {
+    query.userId = rootState.userId
   }
   router.app.$router.replace({
     query
@@ -469,18 +469,18 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   if (qs && qs.multichannel) {
     commit(types.SET_MULTICHANNEL_TYPE, qs.multichannel)
   }
-  if (qs && qs.username) {
-    // set username in state
-    commit(types.SET_USERNAME, qs.username)
-    // set username in local storage
-    window.localStorage.username = qs.username
-  } else if (window.localStorage.username) {
-    // username is in local storage, so use that
-    // set username in state
-    commit(types.SET_USERNAME, window.localStorage.username)
+  if (qs && qs.userId) {
+    // set userId in state
+    commit(types.SET_USER_ID, qs.userId)
+    // set userId in local storage
+    window.localStorage.userId = qs.userId
+  } else if (window.localStorage.userId) {
+    // userId is in local storage, so use that
+    // set userId in state
+    commit(types.SET_USER_ID, window.localStorage.userId)
   }
   // get get the session info now
-  dispatch('getSessionInfo', state.username)
+  dispatch('getSessionInfo', state.userId)
   // do we need to pop session modal to ask for vertical?
   // if (qs && qs.config === 'true') {
   //   // use the session configuration's vertical when we load session info
@@ -495,10 +495,10 @@ export const setNeedsSession = ({commit, state, rootState}, data) => {
   commit(types.SET_NEEDS_SESSION, data)
 }
 
-export const getSessionInfo = async ({commit, state, rootState}, username) => {
+export const getSessionInfo = async ({commit, state, rootState}, userId) => {
   console.log('getting session info')
   try {
-    const response = await axios.get(`${rootState.apiBase}/datacenters/${rootState.datacenter}/sessions/${rootState.sessionId}?username=${username}`)
+    const response = await axios.get(`${rootState.apiBase}/datacenters/${rootState.datacenter}/sessions/${rootState.sessionId}?userId=${userId}`)
     console.log('session info acquired:', response)
     console.log('storing session info config in state')
     // store vertical config in state

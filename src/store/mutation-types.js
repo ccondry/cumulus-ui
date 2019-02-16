@@ -56,4 +56,4 @@ export const SET_WORKING = 'SET_WORKING'
 export const SET_LOADING = 'SET_LOADING'
 
 // set username in state
-export const SET_USERNAME = 'SET_USERNAME'
+export const SET_USER_ID = 'SET_USER_ID'

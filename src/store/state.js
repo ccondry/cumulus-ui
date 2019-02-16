@@ -9,7 +9,7 @@ var apiBase = {
 }
 
 export default {
-  username: null,
+  userId: null,
   version,
   working: {},
   loading: {},

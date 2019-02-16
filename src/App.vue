@@ -223,7 +223,7 @@ export default {
     needsSession (val, oldVal) {
       if (val === false) {
         console.log('sessionId/datacenter changed. Getting session info.')
-        this.getSessionInfo(router.app.$route.query.username)
+        this.getSessionInfo(router.app.$route.query.userId)
       }
     }
   }
