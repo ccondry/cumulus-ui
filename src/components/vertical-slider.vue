@@ -6,7 +6,7 @@
           <h1 v-if="slider.title">
             {{ slider.title }}
           </h1>
-          <h1 else>
+          <h1 v-else>
             &nbsp;
           </h1>
           <p v-if="slider.text1">
