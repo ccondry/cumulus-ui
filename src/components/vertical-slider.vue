@@ -4,11 +4,17 @@
       <slider-item v-for="slider in model.sliders">
         <div class="slider-caption">
           <h1>{{ slider.title }}</h1>
-          <p>
-            {{ slider.text1 || ' ' }}
+          <p v-if="slider.text1">
+            {{ slider.text1 }}
           </p>
-          <p>
-            {{ slider.text2 || ' ' }}
+          <p v-else>
+            &nbsp;
+          </p>
+          <p v-if="slider.text2">
+            {{ slider.text2 }}
+          </p>
+          <p v-else>
+            &nbsp;
           </p>
           <router-link v-if="slider.buttonText" :to="slider.buttonLink">{{ slider.buttonText }}</router-link>
         </div>
