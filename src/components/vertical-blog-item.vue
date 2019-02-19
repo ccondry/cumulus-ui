@@ -4,7 +4,7 @@
       <div class="blog-thumb">
         <img :src="model.image">
       </div>
-      <div class="blog-content">
+      <div class="blog-content" v-if="model.title || model.subTitle || model.description">
         <div class="content-show">
           <h4><a href="#" @click.prevent="">{{ model.title }}</a></h4>
           <span>{{ model.subTitle }}</span>
