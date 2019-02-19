@@ -9,8 +9,7 @@
   :position="m.position"
   :clickable="true"
   :draggable="true"
-  @click="center=m.position"></gmap-marker>
-</gmap-map>
+  @click="center=m.position"></gmap-marker></gmap-map>
 </template>
 
 <script>
@@ -39,8 +38,11 @@ export default {
       }]
     }
   },
-  watch: {
-    vertical (val) {
+  mounted () {
+    this.updatePosition(this.vertical)
+  },
+  methods: {
+    updatePosition (val) {
       if (val && val.gps && val.gps.latitude && val.gps.longitude) {
         // vertical changed
         // update map markers
@@ -54,6 +56,11 @@ export default {
       } else {
         console.log('gps latitude and longitude not set')
       }
+    }
+  }
+  watch: {
+    vertical (val) {
+      this.updatePosition(val)
     }
   }
 }
