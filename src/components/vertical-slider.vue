@@ -3,7 +3,12 @@
     <slider animation="fade" :speed="1000" :interval="30000" height="600px">
       <slider-item v-for="slider in model.sliders">
         <div class="slider-caption">
-          <h1>{{ slider.title }}</h1>
+          <h1 v-if="slider.title">
+            {{ slider.title }}
+          </h1>
+          <h1 else>
+            &nbsp;
+          </h1>
           <p v-if="slider.text1">
             {{ slider.text1 }}
           </p>
