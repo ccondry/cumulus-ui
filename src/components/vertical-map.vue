@@ -57,7 +57,7 @@ export default {
         console.log('gps latitude and longitude not set')
       }
     }
-  }
+  },
   watch: {
     vertical (val) {
       this.updatePosition(val)
