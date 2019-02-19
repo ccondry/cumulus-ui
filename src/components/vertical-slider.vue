@@ -5,10 +5,10 @@
         <div class="slider-caption">
           <h1>{{ slider.title }}</h1>
           <p>
-            {{ slider.text1 }}
+            {{ slider.text1 || ' ' }}
           </p>
           <p>
-            {{ slider.text2 }}
+            {{ slider.text2 || ' ' }}
           </p>
           <router-link v-if="slider.buttonText" :to="slider.buttonLink">{{ slider.buttonText }}</router-link>
         </div>
