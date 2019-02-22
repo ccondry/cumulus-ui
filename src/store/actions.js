@@ -3,6 +3,7 @@ import axios from 'axios'
 import notifications from './modules/notifications'
 
 export const setFavicon = ({commit, state, rootState}, src) => {
+  console.log('setFavicon to', src)
   /*
   * Dynamically changing favicons with JavaScript
   * Works in all A-grade browsers except Safari and Internet Explorer
