@@ -13,6 +13,7 @@ export const setFavicon = ({commit, state, rootState}, src) => {
   var oldLink = document.getElementById('dynamic-favicon')
   link.id = 'dynamic-favicon'
   link.rel = 'shortcut icon'
+  link.type = 'image/x-icon'
   link.href = src
   if (oldLink) {
     console.log('removing old favicon', oldLink)
