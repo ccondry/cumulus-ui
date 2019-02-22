@@ -1,6 +1,6 @@
 {
   "name": "cumulus-ui",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Customizable vertical demo page dCloud PCCE/UCCX demos and the CXDemo Lab.",
   "author": "Coty Condry <ccondry@cisco.com>",
   "private": true,
