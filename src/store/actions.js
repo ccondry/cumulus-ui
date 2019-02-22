@@ -22,7 +22,7 @@ export const setFavicon = ({commit, state, rootState}, src) => {
   document.head.appendChild(link)
 }
 
-export const getVerticalConfig = async ({commit, state, rootState}) => {
+export const getVerticalConfig = async ({commit, state, rootState, dispatch}) => {
   console.log('getting vertical config')
   let response = await axios.get(`${rootState.apiBase}/verticals/${rootState.vertical}`)
   console.log(response)
