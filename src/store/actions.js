@@ -34,9 +34,9 @@ export const getVerticalConfig = async ({commit, state, rootState}) => {
       commit(types.SET_VERTICAL_CONFIG, response.data)
       console.log('vertical config =', response.data)
       // console.log('vertical config name =', response.data)
-      setTitle({commit, state, rootState}, response.data.name)
+      dispatch('setTitle', response.data.name)
       if (response.data.favicon) {
-        setFavicon(response.data.favicon)
+        dispatch('setFavicon', response.data.favicon)
       }
     } else {
       console.log('vertical config for "' + state.vertical + '" was null (vertical not found).')
