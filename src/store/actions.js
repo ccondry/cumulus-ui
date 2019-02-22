@@ -456,18 +456,6 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
     // commit(types.SET_NEEDS_SESSION, true)
   }
 
-  console.log('window.localStorage.vertical', window.localStorage.vertical)
-  // check localStorage for vertical, and copy to state
-  if (qs && qs.vertical) {
-    commit(types.SET_VERTICAL, qs.vertical)
-    window.localStorage.vertical = qs.vertical
-  } else if (window.localStorage.vertical) {
-    commit(types.SET_VERTICAL, window.localStorage.vertical)
-  } else {
-    // not set, we need to ask
-    // commit(types.SET_NEEDS_SESSION, true)
-  }
-
   // check query string for multichannelType, and copy to state if it exists
   if (qs && qs.multichannel) {
     commit(types.SET_MULTICHANNEL_TYPE, qs.multichannel)
@@ -484,6 +472,24 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   }
   // get get the session info now
   dispatch('getSessionInfo', state.userId)
+  .then(r => {
+    console.log('window.localStorage.vertical', window.localStorage.vertical)
+    // check localStorage for vertical, and copy to state
+    if (state.vertical) {
+      // vertical already set from session info - do not change it now!
+      // update localStorage
+      window.localStorage.vertical = state.vertical
+    } else if (qs && qs.vertical) {
+      commit(types.SET_VERTICAL, qs.vertical)
+      window.localStorage.vertical = qs.vertical
+    } else if (window.localStorage.vertical) {
+      commit(types.SET_VERTICAL, window.localStorage.vertical)
+    } else {
+      // not set, we need to ask
+      // commit(types.SET_NEEDS_SESSION, true)
+    }
+  })
+
   // do we need to pop session modal to ask for vertical?
   // if (qs && qs.config === 'true') {
   //   // use the session configuration's vertical when we load session info
