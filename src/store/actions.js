@@ -36,6 +36,7 @@ export const getVerticalConfig = async ({commit, state, rootState}) => {
       // console.log('vertical config name =', response.data)
       dispatch('setTitle', response.data.name)
       if (response.data.favicon) {
+        console.log('response.data.favicon', response.data.favicon)
         dispatch('setFavicon', response.data.favicon)
       }
     } else {
