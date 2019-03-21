@@ -30,6 +30,7 @@ export const sessionId = state => state.sessionId
 export const datacenter = state => state.datacenter
 export const needsSession = state => state.needsSession
 export const sessionInfo = state => state.sessionInfo
+export const userId = state => state.userId
 
 export const isLocal = state => state.isLocal
 export const showAllVerticals = state => state.showAllVerticals

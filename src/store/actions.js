@@ -182,7 +182,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       // UCCX mode
       // open chat bot window with bot = false
       // open popup
-      let url = addSparkyChatParameters(getters.dCloudSparkyUrl, getters.datacenter, getters.sessionId, data)
+      let url = addSparkyChatParameters(getters.dCloudSparkyUrl, getters.datacenter, getters.sessionId, data, getters.userId)
       console.log('chat bot URL:', url)
       // add bot = false to sparky URL
       url += '&botEnabled=false'
@@ -252,7 +252,7 @@ export const startBot = ({commit, state, rootState, getters}, data) => {
     notifications.actions.failNotification({commit, state}, message)
   } else {
     // open popup
-    let url = addSparkyChatParameters(getters.dCloudSparkyUrl, getters.datacenter, getters.sessionId, data)
+    let url = addSparkyChatParameters(getters.dCloudSparkyUrl, getters.datacenter, getters.sessionId, data, getters.userId)
     let w = 400
     let h = 600
     let top = (window.screen.height / 2) - (h / 2)
@@ -358,8 +358,8 @@ function addEceChatParameters (url, data) {
   return url + `&fieldname_1=${encodeURIComponent(data.name)}&fieldname_2=${data.email}&fieldname_3=${data.phone}&fieldname_4=${encodeURIComponent(data.subject)}`
 }
 
-function addSparkyChatParameters (url, datacenter, session, data) {
-  return url + `?firstName=${encodeURIComponent(data.firstName)}&lastName=${encodeURIComponent(data.lastName)}&email=${encodeURIComponent(data.email)}&userId=${data.userId}&phone=${data.phone}&session=${session}&datacenter=${datacenter}`
+function addSparkyChatParameters (url, datacenter, session, data, userId) {
+  return url + `?firstName=${encodeURIComponent(data.firstName)}&lastName=${encodeURIComponent(data.lastName)}&email=${encodeURIComponent(data.email)}&userId=${userId}&phone=${data.phone}&session=${session}&datacenter=${datacenter}`
 }
 
 function addEceCallbackParameters (url, data) {
