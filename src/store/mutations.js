@@ -47,6 +47,9 @@ export default {
   [types.SET_CONTACT_UWF] (state, data) {
     state.contact.uwf = data
   },
+  [types.SET_CONTACT_AI] (state, data) {
+    state.contact.ai = data
+  },
   [types.SET_IS_LOCAL] (state, data) {
     state.isLocal = data
   },
