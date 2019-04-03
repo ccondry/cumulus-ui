@@ -524,6 +524,8 @@ export const getSessionInfo = async ({commit, state, rootState}, userId) => {
       commit(types.SET_CONTACT_PQ, response.data.pq.international)
       // upstream works demo number
       commit(types.SET_CONTACT_UWF, response.data.uwf.international)
+      // conversational IVR demo number
+      commit(types.SET_CONTACT_AI, response.data.ai.international)
     } catch (e1) {
       console.log(e1)
       // do nothing
