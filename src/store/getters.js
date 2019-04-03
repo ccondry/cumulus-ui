@@ -82,6 +82,11 @@ export const multichannelType = function (state, rootState, getters) {
   }
 }
 
+// is instant demo?
+export const isInstantDemo = function (state, rootState, getters) {
+  return getters.sessionInfo.instant
+}
+
 // the destination email address for sending email to the demo
 // TODO fix this? seems that getters don't cascade?
 // export const demoEmailAddress = (state, rootState, getters) => {
