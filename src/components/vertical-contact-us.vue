@@ -224,6 +224,7 @@
               <tr v-if="mainPhoneEnabled"><td><a>Main</a></td><td><a>&gt;</a></td><td>{{ contact.phone }}</td></tr>
               <tr v-if="pqEnabled"><td><a>Gold</a></td><td><a>&gt;</a></td><td>{{ contact.pq }}</td></tr>
               <tr v-if="vivrEnabled"><td><a>VIVR</a></td><td><a>&gt;</a></td><td>{{ contact.jacada }}</td></tr>
+              <tr v-if="isInstantDemo"><td><a>AI</a></td><td><a>&gt;</a></td><td>{{ contact.ai }}</td></tr>
               <tr v-if="upstreamEnabled"><td><a>UWF</a></td><td><a>&gt;</a></td><td>{{ contact.uwf }}</td></tr>
               <tr><td nowrap><a>Address</a></td><td><a>&gt;</a></td><td>{{ verticalConfig.address }}</td></tr>
               <tr><td><a>Email</a></td><td><a>&gt;</a></td><td>{{ `${multichannelType}@${verticalConfig.domain}` }}</td></tr>
@@ -313,7 +314,8 @@ export default {
       'loading',
       'working',
       'sessionVersion',
-      'multichannelType'
+      'multichannelType',
+      'isInstantDemo'
     ]),
     facebookLink () {
       return this.verticalConfig.facebook || 'https://fb.com/103018720547240'
