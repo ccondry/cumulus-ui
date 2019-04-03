@@ -229,3 +229,13 @@ export default {
   }
 }
 </script>
+
+<style>
+body {
+  overflow-y: hidden;
+}
+
+body:hover {
+  overflow-y: hidden;
+}
+</style>
