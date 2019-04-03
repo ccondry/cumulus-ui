@@ -30,6 +30,8 @@ export const SET_CONTACT_MOBILE = 'SET_CONTACT_MOBILE'
 export const SET_CONTACT_JACADA = 'SET_CONTACT_JACADA'
 export const SET_CONTACT_PQ = 'SET_CONTACT_PQ'
 export const SET_CONTACT_UWF = 'SET_CONTACT_UWF'
+// conversational IVR demo phone number
+export const SET_CONTACT_AI = 'SET_CONTACT_AI'
 
 /* platform */
 export const SET_PLATFORM = 'SET_PLATFORM'
