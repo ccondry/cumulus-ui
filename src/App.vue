@@ -239,12 +239,4 @@ html {
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
 }
-/*
-body {
-  overflow-y: hidden;
-}
-
-body:hover {
-  overflow-y: hidden;
-} */
 </style>
