@@ -184,19 +184,30 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
     if (getters.sessionDemo === 'uccx') {
       console.log('startChat uccx')
       // UCCX mode
-      // open chat bot window with bot = false
-      // open popup
-      let url = addSparkyChatParameters(getters.dCloudSparkyUrl, getters.datacenter, getters.sessionId, data, getters.userId)
-      console.log('chat bot URL:', url)
-      // add bot = false to sparky URL
-      url += '&botEnabled=false'
-      let w = 400
-      let h = 600
-      let top = (window.screen.height / 2) - (h / 2)
-      let left = (window.screen.width / 2) - (w / 2)
-      window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
-      // window.resize('400', '600')
-      return
+      if (getters.verticalConfig.uccxBubbleChat === true) {
+        // bubble chat is enabled
+        // use bubble chat!
+        const smHost = getters.datacenter + '-' + getters.sessionId + '.tunnel.cc-dcloud.com'
+        const widgetId = getters.sessionConfig.widgetId || '3'
+        const ciscoBubbleChat = window.initBubbleChat(smHost, widgetId)
+        ciscoBubbleChat.showChatWindow()
+        return
+      } else {
+        // bubble chat was not specifically enabled
+        // use the old sparky chat
+        // open chat bot window with bot = false
+        // open popup
+        let url = addSparkyChatParameters(getters.dCloudSparkyUrl, getters.datacenter, getters.sessionId, data, getters.userId)
+        console.log('chat bot URL:', url)
+        // add bot = false to sparky URL
+        url += '&botEnabled=false'
+        let w = 400
+        let h = 600
+        let top = (window.screen.height / 2) - (h / 2)
+        let left = (window.screen.width / 2) - (w / 2)
+        window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
+        return
+      }
     } else {
       console.log('startChat pcce')
       // PCCE mode
