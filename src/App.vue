@@ -231,11 +231,20 @@ export default {
 </script>
 
 <style>
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/*
 body {
   overflow-y: hidden;
 }
 
 body:hover {
   overflow-y: hidden;
-}
+} */
 </style>
