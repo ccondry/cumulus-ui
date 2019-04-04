@@ -98,6 +98,10 @@ export const sendEmail = async ({commit, state, rootState, dispatch, getters}, d
     if (getters.multichannelType === 'upstream') {
       demoEmailAddress = 'cumulusuwf'
     }
+    // for UCCX instant demo, use email like support_1234
+    if (getters.isInstantDemo && getters.sessionDemo === 'uccx') {
+      demoEmailAddress = 'support_' + getters.userId
+    }
     console.log('sending email to', demoEmailAddress)
     let url
     let body
