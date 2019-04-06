@@ -58,6 +58,8 @@ export const multichannelType = function (state, rootState, getters) {
     // use defaults
     if (state.sessionInfo.demo === 'uccx') {
       return 'socialminer'
+    } else if (state.sessionInfo.demo === 'cjp') {
+      return 'cconeemail'
     } else {
       return 'ece'
     }
