@@ -109,7 +109,7 @@ export default {
       'sessionVersion'
     ]),
     cobrowseEnabled () {
-      return this.multichannelType === 'ece' && this.sessionVersion !== '11.6v2'
+      return this.sessionDemo !== 'cjp' && this.multichannelType === 'ece' && this.sessionVersion !== '11.6v2'
     },
     validSession () {
       return Object.keys(this.sessionInfo).length
