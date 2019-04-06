@@ -36,26 +36,8 @@ export const isLocal = state => state.isLocal
 export const showAllVerticals = state => state.showAllVerticals
 
 export const sessionDemo = (state, rootState, getters) => {
-  // check UCCX or PCCE
-  try {
-    let demoType
-    // determine if the demo is an array or string
-    if (Array.isArray(getters.sessionInfo.demo)) {
-      demoType = getters.sessionInfo.demo.pop()
-    } else {
-      demoType = getters.sessionInfo.demo
-    }
-    // check if UCCX
-    if (demoType.toLowerCase() === 'uccx') {
-      return 'uccx'
-    } else {
-      // PCCE 11.6 v2 and on
-      return 'pcce'
-    }
-  } catch (e) {
-    // default to PCCE
-    return 'pcce'
-  }
+  // demo type - uccx, pcce, cjp
+  return getters.sessionInfo.demo
 }
 
 // user-defined session configuration

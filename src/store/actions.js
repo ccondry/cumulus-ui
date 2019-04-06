@@ -2,6 +2,51 @@ import * as types from './mutation-types'
 import axios from 'axios'
 import notifications from './modules/notifications'
 
+function popCconeChatWindow (data) {
+  // cc one chat parameters
+  const PROTOCOL = 'https'
+  const IP = 'mm.ccone.net'
+  const PORT = 443
+  const EXCEPTION_MESSAGE = 'Unable to process your request.'
+  const SHOW_EXCEPTION_DETAILS = false
+
+  // init the CCOne chat system
+  const chatAPI = new window.ThinConnectChat(PROTOCOL, IP, PORT, EXCEPTION_MESSAGE, SHOW_EXCEPTION_DETAILS)
+
+  // attach data
+  const dataArr = []
+  dataArr.push({ key: 'custname', value: data.name })
+  dataArr.push({ key: 'mobilenum', value: data.phone })
+  dataArr.push({ key: 'emailid', value: data.email })
+  dataArr.push({ key: 'question', value: data.subject })
+  dataArr.push({ key: 'reason', value: '546' })
+  dataArr.push({ key: 'sendtranscript', value: 'false' })
+  dataArr.push({ key: 'CUSTOM_MESSAGE', value: 'Unable to process your request.' })
+  dataArr.push({ key: 'SHOW_EXCEPTION_DETAILS', value: false })
+  dataArr.push({ key: 'REQUEST-ID', value: 0 })
+  dataArr.push({ key: 'sourceUrl', value: '' })
+  dataArr.push({ key: 'chatRsnSelMode', value: '' })
+  dataArr.push({ key: 'websitePkey', value: '' })
+  dataArr.push({ key: 'defaultChatReason', value: '' })
+  dataArr.push({ key: 'traversalHistory', value: '' })
+  dataArr.push({ key: 'customerId', value: '' })
+  dataArr.push({ key: 'groupId', value: '' })
+
+  dataArr.push({ key: 'data0', value: 'Cumulus Homepage' })
+  dataArr.push({ key: 'data1', value: 'Model_X Diamond Customer' })
+  dataArr.push({ key: 'data2', value: 'Finance Quote' })
+  dataArr.push({ key: 'data3', value: '' })
+  dataArr.push({ key: 'data4', value: '' })
+  dataArr.push({ key: 'data5', value: '' })
+  dataArr.push({ key: 'data6', value: '' })
+  dataArr.push({ key: 'data7', value: '' })
+  dataArr.push({ key: 'data8', value: '' })
+  dataArr.push({ key: 'data9', value: '' })
+
+  // pop the chat window
+  chatAPI.submit(dataArr)
+}
+
 export const setFavicon = ({commit, state, rootState}, src) => {
   console.log('setFavicon to', src)
   /*
@@ -182,8 +227,8 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
   } else {
     // valid session
     if (getters.sessionDemo === 'uccx') {
+      // UCCX demo
       console.log('startChat uccx')
-      // UCCX mode
       if (getters.verticalConfig.uccxBubbleChat === true) {
         // bubble chat is enabled
         // use bubble chat!
@@ -208,7 +253,10 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
         window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
         return
       }
-    } else {
+    } else if (getters.sessionDemo === 'cjp') {
+      // CJP demo
+      popCconeChatWindow(data)
+    } else if (getters.sessionDemo === 'pcce') {
       console.log('startChat pcce')
       // PCCE mode
       // check which multichannel is set up
