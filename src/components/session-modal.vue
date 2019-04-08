@@ -85,7 +85,7 @@ const datacenters = [{
   value: 'SJC'
 }, {
   name: 'CJP',
-  value: 'cjp'
+  value: 'CJP'
 }]
 
 export default {
