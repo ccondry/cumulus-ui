@@ -110,7 +110,7 @@ export const setTitle = ({commit, state}, data) => {
 export const getVerticals = async ({commit, state, rootState}, data) => {
   console.log('getting verticals list')
   // load vertical config from web services
-  let response = await axios.get(`${rootState.apiBase}/verticals?all=true`)
+  let response = await axios.get(`${rootState.apiBase}/verticals?all=true&summary=true`)
   // console.log(response)
   if (response.status >= 200 && response.status < 300) {
     // console.log('verticals list server response is valid.')
