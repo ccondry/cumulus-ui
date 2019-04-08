@@ -483,6 +483,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   } else if (window.localStorage.sessionId) {
     commit(types.SET_SESSION_ID, window.localStorage.sessionId)
   } else {
+    console.log('SET_NEEDS_SESSION window.localStorage.sessionId')
     // not set, we need to ask
     commit(types.SET_NEEDS_SESSION, true)
   }
@@ -495,6 +496,7 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
   } else if (window.localStorage.datacenter) {
     commit(types.SET_DATACENTER, window.localStorage.datacenter)
   } else {
+    console.log('SET_NEEDS_SESSION window.localStorage.datacenter')
     // not set, we need to ask
     commit(types.SET_NEEDS_SESSION, true)
   }
@@ -603,6 +605,7 @@ export const getSessionInfo = async ({commit, state, rootState}, userId) => {
       } else if (!rootState.vertical || !rootState.vertical.length) {
         console.log('state.vertical is not set. prompting user with session modal.')
         // vertical not set, we need to ask the user for vertical
+        console.log('SET_NEEDS_SESSION state.vertical')
         commit(types.SET_NEEDS_SESSION, true)
       }
     } catch (e) {
@@ -610,6 +613,7 @@ export const getSessionInfo = async ({commit, state, rootState}, userId) => {
       if (!rootState.vertical || !rootState.vertical.length) {
         console.log('state.vertical is not set. prompting user with session modal.')
         // vertical not set, we need to ask the user for vertical
+        console.log('SET_NEEDS_SESSION state.vertical')
         commit(types.SET_NEEDS_SESSION, true)
       } else {
         console.log('state.vertical is already set to', rootState.vertical)
