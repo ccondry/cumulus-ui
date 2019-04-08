@@ -83,6 +83,9 @@ const datacenters = [{
 }, {
   name: 'US West',
   value: 'SJC'
+}, {
+  name: 'CJP',
+  value: 'cjp'
 }]
 
 export default {
