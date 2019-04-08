@@ -131,7 +131,6 @@ export default {
       setPlatform: 'setPlatform',
       setTitle: 'setTitle',
       getVerticals: 'getVerticals',
-      setNeedsSession: 'setNeedsSession',
       checkSession: 'checkSession',
       getSessionInfo: 'getSessionInfo',
       getVerticalConfig: 'getVerticalConfig',
