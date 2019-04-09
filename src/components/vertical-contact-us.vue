@@ -355,7 +355,7 @@ export default {
       }
       // disabled for all others
       return false
-    }
+    },
     facebookLink () {
       return this.verticalConfig.facebook || 'https://fb.com/103018720547240'
     },
