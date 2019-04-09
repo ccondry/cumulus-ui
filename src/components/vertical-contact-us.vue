@@ -345,11 +345,11 @@ export default {
     ]),
     aiEnabled () {
       // AI phone number enabled
-      if (isInstantDemo) {
+      if (this.isInstantDemo) {
         // enabled for all instant demo
         return true
       }
-      if (sessionDemo === 'uccx' && sessionVersion === '12.0v2') {
+      if (this.sessionDemo === 'uccx' && this.sessionVersion === '12.0v2') {
         // enabled for uccx 12.0v2 scheduled demo
         return true
       }
