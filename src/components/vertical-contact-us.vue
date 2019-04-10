@@ -20,13 +20,13 @@
                 </a>
               </li>
               <!-- chat bot -->
-              <li v-if="sessionDemo && sessionDemo !== 'cjp' && !['upstream', 'sfdc'].includes(multichannelType)">
+              <li v-if="sessionDemo && sessionDemo !== 'ccone' && !['upstream', 'sfdc'].includes(multichannelType)">
                 <a href @click.prevent="currentTab = 'bot'" :class="currentTab === 'bot' ? 'active' : ''">
                   ChatBot
                 </a>
               </li>
               <!-- hide callback from CJP for now -->
-              <li v-if="sessionDemo !== 'cjp'">
+              <li v-if="sessionDemo !== 'ccone'">
                 <a href @click.prevent="currentTab = 'callback'" :class="currentTab === 'callback' ? 'active' : ''">
                   Callback
                 </a>
@@ -40,7 +40,7 @@
                 </a>
               </li>
               <!-- Hide the Form tab when using Upstream or CJP -->
-              <li v-if="multichannelType !== 'upstream' && sessionDemo !== 'cjp'">
+              <li v-if="multichannelType !== 'upstream' && sessionDemo !== 'ccone'">
                 <a href @click.prevent="currentTab = 'form'" :class="currentTab === 'form' ? 'active' : ''">
                   Form
                 </a>
@@ -254,7 +254,7 @@
               <tr v-if="upstreamEnabled"><td><a>UWF</a></td><td><a>&gt;</a></td><td>{{ contact.uwf }}</td></tr>
               <tr><td nowrap><a>Address</a></td><td><a>&gt;</a></td><td>{{ verticalConfig.address }}</td></tr>
               <tr><td><a>Email</a></td><td><a>&gt;</a></td><td>{{ `${multichannelType}@${verticalConfig.domain}` }}</td></tr>
-              <tr v-if="sessionDemo !== 'cjp'"><td><a :href="facebookLink" target="facebook">Facebook</a></td><td><a>&gt;</a></td><td><a :href="facebookLink" target="facebook">{{ facebookLinkFriendly }}</a></td></tr>
+              <tr v-if="sessionDemo !== 'ccone'"><td><a :href="facebookLink" target="facebook">Facebook</a></td><td><a>&gt;</a></td><td><a :href="facebookLink" target="facebook">{{ facebookLinkFriendly }}</a></td></tr>
             </table>
 
             <!-- <ul class="contact-numbers">

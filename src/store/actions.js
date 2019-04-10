@@ -253,7 +253,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
         window.open(url, '_blank', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${top}, left=${left}`)
         return
       }
-    } else if (getters.sessionDemo === 'cjp') {
+    } else if (getters.sessionDemo === 'ccone') {
       // CJP demo
       popCconeChatWindow(data)
     } else if (getters.sessionDemo === 'pcce') {
