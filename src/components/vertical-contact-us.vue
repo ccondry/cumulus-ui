@@ -344,9 +344,9 @@ export default {
       'isInstantDemo'
     ]),
     aiEnabled () {
-      // AI phone number enabled
-      if (this.isInstantDemo) {
-        // enabled for all instant demo
+      // this property is whether the AI phone number is enabled for this demo
+      if (['uccx', 'pcce'].includes(this.sessionDemo) && this.isInstantDemo) {
+        // enabled for all UCCX and PCCE instant demos
         return true
       }
       if (this.sessionDemo === 'uccx' && this.sessionVersion === '12.0v2') {
