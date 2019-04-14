@@ -232,7 +232,14 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       if (getters.verticalConfig.uccxBubbleChat === true) {
         // bubble chat is enabled
         // use bubble chat!
-        const smHost = getters.datacenter + '-' + getters.sessionId + '.tunnel.cc-dcloud.com'
+        let smHost
+        if (getters.datacenter.toLowerCase() === 'rcdn') {
+          // static value for Compete Lab
+          smHost = 'chat.cdxdemo.net'
+        } else {
+          // RTP-123456.tunnel.cc-dcloud.com for all others
+          smHost = getters.datacenter + '-' + getters.sessionId + '.tunnel.cc-dcloud.com'
+        }
         const widgetId = getters.sessionConfig.widgetId || '3'
         console.log('opening bubble chat with smHost =', smHost)
         console.log('opening bubble chat with widget ID =', widgetId)
