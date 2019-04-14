@@ -98,7 +98,7 @@
                     </div>
                     <div v-else>
                       <form action="#" method="post" class="send-message">
-                        <div class="row" v-if="!(sessionConfig.uccxBubbleChat === true && sessionDemo === 'uccx')">
+                        <div class="row" v-if="!(verticalConfig.uccxBubbleChat === true && sessionDemo === 'uccx')">
                           <div class="name col-md-4">
                             <input type="text" name="name" placeholder="Name" v-model="name"/>
                           </div>
