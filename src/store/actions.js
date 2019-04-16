@@ -226,20 +226,27 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
     notifications.actions.failNotification({commit, state}, message)
   } else {
     // valid session
+    // is this UCCX demo?
+    // if () {
+    // UCCX demo
+    // console.log('startChat uccx')
     if (getters.sessionDemo === 'uccx') {
-      // UCCX demo
-      console.log('startChat uccx')
-      if (getters.verticalConfig.uccxBubbleChat === true) {
-        // bubble chat is enabled
+      let smHost
+      if (getters.datacenter.toLowerCase() === 'rcdn') {
+        // static value for Compete Lab
+        smHost = 'chat.cdxdemo.net'
+      } else {
+        // RTP-123456.tunnel.cc-dcloud.com for all others
+        smHost = getters.datacenter + '-' + getters.sessionId + '.tunnel.cc-dcloud.com'
+      }
+
+      if (getters.sessionVersion !== '11.6v3' &&
+      getters.sessionVersion !== '12.0v1' &&
+      getters.verticalConfig.uccxBubbleChat !== false) {
+        // UCCX 12.0v2 and forward
+        // enable bubble chat by default
+        // default to bubble chat
         // use bubble chat!
-        let smHost
-        if (getters.datacenter.toLowerCase() === 'rcdn') {
-          // static value for Compete Lab
-          smHost = 'chat.cdxdemo.net'
-        } else {
-          // RTP-123456.tunnel.cc-dcloud.com for all others
-          smHost = getters.datacenter + '-' + getters.sessionId + '.tunnel.cc-dcloud.com'
-        }
         const widgetId = getters.sessionConfig.widgetId || '3'
         console.log('opening bubble chat with smHost =', smHost)
         console.log('opening bubble chat with widget ID =', widgetId)
@@ -247,7 +254,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
         ciscoBubbleChat.showChatWindow()
         return
       } else {
-        // bubble chat was not specifically enabled
+        // UCCX 11.bubble chat was specifically disabled
         // use the old sparky chat
         // open chat bot window with bot = false
         // open popup
