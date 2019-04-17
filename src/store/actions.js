@@ -564,6 +564,8 @@ export const checkSession = ({state, commit, dispatch, getters}, qs) => {
       // commit(types.SET_NEEDS_SESSION, true)
     }
 
+    console.log('getSessionInfo complete. this demo is', getters.sessionDemo, getters.sessionVersion)
+
     // if UCCX 11.6v3 or 12.0v1, prompt no matter what
     if (getters.sessionDemo === 'uccx' && ['11.6v3', '12.0v1'].includes(getters.sessionVersion)) {
       console.log('this is UCCX 11.6v3 or 12.0v1 - popping session modal')
