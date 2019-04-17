@@ -1,6 +1,7 @@
 import * as types from './mutation-types'
 import axios from 'axios'
 import notifications from './modules/notifications'
+import queryString from 'query-string'
 
 function popCconeChatWindow ({getters}, data) {
   console.log('popCconeChatWindow', data)
