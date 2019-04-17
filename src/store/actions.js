@@ -588,7 +588,7 @@ export const setNeedsSession = ({commit, state, rootState}, data) => {
   commit(types.SET_NEEDS_SESSION, data)
 }
 
-export const getSessionInfo = async ({commit, state, rootState}, userId) => {
+export const getSessionInfo = async ({commit, state, rootState, getters}, userId) => {
   console.log('getting session info')
   try {
     const response = await axios.get(`${rootState.apiBase}/datacenters/${rootState.datacenter}/sessions/${rootState.sessionId}?userId=${userId}`)
@@ -615,8 +615,11 @@ export const getSessionInfo = async ({commit, state, rootState}, userId) => {
       // do nothing
     }
     try {
-      // vertical is set in session configuration data?
-      if (response.data.configuration.vertical) {
+      if (getters.sessionDemo === 'uccx' && ['11.6v3', '12.0v1'].includes(getters.sessionVersion)) {
+        // if UCCX 11.6v3 or 12.0v1, prompt no matter what
+        console.log('this is UCCX 11.6v3 or 12.0v1 - don\'t get vertical from session configuration data.')
+      } else if (response.data.configuration.vertical) {
+        // vertical is set in session configuration data?
         console.log('using vertical in session configuration:', response.data.configuration.vertical)
         // use the session configuration's vertical when we load session info
         // commit(types.SET_USE_SESSION_VERTICAL, true)
