@@ -161,3 +161,39 @@ export const egainWssUrls = state => {
     return null
   }
 }
+
+// is UCCX bubble chat enabled
+export const useBubbleChat = (state, rootState, getters) => {
+  try {
+    // enabled by default for 12.0v2
+    if (getters.sessionDemo === 'uccx') {
+      if (getters.sessionVersion === '12.0v2') {
+        // is vertical config for bubble chat set to false?
+        if (getters.verticalConfig.uccxBubbleChat === false) {
+          // disabled
+          return false
+        } else {
+          // enabled
+          return true
+        }
+      } else if (getters.verticalConfig.uccxBubbleChat === true) {
+        // not 12.0v2 but user enabled it
+        if (getters.sessionVersion === '12.0v1') {
+          // allow user to enable for 12.0v1
+          return true
+        } else {
+          // 11.6v3
+          // don't allow user to enable it on 11.6v3 because I don't think it works
+          return false
+        }
+      }
+    } else {
+      // not uccx - disabled
+      return false
+    }
+  } catch (e) {
+    console.log('error evaluating getter useBubbleChat:', e)
+    // default to false if error
+    return false
+  }
+}
