@@ -489,7 +489,7 @@ export const setSession = ({commit, state, rootState}, data) => {
 }
 
 // check localStorage for site config data, and load into state if found
-export const checkSession = ({state, commit, dispatch}, qs) => {
+export const checkSession = ({state, commit, dispatch, getters}, qs) => {
   console.log('query string =', qs)
   console.log('window.localStorage.sessionId', window.localStorage.sessionId)
   // check localStorage for sessionId, and copy to state
@@ -568,6 +568,11 @@ export const checkSession = ({state, commit, dispatch}, qs) => {
     } else {
       // not set, we need to ask
       // commit(types.SET_NEEDS_SESSION, true)
+    }
+
+    // if UCCX 11.6v3 or 12.0v1, prompt no matter what
+    if (getters.sessionDemo === 'uccx' && ['11.6v3', '12.0v1'].includes(getters.sessionVersion)) {
+      commit(types.SET_NEEDS_SESSION, true)
     }
   })
 
