@@ -8,7 +8,7 @@ function popCconeChatWindow ({getters}, data) {
   if (isNaN(getters.sessionConfig.reasonId) || isNaN(getters.sessionConfig.tenantId)) {
     // reasonId or tenantId are not set - pop error message
     console.log('popCconeChatWindow - reasonId or tenantId are not set. Not starting chat.')
-    // TODO pop a message or something here 
+    // TODO pop a message or something here
     // stop here - don't pop chat window without all the params
     return
   }
@@ -566,6 +566,7 @@ export const checkSession = ({state, commit, dispatch, getters}, qs) => {
 
     // if UCCX 11.6v3 or 12.0v1, prompt no matter what
     if (getters.sessionDemo === 'uccx' && ['11.6v3', '12.0v1'].includes(getters.sessionVersion)) {
+      console.log('this is UCCX 11.6v3 or 12.0v1 - popping session modal')
       commit(types.SET_NEEDS_SESSION, true)
     }
   })
