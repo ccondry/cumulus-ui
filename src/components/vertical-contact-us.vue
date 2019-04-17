@@ -98,7 +98,7 @@
                     </div>
                     <div v-else>
                       <form action="#" method="post" class="send-message">
-                        <div class="row" v-if="!(verticalConfig.uccxBubbleChat === true && sessionDemo === 'uccx')">
+                        <div class="row" v-if="!useBubbleChat">
                           <div class="name col-md-4">
                             <input type="text" name="name" placeholder="Name" v-model="name"/>
                           </div>
@@ -341,7 +341,8 @@ export default {
       'working',
       'sessionVersion',
       'multichannelType',
-      'isInstantDemo'
+      'isInstantDemo',
+      'useBubbleChat'
     ]),
     aiEnabled () {
       // this property is whether the AI phone number is enabled for this demo

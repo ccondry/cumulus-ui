@@ -235,12 +235,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
         smHost = getters.datacenter + '-' + getters.sessionId + '.tunnel.cc-dcloud.com'
       }
 
-      if (getters.sessionVersion !== '11.6v3' &&
-      getters.sessionVersion !== '12.0v1' &&
-      getters.verticalConfig.uccxBubbleChat !== false) {
-        // UCCX 12.0v2 and forward
-        // enable bubble chat by default
-        // default to bubble chat
+      if (getters.useBubbleChat) {
         // use bubble chat!
         const widgetId = getters.sessionConfig.widgetId || '3'
         console.log('opening bubble chat with smHost =', smHost)
@@ -249,8 +244,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
         ciscoBubbleChat.showChatWindow()
         return
       } else {
-        // UCCX 11.bubble chat was specifically disabled
-        // use the old sparky chat
+        // don't use bubble chat
         // open chat bot window with bot = false
         // open popup
         let url = addSparkyChatParameters(getters.dCloudSparkyUrl, getters.datacenter, getters.sessionId, data, getters.userId)
