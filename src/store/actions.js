@@ -2,49 +2,43 @@ import * as types from './mutation-types'
 import axios from 'axios'
 import notifications from './modules/notifications'
 
-function popCconeChatWindow (data) {
-  // cc one chat parameters
-  const PROTOCOL = 'https'
-  const IP = 'mm.ccone.net'
-  const PORT = 443
-  const EXCEPTION_MESSAGE = 'Unable to process your request.'
-  const SHOW_EXCEPTION_DETAILS = false
-
-  // init the CCOne chat system
-  const chatAPI = new window.ThinConnectChat(PROTOCOL, IP, PORT, EXCEPTION_MESSAGE, SHOW_EXCEPTION_DETAILS)
-
-  // attach data
-  const dataArr = []
-  dataArr.push({ key: 'custname', value: data.name })
-  dataArr.push({ key: 'mobilenum', value: data.phone })
-  dataArr.push({ key: 'emailid', value: data.email })
-  dataArr.push({ key: 'question', value: data.subject })
-  dataArr.push({ key: 'reason', value: '546' })
-  dataArr.push({ key: 'sendtranscript', value: 'false' })
-  dataArr.push({ key: 'CUSTOM_MESSAGE', value: 'Unable to process your request.' })
-  dataArr.push({ key: 'SHOW_EXCEPTION_DETAILS', value: false })
-  dataArr.push({ key: 'REQUEST-ID', value: 0 })
-  dataArr.push({ key: 'sourceUrl', value: '' })
-  dataArr.push({ key: 'chatRsnSelMode', value: '' })
-  dataArr.push({ key: 'websitePkey', value: '' })
-  dataArr.push({ key: 'defaultChatReason', value: '' })
-  dataArr.push({ key: 'traversalHistory', value: '' })
-  dataArr.push({ key: 'customerId', value: '' })
-  dataArr.push({ key: 'groupId', value: '' })
-
-  dataArr.push({ key: 'data0', value: 'Cumulus Homepage' })
-  dataArr.push({ key: 'data1', value: 'Model_X Diamond Customer' })
-  dataArr.push({ key: 'data2', value: 'Finance Quote' })
-  dataArr.push({ key: 'data3', value: '' })
-  dataArr.push({ key: 'data4', value: '' })
-  dataArr.push({ key: 'data5', value: '' })
-  dataArr.push({ key: 'data6', value: '' })
-  dataArr.push({ key: 'data7', value: '' })
-  dataArr.push({ key: 'data8', value: '' })
-  dataArr.push({ key: 'data9', value: '' })
+function popCconeChatWindow ({getters}, data) {
+  console.log('popCconeChatWindow', data)
+  // validate
+  if (isNaN(getters.sessionConfig.reasonId) || isNaN(getters.sessionConfig.tenantId)) {
+    // reasonId or tenantId are not set - pop error message
+    console.log('popCconeChatWindow - reasonId or tenantId are not set. Not starting chat.')
+    // TODO pop a message or something here 
+    // stop here - don't pop chat window without all the params
+    return
+  }
+  // build URL query parameter options
+  const query = {
+    name: data.name,
+    phone: data.phone,
+    email: data.email,
+    question: data.subject,
+    reasonId: getters.sessionConfig.reasonId,
+    tenantId: getters.sessionConfig.tenantId,
+    data0: 'Cumulus Homepage',
+    data1: 'Model_X Diamond Customer',
+    data2: 'Finance Quote'
+  }
+  console.log('popCconeChatWindow - starting chat with query =', query)
+  // make a URL-friendly query string from JSON data
+  const qs = queryString.stringify(query)
+  // build the URL
+  const url = `https://mm-static.cxdemo.net/ccone-chat.html?${qs}`
+  console.log('popCconeChatWindow - starting chat with full url =', url)
 
   // pop the chat window
-  chatAPI.submit(dataArr)
+  let w = window.screen.width * 0.6
+  let h = 115
+  let top = (window.screen.height / 2) - (h / 2)
+  let left = (window.screen.width / 2) - (w / 2)
+  const settings = `width=${w}, height=${h}, top=${top}, left=${left}, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no`
+  window.open(url, '_blank', settings)
+  console.log('popCconeChatWindow - chat window opened.')
 }
 
 export const setFavicon = ({commit, state, rootState}, src) => {
@@ -271,7 +265,7 @@ export const startChat = ({commit, state, rootState, getters}, data) => {
       }
     } else if (getters.sessionDemo === 'ccone') {
       // CJP demo
-      popCconeChatWindow(data)
+      popCconeChatWindow({getters}, data)
     } else if (getters.sessionDemo === 'pcce') {
       console.log('startChat pcce')
       // PCCE mode
