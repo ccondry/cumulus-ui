@@ -40,7 +40,7 @@
                 </a>
               </li>
               <!-- Hide the Form tab when using Upstream or CJP -->
-              <li v-if="multichannelType !== 'upstream' && sessionDemo !== 'ccone'">
+              <li v-if="sessionDemo !== 'uccx' && multichannelType !== 'upstream' && sessionDemo !== 'ccone'">
                 <a href @click.prevent="currentTab = 'form'" :class="currentTab === 'form' ? 'active' : ''">
                   Form
                 </a>
