@@ -354,6 +354,10 @@ export default {
         // enabled for uccx 12.0v2 scheduled demo
         return true
       }
+      if (this.sessionDemo === 'pcce' && this.sessionVersion === '12.0v1') {
+        // enabled for pcce 12.0v1 scheduled demo
+        return true
+      }
       // disabled for all others
       return false
     },
