@@ -244,9 +244,12 @@
           <!-- /Task Request Tab -->
 
         </div>
+
+        <!-- phone number list -->
         <div class="col-md-4">
           <div class="info">
-            <table class="contact-numbers">
+            <!-- PCCE, UCCX, old CJP -->
+            <table class="contact-numbers" v-if="sessionDemo !== 'cwcc'">
               <tr v-if="mainPhoneEnabled"><td><a>Main</a></td><td><a>&gt;</a></td><td>{{ contact.phone }}</td></tr>
               <tr v-if="pqEnabled"><td><a>Gold</a></td><td><a>&gt;</a></td><td>{{ contact.pq }}</td></tr>
               <tr v-if="vivrEnabled"><td><a>VIVR</a></td><td><a>&gt;</a></td><td>{{ contact.jacada }}</td></tr>
@@ -257,14 +260,50 @@
               <tr v-if="sessionDemo !== 'ccone'"><td><a :href="facebookLink" target="facebook">Facebook</a></td><td><a>&gt;</a></td><td><a :href="facebookLink" target="facebook">{{ facebookLinkFriendly }}</a></td></tr>
             </table>
 
-            <!-- <ul class="contact-numbers">
-              <li v-if="multichannelType !== 'upstream'"><a :href="`tel:${contact.phone}`">Main &gt; {{ contact.phone }}</a></li>
-              <li v-if="pqEnabled"><a :href="`tel:${contact.pq}`">Gold &gt; {{ contact.pq }}</a></li>
-              <li v-if="multichannelType === 'ece'"><a :href="`tel:${contact.jacada}`">VIVR &gt; {{ contact.jacada }}</a></li>
-              <li v-if="multichannelType === 'upstream'"><a :href="`tel:${contact.uwf}`">UWF &gt; {{ contact.uwf }}</a></li>
-              <li>Address &gt; {{ verticalConfig.address }}</li>
-              <li>Email &gt; <a :href="`mailto:${multichannelType}@${verticalConfig.domain}`">{{ `${multichannelType}@${verticalConfig.domain}` }}</a></li>
-            </ul> -->
+            <!-- CWCC (new dCloud CJP demo) -->
+            <table class="contact-numbers" v-if="sessionDemo === 'cwcc'">
+              <tr>
+                <td><a>Finance</a></td>
+                <td><a>&gt;</a></td>
+                <td>{{ dids.DID7 }}</td>
+              </tr>
+              <tr>
+                <td><a>Travel</a></td>
+                <td><a>&gt;</a></td>
+                <td>{{ dids.DID8 }}</td>
+              </tr>
+              <tr>
+                <td><a>Healthcare</a></td>
+                <td><a>&gt;</a></td>
+                <td>{{ dids.DID9 }}</td>
+              </tr>
+              <tr>
+                <td><a>City</a></td>
+                <td><a>&gt;</a></td>
+                <td>{{ dids.DID10 }}</td>
+              </tr>
+              <tr>
+                <td><a>Utility</a></td>
+                <td><a>&gt;</a></td>
+                <td>{{ dids.DID5 }}</td>
+              </tr>
+              <tr>
+                <td nowrap><a>Address</a></td>
+                <td><a>&gt;</a></td>
+                <td>{{ verticalConfig.address }}</td>
+              </tr>
+              <tr>
+                <td><a>Email</a></td>
+                <td><a>&gt;</a></td>
+                <td>{{ `support@${verticalConfig.domain}` }}</td>
+              </tr>
+              <tr>
+                <td><a :href="facebookLink" target="facebook">Facebook</a></td>
+                <td><a>&gt;</a></td>
+                <td><a :href="facebookLink" target="facebook">{{ facebookLinkFriendly }}</a></td>
+              </tr>
+            </table>
+
           </div>
         </div>
       </div>
@@ -342,8 +381,16 @@ export default {
       'sessionVersion',
       'multichannelType',
       'isInstantDemo',
-      'useBubbleChat'
+      'useBubbleChat',
+      'sessionInfo'
     ]),
+    dids () {
+      try {
+        return this.sessionInfo.dids
+      } catch (e) {
+        return {}
+      }
+    },
     aiEnabled () {
       // this property is whether the AI phone number is enabled for this demo
       if (['uccx', 'pcce'].includes(this.sessionDemo) && this.isInstantDemo) {
