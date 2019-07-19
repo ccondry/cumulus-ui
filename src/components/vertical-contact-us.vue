@@ -288,6 +288,16 @@
                 <td>{{ dids.DID10 }}</td>
               </tr>
               <tr>
+                <td><a>Jabber Wkst 1</a></td>
+                <td><a>&gt;</a></td>
+                <td>{{ dids.DID6 }}</td>
+              </tr>
+              <tr>
+                <td><a>Jabber Wkst 2</a></td>
+                <td><a>&gt;</a></td>
+                <td>{{ dids.DID1 }}</td>
+              </tr>
+              <tr>
                 <td nowrap><a>Address</a></td>
                 <td><a>&gt;</a></td>
                 <td>{{ verticalConfig.address }}</td>
