@@ -280,12 +280,12 @@
               <tr>
                 <td><a>City</a></td>
                 <td><a>&gt;</a></td>
-                <td>{{ dids.DID10 }}</td>
+                <td>{{ dids.DID5 }}</td>
               </tr>
               <tr>
                 <td><a>Utility</a></td>
                 <td><a>&gt;</a></td>
-                <td>{{ dids.DID5 }}</td>
+                <td>{{ dids.DID10 }}</td>
               </tr>
               <tr>
                 <td nowrap><a>Address</a></td>
