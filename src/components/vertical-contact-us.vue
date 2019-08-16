@@ -245,6 +245,10 @@
 
         </div>
 
+        <div class="col-md-4" v-if="isCwccV1">
+          <!-- spacer for CWCC demo - since the form is gone -->
+        </div>
+
         <!-- phone number list -->
         <div class="col-md-4">
           <div class="info">
