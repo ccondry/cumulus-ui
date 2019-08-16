@@ -35,13 +35,13 @@ export const userId = state => state.userId
 export const isLocal = state => state.isLocal
 export const showAllVerticals = state => state.showAllVerticals
 
-export const sessionDemo = (state, rootState, getters) => {
+export const sessionDemo = (state, getters, rootState) => {
   // demo type - uccx, pcce, cjp
   return getters.sessionInfo.demo
 }
 
 // user-defined session configuration
-export const sessionConfig = (state, rootState, getters) => {
+export const sessionConfig = (state, getters, rootState) => {
   try {
     return getters.sessionInfo.configuration || {}
   } catch (e) {
@@ -50,7 +50,7 @@ export const sessionConfig = (state, rootState, getters) => {
 }
 
 // user-defined multichannel type
-export const multichannelType = function (state, rootState, getters) {
+export const multichannelType = function (state, getters, rootState) {
   try {
     // try to return user-configured value
     return state.multichannelType || getters.sessionInfo.configuration.multichannel.toLowerCase()
@@ -67,13 +67,13 @@ export const multichannelType = function (state, rootState, getters) {
 }
 
 // is instant demo?
-export const isInstantDemo = function (state, rootState, getters) {
+export const isInstantDemo = function (state, getters, rootState) {
   return getters.sessionInfo.instant
 }
 
 // the destination email address for sending email to the demo
 // TODO fix this? seems that getters don't cascade?
-// export const demoEmailAddress = (state, rootState, getters) => {
+// export const demoEmailAddress = (state, getters, rootState) => {
 //   if (getters.sessionDemo === 'pcce') {
 //     // PCCE demo
 //     // check for UWF/SFDC/ECE config
@@ -97,7 +97,7 @@ export const isInstantDemo = function (state, rootState, getters) {
 //   }
 // }
 
-export const sessionVersion = (state, rootState, getters) => {
+export const sessionVersion = (state, getters, rootState) => {
   // check UCCX or PCCE
   try {
     // UCCX or PCCE 11.6 v2 or newer
