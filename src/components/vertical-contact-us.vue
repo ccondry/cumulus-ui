@@ -54,7 +54,7 @@
           <div class="row">
             <div class="product-item col-md-12">
               <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-8" v-if="!isCwccV1">
 
                   <!-- Email Tab -->
                   <div class="message-form" v-show="currentTab === 'email'">
