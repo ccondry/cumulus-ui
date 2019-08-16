@@ -224,3 +224,21 @@ export const cwccDid = (state, getters) => {
     default: return getters.dids.DID7
   }
 }
+
+// is this a Cisco Webex Contact Center demo?
+export const isCwcc = (state, getters) => {
+  try {
+    return getters.sessionInfo.demo.toLowerCase() === 'cwcc'
+  } catch (e) {
+    return false
+  }
+}
+
+// is this a Cisco Webex Contact Center v1 demo?
+export const isCwccV1 = (state, getters) => {
+  try {
+    return getters.sessionInfo.demo.toLowerCase() === 'cwcc' && state.sessionInfo.version.toLowerCase() === 'v1'
+  } catch (e) {
+    return false
+  }
+}
