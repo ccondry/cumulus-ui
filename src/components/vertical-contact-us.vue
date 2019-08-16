@@ -8,25 +8,25 @@
             <under-heading></under-heading>
             <ul class="list-inline tab-list">
               <!-- email -->
-              <li>
+              <li v-if="!isCwccV1">
                 <a href @click.prevent="currentTab = 'email'" :class="currentTab === 'email' ? 'active' : ''">
                   Email
                 </a>
               </li>
               <!-- chat -->
-              <li>
+              <li v-if="!isCwccV1">
                 <a href @click.prevent="currentTab = 'chat'" :class="currentTab === 'chat' ? 'active' : ''">
                   Chat
                 </a>
               </li>
               <!-- chat bot -->
-              <li v-if="sessionDemo && sessionDemo !== 'ccone' && !['upstream', 'sfdc'].includes(multichannelType)">
+              <li v-if="!isCwccV1 && sessionDemo && sessionDemo !== 'ccone' && !['upstream', 'sfdc'].includes(multichannelType)">
                 <a href @click.prevent="currentTab = 'bot'" :class="currentTab === 'bot' ? 'active' : ''">
                   ChatBot
                 </a>
               </li>
               <!-- hide callback from CJP for now -->
-              <li v-if="sessionDemo !== 'ccone'">
+              <li v-if="!isCwccV1 && sessionDemo !== 'ccone'">
                 <a href @click.prevent="currentTab = 'callback'" :class="currentTab === 'callback' ? 'active' : ''">
                   Callback
                 </a>
@@ -40,7 +40,7 @@
                 </a>
               </li>
               <!-- Hide the Form tab when using Upstream or CJP -->
-              <li v-if="sessionDemo !== 'uccx' && multichannelType !== 'upstream' && sessionDemo !== 'ccone'">
+              <li v-if="!isCwccV1 && sessionDemo !== 'uccx' && multichannelType !== 'upstream' && sessionDemo !== 'ccone'">
                 <a href @click.prevent="currentTab = 'form'" :class="currentTab === 'form' ? 'active' : ''">
                   Form
                 </a>
@@ -263,39 +263,9 @@
             <!-- CWCC (new dCloud CJP demo) -->
             <table class="contact-numbers" v-if="sessionDemo === 'cwcc'">
               <tr>
-                <td><a>Finance</a></td>
+                <td><a>Main</a></td>
                 <td><a>&gt;</a></td>
-                <td>{{ dids.DID7 }}</td>
-              </tr>
-              <tr>
-                <td><a>Travel</a></td>
-                <td><a>&gt;</a></td>
-                <td>{{ dids.DID8 }}</td>
-              </tr>
-              <tr>
-                <td><a>Healthcare</a></td>
-                <td><a>&gt;</a></td>
-                <td>{{ dids.DID9 }}</td>
-              </tr>
-              <tr>
-                <td><a>City</a></td>
-                <td><a>&gt;</a></td>
-                <td>{{ dids.DID5 }}</td>
-              </tr>
-              <tr>
-                <td><a>Utility</a></td>
-                <td><a>&gt;</a></td>
-                <td>{{ dids.DID10 }}</td>
-              </tr>
-              <tr>
-                <td><a>Jabber Wkst 1</a></td>
-                <td><a>&gt;</a></td>
-                <td>{{ dids.DID6 }}</td>
-              </tr>
-              <tr>
-                <td><a>Jabber Wkst 2</a></td>
-                <td><a>&gt;</a></td>
-                <td>{{ dids.DID1 }}</td>
+                <td>{{ cwccDid }}</td>
               </tr>
               <tr>
                 <td nowrap><a>Address</a></td>
@@ -394,7 +364,8 @@ export default {
       'useBubbleChat',
       'sessionInfo',
       'dids',
-      'cwccDid'
+      'cwccDid',
+      'isCwccV1'
     ]),
     aiEnabled () {
       // this property is whether the AI phone number is enabled for this demo
