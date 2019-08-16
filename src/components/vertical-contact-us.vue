@@ -392,15 +392,10 @@ export default {
       'multichannelType',
       'isInstantDemo',
       'useBubbleChat',
-      'sessionInfo'
+      'sessionInfo',
+      'dids',
+      'cwccDid'
     ]),
-    dids () {
-      try {
-        return this.sessionInfo.dids
-      } catch (e) {
-        return {}
-      }
-    },
     aiEnabled () {
       // this property is whether the AI phone number is enabled for this demo
       if (['uccx', 'pcce'].includes(this.sessionDemo) && this.isInstantDemo) {
