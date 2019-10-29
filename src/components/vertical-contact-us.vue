@@ -20,11 +20,11 @@
                 </a>
               </li>
               <!-- chat bot -->
-              <li v-if="!isCwccV1 && sessionDemo && sessionDemo !== 'ccone' && !['upstream', 'sfdc'].includes(multichannelType)">
+              <!-- <li v-if="!isCwccV1 && sessionDemo && sessionDemo !== 'ccone' && !['upstream', 'sfdc'].includes(multichannelType)">
                 <a href @click.prevent="currentTab = 'bot'" :class="currentTab === 'bot' ? 'active' : ''">
                   ChatBot
                 </a>
-              </li>
+              </li> -->
               <!-- hide callback from CJP for now -->
               <li v-if="!isCwccV1 && sessionDemo !== 'ccone'">
                 <a href @click.prevent="currentTab = 'callback'" :class="currentTab === 'callback' ? 'active' : ''">
