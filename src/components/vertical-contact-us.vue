@@ -373,16 +373,8 @@ export default {
     ]),
     aiEnabled () {
       // this property is whether the AI phone number is enabled for this demo
-      if (['uccx', 'pcce'].includes(this.sessionDemo) && this.isInstantDemo) {
-        // enabled for all UCCX and PCCE instant demos
-        return true
-      }
-      if (this.sessionDemo === 'uccx' && this.sessionVersion === '12.0v2') {
-        // enabled for uccx 12.0v2 scheduled demo
-        return true
-      }
-      if (this.sessionDemo === 'pcce' && this.sessionVersion === '12.0v1') {
-        // enabled for pcce 12.0v1 scheduled demo
+      if (['uccx', 'pcce'].includes(this.sessionDemo)) {
+        // enabled for all UCCX and PCCE demos
         return true
       }
       // disabled for all others
