@@ -54,9 +54,9 @@
               </form>
             </div>
           </div>
-          <div class="col-md-1 rem-support" v-if="cobrowseEnabled" >
+          <!-- <div class="col-md-1 rem-support" v-if="cobrowseEnabled" >
             <a href @click.prevent="clickCobrowse"><img src="assets/cobrowsing.png" /></a>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
