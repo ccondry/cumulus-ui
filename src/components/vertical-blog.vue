@@ -11,8 +11,9 @@
       </div>
       <div class="row">
         <vertical-blog-item
-        v-for="item in model.blogItems"
+        v-for="(item, index) in model.blogItems"
         :model="item"
+        :key="index"
         ></vertical-blog-item>
       </div>
     </div>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import VerticalBlogItem from './vertical-blog-item'
+import VerticalBlogItem from './vertical-blog-item.vue'
 
 export default {
   name: 'vertical-blog',

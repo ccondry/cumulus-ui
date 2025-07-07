@@ -13,10 +13,18 @@
         <div class="col-md-8 col-md-offset-2">
           <div class="testimonails-slider">
             <ul class="slides">
-              <li v-for="testimonial in model.testimonials">
+              <li
+              v-for="(testimonial, index) in model.testimonials"
+              :key="index"
+              >
                 <div class="testimonails-content">
                   <p>{{ testimonial.text }}</p>
-                  <h6>{{ testimonial.author }} - <a href="#" @click.prevent="">{{ testimonial.authorRole }}</a></h6>
+                  <h6>
+                    {{ testimonial.author }} -
+                    <a href="#" @click.prevent="">
+                      {{ testimonial.authorRole }}
+                    </a>
+                  </h6>
                 </div>
               </li>
             </ul>

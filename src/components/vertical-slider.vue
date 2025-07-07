@@ -1,7 +1,10 @@
 <template>
   <div>
     <slider animation="fade" :speed="1000" :interval="30000" height="600px">
-      <slider-item v-for="slider in model.sliders">
+      <slider-item
+      v-for="(slider, index) in model.sliders"
+      :key="index"
+      >
         <div class="slider-caption">
           <h1 v-if="slider.title">
             {{ slider.title }}
@@ -30,7 +33,8 @@
 </template>
 
 <script>
-import { Slider, SliderItem } from 'vue-easy-slider'
+import Slider from './slider.vue'
+import SliderItem from './slider-item.vue'
 
 export default {
   name: 'vertical-slider',

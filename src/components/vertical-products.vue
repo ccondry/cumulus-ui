@@ -12,7 +12,11 @@
       <div class="row">
   </div>
   <div class="row" id="Container">
-    <vertical-product-item v-for="product in model" :model="product"></vertical-product-item>
+    <vertical-product-item
+    v-for="(product, index) in model"
+    :model="product"
+    :key="index"
+    />
   </div>
   <div class="pagination">
     <div class="row">
@@ -31,7 +35,7 @@
 </template>
 
 <script>
-import VerticalProductItem from './vertical-product-item'
+import VerticalProductItem from './vertical-product-item.vue'
 
 export default {
   name: 'vertical-products',

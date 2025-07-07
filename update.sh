@@ -20,8 +20,11 @@ else
       npm run build
       if [ $? -eq 0 ]; then
         echo "npm build successful"
-        #echo "removing old web files"
-        #rm -rf /var/www/html/
+        echo "removing old web files"
+        rm /var/www/html/cumulus/app.css
+        rm /var/www/html/cumulus/app.js
+        rm /var/www/html/cumulus/index.html
+        rm -rf /var/www/html/cumulus/assets*
         echo "copying new web files"
         cp -rf dist/* /var/www/html/cumulus/
       else
@@ -32,7 +35,5 @@ else
     fi
   else
     echo "failed to pull repo"
-    echo "trying to remove package-lock.json and try on next iteration"
-    rm package-lock.json
   fi
 fi

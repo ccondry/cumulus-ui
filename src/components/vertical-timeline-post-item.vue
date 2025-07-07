@@ -15,12 +15,9 @@
 </template>
 
 <script>
-import VerticalTimelinePostItem from './vertical-timeline-post-item'
-
 export default {
   name: 'timeline-post-item',
   components: {
-    VerticalTimelinePostItem
   },
   props: ['model']
 }

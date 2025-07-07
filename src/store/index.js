@@ -4,7 +4,6 @@ import * as actions from './actions'
 import * as getters from './getters'
 import mutations from './mutations'
 import state from './state.js'
-import rem from './modules/rem.js'
 import notifications from './modules/notifications.js'
 import lightbox from './modules/lightbox.js'
 
@@ -16,7 +15,6 @@ export default new Vuex.Store({
   state,
   mutations,
   modules: {
-    rem,
     notifications,
     lightbox
   }

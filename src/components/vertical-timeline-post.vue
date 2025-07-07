@@ -35,8 +35,10 @@
 
         <div class="row">
           <vertical-timeline-post-item
-          v-for="item in model.timelinePosts"
-          :model="item">
+          v-for="(item, index) in model.timelinePosts"
+          :model="item"
+          :key="index"
+          >
           </vertical-timeline-post-item>
         </div>
       </div>
@@ -45,7 +47,7 @@
 </template>
 
 <script>
-import VerticalTimelinePostItem from './vertical-timeline-post-item'
+import VerticalTimelinePostItem from './vertical-timeline-post-item.vue'
 
 export default {
   name: 'timeline-post',

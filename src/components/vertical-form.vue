@@ -17,9 +17,13 @@
 
                 <form class="form-horizontal" role="form" @submit.prevent="">
                   <vertical-formgroup
-                  v-for="field in verticalConfig.form.fields"
+                  v-for="(field, index) in verticalConfig.form.fields"
                   :private="verticalConfig.form.private.includes(field)"
-                  :name="field">{{ field }}</vertical-formgroup>
+                  :name="field"
+                  :key="index"
+                  >
+                    {{ field }}
+                  </vertical-formgroup>
                   <div>
                     <button class="btn btn-success" type="submit">Submit</button>
                   </div>
@@ -37,7 +41,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import VerticalFormgroup from './vertical-formgroup'
+import VerticalFormgroup from './vertical-formgroup.vue'
 
 export default {
   name: 'contact-us',

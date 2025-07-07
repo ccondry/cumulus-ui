@@ -1,46 +1,47 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
-import App from './App'
 import VueRouter from 'vue-router'
-import store from 'src/store'
-import router from 'src/router.js'
 import VueSVGIcon from 'vue-svgicon'
+import moment from 'moment'
+import vueMoment from 'vue-moment'
+
+import App from './App.vue'
+import store from './store/index.js'
+import router from './router/index.js'
+
+import './styles/main.css'
+import './styles/cisco-sans.css'
+import './styles/bootstrap.css'
+import './styles/flexslider.css'
+// import './styles/font-awesome.css'
+import './styles/templatemo_misc.css'
+import './styles/templatemo_style.css'
+import './styles/testimonails-slider.css'
+
+import Formgroup from './components/formgroup.vue'
+import FormgroupSubmit from './components/formgroup-submit.vue'
+import Tooltip from './components/tooltip.vue'
+import UnderHeading from './components/vertical-under-heading.vue'
 
 // global.jQuery = require('jQuery')
-require('expose?$!expose?jQuery!jquery')
+// require('expose?$!expose?jQuery!jquery')
 
-require('font-awesome/css/font-awesome.css')
-require('bootstrap-webpack')
-// require('!style!css!src/css/main.css')
-require('!style!css!src/css/cisco-sans.css')
-require('!style!css!src/css/bootstrap.css')
-require('!style!css!src/css/flexslider.css')
-require('!style!css!src/css/font-awesome.css')
-require('!style!css!src/css/templatemo_misc.css')
-require('!style!css!src/css/templatemo_style.css')
-require('!style!css!src/css/testimonails-slider.css')
-// <link rel="icon" href="https://static.ibmserviceengage.com/favicon.ico">
-/* eslint-disable no-new */
-const moment = require('moment')
-// require('moment/locale/en')
-
-Vue.use(require('vue-moment'), {
+Vue.use(vueMoment, {
   moment
 })
-
-// console.log(Vue.moment().locale())
 Vue.use(VueRouter)
-Vue.use(Vuex)
 Vue.use(VueSVGIcon)
 
-Vue.component('UnderHeading', require('src/components/vertical-under-heading'))
-// enable v-on:keyup.f1
-Vue.config.keyCodes.f1 = 112
+Vue.component('formgroup', Formgroup)
+Vue.component('formgroup-submit', FormgroupSubmit)
+Vue.component('tooltip', Tooltip)
+Vue.component('UnderHeading', UnderHeading)
 
-new Vue({
-  el: '#app',
-  template: '<App/>',
-  components: { App },
+Vue.config.productionTip = false
+
+const app = new Vue({
+  render: (h) => h(App),
   router,
   store
-}).$mount('#app')
+})
+
+app.$mount('#app')

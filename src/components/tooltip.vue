@@ -1,8 +1,10 @@
 <template>
   <ul class="mytooltip-wrapper">
     <li>
-      <span class="mytooltip mytooltip-top"
-      :data-mytooltip="text">
+      <span
+      class="mytooltip mytooltip-top"
+      :data-mytooltip="text"
+      >
       <slot></slot>
       </span>
     </li>
@@ -59,8 +61,6 @@ export default {
 	content: attr(data-mytooltip);
 	min-width: 80px;
 	width: 320px;
-	// width: -moz-max-content;
-	// width: -webkit-max-content;
 	opacity: 0;
 	transition: all .2s ease-in-out .25s;
 	visibility: hidden;

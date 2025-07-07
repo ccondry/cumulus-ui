@@ -1,7 +1,43 @@
 import * as types from './mutation-types'
-import axios from 'axios'
 import notifications from './modules/notifications'
-import queryString from 'query-string'
+
+const axios = {
+  async get (url) {
+    const options = {
+      headers: {
+        Accept: 'application/json'
+      }
+    }
+    const response = await fetch(url, options)
+    if (!response.ok) {
+      const text = await response.text()
+      throw new Error(`fetch error ${response.status} - ${text}`)
+    } 
+    return {
+      status: response.status,
+      data: await response.json()
+    }
+  },
+  async post (url, body) {
+    const options = {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(body)
+    }
+    const response = await fetch(url, options)
+    if (!response.ok) {
+      const text = await response.text()
+      throw new Error(`fetch error ${response.status} - ${text}`)
+    } 
+    return {
+      status: response.status,
+      data: await response.json()
+    }
+  }
+}
 
 function popCconeChatWindow ({getters}, data) {
   console.log('popCconeChatWindow', data)
@@ -27,9 +63,11 @@ function popCconeChatWindow ({getters}, data) {
   }
   console.log('popCconeChatWindow - starting chat with query =', query)
   // make a URL-friendly query string from JSON data
-  const qs = queryString.stringify(query)
+
   // build the URL
-  const url = `https://mm-static.cxdemo.net/ccone-chat.html?${qs}`
+  const searchParams = new URLSearchParams(query);
+  const url1 = 'https://mm-static.cxdemo.net/ccone-chat.html'
+  const url = `${url1}?${searchParams.toString()}`;
   console.log('popCconeChatWindow - starting chat with full url =', url)
 
   // pop the chat window
@@ -439,7 +477,7 @@ function addUpstreamChatParameters (url, data) {
   return url + `&name=${encodeURIComponent(data.name)}&email=${data.email}&phone=${data.phone}&message=${encodeURIComponent(data.subject)}`
 }
 
-import router from '../router.js'
+import router from '../router/index.js'
 
 export const setSession = ({commit, state, rootState}, data) => {
   console.log('setting session ID to ', data.sessionId)

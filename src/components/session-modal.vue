@@ -24,7 +24,13 @@
               <div class="col-sm-6">
                 <select v-model="datacenter">
                   <option disabled value="">Please Choose Datacenter</option>
-                  <option v-for="dc in datacenters" :value="dc.value">{{ dc.name }}</option>
+                  <option
+                  v-for="dc in datacenters"
+                  :value="dc.value"
+                  :key="dc.value"
+                  >
+                    {{ dc.name }}
+                  </option>
                 </select>
               </div>
             </div>
@@ -33,9 +39,25 @@
               <div class="col-sm-6">
                 <select v-model="vertical" v-if="verticals && verticals.length">
                   <option disabled value="">Please Choose Vertical</option>
-                  <option v-for="vertical in systemVerticals" :value="vertical.id">{{ vertical.name }}</option>
-                  <option v-if="showAllVerticals" disabled>----------------------------</option>
-                  <option v-for="vertical in userVerticals" :value="vertical.id" v-if="showAllVerticals">{{ vertical.name }}</option>
+                  <option
+                  v-for="vertical in systemVerticals"
+                  :value="vertical.id"
+                  :key="vertical.id"
+                  >
+                    {{ vertical.name }}
+                  </option>
+                  <option
+                  v-if="showAllVerticals"
+                  disabled
+                  >----------------------------</option>
+                  <option
+                  v-if="showAllVerticals"
+                  v-for="vertical in userVerticals"
+                  :value="vertical.id"
+                  :key="vertical.id"
+                  >
+                    {{ vertical.name }}
+                  </option>
                 </select>
                 <!-- <strong>
                   Show All

@@ -1,4 +1,4 @@
-import * as types from 'src/store/mutation-types'
+import * as types from '../mutation-types'
 
 // initial state
 const state = {

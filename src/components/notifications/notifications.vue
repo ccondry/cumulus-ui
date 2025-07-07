@@ -1,8 +1,11 @@
 <template>
   <div class="notifications">
-    <notification v-for="item in notifications"
+    <notification
+    v-for="(item, index) in notifications"
     :model="item"
-    transition="fade">
+    transition="fade"
+    :key="index"
+    >
     </notification>
   </div>
 </template>
@@ -19,17 +22,17 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import notification from 'src/components/notifications/notification.vue'
+import NotificationItem from './notification.vue'
 
 export default {
-  name: 'notifications',
+  name: 'NotificationItem',
   components: {
-    notification
+    NotificationItem
   },
   computed: {
-    ...mapGetters({
-      notifications: 'notifications'
-    })
+    ...mapGetters([
+      'notifications'
+    ])
   }
   // methods: {
   //   ...mapActions({

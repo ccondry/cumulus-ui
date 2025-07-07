@@ -11,7 +11,11 @@
       </div>
       <div class="row">
         <div class="authors">
-          <vertical-author v-for="author in model.authors" :model="author"></vertical-author>
+          <vertical-author
+          v-for="(author, index) in model.authors"
+          :model="author"
+          :key="index"
+          />
         </div>
       </div>
     </div>
@@ -19,7 +23,7 @@
 </template>
 
 <script>
-import VerticalAuthor from './vertical-author'
+import VerticalAuthor from './vertical-author.vue'
 
 export default {
   name: 'our-team',

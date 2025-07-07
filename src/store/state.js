@@ -1,11 +1,11 @@
-import version from 'src/version.js'
+import version from '../version.js'
 // import verticalConfig from 'src/data/cumulus/travel.json'
 // import config from 'src/config'
 
 var apiBase = {
   'production': '/api/v1',
   // 'development': 'http://localhost:3025/api/v1'
-  'development': 'https://mm-dev.cxdemo.net/api/v1'
+  'development': 'https://mm.cxdemo.net/api/v1'
 }
 
 export default {

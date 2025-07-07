@@ -1,29 +1,31 @@
 <template>
-  <gmap-map
+  <!-- <gmap-map
   :center="center"
   :zoom="12"
   style="width: 100%; height: 420px;">
-  <gmap-marker
-  :key="index"
-  v-for="(m, index) in markers"
-  :position="m.position"
-  :clickable="true"
-  :draggable="true"
-  @click="center=m.position"></gmap-marker></gmap-map>
+    <gmap-marker
+    v-for="(m, index) in markers"
+    @click="center=m.position"
+    :position="m.position"
+    :key="index"
+    :clickable="true"
+    :draggable="true"
+    />
+  </gmap-map> -->
 </template>
 
 <script>
-import * as VueGoogleMaps from 'vue2-google-maps'
+// import * as VueGoogleMaps from 'vue2-google-maps'
 import Vue from 'vue'
-import config from 'src/config'
+import config from '../config.js'
 
-Vue.use(VueGoogleMaps, {
-  load: {
-    key: config.gmapsApiKey,
-    v: 'OPTIONAL VERSION NUMBER'
-    // libraries: 'places', //// If you need to use place input
-  }
-})
+// Vue.use(VueGoogleMaps, {
+//   load: {
+//     key: config.gmapsApiKey,
+//     v: 'OPTIONAL VERSION NUMBER'
+//     // libraries: 'places', //// If you need to use place input
+//   }
+// })
 
 export default {
   name: 'vertical-map',

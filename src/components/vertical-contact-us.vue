@@ -167,10 +167,12 @@
                 <form action="#" method="post" class="send-message" @submit.prevent="">
                   <span v-if="verticalConfig.form">
                     <vertical-formgroup
-                    v-for="field in verticalConfig.form.fields"
+                    v-for="(field, index) in verticalConfig.form.fields"
                     :private="verticalConfig.form.private.includes(field)"
                     :name="field"
-                    :placeholder="field"></vertical-formgroup>
+                    :placeholder="field"
+                    :key="index"
+                    />
                   </span>
                   <div>
                     <button class="btn btn-success" type="submit" @click="currentTab = 'formSubmitted'">Submit</button>
@@ -230,7 +232,13 @@
                   &nbsp;
                   <div class="form-group" style="margin-left: 15px; margin-right: 15px;">
                     <select class="form-control" v-model="requestType">
-                      <option v-for="option of verticalConfig.taskOptions" :value="option">{{ option.text }}</option>
+                      <option
+                      v-for="(option, index) of verticalConfig.taskOptions"
+                      :value="option"
+                      :key="index"
+                      >
+                        {{ option.text }}
+                      </option>
                     </select>
                   </div>
                   <!-- <textarea name="text" placeholder="Message" v-model="message"></textarea> -->
@@ -315,8 +323,8 @@
 
 <script>
 import {mapActions, mapGetters} from 'vuex'
-import VerticalMap from './vertical-map'
-import VerticalFormgroup from './vertical-formgroup'
+import VerticalMap from './vertical-map.vue'
+import VerticalFormgroup from './vertical-formgroup.vue'
 
 export default {
   name: 'contact-us',
@@ -340,16 +348,6 @@ export default {
   },
   mounted () {
     this.chooseFirstRequestType()
-    // init SFDC liveagent chat
-    // window.liveagent.init('https://d.la1-c1-iad.salesforceliveagent.com/chat', '5721N000000Xbdn', '00D1N000001S9Vk')
-    // if (!window._laq) {
-    //   window._laq = []
-    // }
-    // init the SFDC liveagent watchers for the agent availability in SFDC
-    // window._laq.push(function () {
-    //   window.liveagent.showWhenOnline('5731N000000XZYE', document.getElementById('liveagent_button_online_5731N000000XZYE'))
-    //   window.liveagent.showWhenOffline('5731N000000XZYE', document.getElementById('liveagent_button_offline_5731N000000XZYE'))
-    // })
   },
   computed: {
     // ...mapState([
