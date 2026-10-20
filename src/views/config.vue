@@ -7,13 +7,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import VerticalHeading from '../components/vertical-heading.vue'
-import VerticalContactUs from '../components/vertical-contact-us.vue'
 
 export default {
   name: 'Config',
   components: {
     VerticalHeading,
-    VerticalContactUs,
   },
   computed: {
     ...mapGetters([

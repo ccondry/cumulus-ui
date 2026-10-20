@@ -3,9 +3,7 @@ import home from '../views/home.vue'
 import about from '../views/about.vue'
 import products from '../views/products.vue'
 import services from '../views/services.vue'
-import contact from '../views/contact.vue'
 import config from '../views/config.vue'
-import form from '../views/form.vue'
 import upstream from '../views/upstream.vue'
 
 const routes = [
@@ -15,8 +13,6 @@ const routes = [
   { path: '/about', name: 'about', component: about },
   { path: '/products', name: 'products', component: products },
   { path: '/services', name: 'services', component: services },
-  { path: '/contact', name: 'contact', component: contact },
-  { path: '/form', name: 'form', component: form },
   { path: '/upstream', name: 'upstream', component: upstream }
 ]
 

@@ -16,7 +16,6 @@ export default {
   computed: {
     ...mapGetters([
       'vertical',
-      'contact',
       'version',
       'multichannelType'
     ])
